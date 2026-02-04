@@ -28,6 +28,9 @@ nav:
    #- 'Práctica 10': 'practicas/practica10/practica10.md'
    #- 'Práctica 11': 'practicas/practica11/practica11.md'
    #- 'Práctica 12': 'practicas/practica12/practica12.md'
+- 'English':
+   - 'Theory':
+      - 'Topic 00: Course description': 'en/theory/topic00-course-description/topic00-course-description.md'
 
 theme:
   features:
