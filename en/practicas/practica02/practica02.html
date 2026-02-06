@@ -1,0 +1,785 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+          <link rel="alternate" href="../../../practicas/practica02/practica02.html" hreflang="es">
+        
+          <link rel="alternate" href="practica02.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Práctica 2: Programación funcional en Scheme - LPP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-2-programacion-funcional-en-scheme" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="LPP" class="md-header__button md-logo" aria-label="LPP" data-md-component="logo">
+      
+  <img src="../../../imagenes/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LPP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica 2: Programación funcional en Scheme
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../practicas/practica02/practica02.html" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="practica02.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="LPP" class="md-nav__button md-logo" aria-label="LPP" data-md-component="logo">
+      
+  <img src="../../../imagenes/logo.png" alt="logo">
+
+    </a>
+    LPP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/topic00-course-description/topic00-course-description.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 00: Course description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#antes-de-la-clase-de-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antes de la clase de prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="practica-2-programacion-funcional-en-scheme">Práctica 2: Programación funcional en Scheme<a class="headerlink" href="#practica-2-programacion-funcional-en-scheme" title="Permanent link">&para;</a></h1>
+<h2 id="antes-de-la-clase-de-practicas">Antes de la clase de prácticas<a class="headerlink" href="#antes-de-la-clase-de-practicas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Antes de empezar esta práctica es importante que revises la solución
+  de la práctica 1. Puedes preguntar las dudas al profesor de prácticas.</p>
+</li>
+<li>
+<p>Los siguientes ejercicios están basados en los conceptos de teoría
+vistos la semana pasada. Antes de la clase de prácticas debes repasar
+todos los conceptos y <strong>probar en el DrRacket</strong> todos los ejemplos del
+tema 2 <a href="../../teoria/tema02-programacion-funcional/tema02-programacion-funcional.html"><em>Programación
+Funcional</em></a>
+hasta el apartado 2.6 <em>Listas</em> incluido.</p>
+</li>
+</ul>
+<h2 id="ejercicios">Ejercicios<a class="headerlink" href="#ejercicios" title="Permanent link">&para;</a></h2>
+<p>Abre el DrRacket y crea el fichero <code>practica2.rkt</code> en el que deberás
+escribir todos los ejemplos y soluciones de los ejercicios que
+hagas. Escribe en comentarios tu nombre y apellidos. Usa también
+comentarios para separar secciones y realizar anotaciones.  Incluye en
+el fichero todo el código, ejemplos y resolución de ejercicios, que
+hagas esta semana.</p>
+<p>También debes añadir casos de prueba al código de todas las funciones
+que implementes, tal y como vimos al final del seminario de
+Scheme. Puedes usar algunos de los ejemplos de los enunciados, pero
+debes también construir algunos casos nuevos, con ejemplos creados por
+ti.</p>
+<div class="admonition note">
+<p class="admonition-title">Siempre debes incluir casos de prueba</p>
+<p>Los casos de prueba son un componente importante del código, ya
+que permiten guardar en el propio código una demostración de que
+éste funciona correctamente, así como unos ejemplos de cómo llamar
+a las funciones definidas.</p>
+</div>
+<h3 id="ejercicio-1">Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permanent link">&para;</a></h3>
+<p>a) Implementa la función <code>(binario-a-decimal b3 b2 b1 b0)</code> que reciba
+4 bits que representan un número en binario y devuelva el número
+decimal equivalente.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 15</span>
+<span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 6</span>
+<span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 2</span>
+</code></pre></div>
+<p><strong>Nota</strong>: recuerda que para realizar esta conversión, se utiliza la siguiente fórmula:</p>
+<div class="highlight"><pre><span></span><code>n = b3 * 2ˆ3 + b2 * 2ˆ2 + b1 * 2ˆ1 + b0 * 2ˆ0
+</code></pre></div>
+<p>Para la implementación de la expresión debes utilizar la función <code>expt</code>.</p>
+<p>b) Implementa la función <code>(binario-a-hexadecimal b3 b2 b1 b0)</code> que
+reciba 4 bits de un número representado en binario y devuelva el
+carácter correspondiente a su representación en hexadecimal.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">binario-a-hexadecimal</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\F</span>
+<span class="p">(</span><span class="n">binario-a-hexadecimal</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\6</span>
+<span class="p">(</span><span class="n">binario-a-hexadecimal</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\A</span>
+</code></pre></div>
+<p><strong>Nota</strong>: para realizar esta conversión, como paso intermedio debes
+pasar primero el número binario a su representación decimal
+(utilizando la función definida en el apartado anterior) y después a
+su correspondiente hexadecimal. </p>
+<p>Recuerda que la representación hexadecimal de los números decimales
+del 0 al 9 es el carácter correspondiente a ese número, y que el
+número decimal 10 se representa con el carácter A, el 11 con el B, y
+así sucesivamente hasta el 15 que es el F en hexadecimal.</p>
+<p>Para la implementación de esta función auxiliar que pasa de decimal a
+hexadecimal debes usar las funciones <code>integer-&gt;char</code> y
+<code>char-&gt;integer</code>. En la función <code>char-&gt;integer</code> los caracteres
+consecutivos están asociados con números consecutivos. Por ejemplo, el
+entero correspondiente al carácter <code>#\A</code> es uno menos que el
+correspondiente al carácter <code>#\B</code>. Los caracteres de números y los de
+letras no son consecutivos.</p>
+<h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
+<p>El cifrado César es una técnica cifrado por sustitución en la que cada letra del
+texto se codifica por la correspondiente desplazada un cierto número de
+lugares. Por ejemplo, si usamos un desplazamiento de 5, el carácter <code>#\c</code> se
+codificaría por el carácter <code>#\h</code> (el carácter 5 posiciones después de la <code>#\c</code>
+en el alfabeto).</p>
+<p>Vamos a cifrar y descifrar letras minúsculas y mayúsculas del alfabeto inglés
+(26 caracteres: desde <code>#\a ó #\A)</code> hasta <code>#\z ó #\Z</code>). Vamos a trabajar con un
+desplazamiento variable, positivo o negativo, dependiendo en que sentido rotemos
+el alfabeto.</p>
+<p>Define las funciones <code>(cifra-caracter char desplazamiento)</code> y <code>(descifra-caracter char
+desplazamiento)</code> que implementen el cifrado anterior.</p>
+<p>Para la implementación de las funciones anteriores debes definir y usar las
+siguientes funciones auxiliares:</p>
+<ul>
+<li><code>(encuentra-indice char)</code></li>
+<li><code>(encuentra-caracter indice)</code></li>
+<li><code>(entre-az? char)</code></li>
+<li><code>(rota-indice indice desplazamiento)</code></li>
+</ul>
+<p>La función <code>(rota-indice indice desplazamiento)</code> recibe el índice del carácter
+original y calcula el índice del carácter cifrado.</p>
+<p><strong>Consejo</strong>: puedes usar la función <code>modulo</code> <a href="https://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._modulo))">ver documentación</a>.</p>
+<p>Analiza los siguientes ejemplos para entender mejor el funcionamiento de las
+funciones auxiliares y las funciones principales:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\a</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 0</span>
+<span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\b</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 1</span>
+<span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\m</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 12</span>
+<span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\z</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 25</span>
+
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\a</span>
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\b</span>
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\m</span>
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\z</span>
+
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\a</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\m</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\z</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\`</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\{</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+
+<span class="p">(</span><span class="n">rota-indice</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 16)</span>
+<span class="p">(</span><span class="n">rota-indice</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 2)</span>
+<span class="p">(</span><span class="n">rota-indice</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">-5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 25)</span>
+
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\c</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\h)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\z</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\y)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\j</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\x)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\D</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\G)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\ñ</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\ñ)</span>
+
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\d</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\a)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\y</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\z)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\x</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\j)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\G</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\D)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\tab</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\tab)</span>
+</code></pre></div>
+<h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
+<p>Implementa la función <code>(menor-de-tres n1 n2 n3)</code> que reciba tres
+números como argumento y devuelva el menor de los tres, intentando que
+el número de condiciones sea mínima.</p>
+<p>No debes utilizar la función <code>min</code>. </p>
+<p>Implementa dos versiones de la función: </p>
+<ul>
+<li>versión 1: usando la forma especial <code>if</code> </li>
+<li>versión 2 (llámala <code>menor-de-tres-v2</code>): sin usar la forma especial
+  <code>if</code>, sino definiendo una función auxiliar <code>(menor x y)</code> que
+  devuelva el menor de dos números (en esta sí que deberías usar <code>if</code>)
+  y construyendo la función <code>menor-de-tres-v2</code> como una composición de
+  llamadas a esta función  auxiliar. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">menor-de-tres</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">;; ⇒ 1</span>
+<span class="p">(</span><span class="n">menor-de-tres-v2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">;; ⇒ 0</span>
+</code></pre></div>
+<h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
+<p>a) Supongamos las definiciones</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
+</code></pre></div>
+<p>Realiza la evaluación paso a paso de la siguiente expresión </p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<p>mediante el <strong>modelo de sustitución</strong>, utilizando tanto el <strong>orden
+aplicativo</strong> y como el <strong>orden normal</strong>.</p>
+<p>Escribe la solución entre comentarios en el propio fichero <code>.rkt</code> de
+la práctica.</p>
+<p>b) Supongamos las definiciones</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">func-1</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">func-2</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">y</span><span class="p">))</span>
+</code></pre></div>
+<p>Igual que en el apartado anterior, realiza la evaluación paso a paso
+de la siguiente expresión</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">func-2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">func-1</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
+<p>mediante el <strong>modelo de sustitución</strong>, utilizando tanto el <strong>orden
+aplicativo</strong> y como el <strong>orden normal</strong>. Y escribe la solución entre
+comentarios en el propio fichero <code>.rkt</code> de la práctica.</p>
+<h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
+<p>Implementa la función <code>(cadenas-mayores lista1 lista2)</code> que recibe 2
+listas con 3 cadenas y devuelve otra lista con las 3 cadenas de mayor
+longitud, comparando las cadenas de cada posición de la
+lista. En el caso en que las cadenas tengan la misma longitud, se
+devuelve la cadena de la primera lista.</p>
+<div class="admonition note">
+<p class="admonition-title">Pista</p>
+<p>Puedes utilizar las funciones <code>second</code> y <code>third</code> que devuelven el
+segundo y el tercer elemento de una lista.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;tal&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="s2">&quot;adios&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (&quot;hola&quot; &quot;que&quot; &quot;adios&quot;)</span>
+<span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;esto&quot;</span><span class="w"> </span><span class="s2">&quot;es&quot;</span><span class="w"> </span><span class="s2">&quot;lpp&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hoy&quot;</span><span class="w"> </span><span class="s2">&quot;hay&quot;</span><span class="w"> </span><span class="s2">&quot;clase&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (&quot;esto&quot; &quot;hay&quot; &quot;clase&quot;)</span>
+</code></pre></div>
+<h3 id="ejercicio-6">Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permanent link">&para;</a></h3>
+<p>a) Supongamos que queremos programar un juego de cartas que usa la baraja
+francesa. Lo primero que debemos hacer es definir una forma de
+representar las cartas y funciones que trabajen con esa
+representación. En este ejercicio vamos a implementar esas funciones.</p>
+<p>Representaremos una carta por un símbolo con dos letras: la primera
+indicará su número o figura y la segunda el palo de la carta,
+representado con el símbolo UTF correspondiente.</p>
+<div class="admonition nota">
+<p class="admonition-title">Símbolos UTF de los palos de la baraja francesa</p>
+<p>Puedes copiar los siguientes símbolos UTF y pegarlos en el código
+fuente de la práctica: ♠, ♣, ♥ y ♦ (picas, tréboles, corazones y
+diamantes).</p>
+</div>
+<p>Por ejemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">tres-de-picas</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♠</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">as-de-corazones</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">A♥</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">jota-de-diamantes</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">J♦</span><span class="p">)</span>
+</code></pre></div>
+<p>Debemos definir la función <code>carta</code> que devuelve una pareja con el
+valor correspondiente a su orden en la baraja francesa (un número) y
+el nombre del palo de la carta (como símbolo, no como cadena).</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">carta</span><span class="w"> </span><span class="n">tres-de-picas</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (3 . Picas)</span>
+<span class="p">(</span><span class="n">carta</span><span class="w"> </span><span class="n">as-de-corazones</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (1 . Corazones)</span>
+<span class="p">(</span><span class="n">carta</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">K♣</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (12 . Tréboles)</span>
+</code></pre></div>
+<p>Los valores de las cartas de la baraja francesa son:</p>
+<div class="highlight"><pre><span></span><code>A (As) ⇒ 1
+J (Jota) ⇒ 10
+Q (Reina) ⇒ 11
+K (Rey) ⇒ 12
+</code></pre></div>
+<p>Para realizar el ejercicio debes definir en primer lugar las funciones
+<code>(obten-palo char)</code> y <code>(obten-valor char)</code> que devuelven el palo y el
+valor, dado un carácter. Y debes implementar la función <code>carta</code> usando
+estas dos funciones.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">obten-palo</span><span class="w"> </span><span class="sc">#\♠</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ Picas</span>
+<span class="p">(</span><span class="n">obten-palo</span><span class="w"> </span><span class="sc">#\♥</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ Corazones</span>
+<span class="p">(</span><span class="n">obten-valor</span><span class="w"> </span><span class="sc">#\3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 3</span>
+<span class="p">(</span><span class="n">obten-valor</span><span class="w"> </span><span class="sc">#\J</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 10</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Pista</p>
+<p>Puedes utilizar las funciones <code>(symbol-&gt;string simbolo)</code> que convierte un
+símbolo en una cadena y <code>(string-ref cadena pos)</code> que devuelve el
+carácter de una cadena situado en una determinada posición.</p>
+</div>
+<p>b) Implementa la función <code>(jugada-mano carta1 carta2 carta3)</code> que recibe 3 cartas de la
+baraja francesa y devuelve una cadena indicando si la jugada de tres
+cartas contiene una <strong>pareja</strong> (dos cartas con el mismo valor), un <strong>trío</strong>
+(las tres cartas tienen el mismo valor) o <strong>nada</strong> (las tres cartas
+son distintas) y también el valor de la pareja o del trío.</p>
+<p>Para obtener los valores de las cartas debes implementar la función
+<code>(valor-carta carta)</code>.</p>
+<p>Ejemplos:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">jugada-mano</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♥</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♣</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♥</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;trío de 3&quot;</span>
+<span class="p">(</span><span class="n">jugada-mano</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">K♦</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">7♠</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">K♥</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;pareja de 12&quot;</span>
+<span class="p">(</span><span class="n">jugada-mano</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">5♣</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">4♣</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">6♣</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;nada&quot;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Números a cadenas</p>
+<p>Puedes obtener una cadena correspondiente a un número usando la función
+<code>number-&gt;string</code>. Esta función solo la debes usar en este ejercicio.</p>
+</div>
+<hr />
+<p>Lenguajes y Paradigmas de Programación, curso 2025-26<br />
+© Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante<br />
+Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

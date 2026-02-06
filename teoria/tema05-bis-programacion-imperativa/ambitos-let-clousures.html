@@ -11,8 +11,15 @@
       
       
       
+        
+          <link rel="alternate" href="ambitos-let-clousures.html" hreflang="es">
+        
+          <link rel="alternate" href="../../en/teoria/tema05-bis-programacion-imperativa/ambitos-let-clousures.html" hreflang="en">
+        
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -20,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -46,7 +53,6 @@
     
       
 
-    
     
     
   </head>
@@ -140,12 +146,40 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
+      <div class="md-header__option">
+  <div class="md-select">
     
-      <label class="md-header__button md-icon" for="__search">
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+          <li class="md-select__item">
+            <a href="ambitos-let-clousures.html" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/teoria/tema05-bis-programacion-imperativa/ambitos-let-clousures.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -177,6 +211,7 @@
     </div>
   </div>
 </div>
+      
     
     
   </nav>
@@ -224,6 +259,7 @@
     
     
     
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
@@ -234,9 +270,16 @@
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Teoría
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -245,7 +288,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
-            Teoría
+            
+  
+    Teoría
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -259,9 +306,16 @@
       <a href="../tema00-descripcion-asignatura/tema00-descripcion-asignatura.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Descripción de la asignatura
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -280,9 +334,16 @@
       <a href="../tema01-historia-lenguajes-programacion/tema01-historia-lenguajes-programacion.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Tema 1: Historia de los lenguajes de programación
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -301,9 +362,16 @@
       <a href="../tema02-programacion-funcional/tema02-programacion-funcional.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Tema 2: Programación funcional
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -325,6 +393,7 @@
   
   
   
+    
     
     
     
@@ -339,9 +408,16 @@
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Seminarios
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -350,7 +426,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Seminarios
+            
+  
+    Seminarios
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -364,9 +444,16 @@
       <a href="../../seminarios/seminario1-scheme/seminario1-scheme.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Seminario de Scheme
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -392,6 +479,7 @@
     
     
     
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
@@ -402,9 +490,16 @@
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
+    
+  
     Prácticas
+  
+
+    
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -413,7 +508,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Prácticas
+            
+  
+    Prácticas
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -427,9 +526,16 @@
       <a href="../../practicas/buenas-practicas-programacion-funcional.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Buenas prácticas de programación funcional
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -448,9 +554,16 @@
       <a href="../../practicas/practica01/practica01.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Práctica 1
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -469,118 +582,19 @@
       <a href="../../practicas/practica02/practica02.html" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Práctica 2
+  
+
+    
   </span>
+  
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    English
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            English
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Theory
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
-            <span class="md-nav__icon md-icon"></span>
-            Theory
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../en/theory/topic00-course-description/topic00-course-description.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Topic 00: Course description
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -620,7 +634,9 @@
         <li class="md-nav__item">
   <a href="#6-ambitos-de-variables-let-y-closures" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Ámbitos de variables, let y closures
+      
+        6. Ámbitos de variables, let y closures
+      
     </span>
   </a>
   
@@ -630,7 +646,9 @@
           <li class="md-nav__item">
   <a href="#61-ambitos-de-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      6.1. Ámbitos de variables
+      
+        6.1. Ámbitos de variables
+      
     </span>
   </a>
   
@@ -639,7 +657,9 @@
           <li class="md-nav__item">
   <a href="#62-forma-especial-let" class="md-nav__link">
     <span class="md-ellipsis">
-      6.2 Forma especial let
+      
+        6.2 Forma especial let
+      
     </span>
   </a>
   
@@ -648,7 +668,9 @@
           <li class="md-nav__item">
   <a href="#63-clausuras" class="md-nav__link">
     <span class="md-ellipsis">
-      6.3. Clausuras
+      
+        6.3. Clausuras
+      
     </span>
   </a>
   
@@ -669,9 +691,11 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
 
   <h1>Ambitos let clousures</h1>
@@ -989,10 +1013,13 @@ Domingo Gallardo, Cristina Pomares</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
