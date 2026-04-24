@@ -2,7 +2,6 @@ site_name: LPP
 use_directory_urls: false
 
 nav:
-- 'Inicio': 'index.md'
 - 'Teoría':
    - 'Descripción de la asignatura': 'teoria/tema00-descripcion-asignatura/tema00-descripcion-asignatura.md'
    - 'Tema 1: Historia de los lenguajes de programación': 'teoria/tema01-historia-lenguajes-programacion/tema01-historia-lenguajes-programacion.md'
@@ -69,9 +68,6 @@ plugins:
                 - 'Lab 10': labs/lab10-practice/lab10-practice.md
                 - 'Lab 11': labs/lab11-practice/lab11-practice.md
                 - 'Lab 12': labs/lab12-practice/lab12-practice.md
-
-hooks:
-  - hooks/copy_i18n_assets.py
 
 theme:
   features:
