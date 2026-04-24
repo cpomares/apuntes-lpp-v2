@@ -1,7 +1,8 @@
 site_name: LPP
-use_directory_urls: false
+use_directory_urls: true
 
 nav:
+- 'Inicio': 'index.md'
 - 'Teoría':
    - 'Descripción de la asignatura': 'teoria/tema00-descripcion-asignatura/tema00-descripcion-asignatura.md'
    - 'Tema 1: Historia de los lenguajes de programación': 'teoria/tema01-historia-lenguajes-programacion/tema01-historia-lenguajes-programacion.md'
