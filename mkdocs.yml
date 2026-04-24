@@ -72,6 +72,9 @@ plugins:
                 - 'Lab 11': labs/lab11-practice/lab11-practice.md
                 - 'Lab 12': labs/lab12-practice/lab12-practice.md
 
+hooks:
+  - hooks/language_switcher.py
+
 theme:
   features:
     - content.code.copy
