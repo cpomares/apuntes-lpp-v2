@@ -1,0 +1,2791 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../topic00-course-description/topic00-course-description.html">
+      
+      
+        <link rel="next" href="../topic02-functional-programming/topic02-functional-programming.html">
+      
+      
+        
+          <link rel="alternate" href="/index.html" hreflang="es">
+        
+          <link rel="alternate" href="topic01-history-programming-languages.html" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Topic 1: History of programming languages - LPP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#topic-1-history-and-concepts-of-programming-languages" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="LPP" class="md-header__button md-logo" aria-label="LPP" data-md-component="logo">
+      
+  <img src="../../../imagenes/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LPP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Topic 1: History of programming languages
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/index.html" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="topic01-history-programming-languages.html" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="LPP" class="md-nav__button md-logo" aria-label="LPP" data-md-component="logo">
+      
+  <img src="../../../imagenes/logo.png" alt="logo">
+
+    </a>
+    LPP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic00-course-description/topic00-course-description.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 00: Course description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1: History of programming languages
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="topic01-history-programming-languages.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1: History of programming languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-history-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. History of Programming Languages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. History of Programming Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-from-calculating-machines-to-programmable-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. From Calculating Machines to Programmable Computers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-the-first-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. The First Programming Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-the-birth-of-commercial-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. The Birth of Commercial Computers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-the-first-high-level-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. The First High-Level Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-the-explosion-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. The Explosion of Programming Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-programming-languages-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6. Programming Languages Today
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elements-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Elements of Programming Languages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Elements of Programming Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-definition-from-the-encyclopedia-of-computer-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Definition from the Encyclopedia of Computer Science
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-definition-by-abelson-and-sussman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Definition by Abelson and Sussman
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-characteristics-of-a-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Characteristics of a Programming Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-elements-of-a-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Elements of a Programming Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Syntax and Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-languages-are-for-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6. Languages Are for People
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-importance-of-learning-programming-language-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7. Importance of Learning Programming Language Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Abstraction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Abstraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-modeling-as-a-fundamental-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Modeling as a Fundamental Activity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-computational-abstractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Computational Abstractions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-building-abstractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Building Abstractions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-different-aspects-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Different Aspects of Programming Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-programming-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Programming Paradigms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Programming Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-what-is-a-programming-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. What Is a Programming Paradigm?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-functional-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Functional Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-logic-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Logic Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-imperative-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Imperative Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-object-oriented-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. Object-Oriented Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-compilers-and-interpreters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Compilers and Interpreters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Compilers and Interpreters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mixed-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Mixed Approaches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-bibliography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Bibliography
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic02-functional-programming/topic02-functional-programming.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2: Functional programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic03-recursive-procedures/topic03-recursive-procedures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3: Recursive procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic04-recursive-structures/topic04-recursive-structures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4: Recursive structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic05-functional-programming-swift/topic05-functional-programming-swift.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5: Functional programming with Swift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topic06-object-oriented-programming-swift/topic06-object-oriented-programming-swift.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6: Object-oriented programming with Swift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seminars
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seminars
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seminars/seminar01-scheme/seminar01-scheme.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheme seminar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seminars/seminar02-swift/seminar02-swift.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift seminar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab01-practice/lab01-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab02-practice/lab02-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab03-practice/lab03-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab04-practice/lab04-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab05-practice/lab05-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab06-practice/lab06-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab07-practice/lab07-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab08-practice/lab08-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab09-practice/lab09-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab10-practice/lab10-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab11-practice/lab11-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lab12-practice/lab12-practice.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-history-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. History of Programming Languages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. History of Programming Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-from-calculating-machines-to-programmable-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. From Calculating Machines to Programmable Computers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-the-first-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. The First Programming Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-the-birth-of-commercial-computers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. The Birth of Commercial Computers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-the-first-high-level-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. The First High-Level Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-the-explosion-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. The Explosion of Programming Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-programming-languages-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6. Programming Languages Today
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-elements-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Elements of Programming Languages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Elements of Programming Languages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-definition-from-the-encyclopedia-of-computer-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Definition from the Encyclopedia of Computer Science
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-definition-by-abelson-and-sussman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Definition by Abelson and Sussman
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-characteristics-of-a-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Characteristics of a Programming Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-elements-of-a-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Elements of a Programming Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Syntax and Semantics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-languages-are-for-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6. Languages Are for People
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-importance-of-learning-programming-language-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7. Importance of Learning Programming Language Techniques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Abstraction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Abstraction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-modeling-as-a-fundamental-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Modeling as a Fundamental Activity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-computational-abstractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Computational Abstractions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-building-abstractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Building Abstractions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-different-aspects-of-programming-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Different Aspects of Programming Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-programming-paradigms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Programming Paradigms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Programming Paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-what-is-a-programming-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. What Is a Programming Paradigm?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-functional-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Functional Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-logic-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Logic Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-imperative-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Imperative Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-object-oriented-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5. Object-Oriented Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-compilers-and-interpreters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Compilers and Interpreters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Compilers and Interpreters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-compilation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Compilation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-mixed-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Mixed Approaches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-bibliography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Bibliography
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="topic-1-history-and-concepts-of-programming-languages">Topic 1: History and Concepts of Programming Languages<a class="headerlink" href="#topic-1-history-and-concepts-of-programming-languages" title="Permanent link">&para;</a></h1>
+<h2 id="1-history-of-programming-languages">1. History of Programming Languages<a class="headerlink" href="#1-history-of-programming-languages" title="Permanent link">&para;</a></h2>
+<h3 id="11-from-calculating-machines-to-programmable-computers">1.1. From Calculating Machines to Programmable Computers<a class="headerlink" href="#11-from-calculating-machines-to-programmable-computers" title="Permanent link">&para;</a></h3>
+<table>
+  <tr>
+     <td><img src="imagenes/SchickardMachine.jpg" width="300px"/></td>
+     <td><img src="imagenes/Pascaline_from_1652_year.jpg" width="300px"/><br/>
+         <img src="imagenes/PascaleneLidOpened.jpg" width="300px"/></td>
+  </tr>
+  <tr>
+     <td align="center">Schickard's machine (1623)</td>
+     <td align="center">Pascal's calculator (1650)</td>
+  </tr>
+</table>
+
+<p>From the <a href="https://github.com/domingogallardo/historia-computadores#1">first mechanical
+calculators</a>
+designed in the 17th century to the 1940s, many mechanical, analog,
+and electronic machines and computers were invented in an attempt to
+speed up calculations and improve their precision.</p>
+<p>The culmination of all mechanical approaches to computation was the
+famous <strong>Analytical Engine</strong> designed by <strong>Charles Babbage</strong> in 1840.
+The fundamental difference from all previous artifacts was that it was
+a <strong>programmable</strong> calculating machine using punched cards. Babbage
+was inspired by the Jacquard loom, where fabric patterns could be
+configured using punched cards. The machine was designed to work in
+base 10, and its calculations could include conditional jumps and
+loops.</p>
+<p>Babbage worked for more than 30 years trying to build the machine. It
+was enormously complex for its time and required a great deal of
+funding. He died in 1871 having been able to build only one part of
+it.</p>
+<p><img src="imagenes/ada-lovelace.jpg" width="200px" align="right" style="margin:20px"/></p>
+<p>The mathematician <a href="https://en.wikipedia.org/wiki/Ada_Lovelace">Ada
+Lovelace</a> played a
+fundamental role in publicizing the machine and its programming
+system, and she was the first person to understand its possibilities
+beyond the calculation of formulas.</p>
+<p>Unusually for that time, Ada was educated in science and mathematics.
+In the early 1840s, when she was twenty-five, she became familiar with
+Babbage's work and collaborated with him, spending several years
+studying the design and operation of the Analytical Engine.</p>
+<p>In 1843 she published the paper <em>"Sketch of the analytical engine
+invented by Charles Babbage"</em>, in which she describes the Analytical
+Engine, adds her own reflections on the scope of the invention, and
+builds a complete example, with tables and diagrams, of how to make
+the machine produce the sequence of Bernoulli numbers. These tables
+and diagrams can be considered the <strong>first computer program</strong>.</p>
+<p><img src="imagenes/Alan_Turing.jpg" width="200px" align="right" style="margin:20px"/></p>
+<p>Before any real computer existed, in 1936, the English mathematician
+<a href="https://en.wikipedia.org/wiki/Alan_Turing">Alan Turing</a> formalized
+the abstract idea of a computer using a very simple processing model:
+an abstract machine with a scanner that reads and writes 0s and 1s on
+an infinite tape (memory), moving and writing according to a table
+defined in the machine (program). With this abstract machine, the
+<a href="https://en.wikipedia.org/wiki/Turing_machine">Turing machine</a>,
+Turing explores the idea of what is computable and what is not. Are
+there non-computable problems for which it is impossible to invent an
+algorithm that solves them? Turing proves that there are, and with
+his work he establishes the limits of computation.</p>
+<p>In the same paper, Turing defines the concept of a <em>universal
+machine</em>, which is able to read any program from the tape and simulate
+its behavior on another part of the tape. This idea had a profound
+impact on the development of computers because it showed that it is
+possible to write programs that take other programs as data. This
+opens the door to the idea of programs stored in memory, since they
+are just another kind of data, and to the creation of compilers and
+interpreters.</p>
+<p>In the <a href="https://github.com/domingogallardo/historia-computadores#3">1940s</a>
+there was an explosion of electronic and electromechanical computing
+machines. It was a remarkable decade in which increasingly faster and
+more robust technologies were developed, and enormous advances were
+made in the speed and precision of calculations.</p>
+<p><img src="imagenes/John_von_Neumann.gif" width="200px" align="right" style="margin:20px"/></p>
+<p>In the middle of that decade, in 1945, <a href="https://en.wikipedia.org/wiki/John_von_Neumann">John Von
+Neumann</a>, who was
+working on the construction of the
+<a href="https://en.wikipedia.org/wiki/ENIAC">ENIAC</a>, introduced a fundamental
+advance. He proposed his famous architecture, in which the two key
+ideas of general-purpose computers were proposed for the first time:
+a program stored in memory and a set of processing instructions that
+includes indirect addressing.</p>
+<p>And in 1948, three years later, the first general-purpose digital
+electronic computer using this architecture was built at the
+University of Manchester. It was called
+<a href="https://en.wikipedia.org/wiki/Manchester_Small-Scale_Experimental_Machine">Baby</a>.
+It was designed by Max Newmann using technology provided by the
+engineers F.C. Williams and Tom Kilburn. Williams had invented an
+electronic memory device, the <em>Williams tube</em>, capable of replacing
+the slow mercury delay lines used until then.</p>
+<p><img src="imagenes/baby-mark1.jpg" width="300px" align="right" style="margin:20px"/></p>
+<p>The Manchester machine was the first computer with a complete
+instruction set, capable of jumps, conditionals, and indirect
+addressing. The first execution of a program took place on June 21,
+1948. That year Alan Turing joined the University of Manchester as
+director of the Computing Laboratory. Three years later, with an
+expanded design also influenced by Turing, a much larger version of
+the machine became the first commercially available computer, the
+Ferranti Mark I. The first one was installed at the University of
+Manchester in February 1951, one month before the UNIVAC I was
+delivered to the United States Census Bureau. Ten more machines were
+sold to Great Britain, Canada, the Netherlands, and Italy.</p>
+<p>The first complex Artificial Intelligence program, a checkers player
+written by Christopher Strachey, ran in the summer of 1952 on the
+Ferranti Mark I at the Manchester Computing Laboratory. Strachey
+wrote the program encouraged by Turing and using the Ferranti
+programming manual that Turing had just written. Turing also
+participated in the development of other AI programs, such as a chess
+player based on heuristics.</p>
+<h3 id="12-the-first-programming-languages">1.2. The First Programming Languages<a class="headerlink" href="#12-the-first-programming-languages" title="Permanent link">&para;</a></h3>
+<p>The first electronic computers were programmed directly using the
+processor's instruction set, in machine code or hexadecimal code.</p>
+<p>The first language at a slightly higher level than machine code was
+assembly language. The first programs that processed programming
+languages began to appear, although they were very simple programs,
+since there is an almost direct relationship between assembly
+notation and the hexadecimal code produced by the assembler.</p>
+<p>At the end of the 1940s, people began trying to solve with the first
+computers the first mathematical problems other than numerical
+operations: coding and decoding, combinatorial problems such as map
+coloring, or sorting problems.</p>
+<p>One of von Neumann's first algorithms sorts a set of numbers. Von
+Neumann describes it in a letter dated 1945. It uses the EDSAC
+instruction set, even though the machine had not yet been built. The
+program was studied by Donald Knuth in the article <em>Von Neumann's
+first Computer Program</em>, where he documents that there was a bug in
+the first instructions. It is the first written bug known in history.
+If Von Neumann had been able to run the program on the EDSAC, he
+would have noticed the error and it would have been the first
+debugging of a program.</p>
+<p><img src="imagenes/von-neumann-first-program.png" width="500px"/></p>
+<p><em>Von Neumann's first program</em></p>
+<p>(Donald Knuth, "Von Neumann's first Computer Program", Journal of the
+ACM Computing Surveys (CSUR) Surveys, Volume 2 Issue 4, Dec. 1970,
+Pages 247-260)</p>
+<h3 id="13-the-birth-of-commercial-computers">1.3. The Birth of Commercial Computers<a class="headerlink" href="#13-the-birth-of-commercial-computers" title="Permanent link">&para;</a></h3>
+<p><strong>UNIVAC</strong></p>
+<p>The <a href="http://en.wikipedia.org/wiki/UNIVAC_I">UNIVAC</a> was the first
+commercial computer (1951). With this computer, the figure of the
+programmer appeared for the first time: manuals, training courses,
+job offers, and so on.</p>
+<p><img src="imagenes/univac.jpg" width="500px"/></p>
+<p><em>UNIVAC</em></p>
+<p><img src="imagenes/instalaciones-univac.png" width="600px"/></p>
+<p><em>UNIVAC commercial facilities</em></p>
+<p><strong>IBM 704</strong></p>
+<p>The <a href="http://en.wikipedia.org/wiki/IBM_704">IBM 704</a> was the other
+major commercial computer of the 1950s.</p>
+<p>It was much more widely used than the UNIVAC: government centers,
+universities.</p>
+<p>The first high-level programming languages were developed for this
+computer.</p>
+<p><img src="imagenes/IBM-704.jpg" width="500px"/></p>
+<p><em>IBM 704 photo</em></p>
+<h4 id="131-programming-the-first-computers">1.3.1. Programming the First Computers<a class="headerlink" href="#131-programming-the-first-computers" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>The UNIVAC I was an interesting machine to program, with its
+mercury delay-line storage and its tendency to fail. Programs were
+entered into the computer by typing them onto magnetic tapes, an
+important innovation at that time.</p>
+<p>Working with the IBM 704 at New York University was a radically
+different experience from the UNIVAC I. It was built to run
+scientific applications, and its main innovation was magnetic-core
+memory, replacing the Williams tube memory of the IBM 701. It also
+had a floating-point arithmetic unit. The machine had the equivalent
+of 128 KB of main memory, 32 KB of secondary memory, and magnetic
+tapes that could store 5 MB of data. It operated at 0.04 MIPS and
+cost 3 million dollars in 1957.</p>
+<p>George Sadowsky,
+<a href="http://www.georgesadowsky.com/papers/Univac-I.pdf">My Second Computer was a UNIVAC I</a></p>
+</blockquote>
+<h3 id="14-the-first-high-level-languages">1.4. The First High-Level Languages<a class="headerlink" href="#14-the-first-high-level-languages" title="Permanent link">&para;</a></h3>
+<p>The first high-level languages were developed at the end of the
+1950s:</p>
+<ul>
+<li>FORTRAN in 1956</li>
+<li>Lisp in 1958</li>
+</ul>
+<p>Both languages proposed two very different approaches from the
+beginning:</p>
+<ul>
+<li>FORTRAN<ul>
+<li>First commercial language, IBM team led by John W. Backus</li>
+<li>Imperative language: state, control structures, program
+  counter, memory cells</li>
+<li>Compiled language</li>
+</ul>
+</li>
+<li>Lisp<ul>
+<li>Language designed in a research department, an MIT team led by
+  John McCarthy</li>
+<li>Functional language: functions, recursion, lists, symbols</li>
+<li>Interpreted language</li>
+</ul>
+</li>
+</ul>
+<h4 id="141-fortran">1.4.1. FORTRAN<a class="headerlink" href="#141-fortran" title="Permanent link">&para;</a></h4>
+<p>Developed by IBM to program the IBM 704. Some facts:</p>
+<ul>
+<li>Its name comes from <em>FORmula TRANslating system</em>.</li>
+<li>The first FORTRAN manual was printed in October 1956 for the IBM
+  704.</li>
+<li>The first compiler was marketed in April 1956.</li>
+</ul>
+<p>Quote from John Backus (<a href="http://en.wikipedia.org/wiki/Fortran">Wikipedia on
+FORTRAN</a>):</p>
+<blockquote>
+<p>Much of my work has come from being lazy. I did not like writing
+programs, and when I was working on the IBM 701, writing programs to
+compute missile trajectories, I began work on a programming system
+to make it easier to write programs.</p>
+</blockquote>
+<p><img src="imagenes/john-backus.png" width="150px"/></p>
+<p><em>John Backus</em></p>
+<p><img src="imagenes/codigo-FORTRAN.png" width="500px"/></p>
+<p><em>FORTRAN example</em></p>
+<p>Taken from the
+<a href="http://archive.computerhistory.org/resources/text/Fortran/102665486.05.01.acc.pdf">IBM 704 FORTRAN manual</a></p>
+<h4 id="142-lisp">1.4.2. Lisp<a class="headerlink" href="#142-lisp" title="Permanent link">&para;</a></h4>
+<p>The other high-level language developed at that time was Lisp. It was
+developed in the late 1950s at MIT by John McCarthy.</p>
+<p>Although historically the language name was often written in capital
+letters (LISP), the use of only the first letter in uppercase (Lisp)
+later became popular. This form is more faithful to the origin of the
+language name. <em>Lisp</em> is not an acronym, but a contraction of the
+expression <em>List Processing</em>. List processing is one of the main
+features of Lisp.</p>
+<p>McCarthy explains the early history of Lisp in a 1979 article:</p>
+<blockquote>
+<p>[...] In the summer of 1956 during the Dartmouth Summer Research
+Project on Artificial Intelligence, the first organized study of
+Artificial Intelligence, I had the idea of developing an algebraic
+language for list processing. I wanted to use it for the development
+of work in artificial intelligence on the IBM 704. [...]
+John McCarthy, <a href="http://www-formal.stanford.edu/jmc/history/lisp/lisp.html">History of LISP</a></p>
+</blockquote>
+<p><img src="imagenes/john-mccarthy.png"/></p>
+<p><em>John McCarthy</em></p>
+<p>One of the first published Lisp manuals is the
+<a href="http://bitsavers.org/pdf/mit/rle_lisp/LISP_I_Programmers_Manual_Mar60.pdf">LISP manual</a>
+from 1960 for the IBM 704, written by Phyllis A. Fox of the MIT
+research group led by McCarthy.</p>
+<p>An example of Lisp code:</p>
+<p><img src="imagenes/codigo-LISP.png"/></p>
+<p><em>LISP example</em></p>
+<p>Taken from
+"<a href="http://www.softwarepreservation.org/projects/LISP/lisp15_family#Berkeley_and_Bobrow_">The Programming Language LISP</a>",
+MIT Press, 1964</p>
+<h3 id="15-the-explosion-of-programming-languages">1.5. The Explosion of Programming Languages<a class="headerlink" href="#15-the-explosion-of-programming-languages" title="Permanent link">&para;</a></h3>
+<p>From 1954 to the present, more than 2,500 languages have been
+documented (see <a href="http://people.ku.edu/~nkinners/LangList/Extras/langlist.htm">The Language List</a>). Between 1952 and 1972, around
+200 languages appeared. About ten were truly significant and
+influenced the development of later languages.</p>
+<h4 id="151-genealogy-of-programming-languages">1.5.1. Genealogy of Programming Languages<a class="headerlink" href="#151-genealogy-of-programming-languages" title="Permanent link">&para;</a></h4>
+<p><img src="imagenes/genealogia-de-los-lp.png" width="600px"/></p>
+<p><em>Genealogy of programming languages</em></p>
+<p>Some notes on the genealogy:</p>
+<ul>
+<li>
+<p>APL is a declarative algebraic language for specifying functions
+  and logical circuits. Its declarative nature influenced languages
+  such as Prolog or Haskell.</p>
+</li>
+<li>
+<p>Lisp is not only a functional language; it is also the first
+  interpreted language, with many runtime features and little static
+  checking. In those aspects, it influenced non-functional dynamic
+  languages such as Python or Smalltalk. Languages such as Smalltalk
+  or Objective-C also inherit from Lisp some functional features, such
+  as the possibility of using a block of code as a primitive object
+  created at runtime that can be assigned or passed as a parameter.
+  This is what is called a <em>closure</em> in the functional programming
+  paradigm.</p>
+</li>
+<li>
+<p>SIMULA is the first language to define concepts such as class or
+  object. It is the origin of statically and strongly typed
+  object-oriented programming. Languages such as C++, Eiffel, or Java
+  take this idea. In contrast to this tendency, there is another view
+  of object-oriented programming in languages such as Smalltalk or
+  Objective-C, where dynamic aspects such as message passing or class
+  modification at runtime are emphasized more strongly.</p>
+</li>
+</ul>
+<h4 id="152-some-important-languages-and-their-creation-date">1.5.2. Some Important Languages and Their Creation Date<a class="headerlink" href="#152-some-important-languages-and-their-creation-date" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">1950-1960</th>
+<th style="text-align: center;">1970</th>
+<th style="text-align: center;">1980</th>
+<th style="text-align: center;">1990</th>
+<th style="text-align: center;">2000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1957 FORTRAN</td>
+<td style="text-align: center;">1970 Pascal</td>
+<td style="text-align: center;">1980 Smalltalk-80</td>
+<td style="text-align: center;">1990 Haskell</td>
+<td style="text-align: center;">2000 C#</td>
+</tr>
+<tr>
+<td style="text-align: center;">1958 ALGOL</td>
+<td style="text-align: center;">1972 Prolog</td>
+<td style="text-align: center;">1983 Objective-C</td>
+<td style="text-align: center;">1991 Python</td>
+<td style="text-align: center;">2003 Scala</td>
+</tr>
+<tr>
+<td style="text-align: center;">1960 Lisp</td>
+<td style="text-align: center;">1972 C</td>
+<td style="text-align: center;">1983 Ada</td>
+<td style="text-align: center;">1993 Ruby</td>
+<td style="text-align: center;">2003 Groovy</td>
+</tr>
+<tr>
+<td style="text-align: center;">1960 COBOL</td>
+<td style="text-align: center;">1975 Scheme</td>
+<td style="text-align: center;">1986 C++</td>
+<td style="text-align: center;">1995 Java</td>
+<td style="text-align: center;">2009 Go</td>
+</tr>
+<tr>
+<td style="text-align: center;">1962 APL</td>
+<td style="text-align: center;">1975 Modula</td>
+<td style="text-align: center;">1986 Eiffel</td>
+<td style="text-align: center;">1995 Racket</td>
+<td style="text-align: center;">2014 Swift</td>
+</tr>
+<tr>
+<td style="text-align: center;">1964 BASIC</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1987 Perl</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">1967 SIMULA</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="153-the-creators-of-programming-languages">1.5.3. The Creators of Programming Languages<a class="headerlink" href="#153-the-creators-of-programming-languages" title="Permanent link">&para;</a></h4>
+<p>If we look at the history of programming languages, we can classify
+their creators into three broad categories:</p>
+<ul>
+<li>Researchers working in companies
+  (<a href="http://en.wikipedia.org/wiki/John_Backus">Backus</a>/IBM-FORTRAN,
+  <a href="http://en.wikipedia.org/wiki/James_Gosling">Gosling</a>/Sun-Java)</li>
+<li>Researchers at universities and computer science departments
+  (<a href="http://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)">McCarthy</a>/MIT-Lisp,
+  <a href="http://en.wikipedia.org/wiki/Niklaus_Wirth">Wirth</a>/ETH-Pascal,
+  <a href="http://en.wikipedia.org/wiki/Martin_Odersky">Odersky</a>/ETH-Scala)</li>
+<li>Open source developers who distribute their work to the community
+  (<a href="http://en.wikipedia.org/wiki/Larry_Wall">Wall</a>/Perl,
+  <a href="http://en.wikipedia.org/wiki/Yukihiro_Matsumoto">Matsumoto</a>/Ruby)</li>
+</ul>
+<h3 id="16-programming-languages-today">1.6. Programming Languages Today<a class="headerlink" href="#16-programming-languages-today" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://www.tiobe.com/tiobe-index/">TIOBE</a> index is an indicator
+of the popularity of programming languages. The index is updated once
+a month. The scores are based on undisclosed statistics that include
+the number of engineers worldwide, courses, and applications
+developed. Results obtained from the most widely used search engines
+are also used.</p>
+<p>The TIOBE index does not try to measure the number of lines written
+in programming languages, but their <em>popularity</em> and <em>importance</em> in
+the community.</p>
+<p><img src="imagenes/lista-tiobe.png" width="800px"/></p>
+<p><em>TIOBE list</em></p>
+<p>It is also very interesting to check the evolution of the 10 most
+popular languages over the last 10 years.</p>
+<p><img src="imagenes/tpci_trends.png" width="800px"/></p>
+<p><em>TIOBE evolution</em></p>
+<h4 id="161-evolution-does-not-stop">1.6.1. Evolution Does Not Stop<a class="headerlink" href="#161-evolution-does-not-stop" title="Permanent link">&para;</a></h4>
+<p>It is interesting to see that it is becoming easier and easier to
+develop new programming languages. Language processing techniques and
+tools have become increasingly popular and accessible to more people.
+Languages are no longer created only in departments with a large
+number of researchers, but also in open source communities made up of
+interested and motivated volunteers.</p>
+<p>Examples of new languages and their creators:</p>
+<p><strong>Ruby</strong></p>
+<p><img src="imagenes/yukihiromatsumoto.jpg" width="150px"/></p>
+<p><em>Yukihiro Matsumoto</em></p>
+<ul>
+<li><a href="http://www.ruby-lang.org/">Ruby</a>
+  (<a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Wikipedia</a>),
+  a programming language conceived in 1993 by the Japanese developer
+  Yukihiro Matsumoto.</li>
+<li>Interpreted, multi-paradigm, and very expressive language currently
+  used both for developing web applications and video games.</li>
+<li>Active project, with new versions appearing every year.</li>
+</ul>
+<p><strong>Scala</strong></p>
+<p><img src="imagenes/oderski.jpg" width="150px"/></p>
+<p><em>Martin Odersky</em></p>
+<ul>
+<li><a href="http://www.scala-lang.org/">Scala</a>
+  (<a href="https://en.wikipedia.org/wiki/Scala_(programming_language)">Wikipedia</a>),
+  designed in 2003 by the German professor Martin Odersky.</li>
+<li>Response to the problems of traditional imperative languages for
+  handling concurrency.</li>
+<li>It is implemented on top of Java and runs on the Java Virtual
+  Machine.</li>
+</ul>
+<p><strong>Go</strong></p>
+<p><img src="imagenes/thompson.jpeg" width="150px"/></p>
+<p><em>Ken Thompson</em></p>
+<ul>
+<li><a href="http://golang.org/">Go</a>
+  (<a href="https://en.wikipedia.org/wiki/Go_(programming_language)">Wikipedia</a>),
+  Google's new programming language launched in 2009.</li>
+<li>Developed, among others, by Ken Thompson, one of the fathers of
+  UNIX.</li>
+<li>A mix of C and Python that tries to achieve a systems programming
+  language that is very efficient, expressive, and also
+  multi-paradigm.</li>
+</ul>
+<p><strong>Swift</strong></p>
+<p><img src="imagenes/ChrisLattner.jpg" width="150px"/></p>
+<p><em>Chris Lattner</em></p>
+<ul>
+<li><a href="https://developer.apple.com/swift/">Swift</a>
+  (<a href="https://en.wikipedia.org/wiki/Swift_(programming_language)">Wikipedia</a>),
+  Apple's new programming language launched in 2014.</li>
+<li><a href="https://swift.org"><em>Open source</em> project</a> where its
+  <a href="https://github.com/apple/swift-evolution">evolution and future roadmap</a>
+  can be observed.</li>
+<li>Developed, among others, by
+  <a href="http://www.nondot.org/sabre/">Chris Lattner</a>, author of the
+  <em>LLVM Compiler Infrastructure</em>, a set of compiler, debugger,
+  optimizer, and related tools for C, C++, and Objective-C code.</li>
+<li>Modern, multi-paradigm language (object-oriented and functional
+  programming), strongly typed and compiled.</li>
+</ul>
+<h2 id="2-elements-of-programming-languages">2. Elements of Programming Languages<a class="headerlink" href="#2-elements-of-programming-languages" title="Permanent link">&para;</a></h2>
+<h3 id="21-definition-from-the-encyclopedia-of-computer-science">2.1. Definition from the Encyclopedia of Computer Science<a class="headerlink" href="#21-definition-from-the-encyclopedia-of-computer-science" title="Permanent link">&para;</a></h3>
+<p>A programming language is a set of characters, rules for combining
+them, and rules for specifying their effects when executed by a
+computer, with the following four characteristics:</p>
+<ol>
+<li>It requires no knowledge of machine code from the user.</li>
+<li>It is machine independent.</li>
+<li>It is translated into machine language.</li>
+<li>It uses a notation that is closer to the specific problem being
+   solved than to machine code.</li>
+</ol>
+<h3 id="22-definition-by-abelson-and-sussman">2.2. Definition by Abelson and Sussman<a class="headerlink" href="#22-definition-by-abelson-and-sussman" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>We are about to study the idea of a <strong>computational process</strong>.
+Computational processes are abstract beings that inhabit computers.
+As they evolve, processes manipulate other abstract things called
+<strong>data</strong>. The evolution of a process is directed by a pattern of
+rules called a program. [...]</p>
+</blockquote>
+<p>And another fundamental idea:</p>
+<blockquote>
+<p>A powerful programming language is more than just a means for
+instructing a computer to perform tasks. The language also serves as
+a framework within which we organize our ideas about processes.
+Thus, when we describe a language, we should pay particular
+attention to the means that the language provides for combining
+simple ideas to form more complex ideas.</p>
+</blockquote>
+<h3 id="23-characteristics-of-a-programming-language">2.3. Characteristics of a Programming Language<a class="headerlink" href="#23-characteristics-of-a-programming-language" title="Permanent link">&para;</a></h3>
+<ol>
+<li>It defines a process that runs on a computer.</li>
+<li>It is high level, close to the problems to be solved
+   (abstraction).</li>
+<li>It allows new abstractions to be built and adapted to the
+   programming domain.</li>
+</ol>
+<h3 id="24-elements-of-a-programming-language">2.4. Elements of a Programming Language<a class="headerlink" href="#24-elements-of-a-programming-language" title="Permanent link">&para;</a></h3>
+<p>For Abelson and Sussman, all programming languages make it possible
+to combine simple ideas into more complex ideas through the following
+three mechanisms:</p>
+<ul>
+<li><strong>Primitive expressions</strong>, which represent the simplest entities in
+  the language.</li>
+<li><strong>Means of combination</strong>, with which compound elements are built
+  from simpler elements.</li>
+<li><strong>Means of abstraction</strong>, with which compound elements are named
+  and manipulated as units.</li>
+</ul>
+<h3 id="25-syntax-and-semantics">2.5. Syntax and Semantics<a class="headerlink" href="#25-syntax-and-semantics" title="Permanent link">&para;</a></h3>
+<p><em>Syntax</em>: set of rules that define which text expressions are correct.
+For example, in C all statements must end with <code>;</code>.</p>
+<p><em>Semantics</em>: set of rules that defines what the result of executing a
+program on the computer will be.</p>
+<h3 id="26-languages-are-for-people">2.6. Languages Are for People<a class="headerlink" href="#26-languages-are-for-people" title="Permanent link">&para;</a></h3>
+<p>Programming languages must be precise; they must be translatable
+without ambiguity into machine language so that they can be executed
+by computers. But they must also be used (read, commented, tested,
+and so on) by people.</p>
+<p>Programming is a collaborative activity and must be based on
+communication.</p>
+<h3 id="27-importance-of-learning-programming-language-techniques">2.7. Importance of Learning Programming Language Techniques<a class="headerlink" href="#27-importance-of-learning-programming-language-techniques" title="Permanent link">&para;</a></h3>
+<p>It is important to know how a programming language works "inside" and
+to understand its characteristics in comparison with others.</p>
+<ul>
+<li>It improves the use of the programming language.</li>
+<li>It increases the vocabulary of programming elements.</li>
+<li>It allows a better choice of programming language.</li>
+<li>It improves the ability to develop effective and efficient programs.</li>
+<li>It makes it easier to learn a new programming language.</li>
+<li>It makes it easier to design new programming languages.</li>
+</ul>
+<h2 id="3-abstraction">3. Abstraction<a class="headerlink" href="#3-abstraction" title="Permanent link">&para;</a></h2>
+<p>A fundamental mission of programming languages is to provide tools
+for building abstractions. For example, we are building an abstraction
+when we give a <strong>name</strong> to a language entity (a variable, a function,
+a class, and so on).</p>
+<p>Choosing a good name for the elements we build in our programs is
+essential to achieve readable and reusable code.</p>
+<h3 id="31-modeling-as-a-fundamental-activity">3.1. Modeling as a Fundamental Activity<a class="headerlink" href="#31-modeling-as-a-fundamental-activity" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To write a program that provides services, it is essential to model
+  the domain it will work on.</li>
+<li>It is necessary to define different abstractions, both APIs and
+  data, that allow us to deal with its elements and communicate
+  correctly with the users who will use the program.</li>
+<li>The abstractions we build rely on each other and make a complex
+  problem understandable and communicable.</li>
+<li>Example: modeling the operation of a library contains abstractions
+  such as "books", "loan", "reservation", or "available books", which
+  represent domain concepts that must be implemented in our solution.</li>
+</ul>
+<p><img src="imagenes/casosDeUsoRegistrado.png" width="500px"/></p>
+<p><em>Library use cases</em></p>
+<h3 id="32-computational-abstractions">3.2. Computational Abstractions<a class="headerlink" href="#32-computational-abstractions" title="Permanent link">&para;</a></h3>
+<p>There are abstractions specific to computer science that are used in
+many domains. For example, data abstractions such as:</p>
+<ul>
+<li>Lists</li>
+<li>Trees</li>
+<li>Graphs</li>
+<li>Hash tables</li>
+</ul>
+<p>There are also abstractions that allow us to deal with external
+devices and computers:</p>
+<ul>
+<li>File</li>
+<li>Graphic raster</li>
+<li>TCP/IP protocol</li>
+</ul>
+<h3 id="33-building-abstractions">3.3. Building Abstractions<a class="headerlink" href="#33-building-abstractions" title="Permanent link">&para;</a></h3>
+<p>One of the main jobs of a computer scientist is to build abstractions
+that save time and effort when dealing with the complexity of the
+real world.</p>
+<p>Quote from Joel Spolsky in his blog
+<a href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">Joel on Software</a>:</p>
+<blockquote>
+<p>TCP is what computer scientists call an abstraction: a simplification
+of something much more complicated that is going on under the covers.
+It turns out that a lot of computer programming consists of building
+abstractions. What is a string library? It is a way to pretend that
+computers can manipulate strings just as easily as they can
+manipulate numbers. What is a file system? It is a way to pretend
+that a hard disk is not actually a set of rotating magnetic platters
+that can store bits at certain positions, but instead a hierarchical
+system of folders-within-folders that contains individual files.</p>
+</blockquote>
+<h3 id="34-different-aspects-of-programming-languages">3.4. Different Aspects of Programming Languages<a class="headerlink" href="#34-different-aspects-of-programming-languages" title="Permanent link">&para;</a></h3>
+<p>Programming is a complex discipline that has to take into account
+multiple aspects of programming languages and APIs:</p>
+<ol>
+<li>
+<p>Programs as <em>runtime</em> processes that execute on a computer. We
+   need to understand what happens when an object is created, how long
+   it remains in memory, what the scope of a variable is, and so on.</p>
+<p>Tools: debuggers, performance analyzers.</p>
+</li>
+<li>
+<p>Programs as static declarations. A program must be considered from
+   the point of view of declaring new types, new methods, generic
+   types, inheritance between classes, and so on.</p>
+<p>Tools: programming environments with code completion and syntax
+error detection.</p>
+</li>
+<li>
+<p>Programs as communication and social activity. We must take into
+   account that a program will be used by other people, read,
+   extended, maintained, and modified. Programs will always be
+   modified.</p>
+<p>Tools: version control systems (Git, Mercurial, GitHub,
+Bitbucket), issue management systems (Jira), tests that prevent
+regression errors, ...</p>
+</li>
+</ol>
+<h2 id="4-programming-paradigms">4. Programming Paradigms<a class="headerlink" href="#4-programming-paradigms" title="Permanent link">&para;</a></h2>
+<h3 id="41-what-is-a-programming-paradigm">4.1. What Is a Programming Paradigm?<a class="headerlink" href="#41-what-is-a-programming-paradigm" title="Permanent link">&para;</a></h3>
+<p>A paradigm defines a set of characteristics, patterns, and programming
+styles based on some fundamental idea. For example, the functional
+paradigm is based on the idea that a computation can be specified as
+a set of functions that transform input values into output values.</p>
+<p>It is useful to see a paradigm as a programming style that can be
+used in different programming languages and expressed with different
+syntaxes. For example, code using logic programming can be written in
+Prolog, which would be the most natural choice, but also in Java,
+using some specific API.</p>
+<p>Normally, all languages have characteristics from more than one
+paradigm. For practical reasons, the most popular languages are not
+strictly or purely limited to a single programming paradigm.</p>
+<p>For example, Prolog is mostly a logical and declarative language, but
+it has imperative operators such as the <em>cut</em>. Even so, it is normal
+to assign a language to the paradigm in which it is easiest or most
+natural to write code using its constructs.</p>
+<p>There are languages that reinforce and promote the expression of code
+in more than one programming paradigm. And they do so not by
+necessity or accident, but with the explicit intention of merging more
+than one paradigm into a single way of programming. These languages
+are called <em>multi-paradigm</em> languages.</p>
+<p>For example, Scala is a multi-paradigm language in which Martin
+Odersky, its creator, mixes object-oriented programming features with
+functional programming.</p>
+<p>Prolog or Lisp, although they have non-logical or non-functional
+features, cannot be considered multi-paradigm because they were not
+created with the idea of integrating varied paradigms into a coherent
+form of expression.</p>
+<p>The most important paradigms are:</p>
+<ul>
+<li>Functional paradigm</li>
+<li>Logic paradigm</li>
+<li>Imperative or procedural paradigm</li>
+<li>Object-oriented paradigm</li>
+</ul>
+<h3 id="42-functional-paradigm">4.2. Functional Paradigm<a class="headerlink" href="#42-functional-paradigm" title="Permanent link">&para;</a></h3>
+<p>Summary of the main characteristics:</p>
+<ul>
+<li>Computation is performed by evaluating expressions.</li>
+<li>Definition of functions.</li>
+<li>Functions as primitive data.</li>
+<li>Values without side effects; there are no references to memory
+  cells in which mutable state is stored.</li>
+<li>Declarative programming, in <em>pure</em> functional programming.</li>
+</ul>
+<p>Languages: Lisp, Scheme, Haskell, Scala, Clojure.</p>
+<p>Code example (Lisp):</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)))))</span>
+
+<span class="nb">&gt;</span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+<span class="mi">40320</span>
+<span class="nb">&gt;</span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span>
+<span class="mi">265252859812191058636308480000000</span>
+</code></pre></div>
+<h3 id="43-logic-paradigm">4.3. Logic Paradigm<a class="headerlink" href="#43-logic-paradigm" title="Permanent link">&para;</a></h3>
+<p>Characteristics:</p>
+<ul>
+<li>Definition of rules.</li>
+<li>Unification as a computation element.</li>
+<li>Declarative programming.</li>
+</ul>
+<p>Languages: Prolog, Mercury, Oz.</p>
+<p>Code example (Prolog):</p>
+<div class="highlight"><pre><span></span><code><span class="nf">padrede</span><span class="p">(</span><span class="s s-Atom">&#39;juan&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;maria&#39;</span><span class="p">).</span> <span class="c1">% juan es padre de maria</span>
+<span class="nf">padrede</span><span class="p">(</span><span class="s s-Atom">&#39;pablo&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;juan&#39;</span><span class="p">).</span> <span class="c1">% pablo es padre de juan</span>
+<span class="nf">padrede</span><span class="p">(</span><span class="s s-Atom">&#39;pablo&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;marcela&#39;</span><span class="p">).</span>
+<span class="nf">padrede</span><span class="p">(</span><span class="s s-Atom">&#39;carlos&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;debora&#39;</span><span class="p">).</span>
+
+<span class="nf">hijode</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">padrede</span><span class="p">(</span><span class="nv">B</span><span class="p">,</span><span class="nv">A</span><span class="p">).</span>
+<span class="nf">abuelode</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="p">:-</span>  <span class="nf">padrede</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">C</span><span class="p">),</span> <span class="nf">padrede</span><span class="p">(</span><span class="nv">C</span><span class="p">,</span><span class="nv">B</span><span class="p">).</span>
+<span class="nf">hermanode</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">padrede</span><span class="p">(</span><span class="nv">C</span><span class="p">,</span><span class="nv">A</span><span class="p">)</span> <span class="p">,</span> <span class="nf">padrede</span><span class="p">(</span><span class="nv">C</span><span class="p">,</span><span class="nv">B</span><span class="p">),</span> <span class="nv">A</span> <span class="s s-Atom">\==</span> <span class="nv">B</span><span class="p">.</span>
+
+<span class="nf">familiarde</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">padrede</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">).</span>
+<span class="nf">familiarde</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">hijode</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">).</span>
+<span class="nf">familiarde</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">hermanode</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="nv">B</span><span class="p">).</span>
+
+<span class="s s-Atom">?-</span> <span class="nf">hermanode</span><span class="p">(</span><span class="s s-Atom">&#39;juan&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;marcela&#39;</span><span class="p">).</span>
+<span class="s s-Atom">yes</span>
+<span class="s s-Atom">?-</span> <span class="nf">hermanode</span><span class="p">(</span><span class="s s-Atom">&#39;carlos&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;juan&#39;</span><span class="p">).</span>
+<span class="s s-Atom">no</span>
+<span class="s s-Atom">?-</span> <span class="nf">abuelode</span><span class="p">(</span><span class="s s-Atom">&#39;pablo&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;maria&#39;</span><span class="p">).</span>
+<span class="s s-Atom">yes</span>
+<span class="s s-Atom">?-</span> <span class="nf">abuelode</span><span class="p">(</span><span class="s s-Atom">&#39;maria&#39;</span><span class="p">,</span> <span class="s s-Atom">&#39;pablo&#39;</span><span class="p">).</span>
+<span class="s s-Atom">no</span>
+</code></pre></div>
+<h3 id="44-imperative-paradigm">4.4. Imperative Paradigm<a class="headerlink" href="#44-imperative-paradigm" title="Permanent link">&para;</a></h3>
+<p>Programming languages that follow the imperative paradigm are
+characterized by having an implicit state that is modified through
+language instructions or commands. As a result, these languages have
+a notion of command sequencing to allow precise and deterministic
+control of state.</p>
+<p>Characteristics:</p>
+<ul>
+<li>Definition of procedures.</li>
+<li>Definition of data types.</li>
+<li>Compile-time type checking.</li>
+<li>Change of variable state.</li>
+<li>Execution steps of a process.</li>
+</ul>
+<p>Example (Pascal):</p>
+<div class="highlight"><pre><span></span><code><span class="k">type</span>
+<span class="w">   </span><span class="n">tDimension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="o">;</span>
+<span class="w">   </span><span class="n">eMatriz</span><span class="p">(</span><span class="n">f</span><span class="o">,</span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">tDimension</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">array</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">f</span><span class="o">,</span><span class="mi">1</span><span class="o">..</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="kt">real</span><span class="o">;</span>
+
+<span class="w">   </span><span class="n">tRango</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">record</span>
+<span class="w">      </span><span class="n">f</span><span class="o">,</span><span class="n">c</span><span class="o">:</span><span class="w"> </span><span class="n">tDimension</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="mi">1</span><span class="o">;</span>
+<span class="w">   </span><span class="k">end</span><span class="o">;</span>
+
+<span class="w">   </span><span class="n">tpMatriz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">^</span><span class="n">eMatriz</span><span class="o">;</span>
+
+<span class="k">procedure</span><span class="w"> </span><span class="nf">EscribirMatriz</span><span class="p">(</span><span class="k">var</span><span class="w"> </span><span class="n">m</span><span class="o">:</span><span class="w"> </span><span class="n">tpMatriz</span><span class="p">)</span><span class="o">;</span>
+<span class="k">var</span><span class="w"> </span><span class="n">filas</span><span class="o">,</span><span class="n">col</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="o">;</span>
+<span class="k">begin</span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="n">filas</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">m</span><span class="o">^.</span><span class="n">f</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">m</span><span class="o">^.</span><span class="n">c</span><span class="w"> </span><span class="k">do</span>
+<span class="w">         </span><span class="nb">write</span><span class="p">(</span><span class="n">m</span><span class="o">^</span><span class="p">[</span><span class="n">filas</span><span class="o">,</span><span class="n">col</span><span class="p">]</span><span class="o">:</span><span class="mi">7</span><span class="o">:</span><span class="mi">2</span><span class="p">)</span><span class="o">;</span>
+<span class="w">      </span><span class="nb">writeln</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span><span class="o">;</span>
+<span class="w">      </span><span class="nb">writeln</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="w">     </span><span class="k">end</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</code></pre></div>
+<h3 id="45-object-oriented-paradigm">4.5. Object-Oriented Paradigm<a class="headerlink" href="#45-object-oriented-paradigm" title="Permanent link">&para;</a></h3>
+<p>Characteristics:</p>
+<ul>
+<li>Definition of classes and inheritance.</li>
+<li>Objects as abstractions of data and procedures.</li>
+<li>Polymorphism and runtime type checking.</li>
+</ul>
+<p>Example (Java):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Bicicleta</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">marcha</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">velocidad</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Bicicleta</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">velocidadInicial</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">marchaInicial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">marcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">marchaInicial</span><span class="p">;</span>
+<span class="w">        </span><span class="n">velocidad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">velocidadInicial</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setMarcha</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nuevoValor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">marcha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nuevoValor</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">frenar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">decremento</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">velocidad</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">decremento</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">acelerar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">incremento</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">velocidad</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">incremento</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MountainBike</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Bicicleta</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alturaSillin</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MountainBike</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">alturaInicial</span><span class="p">,</span>
+<span class="w">                        </span><span class="kt">int</span><span class="w"> </span><span class="n">velocidadInicial</span><span class="p">,</span>
+<span class="w">                        </span><span class="kt">int</span><span class="w"> </span><span class="n">marchaInicial</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">velocidadInicial</span><span class="p">,</span><span class="w"> </span><span class="n">marchaInicial</span><span class="p">);</span>
+<span class="w">        </span><span class="n">alturaSillin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alturaInicial</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAltura</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nuevoValor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">alturaSillin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nuevoValor</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Excursion</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MountainBike</span><span class="w"> </span><span class="n">miBicicleta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MoutainBike</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">miBicicleta</span><span class="p">.</span><span class="na">acelerar</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">        </span><span class="n">miBicicleta</span><span class="p">.</span><span class="na">setMarcha</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">        </span><span class="n">miBicicleta</span><span class="p">.</span><span class="na">frenar</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="5-compilers-and-interpreters">5. Compilers and Interpreters<a class="headerlink" href="#5-compilers-and-interpreters" title="Permanent link">&para;</a></h2>
+<p>At the lowest level of abstraction, the execution of a program on a
+computer consists of executing a set of machine-code instructions for
+the processor. For example, the following figure shows an example of
+an assembly-language program for an old processor, the Z80, an 8-bit
+processor from the legendary
+<a href="http://es.wikipedia.org/wiki/Sinclair_ZX_Spectrum">ZX Spectrum</a>, one
+of the first personal computers in Europe:</p>
+<p><img src="imagenes/ensamblador.png" width="500px"/></p>
+<p><em>Z80 assembly language</em></p>
+<p>Depending on the type of programming language in which the program is
+written, the machine code being executed will be:</p>
+<ul>
+<li>the result of compiling the original program, in the case of a
+  compiled language.</li>
+<li>the code of a program, the interpreter, that interprets the
+  original program, in the case of an interpreted language.</li>
+</ul>
+<h3 id="51-compilation">5.1. Compilation<a class="headerlink" href="#51-compilation" title="Permanent link">&para;</a></h3>
+<p>The following figure, taken like the others in this section from
+<em>Programming Language Pragmatics</em>, shows the generation and execution
+process of a compiled program.</p>
+<p><img src="imagenes/compilacion.png" width="500px"/></p>
+<p><em>Compilation</em></p>
+<p>The compilation process of a program consists of translating the
+original source code in the high-level language into the specific
+machine code of the processor on which the program will run. The
+resulting machine code only runs on the processor for which it has
+been generated. For example, a C program compiled for an Intel
+processor cannot run on an ARM processor, such as Apple's
+<a href="http://en.wikipedia.org/wiki/Apple_system_on_a_chip">Ax</a>.</p>
+<ul>
+<li>Examples: C, C++</li>
+<li>Different moments in the life of a program: compile time and
+  runtime.</li>
+<li>Greater efficiency.</li>
+</ul>
+<h3 id="52-interpretation">5.2. Interpretation<a class="headerlink" href="#52-interpretation" title="Permanent link">&para;</a></h3>
+<p><img src="imagenes/interpretacion.png" width="500px"/></p>
+<p><em>Interpretation</em></p>
+<ul>
+<li>Examples: BASIC, Lisp, Scheme, Python, Ruby.</li>
+<li>There is no difference between compile time and runtime.</li>
+<li>Greater flexibility: code can be built and executed "on the fly"
+  (lambda functions or closures).</li>
+</ul>
+<p>Interpreted languages usually provide a <em>shell</em> or interpreter. This
+is an interactive environment in which we can define and evaluate
+expressions. In functional programming circles, this environment is
+called a <em>REPL</em> (<em>Read</em>, <em>Eval</em>, <em>Print</em>, <em>Loop</em>) and was already
+used in the early years of Lisp implementation. The use of a <em>REPL</em>
+promotes interactive programming, in which we continuously evaluate
+and check the code we develop.</p>
+<h3 id="53-mixed-approaches">5.3. Mixed Approaches<a class="headerlink" href="#53-mixed-approaches" title="Permanent link">&para;</a></h3>
+<p>There are also mixed approaches, such as the one used by the Java
+programming language, where both processes are performed.</p>
+<p>In a first phase, the Java compiler (<code>javac</code>) translates the original
+source code into a processor-independent binary <em>intermediate code</em>
+called <em>bytecode</em>. This binary code is cross-platform.</p>
+<p>The intermediate code is then interpreted by the interpreter (<code>java</code>),
+which is platform-dependent. In the figure, the interpreter is called
+<em>Virtual machine</em> (not to be confused with the concept of a <em>virtual
+machine</em> that emulates an operating system, such as VirtualBox).</p>
+<p><img src="imagenes/maquina-virtual.png" width="500px"/></p>
+<p><em>Mixed approach (Java)</em></p>
+<ul>
+<li>Examples: Java, Scala</li>
+</ul>
+<h2 id="6-bibliography">6. Bibliography<a class="headerlink" href="#6-bibliography" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Introduction and chapter 1 of Structure and Interpretation of
+  Computer Programs: <em>Building Abstractions with Procedures</em></li>
+<li>Chapter 1.2 of Programming Language Pragmatics: <em>The Programming
+  Language Spectrum</em></li>
+<li>Chapter 1.3 of Programming Language Pragmatics: <em>Why Study
+  Programming Languages</em></li>
+<li>Chapter 1.4 of Programming Language Pragmatics: <em>Compilation and
+  Interpretation</em></li>
+<li>Raul Rojas, "Konrad Zuse's legacy the architecture of the Z1 and
+  Z3", IEEE Annals of the History of Computing, Vol. 19, No. 2, 1997</li>
+<li>Charles Petzold, "Code", Microsoft Press, 2000 (Chapter 18: "From
+  Abaci to Chips")</li>
+<li>Jack Copeland, "The Modern History of Computing", The Stanford
+  Encyclopedia of Philosophy (Fall 2008 Edition), URL =
+  <a href="http://plato.stanford.edu/archives/fall2008/entries/computing-history/">http://plato.stanford.edu/archives/fall2008/entries/computing-history/</a></li>
+<li>Georgi Dalakov, "History of Computers", URL =
+  <a href="http://history-computer.com">http://history-computer.com</a></li>
+</ul>
+<hr />
+<p>Programming Languages and Paradigms, academic year 2025-26<br />
+© Department of Computer Science and Artificial Intelligence, University of Alicante<br />
+Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
