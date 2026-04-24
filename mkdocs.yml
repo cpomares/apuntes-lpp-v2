@@ -43,8 +43,31 @@ plugins:
           name: English
           build: true
           nav:
+            - Home: index.md
             - Theory:
                 - 'Topic 00: Course description': theory/topic00-course-description/topic00-course-description.md
+                - 'Topic 1: History of programming languages': theory/topic01-history-programming-languages/topic01-history-programming-languages.md
+                - 'Topic 2: Functional programming': theory/topic02-functional-programming/topic02-functional-programming.md
+                - 'Topic 3: Recursive procedures': theory/topic03-recursive-procedures/topic03-recursive-procedures.md
+                - 'Topic 4: Recursive structures': theory/topic04-recursive-structures/topic04-recursive-structures.md
+                - 'Topic 5: Functional programming with Swift': theory/topic05-functional-programming-swift/topic05-functional-programming-swift.md
+                - 'Topic 6: Object-oriented programming with Swift': theory/topic06-object-oriented-programming-swift/topic06-object-oriented-programming-swift.md
+            - Seminars:
+                - 'Scheme seminar': seminars/seminar01-scheme/seminar01-scheme.md
+                - 'Swift seminar': seminars/seminar02-swift/seminar02-swift.md
+            - Labs:
+                - 'Lab 1': labs/lab01-practice/lab01-practice.md
+                - 'Lab 2': labs/lab02-practice/lab02-practice.md
+                - 'Lab 3': labs/lab03-practice/lab03-practice.md
+                - 'Lab 4': labs/lab04-practice/lab04-practice.md
+                - 'Lab 5': labs/lab05-practice/lab05-practice.md
+                - 'Lab 6': labs/lab06-practice/lab06-practice.md
+                - 'Lab 7': labs/lab07-practice/lab07-practice.md
+                - 'Lab 8': labs/lab08-practice/lab08-practice.md
+                - 'Lab 9': labs/lab09-practice/lab09-practice.md
+                - 'Lab 10': labs/lab10-practice/lab10-practice.md
+                - 'Lab 11': labs/lab11-practice/lab11-practice.md
+                - 'Lab 12': labs/lab12-practice/lab12-practice.md
 
 theme:
   features:
