@@ -39,9 +39,11 @@ plugins:
         - locale: es
           default: true
           name: Español
+          fixed_link: https://cpomares.github.io/apuntes-lpp-v2/index.html
           build: true
         - locale: en
           name: English
+          fixed_link: https://cpomares.github.io/apuntes-lpp-v2/en/index.html
           build: true
           nav:
             - Home: index.md
