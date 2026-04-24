@@ -34,6 +34,7 @@ plugins:
   - search
   - i18n:
       docs_structure: folder
+      fallback_to_default: false
       reconfigure_material: true
       languages:
         - locale: es
