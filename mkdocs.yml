@@ -1,4 +1,5 @@
 site_name: LPP
+site_url: https://cpomares.github.io/apuntes-lpp-v2/
 use_directory_urls: false
 
 nav:
