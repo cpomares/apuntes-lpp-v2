@@ -1,0 +1,2316 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../seminar01-scheme/seminar01-scheme/">
+      
+      
+        <link rel="next" href="../../../labs/lab01-practice/lab01-practice/">
+      
+      
+        
+          <link rel="alternate" href="/" hreflang="es">
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Swift seminar - LPP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#seminar-2-swift-seminar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../" title="LPP" class="md-header__button md-logo" aria-label="LPP" data-md-component="logo">
+      
+  <img src="../../../../imagenes/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LPP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Swift seminar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../" title="LPP" class="md-nav__button md-logo" aria-label="LPP" data-md-component="logo">
+      
+  <img src="../../../../imagenes/logo.png" alt="logo">
+
+    </a>
+    LPP
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic00-course-description/topic00-course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 00: Course description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic01-history-programming-languages/topic01-history-programming-languages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 1: History of programming languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic02-functional-programming/topic02-functional-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 2: Functional programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic03-recursive-procedures/topic03-recursive-procedures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 3: Recursive procedures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic04-recursive-structures/topic04-recursive-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 4: Recursive structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic05-functional-programming-swift/topic05-functional-programming-swift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 5: Functional programming with Swift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../theory/topic06-object-oriented-programming-swift/topic06-object-oriented-programming-swift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic 6: Object-oriented programming with Swift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seminars
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seminars
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seminar01-scheme/seminar01-scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheme seminar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift seminar
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift seminar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-swift-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Swift Programming Language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-swift-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Swift Programs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Swift Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#online-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Online Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-ubuntu-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Ubuntu Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution on macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-swift-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Swift Tour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliography-and-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliography and References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab01-practice/lab01-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab02-practice/lab02-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab03-practice/lab03-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab04-practice/lab04-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab05-practice/lab05-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab06-practice/lab06-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab07-practice/lab07-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab08-practice/lab08-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab09-practice/lab09-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab10-practice/lab10-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab11-practice/lab11-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/lab12-practice/lab12-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-swift-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Swift Programming Language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-swift-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Swift Programs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Swift Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#online-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Online Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-ubuntu-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Ubuntu Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution on macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-swift-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Swift Tour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliography-and-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliography and References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="seminar-2-swift-seminar">Seminar 2: Swift Seminar<a class="headerlink" href="#seminar-2-swift-seminar" title="Permanent link">&para;</a></h1>
+<h2 id="the-swift-programming-language">The Swift Programming Language<a class="headerlink" href="#the-swift-programming-language" title="Permanent link">&para;</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/Swift_(programming_language)">Swift</a> is
+a compiled, general-purpose, multi-paradigm programming language
+developed by Apple. Swift was introduced at Apple's Worldwide
+Developers Conference (WWDC) in 2014. During 2014, version 1.2 was
+developed, and at WWDC 2015 Swift 2 was presented, a major update to
+the language. It was initially a proprietary language, but on
+December 3, 2015 it became <em>open source</em> under the Apache 2.0
+license for Apple platforms and Linux. Changes to the language are
+proposed and discussed by the community through a process called
+<a href="https://github.com/apple/swift-evolution">Swift evolution</a>.</p>
+<p>The following description is taken from the Swift GitHub repository:</p>
+<blockquote>
+<p>Swift is a high-performance systems programming language. It has a
+clean and modern syntax, offers seamless access to existing C and
+Objective-C code and frameworks, and is memory safe by default.</p>
+<p>Although inspired by Objective-C and many other languages, Swift is
+not itself a C-derived language. As a complete and independent
+language, Swift packages core features like flow control, data
+structures, and functions, with high-level constructs like objects,
+protocols, closures, and generics. Swift embraces modules,
+eliminating the need for headers and the code duplication they
+entail.</p>
+</blockquote>
+<p>In the first years of the language, very strong changes were
+introduced, increasing the major version number in consecutive years
+and breaking source compatibility with previous versions. However, in
+recent years the language has matured, and we have spent several
+years with only minor-version increments within major version 5. At
+present, version 5.8 has been released, but you can follow the course
+and the labs perfectly well with any 5.x version.</p>
+<h2 id="running-swift-programs">Running Swift Programs<a class="headerlink" href="#running-swift-programs" title="Permanent link">&para;</a></h2>
+<p>It is possible to download the Swift compiler on macOS (using the
+Xcode development environment) or Linux.</p>
+<p>Below we explain different ways to run Swift programs.</p>
+<h3 id="online-execution">Online Execution<a class="headerlink" href="#online-execution" title="Permanent link">&para;</a></h3>
+<p>There are several online sites where it is possible to run Swift
+code. We recommend:</p>
+<ul>
+<li><a href="https://www.mycompiler.io/es/new/swift">Swift My Compiler</a>.</li>
+</ul>
+<p><img src="imagenes/myCompiler.png" width="700px"/></p>
+<ul>
+<li><a href="https://www.onlineide.pro/playground/swift">Swift Playground Online IDE Pro</a>.</li>
+</ul>
+<p><img src="imagenes/onlineIdePro.png" width=700px"/></p>
+<ul>
+<li><a href="https://online.swiftplayground.run/">Online Swift Playground</a>.</li>
+</ul>
+<p><img src="imagenes/swift-on-line.png" width=700px"/></p>
+<h3 id="installation-on-ubuntu-linux">Installation on Ubuntu Linux<a class="headerlink" href="#installation-on-ubuntu-linux" title="Permanent link">&para;</a></h3>
+<p>Official Swift distributions are available for Linux 22.04 and 24.04.</p>
+<p>Briefly, the installation steps are the following:</p>
+<ol>
+<li>
+<p>Confirm that the Linux installation packages are up to date:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get update
+$ sudo apt-get upgrade
+</code></pre></div>
+</li>
+<li>
+<p>Install the dependencies listed on the <a href="https://www.swift.org/getting-started/#installing-swift">official Apple
+website</a>
+using <code>apt-get install</code>. You will need superuser permissions to do
+this: <code>sudo apt-get install</code>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Depending on your Linux version, you will need to download
+different dependencies. Check carefully on Apple's page which
+exact <code>apt-get install</code> command you must run for your version.
+See the dependencies for your version on the <a href="https://www.swift.org/install/linux/tarball/">official Swift
+page</a>.</p>
+</div>
+</li>
+<li>
+<p>Download the desired version and platform
+   (<code>swift-&lt;VERSION&gt;-&lt;PLATFORM&gt;.tar.gz</code>). For example, the following
+   commands download Swift version 6.0.3 for the different Ubuntu
+   distributions.</p>
+<ul>
+<li>
+<p>Ubuntu 22.04:</p>
+<div class="highlight"><pre><span></span><code>$ wget https://download.swift.org/swift-6.0.3-release/ubuntu2204/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-ubuntu22.04.tar.gz
+</code></pre></div>
+</li>
+<li>
+<p>Ubuntu 24.04:</p>
+<div class="highlight"><pre><span></span><code>$ wget https://download.swift.org/swift-6.0.3-release/ubuntu2404/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-ubuntu24.04.tar.gz
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Extract the file:</p>
+<div class="highlight"><pre><span></span><code>$ tar xzf swift-&lt;VERSION&gt;-&lt;PLATFORM&gt;.tar.gz
+</code></pre></div>
+<p>This creates the <code>usr/</code> directory in the location of the archive.
+You can test whether the <code>swift</code> command works by moving to the
+<code>bin</code> directory and running:</p>
+<div class="highlight"><pre><span></span><code>$ ./swift repl
+Welcome to Swift version 5.8
+Type :help for assistance.
+1&gt; print(&quot;Hola mundo&quot;)
+Hola mundo
+2&gt; :quit
+$
+</code></pre></div>
+</li>
+<li>
+<p>To run <code>swift</code> from any directory, you must update the <code>PATH</code> or
+   move <code>usr/bin/swift</code> to the <code>/usr/bin</code> directory.</p>
+<div class="highlight"><pre><span></span><code>$ export PATH=/path/to/usr/bin:&quot;${PATH}&quot;
+</code></pre></div>
+</li>
+</ol>
+<h3 id="installation-on-windows">Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permanent link">&para;</a></h3>
+<p>You can install our WSL distribution by downloading it from
+<a href="https://drive.google.com/file/d/1yiQTEGQjRrxIorbrpU8pNCb0PTYQ0CJU/view?usp=sharing">this link</a>.</p>
+<p>It is an exported tar copy of a WSL Ubuntu 24.04 distribution
+prepared with Swift 6.0.3 already installed so that Swift can be run
+directly. Before proceeding, check that WSL is installed and enabled
+on your system with the following command in the Windows terminal
+(PowerShell or CMD):</p>
+<div class="highlight"><pre><span></span><code>wsl --list --verbose
+</code></pre></div>
+<p>This command will show the Linux distributions installed and their
+status.</p>
+<div class="admonition note">
+<p class="admonition-title">If WSL is not installed</p>
+<p>If you do not have WSL, you can enable it using PowerShell by
+running the following command as administrator:</p>
+<div class="highlight"><pre><span></span><code>wsl --install
+</code></pre></div>
+<p>This command installs the latest version of WSL. If WSL is already
+enabled, the command updates to WSL 2 if necessary and available.</p>
+<p>Alternatively, you can enable WSL through the Windows Control
+Panel:</p>
+<ul>
+<li>Open the Control Panel.</li>
+<li>Go to "Programs".</li>
+<li>Click "Turn Windows features on or off".</li>
+<li>Find "Windows Subsystem for Linux", check it, and click OK.</li>
+</ul>
+<p>After enabling WSL, you will be asked to restart your computer.</p>
+</div>
+<p>Steps to import our distribution:</p>
+<ol>
+<li>Create a folder called <code>UbuntuLPP</code> on a drive with at least 8 GB
+   of capacity.</li>
+<li>Download the copy (<code>UbuntuLPP.tgz</code>) into that folder.</li>
+<li>Open a command prompt window (<code>cmd.exe</code>) and move to that folder
+   (<code>cd [path]\UbuntuLPP</code>).</li>
+<li>
+<p>Run the following command to import the distribution into WSL 2:</p>
+<div class="highlight"><pre><span></span><code>wsl --import UbuntuLPP . UbuntuLPP.tgz
+</code></pre></div>
+<p>When importing the distribution with the previous command, the name
+given to the distribution is <code>UbuntuLPP</code> (a different name could
+have been used), and the location where the virtual disk
+(<code>ext4.vhdx</code>) is unpacked is the directory where the command is
+executed (the <code>.</code> could have been replaced with a different path).
+Once the distribution has been imported, the tar file
+(<code>UbuntuLPP.tgz</code>) can be deleted.</p>
+<div class="admonition danger">
+<p class="admonition-title">Avoid storing the WSL disk in the cloud</p>
+<p>Storing WSL virtual disk files in synchronization services such
+as OneDrive, Drive, or Dropbox can cause access conflicts and
+errors. To ensure proper operation, store them directly on your
+computer's hard drive in a local path.</p>
+</div>
+</li>
+</ol>
+<p>The distribution was created with the user <code>swiftuser</code> as the default
+user and administrator, with the password <code>su-LPP-UA</code> (in case you
+need it, for example, to run <code>sudo</code>).</p>
+<p>Naturally, you can also download WSL Ubuntu from the <a href="https://apps.microsoft.com/detail/9pdxgncfsczv?hl=en-us&amp;gl=US">Microsoft
+Store</a>
+(or use a distribution you already have installed) and then install
+Swift on Ubuntu as explained in the previous section.</p>
+<h3 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">&para;</a></h3>
+<p>To edit Swift code, you can use any programming-oriented editor such
+as Visual Studio Code (VSC) or Atom. We recommend <a href="https://code.visualstudio.com">Visual Studio
+Code</a>.</p>
+<p>Recent versions of Visual Studio Code include the <a href="https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang">official Swift
+plugin</a>,
+which provides syntax highlighting and code completion.</p>
+<p>To work more comfortably, we can open the integrated terminal:
+<strong>View &gt; Integrated Terminal</strong>. We can check that VSC can open a WSL
+terminal where we can run the previously installed Swift.</p>
+<p><img src="imagenes/vcode.png" width="700px"/></p>
+<p>You can consult the basic Visual Studio Code concepts and the full
+manual at <a href="https://code.visualstudio.com/docs">this link</a>.</p>
+<h3 id="execution-on-macos">Execution on macOS<a class="headerlink" href="#execution-on-macos" title="Permanent link">&para;</a></h3>
+<p>We can work in two ways: running Swift programs from the terminal or
+from Xcode.</p>
+<p>If you have a Mac, you can try both methods and choose whichever is
+more convenient.</p>
+<h4 id="running-from-the-terminal">Running from the Terminal<a class="headerlink" href="#running-from-the-terminal" title="Permanent link">&para;</a></h4>
+<p>We must install the <em>Xcode Command Line Tools</em> with the following
+command:</p>
+<div class="highlight"><pre><span></span><code>$ xcode-select --install
+</code></pre></div>
+<p>Once the tools are installed, we can run Swift programs from the
+terminal interactively.</p>
+<p>Open the terminal and type:</p>
+<div class="highlight"><pre><span></span><code>$ swift repl
+</code></pre></div>
+<p>You will see that the Swift interpreter starts and allows you to
+write and run Swift code:</p>
+<p><img src="imagenes/terminal-swift.png" width="600px"/></p>
+<p>To edit a Swift program, you can use an editor such as <em>Visual Studio
+Code</em>, as mentioned earlier, and then run it from the terminal.</p>
+<div class="highlight"><pre><span></span><code>$ swift prueba.swift
+Hola mundo
+</code></pre></div>
+<p><img src="imagenes/terminal-swift-programa.png" width="500px"/></p>
+<h4 id="running-from-xcode">Running from Xcode<a class="headerlink" href="#running-from-xcode" title="Permanent link">&para;</a></h4>
+<p>First, you must install Xcode from the Mac App Store.</p>
+<p>Once Xcode is installed, you can run a Swift program in two ways:
+compiling from the terminal or compiling in Xcode.</p>
+<h5 id="compiling-from-the-terminal">Compiling from the Terminal<a class="headerlink" href="#compiling-from-the-terminal" title="Permanent link">&para;</a></h5>
+<p>In Xcode, you can create a new file using <em>File &gt; New File...</em> and
+select the <em>macOS &gt; Swift File</em> template.</p>
+<p><img src="imagenes/template-new-swift-file.png" width="600px"/></p>
+<p>Select the folder and file name, and then you can write Swift code:</p>
+<p><img src="imagenes/xcode-file-swift.png" width="600px"/></p>
+<p>Once the program is saved, you can run it from the terminal:</p>
+<div class="highlight"><pre><span></span><code>$ swift prueba.swift
+Hola mundo
+</code></pre></div>
+<p><img src="imagenes/terminal-swift-programa.png" width="500px"/></p>
+<p>If there is any compilation error, it will be detected when launching
+the command from the terminal.</p>
+<p><img src="imagenes/programa-con-error.png" width="600px"/></p>
+<p><img src="imagenes/error-terminal.png" width="500px"/></p>
+<h5 id="compiling-with-xcode">Compiling with Xcode<a class="headerlink" href="#compiling-with-xcode" title="Permanent link">&para;</a></h5>
+<p>The other way to work is to create a Swift project from Xcode. It is
+a bit more complex because it requires knowing a few more Xcode
+commands, but it has the advantage that Xcode shows errors directly
+in the editing window.</p>
+<p>In Xcode, click <em>File &gt; New Project...</em> and select the
+<em>macOS &gt; Command Line Tool</em> template.</p>
+<p><img src="imagenes/proyecto-xcode.png" width="600px"/></p>
+<p>You can choose any name you want, for example <code>prueba-swift</code>.</p>
+<p><img src="imagenes/proyecto-swift-xcode.png" width="600px"/></p>
+<p>Select the location on disk where the project will be saved and you
+can start working with it. The main file is called <code>main.swift</code>.
+Pressing <em>Run</em> compiles the project and opens a panel showing the
+output:</p>
+<p><img src="imagenes/ejecucion-xcode.png" width="700px"/></p>
+<p>If there is any compilation error, it is detected while writing the
+code and shown in the editor itself:</p>
+<p><img src="imagenes/xcode-error.png" width="700px"/></p>
+<h2 id="a-swift-tour">A Swift Tour<a class="headerlink" href="#a-swift-tour" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The text of this seminar is a translation of Apple's document
+<a href="https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html">A Swift Tour</a>,
+which presents a quick introduction to the fundamental concepts of
+the language. In later course topics we will study aspects such as
+functions, generics, classes, or protocols in more depth.</p>
+</div>
+<p>Tradition suggests that the first program in a new language should
+print the words "Hello, world!" on the screen. In Swift, this can be
+done with a single line:</p>
+<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Hola, mundo!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>If you have written code in C or Objective-C, this syntax will look
+familiar. In Swift, this line of code is a complete program. You do
+not need to import a separate library for features such as input,
+output, or string handling. Code written at global scope is used as
+the entry point of the program, so you do not need a <code>main()</code>
+function. You also do not have to write semicolons at the end of
+every statement. You can comment lines of code in the same way as in
+C.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">//</span>
+<span class="c1">// This is a comment</span>
+<span class="c1">//</span>
+
+<span class="cm">/*</span>
+<span class="cm">   And this is also a comment</span>
+<span class="cm">*/</span>
+</code></pre></div>
+<p>This tour gives you enough information to start writing code in Swift
+by showing how to achieve a variety of programming tasks. Full
+information about all Swift language elements can be found in the
+<a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">Swift Guide</a>.</p>
+<h4 id="simple-values">Simple Values<a class="headerlink" href="#simple-values" title="Permanent link">&para;</a></h4>
+<p>Use <code>let</code> to create a constant and <code>var</code> to create a variable. The
+value of a constant does not need to be known at compile time, but
+you must assign it a value exactly once. This means that you can use
+constants to name a value that you determine once and then use in
+many places.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">miVariable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
+<span class="n">miVariable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">50</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">miConstante</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
+</code></pre></div>
+<p>A constant or variable must have the same type as the value you want
+to assign to it. However, you do not always have to write the type
+explicitly. When a value is provided when creating a constant or
+variable, the compiler infers its type. In the previous example, the
+compiler infers that <code>myVariable</code> is an integer because its initial
+value is an integer.</p>
+<p>If the initial value does not provide enough information, or if there
+is no initial value, specify the type by writing it after the
+variable, separated by a colon.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">implicitoInteger</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">70</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">implicitoDouble</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">70.0</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">explicitoDouble</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">70</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Throughout the seminar, small exercises are proposed that you
+should do yourself to practice the language a bit more. You will
+find them in the blocks headed with "Experiment".</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 1</p>
+<p>Create a constant with the explicit type <code>Float</code> and the value <code>4</code>.</p>
+</div>
+<p>Values are never implicitly converted to another type. If you need to
+convert a value to a different type, explicitly construct an instance
+of the desired type.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">etiqueta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;El ancho es &quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">ancho</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">94</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">anchoEtiqueta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">etiqueta</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="n">ancho</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 2</p>
+<p>Try removing the conversion to <code>String</code> in the last line. What
+error do you get? Include it translated in the code using a
+comment.</p>
+</div>
+<p>There is an even simpler way to include values in strings: write the
+value inside parentheses and put a backslash (<code>\</code>) before the
+parentheses. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">manzanas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">naranjas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">resumenManzanas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Tengo </span><span class="si">\(</span><span class="n">manzanas</span><span class="si">)</span><span class="s"> manzanas.&quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">resumenFrutas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Tengo </span><span class="si">\(</span><span class="n">manzanas</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">naranjas</span><span class="si">)</span><span class="s"> frutas.&quot;</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 3</p>
+<p>Use <code>\()</code> to print a string containing a floating-point
+calculation and, in another statement, to print a string that
+includes someone's name in a greeting.</p>
+</div>
+<p>Create arrays and dictionaries using square brackets (<code>[]</code>), and
+access their elements by writing the index or key inside the brackets.
+A trailing comma after the last element is allowed.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">listaCompra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;huevos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;agua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tomates&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pan&quot;</span><span class="p">]</span>
+<span class="n">listaCompra</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;botella de agua&quot;</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nv">trabajos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;Malcolm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Capitán&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Kaylee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mecánico&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">trabajos</span><span class="p">[</span><span class="s">&quot;Jayne&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Relaciones públicas&quot;</span>
+</code></pre></div>
+<p>To create an empty array or dictionary, use the initialization syntax.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">arrayVacio</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">]()</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">diccionarioVacio</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="nb">Float</span><span class="p">]()</span>
+</code></pre></div>
+<p>If the type information can be inferred, you can write an empty array
+as <code>[]</code> and an empty dictionary as <code>[:]</code>; for example, when setting a
+new value for a variable or passing an argument to a function.</p>
+<div class="highlight"><pre><span></span><code><span class="n">listaCompra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="n">trabajos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[:]</span>
+</code></pre></div>
+<p>You can find more information about working with arrays in the
+corresponding section of the <a href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html">Swift
+Guide</a>.</p>
+<h4 id="tuples">Tuples<a class="headerlink" href="#tuples" title="Permanent link">&para;</a></h4>
+<p>A tuple groups several values into a single compound value.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">http404Error</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">404</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Not Found&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The type of the tuple is <code>(Int, String)</code>.</p>
+<p>To get the values from the tuple, we can <em>decompose</em> it. If we want
+to ignore one part, we can use an underscore (<code>_</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">statusCode</span><span class="p">,</span><span class="w"> </span><span class="n">statusMensaje</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">http404Error</span>
+<span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">soloStatusCode</span><span class="p">,</span><span class="w"> </span><span class="kc">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">http404Error</span>
+</code></pre></div>
+<p>We can also access them by position:</p>
+<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="s">&quot;El código de estado es </span><span class="si">\(</span><span class="n">http404Error</span><span class="p">.</span><span class="mi">0</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="flow-control">Flow Control<a class="headerlink" href="#flow-control" title="Permanent link">&para;</a></h4>
+<p>Use <code>if</code> and <code>switch</code> to make conditionals, and use <code>for-in</code>, <code>for</code>,
+<code>while</code>, and <code>repeat-while</code> to create loops. Parentheses around
+conditions or loop variables are optional. Braces are required around
+the body.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">puntuacionesIndividuales</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">75</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">puntuacionEquipo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">for</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">puntuacionesIndividuales</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">puntuacionEquipo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">puntuacionEquipo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">puntuacionEquipo</span><span class="p">)</span>
+</code></pre></div>
+<p>In an <code>if</code> statement, the condition must be a boolean expression.
+This means code such as <code>if puntuacion { ... }</code> is an error, not an
+implicit comparison against zero as allowed in C.</p>
+<p>You can use <code>if</code> and <code>let</code> together to work with values that may be
+missing. These values are represented as optionals. An optional value
+either contains a value or contains <code>nil</code> to indicate that the value
+is missing. Write a question mark (<code>?</code>) after the type of a value to
+mark it as optional.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">cadenaOpcional</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hola&quot;</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">cadenaOpcional</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nv">nombreOpcional</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;John Appleseed&quot;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">saludo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hola!&quot;</span>
+<span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">nombre</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombreOpcional</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">saludo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hola, </span><span class="si">\(</span><span class="n">nombre</span><span class="si">)</span><span class="s">&quot;</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">saludo</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 4</p>
+<p>Change <code>nombreOpcional</code> to <code>nil</code>. What greeting do you get? Add an
+<code>else</code> clause that sets a different greeting if <code>nombreOpcional</code> is
+<code>nil</code>.</p>
+</div>
+<p>If the optional value is <code>nil</code>, the condition is <code>false</code> and the code
+inside the braces is skipped. Otherwise, the optional value is
+<em>unwrapped</em> and assigned to the constant after <code>let</code>, which makes the
+unwrapped value available inside the code block.</p>
+<p>Another way to handle optional values is to provide a default value
+using the <code>??</code> operator. If the optional value is missing, the
+default value is used instead.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombrePila</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">nombreCompleto</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;John Appleseed&quot;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">saludoInformal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;¿Qué tal, </span><span class="si">\(</span><span class="n">nombrePila</span><span class="w"> </span><span class="p">??</span><span class="w"> </span><span class="n">nombreCompleto</span><span class="si">)</span><span class="s">?&quot;</span>
+</code></pre></div>
+<p><code>switch</code> statements support any kind of data and a wide variety of
+comparison operations; they are not limited to integers and equality
+tests.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">verdura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;pimiento rojo&quot;</span>
+<span class="k">switch</span><span class="w"> </span><span class="n">verdura</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;zanahoria&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Buena para la vista.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;lechuga&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tomates&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Podrías hacer una buena ensalada.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Siempre puedes hacer una buena sopa.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 5</p>
+<p>Try removing the default case. What error do you get?</p>
+</div>
+<p>After executing the code inside the matching case, the program exits
+the <code>switch</code> statement. Execution does not continue with the next
+case, so there is no need to break out of the <code>switch</code> at the end of
+each case.</p>
+<p>Use <code>for-in</code> to iterate over items in a dictionary by providing a
+pair of names to use for each key-value pair. Dictionaries are
+unordered collections, so their keys and values are iterated in an
+arbitrary order.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numerosInteresantes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;Primos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">],</span>
+<span class="w">    </span><span class="s">&quot;Fibonacci&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">],</span>
+<span class="w">    </span><span class="s">&quot;Cuadrados&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">mayor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">clase</span><span class="p">,</span><span class="w"> </span><span class="n">numeros</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">numerosInteresantes</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mayor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">mayor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">num</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">mayor</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 6</p>
+<p>Add another variable to track which class of number is the
+largest.</p>
+</div>
+<p>Use <code>while</code> to repeat a block of code until a condition changes. A
+loop condition can also be at the end, ensuring that the loop runs at
+least once.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">while</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">repeat</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">*=</span><span class="w">  </span><span class="mi">2</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</code></pre></div>
+<p>You can define an index in a loop using <code>..&lt;</code> to build a range of
+indexes.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">total</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">.&lt;</span><span class="mi">4</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>Use <code>..&lt;</code> to build a range that omits its upper value, and use <code>...</code>
+to build a range that includes both values.</p>
+<h4 id="functions-and-closures">Functions and Closures<a class="headerlink" href="#functions-and-closures" title="Permanent link">&para;</a></h4>
+<p>Use <code>func</code> to declare a function. Use <code>-&gt;</code> to separate the parameter
+names and types from the return type of the function.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">saluda</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">dia</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hola </span><span class="si">\(</span><span class="n">nombre</span><span class="si">)</span><span class="s">, hoy es </span><span class="si">\(</span><span class="n">dia</span><span class="si">)</span><span class="s">.&quot;</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">saluda</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dia</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Martes&quot;</span><span class="p">))</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 7</p>
+<p>Remove the day parameter. Add a parameter to include today's meal
+in the greeting.</p>
+</div>
+<p>By default, functions use the parameter names as argument labels. It
+is possible to define a label by writing it before the parameter
+name, or to use no label by writing <code>_</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">saluda</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">dia</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hola </span><span class="si">\(</span><span class="n">nombre</span><span class="si">)</span><span class="s">, hoy es </span><span class="si">\(</span><span class="n">dia</span><span class="si">)</span><span class="s">.&quot;</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">saluda</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Martes&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>Functions can return any type of data, such as tuples.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">calculaEstadisticas</span><span class="p">(</span><span class="n">puntuaciones</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">-&gt;</span>
+<span class="w">                        </span><span class="p">(</span><span class="bp">min</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="bp">max</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuaciones</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuaciones</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">puntuaciones</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="bp">max</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="bp">max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuacion</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="bp">min</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="bp">min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuacion</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">puntuacion</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="bp">min</span><span class="p">,</span><span class="w"> </span><span class="bp">max</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">estadisticas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">calculaEstadisticas</span><span class="p">(</span><span class="n">puntuaciones</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">])</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">estadisticas</span><span class="p">.</span><span class="n">sum</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">estadisticas</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>Functions can also have a variable number of arguments, grouping all
+of them into an array.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">...)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">suma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">suma</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">suma</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">suma</span><span class="p">())</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">suma</span><span class="p">(</span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">597</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">))</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 8</p>
+<p>Write a function that computes the mean of its arguments.</p>
+</div>
+<p>Functions can be nested. Nested functions can access variables
+declared in the outer function. You can use nested functions to
+organize code inside a function that is long or complicated.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">devuelveQuince</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">suma</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">suma</span><span class="p">()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span>
+<span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">devuelveQuince</span><span class="p">())</span>
+</code></pre></div>
+<p>Functions are a first-class type. This means that a function can
+return another function as its result.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">construyeIncrementador</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">((</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">sumaUno</span><span class="p">(</span><span class="n">numero</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numero</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sumaUno</span>
+<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">incrementa</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">construyeIncrementador</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">incrementa</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+</code></pre></div>
+<p>We can modify the <code>devuelveQuince</code> example so that it returns a
+modified version of the <code>suma</code> function. We call that function
+<code>devuelveSuma</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">devuelveSuma</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">(()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">suma</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">y</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">suma</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">devuelveSuma</span><span class="p">()</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
+</code></pre></div>
+<p>A function can take another function as one of its arguments.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">cumpleCondicion</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">condicion</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">condicion</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nf">menorQueDiez</span><span class="p">(</span><span class="n">numero</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">numeros</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">]</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">cumpleCondicion</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="w"> </span><span class="n">numeros</span><span class="p">,</span><span class="w"> </span><span class="n">condicion</span><span class="p">:</span><span class="w"> </span><span class="n">menorQueDiez</span><span class="p">))</span>
+</code></pre></div>
+<p>Functions are actually a special case of closures: blocks of code
+that can be called later. Code in a closure has access to things such
+as variables and functions that were available in the scope where the
+closure was created, even if the closure is in a different scope when
+it runs. You already saw an example of this with nested functions.
+You can write a closure by surrounding code with braces (<code>{}</code>). Use
+<code>in</code> to separate the arguments from the body.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numeros</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
+<span class="w">    </span><span class="p">(</span><span class="n">numero</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">resultado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">numero</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">resultado</span>
+<span class="p">})</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 9</p>
+<p>Rewrite the closure so that it returns zero for all odd numbers.</p>
+</div>
+<p>You have quite a few options for writing closures more concisely.
+When the type of a closure is already known, you can omit the type of
+its parameters, the return type, or both. Closures written as a
+single statement implicitly return the value of that statement.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numerosMapeados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">numeros</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="p">})</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">numerosMapeados</span><span class="p">)</span>
+</code></pre></div>
+<p>You can refer to parameters by number instead of by name; this
+approach is especially useful in very short closures. A closure
+passed as the last argument can appear immediately after the
+parentheses. When a closure is the only argument to a function, you
+can omit the parentheses entirely.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numerosOrdenados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">numeros</span><span class="p">.</span><span class="bp">sorted</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="p">}</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">numerosOrdenados</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="objects-and-classes">Objects and Classes<a class="headerlink" href="#objects-and-classes" title="Permanent link">&para;</a></h4>
+<p>Use <code>class</code> followed by the class name to create a class. A property
+declaration in a class is written the same way as a constant or
+variable declaration, except that it is in the context of a class. In
+the same way, method declarations are written the same way as
+functions.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Figura</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Una figura con </span><span class="si">\(</span><span class="n">numeroDeLados</span><span class="si">)</span><span class="s"> lados.&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 10</p>
+<p>Add a constant property with <code>let</code>, and add another method that
+takes an argument.</p>
+</div>
+<p>Create an instance of a class by putting parentheses after the class
+name. Use dot syntax to access the properties and methods of the
+instance.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">figura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Figura</span><span class="p">()</span>
+<span class="n">figura</span><span class="p">.</span><span class="n">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">7</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">descripcionFigura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">figura</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
+</code></pre></div>
+<p>This version of the <code>Figura</code> class is missing something important: an
+initializer to set up the class when an instance is created. Use
+<code>init</code> to create one.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">FiguraConNombre</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">numeroDeLados</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span>
+
+<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">nombre</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombre</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Una figura con </span><span class="si">\(</span><span class="n">numeroDeLados</span><span class="si">)</span><span class="s"> lados.&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Notice how <code>self</code> is used to distinguish the <code>nombre</code> property from
+the <code>nombre</code> initializer argument. Arguments to the initializer are
+passed as in a function call when you create an instance of the
+class. Every property needs an assigned value, either in its
+declaration (such as <code>numeroDeLados</code>) or in the initializer (such as
+<code>nombre</code>).</p>
+<p>Subclasses include their superclass name after the subclass name,
+separated by a colon. There is no requirement that classes must be
+subclasses of some root class, so you can omit a superclass if
+needed.</p>
+<p>Methods in a subclass that override the superclass implementation are
+marked with <code>override</code>; accidentally overriding a method without
+<code>override</code> is detected by the compiler as an error. The compiler also
+detects methods marked with <code>override</code> that do not actually override
+any method in the superclass.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Cuadrado</span><span class="p">:</span><span class="w"> </span><span class="n">FiguraConNombre</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
+
+<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">longitudLado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="w">        </span><span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="n">nombre</span><span class="p">)</span>
+<span class="w">        </span><span class="n">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w">  </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">longitudLado</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kr">override</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Un cuadrado con lados de longitud </span><span class="si">\(</span><span class="n">longitudLado</span><span class="si">)</span><span class="s">.&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">test</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Cuadrado</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="mf">5.2</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mi cuadrado de prueba&quot;</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">area</span><span class="p">())</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">())</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 11</p>
+<p>Build another subclass of <code>FiguraConNombre</code> called <code>Circulo</code> that
+takes a radius and a name as arguments to its initializer.
+Implement an <code>area()</code> method and <code>descripcionSencilla()</code> in the
+<code>Circulo</code> class.</p>
+</div>
+<p>In addition to simple stored properties, properties can have a
+<em>getter</em> and a <em>setter</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TrianguloEquilatero</span><span class="p">:</span><span class="w"> </span><span class="n">FiguraConNombre</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">longitudLado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="w">        </span><span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="n">nombre</span><span class="p">)</span>
+<span class="w">        </span><span class="n">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">perimetro</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kr">get</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kr">set</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">longitudLado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newValue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kr">override</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Un triangulo equilátero con lados de longitud </span><span class="si">\(</span><span class="n">longitudLado</span><span class="si">)</span><span class="s">.&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="nv">triangulo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TrianguloEquilatero</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;un triángulo&quot;</span><span class="p">)</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">triangulo</span><span class="p">.</span><span class="n">perimetro</span><span class="p">)</span>
+<span class="n">triangulo</span><span class="p">.</span><span class="n">perimetro</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">9.9</span>
+<span class="bp">print</span><span class="p">(</span><span class="n">triangulo</span><span class="p">.</span><span class="n">longitudLado</span><span class="p">)</span>
+</code></pre></div>
+<p>In the <code>perimetro</code> setter, the new value has the implicit name
+<code>newValue</code>. You can provide an explicit name in parentheses after
+<code>set</code>.</p>
+<p>Note that the initializer of the <code>TrianguloEquilatero</code> class has
+three distinct steps:</p>
+<ol>
+<li>Set the value of the properties declared by the subclass.</li>
+<li>Call the superclass initializer.</li>
+<li>Change the value of the properties defined by the superclass. Any
+   additional work that uses methods, getters, or setters can also be
+   done at this point.</li>
+</ol>
+<h4 id="enumerations-and-structures">Enumerations and Structures<a class="headerlink" href="#enumerations-and-structures" title="Permanent link">&para;</a></h4>
+<p>Use <code>enum</code> to create an enumeration. Like classes and other named
+types, enumerations can have associated methods.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">Valor</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">uno</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">dos</span><span class="p">,</span><span class="w"> </span><span class="n">tres</span><span class="p">,</span><span class="w"> </span><span class="n">cuatro</span><span class="p">,</span><span class="w"> </span><span class="n">cinco</span><span class="p">,</span><span class="w"> </span><span class="n">seis</span><span class="p">,</span><span class="w"> </span><span class="n">siete</span><span class="p">,</span><span class="w"> </span><span class="n">ocho</span><span class="p">,</span><span class="w"> </span><span class="n">nueve</span><span class="p">,</span><span class="w"> </span><span class="n">diez</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">sota</span><span class="p">,</span><span class="w"> </span><span class="n">caballo</span><span class="p">,</span><span class="w"> </span><span class="n">rey</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="kc">self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">uno</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;as&quot;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">sota</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;sota&quot;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">caballo</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;caballo&quot;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">rey</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;rey&quot;</span>
+<span class="w">        </span><span class="k">default</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">carta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Valor</span><span class="p">.</span><span class="n">uno</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">valorBrutoCarta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">carta</span><span class="p">.</span><span class="n">rawValue</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 12</p>
+<p>Write a function that compares two <code>Valor</code> values by comparing
+their raw values.</p>
+</div>
+<p>By default, Swift assigns raw values starting at zero and increasing
+them by one each time, but you can change this behavior by
+explicitly specifying the values. In the previous example, <code>As</code> is
+given a raw value of <code>1</code> and the rest are assigned in order. You can
+also use strings or floating-point numbers as enumeration raw values.
+Use the <code>rawValue</code> property to access the raw value of an
+enumeration.</p>
+<p>Use the initializer to construct an enumeration value from a raw
+value. If the raw value does not exist, the initializer will return
+<code>nil</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">valorConvertido</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Valor</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">descripcionTres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">valorConvertido</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="n">descripcionTres</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Enumeration case values are actual values, not just another way of
+writing their raw values. In fact, in cases where a raw value does
+not make sense, you do not have to provide one.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">Palo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">oros</span><span class="p">,</span><span class="w"> </span><span class="n">bastos</span><span class="p">,</span><span class="w"> </span><span class="n">copas</span><span class="p">,</span><span class="w"> </span><span class="n">espadas</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="kc">self</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">oros</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;oros&quot;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">bastos</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;bastos&quot;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">copas</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;copas&quot;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">espadas</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;espadas&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">copas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Palo</span><span class="p">.</span><span class="n">copas</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">descripcionCopas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">copas</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 13</p>
+<p>Add a <code>color()</code> method to <code>Palo</code> that returns "aggressive" for
+<em>bastos</em> and <em>espadas</em>, and "reflective" for <em>oros</em> and <em>copas</em>.</p>
+</div>
+<p>Notice the two ways in which we refer to the <code>copas</code> case of the
+previous enumeration: when assigning a value to the constant <code>copas</code>,
+we refer to the enumeration case as <code>Palo.copas</code> using its full name
+because the constant does not have an explicitly specified type.
+Inside the <code>switch</code>, we refer to the enumeration case using the
+shortened form <code>.copas</code> because the type of <code>self</code> is already known
+to be <code>Palo</code>. You can use the shortened form whenever the type of the
+value is already known.</p>
+<p>An instance of an enumeration case can have values associated with
+that instance. Instances of the same enumeration case can have
+different associated values. You provide the associated values when
+creating the instance. Associated values and raw values are
+different: the raw value of an enumeration case is the same for all
+instances, whereas you provide the associated value when defining the
+enumeration.</p>
+<p>For example, consider the case of making a request to a server for
+the sunrise and sunset times. The server responds with the
+information, or with some error information.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">RespuestaServidor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">resultado</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">error</span><span class="p">(</span><span class="nb">String</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nv">exito</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RespuestaServidor</span><span class="p">.</span><span class="n">resultado</span><span class="p">(</span><span class="s">&quot;6:00 am&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;8:09 pm&quot;</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">fallo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RespuestaServidor</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Sin queso.&quot;</span><span class="p">)</span>
+
+<span class="k">switch</span><span class="w"> </span><span class="n">exito</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="p">.</span><span class="n">resultado</span><span class="p">(</span><span class="n">salidaSol</span><span class="p">,</span><span class="w"> </span><span class="n">puestaSol</span><span class="p">):</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;La salida del sol es a las </span><span class="si">\(</span><span class="n">salidaSol</span><span class="si">)</span><span class="s"> y la puesta es a </span><span class="si">\(</span><span class="n">puestaSol</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Fallo...  </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 14</p>
+<p>Add a third case to <code>RespuestaServidor</code> and to the switch.</p>
+</div>
+<p>Notice how the sunrise and sunset times are extracted from the
+<code>RespuestaServidor</code> enumeration as part of the matching between the
+value and the switch cases.</p>
+<p>Use <code>struct</code> to create a structure. Structures share many features
+with classes, including methods and initializers. One of the most
+important differences between structures and classes is that
+structures are always copied when you pass them around in your code,
+whereas classes are passed by reference.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Carta</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">valor</span><span class="p">:</span><span class="w"> </span><span class="n">Valor</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">palo</span><span class="p">:</span><span class="w"> </span><span class="n">Palo</span>
+<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;El </span><span class="si">\(</span><span class="n">valor</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="si">())</span><span class="s"> de </span><span class="si">\(</span><span class="n">palo</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="si">())</span><span class="s">&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">tresDeEspadas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Carta</span><span class="p">(</span><span class="n">valor</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">tres</span><span class="p">,</span><span class="w"> </span><span class="n">palo</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">espadas</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nv">descripcionTresDeEspadas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tresDeEspadas</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Experiment 15</p>
+<p>Add a method to <code>Carta</code> that creates a full deck, with one card
+for each combination of value and suit.</p>
+</div>
+<h2 id="bibliography-and-references">Bibliography and References<a class="headerlink" href="#bibliography-and-references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Documentation about Swift</li>
+<li><a href="https://developer.apple.com/library/prerelease/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">The Swift Programming Language (html)</a></li>
+<li><a href="https://developer.apple.com/swift/resources/">Swift resources on Apple</a></li>
+<li><a href="https://swift.org">swift.org</a></li>
+<li>Swift Open Source</li>
+<li><a href="https://github.com/apple/swift">The <code>swift</code> repository on GitHub</a>: main Swift repository containing the Swift compiler source code, the standard library, and SourceKit.</li>
+<li><a href="https://github.com/apple/swift-evolution">The <code>swift-evolution</code> repository on GitHub</a>: documents related to the continuous evolution of Swift, including goals for upcoming versions and proposals for Swift changes and extensions.</li>
+</ul>
+<hr />
+<p>Programming Languages and Paradigms, academic year 2025-26
+© Department of Computer Science and Artificial Intelligence, University of Alicante
+Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
