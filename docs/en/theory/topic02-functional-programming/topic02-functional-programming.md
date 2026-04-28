@@ -1726,7 +1726,7 @@ case expression to construct the resulting value.
     To understand recursion, it is not convenient to use the debugger, or
     make traces, or *enter the recursion*, but rather you have to assume
     that **the recursive call is executed and returns the value it should.
-    We must rely on recursion!**.
+    We must take the recursive leap of faith!**.
 
 The general case of the previous example indicates the following:
 
@@ -1751,8 +1751,8 @@ follows:
 ```
 
 Evaluating this function will compute the recursive call `(suma-hasta 4)`.
-That is where we must **trust that the recursion does its job well** and that
-this call returns the resulting value of 0+1+2+3+4, that is, 10. Once that
+That is where we must **take the recursive leap of faith** and assume
+that this call returns the resulting value of 0+1+2+3+4, that is, 10. Once that
 value is obtained, we must finish the calculation by adding the number 5
 itself.
 
@@ -1845,7 +1845,7 @@ For example:
 ```
 
 We think about the general case: how could we invoke the `alfabeto-hasta`
-function itself so that (relying on recursion) it does much of the work for us
+function itself so that (taking the recursive leap of faith) it does much of the work for us
 (builds almost the entire string with the alphabet)?
 
 We could have the recursive call return the alphabet up to the character
@@ -1859,7 +1859,7 @@ Let's look at a concrete example:
 ```
 
 The recursive call `(alfabeto-hasta #\g)` would return the string `"abcdefg"`
-(relying on recursion) and only the last letter would need to be added.
+(taking the recursive leap of faith) and only the last letter would need to be added.
 
 To implement this idea in Scheme all we need is to use the `string-append`
 function to concatenate strings and a helper function `(anterior char)` that
@@ -1917,7 +1917,7 @@ how to treat the value returned by the recursion to obtain the expected value.
 For example, in this case we can think that to add the list of numbers `(12 3
 5 1 8)` we can obtain a simpler problem (a smaller list) by doing the `rest`
 of the list of numbers and calling recursion with the result. The recursive
-call will return the sum of those numbers (we rely on recursion) and to that
+call will return the sum of those numbers (we take the recursive leap of faith) and to that
 value it is enough to add the first number in the list. We can represent it in
 the following drawing:
 
@@ -2808,12 +2808,12 @@ For example:
 (mi-append '(a b c) '(d e f)) ; ⇒ (a b c d e f)
 ```
 
-To solve the problem recursively, we must rely on recursion to solve a simpler
+To solve the problem recursively, we must take the recursive leap of faith to solve a simpler
 problem and then finish fixing the result returned by the recursion.
 
 In this case, we can give recursion a simpler problem by removing the first
 element from the first list (using the `rest` function) and calling recursion
-to concatenate this smaller list to the second. We trust that the recursion
+to concatenate this smaller list to the second. We take the recursive leap of faith and assume that the recursive call
 works correctly and returns the concatenation of both lists
 
 ```text
