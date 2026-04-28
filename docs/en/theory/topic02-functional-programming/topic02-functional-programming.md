@@ -1207,7 +1207,7 @@ invocations, but rather each one is evaluated in a different way.
 **Evaluation**
 
 Next week we will look at the semantics in more detail, and we will explain
-the `lambda` form, which is what actually creates the function. Today
+the `lambda` special form, which is what actually creates the function. Today
 we stop at the following high-level description of semantics:
 
 1. Create the function with the *body*
@@ -3129,18 +3129,18 @@ or as of Java version 8, [Java
 8](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html),
 (where they are called *lambda expressions*).
 
-### 5.1. The `lambda` Form
+### 5.1. The `lambda` Special Form
 
-Let's start by explaining Scheme's `lambda` form, which allows us
+Let's start by explaining Scheme's `lambda` special form, which allows us
 to create anonymous functions at runtime.
 
 In the same way that we can use strings or integers without giving them a
 name, in Scheme it is possible to use a function without giving it a name
-using this form.
+using this special form.
 
-#### 5.1.1. Syntax of `lambda` Expressions
+#### 5.1.1. Syntax of the `lambda` Special Form
 
-The syntax of a `lambda` expression is:
+The syntax of the `lambda` special form is:
 
 ```text
 (lambda (<arg1> ... <argn>) 
@@ -3170,9 +3170,9 @@ An anonymous function that returns the greater of two numbers:
         b))
 ```
 
-#### 5.1.2. Semantics of `lambda` Expressions
+#### 5.1.2. Semantics of the `lambda` Special Form
 
-Evaluating a `lambda` expression constructs an anonymous function at run
+Evaluating the `lambda` special form constructs an anonymous function at run
 time.
 
 For example, if we execute a lambda expression in the interpreter we will see
@@ -3648,9 +3648,9 @@ This is one of the most important characteristics that differentiates
 functional programming languages from others that are not. In languages like
 C, C++ or Java (before Java 8) it is not possible to do this.
 
-To return a function in Scheme we must use a `lambda` expression in the
-body of a function. Thus, when this function is called, the `lambda`
-expression is evaluated and the resulting function is returned. It is a function that we create at
+To return a function in Scheme we must use the `lambda` special form in the
+body of a function. Thus, when this function is called, the `lambda` special
+form is evaluated and the resulting function is returned. It is a function that we create at
 runtime, during the evaluation of the main function.
 
 The function that is returned is called **closure**
