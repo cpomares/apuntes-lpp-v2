@@ -11,6 +11,7 @@ SPANISH_TO_ENGLISH = {
     SPANISH_HOME: ENGLISH_HOME,
     "teoria/tema00-descripcion-asignatura/tema00-descripcion-asignatura.html": "en/theory/topic00-course-description/topic00-course-description.html",
     "teoria/tema01-historia-lenguajes-programacion/tema01-historia-lenguajes-programacion.html": "en/theory/topic01-history-programming-languages/topic01-history-programming-languages.html",
+    "teoria/tema02-programacion-funcional/tema02-programacion-funcional.html": "en/theory/topic02-functional-programming/topic02-functional-programming.html",
     "seminarios/seminario1-scheme/seminario1-scheme.html": "en/seminars/seminar01-scheme/seminar01-scheme.html",
     "seminarios/seminario2-swift/seminario2-swift.html": "en/seminars/seminar02-swift/seminar02-swift.html",
 }
