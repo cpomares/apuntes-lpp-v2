@@ -632,10 +632,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-the-data-type-partner" class="md-nav__link">
+  <a href="#31-the-pair-data-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1. The data type partner
+        3.1. The Pair Data Type
       
     </span>
   </a>
@@ -643,10 +643,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-couples-are-first-class-objects" class="md-nav__link">
+  <a href="#32-pairs-are-first-class-objects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.2. Couples are first class objects
+        3.2. Pairs are First-Class Objects
       
     </span>
   </a>
@@ -1552,10 +1552,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-the-data-type-partner" class="md-nav__link">
+  <a href="#31-the-pair-data-type" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1. The data type partner
+        3.1. The Pair Data Type
       
     </span>
   </a>
@@ -1563,10 +1563,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-couples-are-first-class-objects" class="md-nav__link">
+  <a href="#32-pairs-are-first-class-objects" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.2. Couples are first class objects
+        3.2. Pairs are First-Class Objects
       
     </span>
   </a>
@@ -3233,8 +3233,8 @@ element in the list matches the identifier.</p>
 <span class="p">(</span><span class="n">veces</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 3 </span>
 </code></pre></div>
 <h2 id="3-composite-data-types-in-scheme">3. Composite data types in Scheme<a class="headerlink" href="#3-composite-data-types-in-scheme" title="Permanent link">&para;</a></h2>
-<h3 id="31-the-data-type-partner">3.1. The data type partner<a class="headerlink" href="#31-the-data-type-partner" title="Permanent link">&para;</a></h3>
-<h4 id="311-pair-building-function-cons">3.1.1. Pair building function <code>cons</code><a class="headerlink" href="#311-pair-building-function-cons" title="Permanent link">&para;</a></h4>
+<h3 id="31-the-pair-data-type">3.1. The Pair Data Type<a class="headerlink" href="#31-the-pair-data-type" title="Permanent link">&para;</a></h3>
+<h4 id="311-pair-constructor-function-cons">3.1.1. Pair Constructor Function <code>cons</code><a class="headerlink" href="#311-pair-constructor-function-cons" title="Permanent link">&para;</a></h4>
 <p>We have already seen in the Scheme seminar that the simplest composite data
 type is the pair: an entity made up of two elements. The <code>cons</code> function is
 used to build it:</p>
@@ -3243,10 +3243,10 @@ used to build it:</p>
 </code></pre></div>
 <p>We draw the previous pair and the variable <code>c</code> that reference it as follows:</p>
 <p><img src="imagenes/pareja.png" width="200px"/></p>
-<p><em>Composite couple type</em></p>
-<p>The <code>cons</code> instruction constructs a composite data item from two other data
+<p><em>Composite pair type</em></p>
+<p>The <code>cons</code> expression constructs a composite data item from two other data
 items (which we will call left and right). The expression <code>(1 . 2)</code> is the way
-the interpreter prints the pairs.</p>
+the interpreter prints pairs.</p>
 <h4 id="312-pair-construction-with-quote">3.1.2. Pair construction with <code>quote</code><a class="headerlink" href="#312-pair-construction-with-quote" title="Permanent link">&para;</a></h4>
 <p>Like lists, it is possible to construct pairs with the special form <code>quote</code>,
 defining the pair in parentheses and separating its left and right parts with
@@ -3285,7 +3285,7 @@ given to certain memory registers of the IBM 709.</p>
 <p>We can read the full explanation in <a href="http://www.iwriteiam.nl/HaCAR_CDR.html">The origin of CAR and CDR in
 LISP</a>.</p>
 </div>
-<h4 id="314-pair-function">3.1.4. pair function?<a class="headerlink" href="#314-pair-function" title="Permanent link">&para;</a></h4>
+<h4 id="314-function-pair">3.1.4. Function <code>pair?</code><a class="headerlink" href="#314-function-pair" title="Permanent link">&para;</a></h4>
 <p>The <code>pair?</code> function tells us if an object is atomic or a pair:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
 <span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
@@ -3304,13 +3304,13 @@ numbers and strings:</p>
 <p>In the previous function the parameters <code>x</code> and <code>y</code> can be numbers or strings
 (or even any other type). And the value returned by the function will be a
 number, a string, or the symbol <code>'error</code>.</p>
-<p>The same thing happens with the content of couples. It is possible to save any
+<p>The same thing happens with the content of pairs. It is possible to save any
 type of data in pairs and combine different types. For example:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">hola</span><span class="w"> </span><span class="no">#f</span><span class="p">))</span>
 <span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;hola</span>
 <span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
 </code></pre></div>
-<h4 id="316-couples-are-immutable-objects">3.1.6. Couples are immutable objects<a class="headerlink" href="#316-couples-are-immutable-objects" title="Permanent link">&para;</a></h4>
+<h4 id="316-pairs-are-immutable-objects">3.1.6. Pairs are Immutable Objects<a class="headerlink" href="#316-pairs-are-immutable-objects" title="Permanent link">&para;</a></h4>
 <p>Let us remember that in declarative and functional programming paradigms there
 is no <em>mutable state</em>. Once a value is declared, it cannot be modified. This
 should also happen with pairs: once a pair is created, its content cannot be
@@ -3321,15 +3321,15 @@ functional paradigm.</p>
 <p>In Swift and other programming languages it is possible to define <strong>immutable
 data structures</strong> that cannot be modified once created. We will also see it
 later.</p>
-<h3 id="32-couples-are-first-class-objects">3.2. Couples are first class objects<a class="headerlink" href="#32-couples-are-first-class-objects" title="Permanent link">&para;</a></h3>
-<p>In a programming language an element is first class when it can:</p>
+<h3 id="32-pairs-are-first-class-objects">3.2. Pairs are First-Class Objects<a class="headerlink" href="#32-pairs-are-first-class-objects" title="Permanent link">&para;</a></h3>
+<p>In a programming language an element is first-class when it can be:</p>
 <ul>
-<li>Assign to variables</li>
-<li>Pass as argument</li>
+<li>Assigned to variables</li>
+<li>Passed as an argument</li>
 <li>Returned by a function</li>
 <li>Saved in a larger data structure</li>
 </ul>
-<p>Couples are first class objects.</p>
+<p>Pairs are first-class objects.</p>
 <p>A pair can be assigned to a variable:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="p">))</span>
@@ -3350,7 +3350,7 @@ function that we saw previously with this new type of data:</p>
 <span class="w">    </span><span class="p">((</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="n">suma-parejas</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">))</span>
 <span class="w">    </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">error</span><span class="p">)))</span>
 </code></pre></div>
-<p>And finally, couples <em>can be part of other couples</em>.</p>
+<p>And finally, pairs <em>can be part of other pairs</em>.</p>
 <p>This is what is called the <strong>closure property of the <code>cons</code> function</strong>: the
 result of a <code>cons</code> can be used as a parameter for new calls to <code>cons</code>.</p>
 <p>Example:</p>
@@ -3393,7 +3393,7 @@ following:</p>
 </code></pre></div>
 <p>The resulting box-and-pointer diagram would be the following:</p>
 <p><img src="imagenes/box-and-pointer2.png" width="250px"/></p>
-<p>We see that in the couple created with <code>(cons p 6)</code> <strong>the same couple that is
+<p>We see that in the pair created with <code>(cons p 6)</code> <strong>the same pair that is
 in <code>p</code></strong> is saved on the left side. We represent it with an arrow pointing to
 the same pair as <code>p</code>.</p>
 <div class="admonition note">
@@ -3406,8 +3406,8 @@ is returned, not a copy.</p>
 immutable, there are no <em>side effects</em> problems due to the fact that a
 pair is shared.</p>
 </div>
-<p>It is advisable that you try to create different couple structures with
-couples and draw their box-and-pointer diagram. And also to recover a certain
+<p>It is advisable that you try to create different pair structures and draw
+their box-and-pointer diagrams. And also to recover a certain
 data (pair or atomic data) once the structure has been created.</p>
 <p>The following function <code>print-pareja</code> can be useful when displaying the
 elements of a pair on the screen</p>
@@ -3464,12 +3464,12 @@ something is a list and/or a pair.</p>
 <span class="p">(</span><span class="nb">list?</span><span class="w"> </span><span class="n">p1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
 </code></pre></div>
 <p>If we ask if a list is a pair, we will be surprised that it is. A list is a
-list (obviously) but it is also a couple:</p>
+list (obviously) but it is also a pair:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
 <span class="p">(</span><span class="nb">list?</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span><span class="c1">; ⇒ #t</span>
 <span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span><span class="c1">; ⇒ #t</span>
 </code></pre></div>
-<p>If a list is also a pair we can also apply the functions <code>car</code> and <code>cdr</code> with
+<p>If a list is also a pair, we can also apply the functions <code>car</code> and <code>cdr</code> with
 them. What do they return? Let's see it:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
 <span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒  1</span>
@@ -3478,7 +3478,7 @@ them. What do they return? Let's see it:</p>
 <p>It turns out that in the pair that represents the list, the first element of
 the list is stored on the left side and the rest of the list is stored on the
 right side.</p>
-<p>We can also explain then why the call to <code>cons</code> with a data and a list builds
+<p>We can also explain then why the call to <code>cons</code> with a datum and a list builds
 another list:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">lista</span><span class="p">))</span>
@@ -3504,7 +3504,7 @@ lists and pairs in Scheme (and Lisp). Let's explain it.</p>
 the following pair:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span>
 </code></pre></div>
-<p>The couple meets the previous conditions:</p>
+<p>The pair meets the previous conditions:</p>
 <ul>
 <li>The left side of the pair is the first element in the list (number 1)</li>
 <li>The right part is the rest of the list (the empty list)</li>
@@ -3530,17 +3530,17 @@ pairs:</p>
 <li>Its right side is the list '(2 3)</li>
 </ul>
 <p><img src="imagenes/lista.png" width="400px"/></p>
-<p><em>Couples forming a list</em></p>
+<p><em>Pairs forming a list</em></p>
 <p>By checking the implementation of lists in Scheme, we understand why the
 functions <code>car</code> and <code>cdr</code> return the first element and the rest of the list.
 In fact, the <code>first</code> and <code>rest</code> functions are implemented using the <code>car</code> and
 <code>cdr</code> functions. When we work with lists we will always use the functions
-<code>first</code> and <code>rest</code> which are the functions. of the list abstraction barrier.</p>
+<code>first</code> and <code>rest</code>, which are the functions of the list abstraction barrier.</p>
 <h4 id="412-empty-list">4.1.2. Empty list<a class="headerlink" href="#412-empty-list" title="Permanent link">&para;</a></h4>
 <p>The empty list is a list:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">list?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
 </code></pre></div>
-<p>And it is not a symbol or a couple:</p>
+<p>And it is not a symbol or a pair:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">symbol?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
 <span class="p">(</span><span class="nb">pair?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
 </code></pre></div>
