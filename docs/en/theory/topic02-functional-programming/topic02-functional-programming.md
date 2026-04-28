@@ -1731,11 +1731,10 @@ case expression to construct the resulting value.
 The general case of the previous example indicates the following:
 
 ```text
-Para calcular la suma hasta x: 
-    Llamamos a la recursión para que calcule la suma hasta x-1 
-    (confiamos en que la implementación funciona bien y esta llamada 
-    nos devolverá el resultado hasta x-1) y a ese resultado le sumamos
-    el propio número x.
+To calculate the sum up to x:
+    We call the recursion so it calculates the sum up to x-1
+    (we trust that the implementation works correctly and that this call
+    will return the result up to x-1), and we add x itself to that result.
 ```
 
 It is always advisable to use a concrete example to prove the general case.
@@ -1744,7 +1743,7 @@ follows:
 
 ```racket
 (+ (suma-hasta (- 5 1)) 5) ; ⇒
-(+ (suma-hasta 4) 5) ;  ⇒ confiamos en la recursión: 
+(+ (suma-hasta 4) 5) ;  ⇒ take the recursive leap of faith:
                      ;    (suma-hasta 4) = 4+3+2+1 = 10  ⇒
 (+ 10 5) ; ⇒
 15
@@ -2696,7 +2695,7 @@ know, but others we don't:
 (reverse '(a b c))  ; ⇒ (c b a)
 (list-tail '(a b c d) 2) ; ⇒ (c d)
 ```
-<!-- In the following sections we will see how they are implemented.
+In the following sections we will see how they are implemented.
 
 ### 4.3. Recursive functions that build lists
 
@@ -2745,10 +2744,10 @@ return the correct result. How can we simplify the original problem? Let's see
 the solution for this specific case:
 
 ```text
-Para devolver el elemento 2 de la lista (a b c d e f g):
-   Obtenemos el resto de la lista (b c d e f g)
-   y devolvemos su elemento 1. Será el valor c (empezamos 
-   a contar por 0).
+To return element 2 of the list (a b c d e f g):
+   We get the rest of the list (b c d e f g)
+   and return its element 1. It will be the value c (we start
+   counting from 0).
 ```
 
 
@@ -2756,16 +2755,16 @@ We generalize the previous example, for any `n` and any list:
 
 
 ```text
-Para devolver el elemento que está en la posición `n` de una lista,
-devuelvo el elemento n-1 de su resto.
+To return the element at position `n` in a list,
+return element n-1 of its rest.
 ```
 
 And finally, we formulate the base case of recursion, the simplest problem
 that can be solved directly, without making a recursive call:
 
 ```text
-Para devolver el elemento que está en la posición 0 de una lista,
-devuelvo el `first` de la lista.
+To return the element at position 0 in a list,
+return the `first` of the list.
 ```
 
 The implementation of all this in Scheme would be the following:
@@ -2808,13 +2807,13 @@ For example:
 (mi-append '(a b c) '(d e f)) ; ⇒ (a b c d e f)
 ```
 
-To solve the problem recursively, we must take the recursive leap of faith to solve a simpler
-problem and then finish fixing the result returned by the recursion.
+To solve the problem recursively, we must take the recursive leap of faith with a simpler
+problem and then finish assembling the result returned by the recursion.
 
 In this case, we can give recursion a simpler problem by removing the first
 element from the first list (using the `rest` function) and calling recursion
 to concatenate this smaller list to the second. We take the recursive leap of faith and assume that the recursive call
-works correctly and returns the concatenation of both lists
+works correctly and returns the concatenation of both lists.
 
 ```text
 (mi-append (rest '(a b c)) '(d e f)) => (b c d e f)
@@ -2892,8 +2891,8 @@ The `(cuadrados-hasta x)` function returns a list with the squares of the
 numbers up to `x`:
 
 ```text
-Para construir una lista de los cuadrados hasta x:
-   construyo la lista de los cuadrados hasta x-1 y le añado el cuadrado de x
+To build a list of the squares up to x:
+   build the list of squares up to x-1 and add the square of x
 ```
 
 The base case of recursion is the case where `x` is 1, so we return a list
@@ -2953,14 +2952,14 @@ The use of lists is one of the fundamental elements of functional programming.
 As an example, let's see how to work with lists to build a function that
 calculates whether a number is prime. The way to do this will be to calculate
 the list of divisors of the number and check if its length is two. In that
-case it will be cousin.
+case it will be prime.
 
 For example:
 
 ```racket
-(divisores 8) ; ⇒ (1 2 4 8) longitud = 4, no primo
-(divisores 9) ; ⇒ (1 3 9) longitud = 3, no primo
-(divisores 11) ; ⇒ (1 11) longitud = 2, primo
+(divisores 8) ; ⇒ (1 2 4 8) length = 4, not prime
+(divisores 9) ; ⇒ (1 3 9) length = 3, not prime
+(divisores 11) ; ⇒ (1 11) length = 2, prime
 ```
 
 We can then define the function `(primo? x)` in the following way:
@@ -3070,7 +3069,7 @@ parameter `lista-args` will take as its value a list with the remaining
 arguments `(3 4 5 6)`.
 
 It is also possible to allow all arguments to be optional by not putting any
-arguments before the dot::
+arguments before the dot:
 
 ```racket
 (define (funcion-cualquier-numero-args . lista-args) 
@@ -3107,8 +3106,8 @@ effects and have no state. A function takes some data as input and produces a
 result as output.
 
 One of the fundamental characteristics of functional programming is to
-consider functions as *first class objects*. Let us remember that a first
-class type is one who:
+consider functions as *first-class objects*. Let us remember that a first-class
+type is one who:
 
 1. Can be assigned to a variable
 2. Can be passed as an argument to a function
@@ -3362,17 +3361,17 @@ For example:
 ```
 
 We have seen that functions can be assigned to variables. They also meet the
-other conditions necessary to be considered first class objects.
+other conditions necessary to be considered first-class objects.
 
 ### 5.2. Functions arguments of other functions
 
 We have already seen an example of how to pass a function as a parameter to
-another. Let's see some other one.
+another. Let's look at another example.
 
 For example, we can define the function `aplica` that receives a function in
 the parameter `func` and two values in the parameters `x` and `y` and returns
 the result of invoking the function that we passed as a parameter with `x` and
-`y`. The function passed as a parameter must have two arguments
+`y`. The function passed as a parameter must have two arguments.
 
 To invoke the function passed as a parameter, simply use `func` as its name.
 The function has been bound to the name `func` at the time of invocation to
@@ -3417,8 +3416,8 @@ returned by invoking `g` with `x`:
 
 ### 5.3. Function `apply` ###
 
-The Scheme function `(apply funcion lista)` allows you to apply an arity
-function `n` to a data list of n data, causing each of the data to be passed
+The Scheme function `(apply function list)` allows you to apply an `n`-arity
+function to a list of `n` data items, causing each of the data to be passed
 to the function in order as parameters.
 
 The `apply` function receives a function and a list and returns the result of
@@ -3509,7 +3508,7 @@ of the original list as arguments of `suma-nums`.
 
 ##### Example `suma-parejas` #####
 
-Another similar example, suppose we want to define the function `suma-parejas`
+As another similar example, suppose we want to define the function `suma-parejas`
 that adds a variable number of pairs:
 
 ```racket
@@ -3637,7 +3636,7 @@ functions.
 
 ### 5.5. Functions that return functions
 
-Any first class object can be returned by a function; integers, booleans,
+Any first-class object can be returned by a function; integers, booleans,
 pairs, etc. They are primitive objects and we can define functions that return
 them.
 
@@ -3655,7 +3654,7 @@ and the resulting function is returned. It is a function that we create at
 runtime, during the evaluation of the main function.
 
 The function that is returned is called **closure**
-([Wikipedia](https://es.wikipedia.org/wiki/Clausura_(informática))). And we
+([Wikipedia](https://en.wikipedia.org/wiki/Closure_(computer_programming))). And we
 say that the function that has constructed the closure is a **constructor
 function**.
 
@@ -3684,7 +3683,7 @@ For example, we can call `construye-sumador` by passing 10 as a parameter:
 (construye-sumador 10) ; ⇒ #<procedure>
 ```
 
-As we have said, a procedure, a function, is returned. This return function
+As we have said, a procedure, a function, is returned. This returned function
 must be called with one argument and will return the result of adding 10 to
 that argument:
 
@@ -3780,7 +3779,7 @@ The returned function first calls `g` and passes the result to `f`. Let's look
 at an example. Suppose we have defined the function `cuadrado` and `doble`
 that calculate the square and double of a number respectively. We can then
 call `construye-composicion` with those two functions to build another
-function that first calculates the square and then the double of a number:
+function that first calculates the square of a number and then doubles it:
 
 ```racket
 (define h (construye-composicion doble cuadrado))
@@ -3811,8 +3810,8 @@ Let's remember the function `lista-desde`:
 A problem with the previous function is that if we pass it a negative number
 it goes into an infinite loop.
 
-We define the function `(construye-segura condicion f) ` that receives two
-functions: a predicate and another function, both with 1 argument. Returns
+We define the function `(construye-segura condicion f)` that receives two
+functions: a predicate and another function, both with one argument. It returns
 another function in which `f` will only be called if the argument satisfies
 `condicion`.
 
@@ -3975,8 +3974,8 @@ An example of use:
 
 ### 5.7. Higher-order functions
 
-We call higher-order functions (*higher-order functions* in English) functions
-that take others as a parameter or return another function. They allow
+We call functions that take other functions as parameters or return another
+function **higher-order functions**. They allow
 solutions to be generalized with a high degree of abstraction.
 
 We have already seen some higher-order functions, some built by us and others
@@ -4002,7 +4001,7 @@ application in which we will see how the use of higher-order functions is an
 excellent functional programming tool that allows us to make very concise and
 expressive code.
 
-Combining higher-level functions with lists is one of the most powerful
+Combining higher-order functions with lists is one of the most powerful
 features of functional programming.
 
 #### 5.7.1. `map` function
@@ -4015,17 +4014,17 @@ elements.
 Specifically, the function receives another function and a list:
 
 ```text
-(map transforma lista) -> lista
+(map transform list) -> list
 ```
 
 And returns the list resulting from applying the function to all the elements
 in the list.
 
-The transform function receives list elements as arguments and returns the
+The transformation function receives list elements as arguments and returns the
 result of transforming that element.
 
 ```text
-(transforma elemento) -> elemento
+(transform element) -> element
 ```
 
 
@@ -4038,7 +4037,7 @@ For example:
 The resulting list is the result of constructing a new list by applying the
 `cuadrado` function to all elements of the original list.
 
-The transform function must be compatible with the elements in the original
+The transformation function must be compatible with the elements in the original
 list. For example, if the list is a list of pairs, the transform function must
 receive a pair. Let's see an example of this case, in which from a list of
 pairs we obtain a list with the sums of each pair:
@@ -4089,17 +4088,17 @@ The `map` function can receive a variable number of lists, all of the same
 length:
 
 ```text
-(map transforma lista_1 ... lista_n) -> lista
+(map transform list_1 ... list_n) -> list
 ```
 
 In this case the transform function must receive as many arguments as lists
 `map` receives:
 
 ```text
-(transforma dato_1 ... dato_n) -> dato
+(transform data_1 ... data_n) -> data
 ```
 
-The function `map` applies `transforma` to the elements taken from the n lists
+The function `map` applies `transform` to the elements taken from the n lists
 and thus builds the resulting list.
 
 Examples:
@@ -4129,19 +4128,19 @@ Examples:
 
 Let's look at another higher-order function that works on lists.
 
-The function `(filter predicado lista)` takes as parameters a predicate and a
+The function `(filter predicate list)` takes as parameters a predicate and a
 list and returns as a result the elements of the list that satisfy the
 predicate.
 
 ```text
-(filter predicado lista) -> lista
+(filter predicate list) -> list
 ```
 
-The `(predicado elem)` function that uses `filter` receives elements from the
+The `(predicate elem)` function that uses `filter` receives elements from the
 list and returns `#t` or `#f`.
 
 ```text
-(predicado elem) -> boolean
+(predicate elem) -> boolean
 ```
 
 An example of use:
@@ -4195,14 +4194,14 @@ The higher-order function `exists?` receives a predicate and a list and checks
 whether any element in the list satisfies that predicate.
 
 ```text
-(exists? predicado lista) -> boolean
+(exists? predicate list) -> boolean
 ```
 
-Same as `filter` the `predicado` receives elements from the list and returns
+As with `filter`, the `predicate` receives elements from the list and returns
 `#t` or `#f`.
 
 ```text
-(predicado elem) -> boolean
+(predicate elem) -> boolean
 ```
 
 The function `exists?` is not defined with this name in Racket, although it is
@@ -4258,33 +4257,32 @@ The recursive implementation of `for-all?` is as follows:
 ```
 
 The recursive call checks that all elements in the rest of the list satisfy
-the predicate and the first element must also satisfy. An empty list satisfies
-always returns `#t` (by having no elements, we can say that all its elements
+the predicate and the first element must also satisfy. An empty list always returns `#t` (by having no elements, we can say that all its elements
 satisfy the predicate).
 
 
 #### 5.7.5. `foldr` function
 
-Let's now look at the `(foldr combina base lista)` function that allows you to
+Let's now look at the `(foldr combine base list)` function that allows you to
 traverse a list by applying a binary function cumulatively to its elements and
 returning a single value as a result.
 
 ```text
-(foldr combina base lista) -> valor
+(foldr combine base list) -> value
 ```
 
 The name `fold` means *folded*, indicating that the list to which it is
 applied is "folded" and at the end a single result is returned. The folding is
-carried out by the **folding function** `(combina dato resultado)`, which
+carried out by the **folding function** `(combine datum result)`, which
 receives a piece of data from the list and accumulates it with the other
-parameter `resultado` (which we must give an initial value and is the
+parameter `result` (which we must give an initial value and is the
 parameter `base` of the function `foldr`).
 
 ```text
-(combina dato resultado) -> resultado
+(combine datum result) -> result
 ```
 
-The `combina` function is applied to the elements of the list **from right to
+The `combine` function is applied to the elements of the list **from right to
 left**, starting with the last element of the list and the initial value
 `base` and successively applying it to the results that are obtained.
 
@@ -4297,7 +4295,7 @@ adds the data that comes from the list with the accumulated value:
     (+ dato resultado))
 ```
 
-We call the parameters `dato` and `resultado` to emphasize that the first
+We call the parameters `datum` and `result` to emphasize that the first
 parameter is going to be taken from the list and the second from the
 calculated result.
 
@@ -4311,7 +4309,7 @@ list '(1 2 3) and with the number 0 as a base:
 The `suma` function will be applied to all the elements of the list from
 **right to left**, starting with the base value (0) and the last element of
 the list (3) and taking the result obtained and using it as the new parameter
-`resultado` in the next call.
+`result` in the next call.
 
 Specifically, the sequence of calls to the `suma` function will be as follows:
 
@@ -4367,14 +4365,14 @@ We can recursively implement the `foldr` function:
 
 #### 5.7.6. Function `foldl` ####
 
-The `(foldl combina base lista)` (_fold left_) function is similar to `foldr`
+The `(foldl combine base list)` (_fold left_) function is similar to `foldr`
 with the difference that the sequence of applications of the fold function is
 **left to right** instead of right to left.
 
 The folding function profile is the same as in `foldr`:
 
 ```text
-(func dato resultado) -> resultado
+(func datum result) -> result
 ```
 
 For example, if the join function is `string-append`:
@@ -4407,7 +4405,7 @@ the next topic.
     single result.
 
 
-#### 5.7.7. Using `and` and `or` with FOS ####
+#### 5.7.7. Using `and` and `or` with HOFs ####
 
 We have seen that the primitives `and` and `or` are not functions, but special
 forms. Because of this, we cannot use them as functions that are passed to
@@ -4440,9 +4438,9 @@ For example, to check if any boolean in a list is `#t` we could do:
 ```
 
 
-#### 5.7.8. Functions with FOS and lambda expressions
+#### 5.7.8. Functions with HOFs and lambda expressions
 
-The use of higher-order functions (FOS) and lambda expressions provides a lot
+The use of higher-order functions (HOFs) and lambda expressions provides a lot
 of expressiveness in a programming language. It is possible to write very
 concise code and build iterative functions that loop through lists and operate
 on their elements without using recursion.
@@ -4450,8 +4448,7 @@ on their elements without using recursion.
 ##### 5.7.8.1. `(suma-n n lista)` function
 
 Suppose we want to define a function `(suma-n n lista)` that returns the
-resulting list the result of adding a number `n` to all the elements of a
-list.
+list resulting from adding a number `n` to all the elements of a list.
 
 We can do it recursively:
 
@@ -4490,7 +4487,7 @@ elements in the list.
 
 ```text
 (suma-n 10 '(1 2 3 4) 10) => 
-(map #<prodedure-que-suma-10-a-x> (1 2 3 4)) =  (11 12 13 14)
+(map #<procedure-that-adds-10-to-x> (1 2 3 4)) =  (11 12 13 14)
 ```
 
 ##### 5.7.8.2. Composition of higher-order functions
@@ -4590,7 +4587,7 @@ from the string and using the higher-order function `exists?`:
 ```
 
 
-##### 5.7.8.4. Dividers function #####
+##### 5.7.8.4. Divisors Function #####
 
 One last example where we implement the `(divisores n)` function using a
 higher-order function.
@@ -4616,7 +4613,6 @@ Then the `(divisores n)` function would be implemented as follows:
   (filter (lambda (x)
             (divisor? x n)) (numeros-hasta n)))
 ```
--->
 
 ## 6. Bibliography
 
