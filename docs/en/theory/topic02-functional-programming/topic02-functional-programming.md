@@ -2094,9 +2094,9 @@ The full version:
 
 ## 3. Composite data types in Scheme
 
-### 3.1. The data type partner
+### 3.1. The Pair Data Type
 
-#### 3.1.1. Pair building function `cons`
+#### 3.1.1. Pair Constructor Function `cons`
 
 We have already seen in the Scheme seminar that the simplest composite data
 type is the pair: an entity made up of two elements. The `cons` function is
@@ -2111,11 +2111,11 @@ We draw the previous pair and the variable `c` that reference it as follows:
 
 <img src="imagenes/pareja.png" width="200px"/>
 
-*Composite couple type*
+*Composite pair type*
 
-The `cons` instruction constructs a composite data item from two other data
+The `cons` expression constructs a composite data item from two other data
 items (which we will call left and right). The expression `(1 . 2)` is the way
-the interpreter prints the pairs.
+the interpreter prints pairs.
 
 #### 3.1.2. Pair construction with `quote`
 
@@ -2172,7 +2172,7 @@ algebraic equations:
     We can read the full explanation in [The origin of CAR and CDR in
     LISP](http://www.iwriteiam.nl/HaCAR_CDR.html).
 
-#### 3.1.4. pair function?
+#### 3.1.4. Function `pair?`
 
 The `pair?` function tells us if an object is atomic or a pair:
 
@@ -2201,7 +2201,7 @@ In the previous function the parameters `x` and `y` can be numbers or strings
 (or even any other type). And the value returned by the function will be a
 number, a string, or the symbol `'error`.
 
-The same thing happens with the content of couples. It is possible to save any
+The same thing happens with the content of pairs. It is possible to save any
 type of data in pairs and combine different types. For example:
 
 ```racket
@@ -2211,7 +2211,7 @@ type of data in pairs and combine different types. For example:
 ```
 
 
-#### 3.1.6. Couples are immutable objects
+#### 3.1.6. Pairs are Immutable Objects
 
 Let us remember that in declarative and functional programming paradigms there
 is no *mutable state*. Once a value is declared, it cannot be modified. This
@@ -2226,16 +2226,16 @@ In Swift and other programming languages it is possible to define **immutable
 data structures** that cannot be modified once created. We will also see it
 later.
 
-### 3.2. Couples are first class objects
+### 3.2. Pairs are First-Class Objects
 
-In a programming language an element is first class when it can:
+In a programming language an element is first-class when it can be:
 
-* Assign to variables
-* Pass as argument
+* Assigned to variables
+* Passed as an argument
 * Returned by a function
 * Saved in a larger data structure
 
-Couples are first class objects.
+Pairs are first-class objects.
 
 A pair can be assigned to a variable:
 
@@ -2267,7 +2267,7 @@ function that we saw previously with this new type of data:
 ```
 
 
-And finally, couples *can be part of other couples*.
+And finally, pairs *can be part of other pairs*.
 
 This is what is called the **closure property of the `cons` function**: the
 result of a `cons` can be used as a parameter for new calls to `cons`.
@@ -2338,7 +2338,7 @@ The resulting box-and-pointer diagram would be the following:
 
 <img src="imagenes/box-and-pointer2.png" width="250px"/>
 
-We see that in the couple created with `(cons p 6)` **the same couple that is
+We see that in the pair created with `(cons p 6)` **the same pair that is
 in `p`** is saved on the left side. We represent it with an arrow pointing to
 the same pair as `p`.
 
@@ -2353,8 +2353,8 @@ the same pair as `p`.
     immutable, there are no *side effects* problems due to the fact that a
     pair is shared.
 
-It is advisable that you try to create different couple structures with
-couples and draw their box-and-pointer diagram. And also to recover a certain
+It is advisable that you try to create different pair structures and draw
+their box-and-pointer diagrams. And also to recover a certain
 data (pair or atomic data) once the structure has been created.
 
 The following function `print-pareja` can be useful when displaying the
@@ -2433,7 +2433,7 @@ For example, a pair made up of two numbers is a pair, but it is not a list:
 ```
 
 If we ask if a list is a pair, we will be surprised that it is. A list is a
-list (obviously) but it is also a couple:
+list (obviously) but it is also a pair:
 
 ```racket
 (define lista '(1 2 3))
@@ -2441,7 +2441,7 @@ list (obviously) but it is also a couple:
 (pair? lista); ⇒ #t
 ```
 
-If a list is also a pair we can also apply the functions `car` and `cdr` with
+If a list is also a pair, we can also apply the functions `car` and `cdr` with
 them. What do they return? Let's see it:
 
 ```racket
@@ -2454,7 +2454,7 @@ It turns out that in the pair that represents the list, the first element of
 the list is stored on the left side and the rest of the list is stored on the
 right side.
 
-We can also explain then why the call to `cons` with a data and a list builds
+We can also explain then why the call to `cons` with a datum and a list builds
 another list:
 
 ```racket
@@ -2492,7 +2492,7 @@ the following pair:
 (cons 1 '())
 ```
 
-The couple meets the previous conditions:
+The pair meets the previous conditions:
 
 * The left side of the pair is the first element in the list (number 1)
 * The right part is the rest of the list (the empty list)
@@ -2527,13 +2527,13 @@ The first pair meets the conditions of being a list:
 
 <img src="imagenes/lista.png" width="400px"/>
 
-*Couples forming a list*
+*Pairs forming a list*
 
 By checking the implementation of lists in Scheme, we understand why the
 functions `car` and `cdr` return the first element and the rest of the list.
 In fact, the `first` and `rest` functions are implemented using the `car` and
 `cdr` functions. When we work with lists we will always use the functions
-`first` and `rest` which are the functions. of the list abstraction barrier.
+`first` and `rest`, which are the functions of the list abstraction barrier.
 
 #### 4.1.2. Empty list
 
@@ -2543,7 +2543,7 @@ The empty list is a list:
 (list? '()) ; ⇒ #t
 ```
 
-And it is not a symbol or a couple:
+And it is not a symbol or a pair:
 
 ```racket
 (symbol? '()) ; ⇒ #f
