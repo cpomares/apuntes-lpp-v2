@@ -743,10 +743,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-special-form-lambda" class="md-nav__link">
+  <a href="#51-the-lambda-form" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1. Special form lambda
+        5.1. The lambda Form
       
     </span>
   </a>
@@ -1779,10 +1779,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-special-form-lambda" class="md-nav__link">
+  <a href="#51-the-lambda-form" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1. Special form lambda
+        5.1. The lambda Form
       
     </span>
   </a>
@@ -2834,7 +2834,7 @@ invocations, but rather each one is evaluated in a different way.</p>
 </code></pre></div>
 <p><strong>Evaluation</strong></p>
 <p>Next week we will look at the semantics in more detail, and we will explain
-the special form <code>lambda</code> which is what actually creates the function. Today
+the <code>lambda</code> form, which is what actually creates the function. Today
 we stop at the following high-level description of semantics:</p>
 <ol>
 <li>Create the function with the <em>body</em></li>
@@ -4158,14 +4158,14 @@ functional features such as
 or as of Java version 8, <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">Java
 8</a>,
 (where they are called <em>lambda expressions</em>).</p>
-<h3 id="51-special-form-lambda">5.1. Special form <code>lambda</code><a class="headerlink" href="#51-special-form-lambda" title="Permanent link">&para;</a></h3>
-<p>Let's start by explaining the <code>lambda</code> special form of Scheme, which allows us
+<h3 id="51-the-lambda-form">5.1. The <code>lambda</code> Form<a class="headerlink" href="#51-the-lambda-form" title="Permanent link">&para;</a></h3>
+<p>Let's start by explaining Scheme's <code>lambda</code> form, which allows us
 to create anonymous functions at runtime.</p>
 <p>In the same way that we can use strings or integers without giving them a
 name, in Scheme it is possible to use a function without giving it a name
-using this special way.</p>
-<h4 id="511-syntax-of-the-special-form-lambda">5.1.1. Syntax of the special form <code>lambda</code><a class="headerlink" href="#511-syntax-of-the-special-form-lambda" title="Permanent link">&para;</a></h4>
-<p>The syntax of the special form <code>lambda</code> is:</p>
+using this form.</p>
+<h4 id="511-syntax-of-lambda-expressions">5.1.1. Syntax of <code>lambda</code> Expressions<a class="headerlink" href="#511-syntax-of-lambda-expressions" title="Permanent link">&para;</a></h4>
+<p>The syntax of a <code>lambda</code> expression is:</p>
 <div class="highlight"><pre><span></span><code>(lambda (&lt;arg1&gt; ... &lt;argn&gt;) 
     &lt;cuerpo&gt;)
 </code></pre></div>
@@ -4184,8 +4184,8 @@ function an <em>anonymous function</em>.</p>
 <span class="w">        </span><span class="n">a</span>
 <span class="w">        </span><span class="n">b</span><span class="p">))</span>
 </code></pre></div>
-<h4 id="512-semantics-of-the-special-form-lambda">5.1.2. Semantics of the special form <code>lambda</code><a class="headerlink" href="#512-semantics-of-the-special-form-lambda" title="Permanent link">&para;</a></h4>
-<p>Invoking the special form <code>lambda</code> constructs an anonymous function at run
+<h4 id="512-semantics-of-lambda-expressions">5.1.2. Semantics of <code>lambda</code> Expressions<a class="headerlink" href="#512-semantics-of-lambda-expressions" title="Permanent link">&para;</a></h4>
+<p>Evaluating a <code>lambda</code> expression constructs an anonymous function at run
 time.</p>
 <p>For example, if we execute a lambda expression in the interpreter we will see
 that it returns a procedure:</p>
@@ -4276,8 +4276,8 @@ first, which returns the <em>function object</em> sum, which is assigned to the
 variable <code>suma</code>. The end result is that both <code>+</code> and <code>suma</code> have the same
 procedure as their value:</p>
 <p><img src="imagenes/suma.png" width="100px"/></p>
-<p>The <code>define</code> special way to define a function is nothing more than <em>syntactic
-sugar</em>.</p>
+<p>The <code>define</code> special form for defining a function is nothing more than
+<em>syntactic sugar</em>.</p>
 <div class="highlight"><pre><span></span><code>(define (&lt;nombre&gt; &lt;args&gt;)
     &lt;cuerpo&gt;)
 </code></pre></div>
@@ -4501,9 +4501,9 @@ as a result.</p>
 <p>This is one of the most important characteristics that differentiates
 functional programming languages from others that are not. In languages like
 C, C++ or Java (before Java 8) it is not possible to do this.</p>
-<p>To return a function in Scheme we must use the special form <code>lambda</code> in the
-body of a function. Thus, when this function is called, <code>lambda</code> is evaluated
-and the resulting function is returned. It is a function that we create at
+<p>To return a function in Scheme we must use a <code>lambda</code> expression in the
+body of a function. Thus, when this function is called, the <code>lambda</code>
+expression is evaluated and the resulting function is returned. It is a function that we create at
 runtime, during the evaluation of the main function.</p>
 <p>The function that is returned is called <strong>closure</strong>
 (<a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Wikipedia</a>). And we
