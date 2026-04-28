@@ -2988,7 +2988,7 @@ case expression to construct the resulting value.</p>
 <p>To understand recursion, it is not convenient to use the debugger, or
 make traces, or <em>enter the recursion</em>, but rather you have to assume
 that <strong>the recursive call is executed and returns the value it should.
-We must rely on recursion!</strong>.</p>
+We must take the recursive leap of faith!</strong>.</p>
 </div>
 <p>The general case of the previous example indicates the following:</p>
 <div class="highlight"><pre><span></span><code>Para calcular la suma hasta x: 
@@ -3007,8 +3007,8 @@ follows:</p>
 <span class="mi">15</span>
 </code></pre></div>
 <p>Evaluating this function will compute the recursive call <code>(suma-hasta 4)</code>.
-That is where we must <strong>trust that the recursion does its job well</strong> and that
-this call returns the resulting value of 0+1+2+3+4, that is, 10. Once that
+That is where we must <strong>take the recursive leap of faith</strong> and assume
+that this call returns the resulting value of 0+1+2+3+4, that is, 10. Once that
 value is obtained, we must finish the calculation by adding the number 5
 itself.</p>
 <p>Another necessary characteristic of the general case in a recursive
@@ -3069,7 +3069,7 @@ character we pass as a parameter.</p>
 <span class="p">(</span><span class="n">alfabeto-hasta</span><span class="w"> </span><span class="sc">#\z</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
 </code></pre></div>
 <p>We think about the general case: how could we invoke the <code>alfabeto-hasta</code>
-function itself so that (relying on recursion) it does much of the work for us
+function itself so that (taking the recursive leap of faith) it does much of the work for us
 (builds almost the entire string with the alphabet)?</p>
 <p>We could have the recursive call return the alphabet up to the character
 previous to the one passed to us as a parameter and then add that character to
@@ -3078,7 +3078,7 @@ the string returned by the recursion.</p>
 <div class="highlight"><pre><span></span><code>(alfabeto-hasta #\h) = (alfabeto-hasta #\g) + \#h
 </code></pre></div>
 <p>The recursive call <code>(alfabeto-hasta #\g)</code> would return the string <code>"abcdefg"</code>
-(relying on recursion) and only the last letter would need to be added.</p>
+(taking the recursive leap of faith) and only the last letter would need to be added.</p>
 <p>To implement this idea in Scheme all we need is to use the <code>string-append</code>
 function to concatenate strings and a helper function <code>(anterior char)</code> that
 returns the character before a given one.</p>
@@ -3115,7 +3115,7 @@ how to treat the value returned by the recursion to obtain the expected value.</
 <p>For example, in this case we can think that to add the list of numbers <code>(12 3
 5 1 8)</code> we can obtain a simpler problem (a smaller list) by doing the <code>rest</code>
 of the list of numbers and calling recursion with the result. The recursive
-call will return the sum of those numbers (we rely on recursion) and to that
+call will return the sum of those numbers (we take the recursive leap of faith) and to that
 value it is enough to add the first number in the list. We can represent it in
 the following drawing:</p>
 <p><img src="imagenes/suma-lista.png" width="600px"/></p>
@@ -3740,12 +3740,12 @@ For example:
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">mi-append</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (a b c d e f)</span>
 </code></pre></div>
 
-To solve the problem recursively, we must rely on recursion to solve a simpler
+To solve the problem recursively, we must take the recursive leap of faith to solve a simpler
 problem and then finish fixing the result returned by the recursion.
 
 In this case, we can give recursion a simpler problem by removing the first
 element from the first list (using the `rest` function) and calling recursion
-to concatenate this smaller list to the second. We trust that the recursion
+to concatenate this smaller list to the second. We take the recursive leap of faith and assume that the recursive call
 works correctly and returns the concatenation of both lists
 
 <div class="highlight"><pre><span></span><code>(mi-append (rest &#39;(a b c)) &#39;(d e f)) =&gt; (b c d e f)
