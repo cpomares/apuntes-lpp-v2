@@ -3147,8 +3147,8 @@ The syntax of the `lambda` special form is:
     <cuerpo>)
 ```
 
-The body of the lambda defines a *block of code* and its arguments are the
-parameters necessary to execute that block of code. We call the resulting
+The body of the lambda expression defines a *block of code* and its arguments
+are the parameters necessary to execute that block of code. We call the resulting
 function an *anonymous function*.
 
 Some examples:
