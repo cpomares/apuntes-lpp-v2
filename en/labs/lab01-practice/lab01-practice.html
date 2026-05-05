@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab-01" class="md-skip">
+        <a href="#lab-1-scheme-seminar" class="md-skip">
           Skip to content
         </a>
       
@@ -707,6 +707,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="lab01-practice.html" class="md-nav__link md-nav__link--active">
         
   
@@ -723,6 +741,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#completing-the-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completing the Lab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Submission
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1064,6 +1123,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#completing-the-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Completing the Lab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab Submission
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1079,8 +1168,346 @@
 
 
 
-<h1 id="lab-01">Lab 01<a class="headerlink" href="#lab-01" title="Permanent link">&para;</a></h1>
-<p>(To be completed)</p>
+<h1 id="lab-1-scheme-seminar">Lab 1: Scheme Seminar<a class="headerlink" href="#lab-1-scheme-seminar" title="Permanent link">&para;</a></h1>
+<h2 id="completing-the-lab">Completing the Lab<a class="headerlink" href="#completing-the-lab" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Install DrRacket on your computer, as explained at the beginning of
+   the <a href="../../seminars/seminar01-scheme/seminar01-scheme.html">Scheme
+   seminar</a>,
+   and create a file called <code>lab1.rkt</code>. Include in this file all the code you
+   write this week. Use comments (lines that start with <code>;</code>) to separate sections
+   and add notes.</li>
+</ol>
+<p>This file will be useful for saving your lab work. To submit the assignment,
+   you will need to copy the solutions for each exercise into the quiz that will
+   be enabled in Moodle.</p>
+<ol start="2">
+<li>
+<p>Read the Scheme seminar up to and including section 2.4. (<em>Simple data
+   types</em>). You can watch <strong>video 1</strong> on the seminar videos page (week 1 in
+   Moodle).</p>
+<p>As you read the text or watch the video, try all the examples shown in the
+Racket interpreter. Try them interactively in DrRacket's interactions panel
+and save the definitions in the editing panel of the <code>lab1.rkt</code> file.</p>
+</li>
+<li>
+<p>Do the following exercise.</p>
+<p><strong>Exercise 1</strong>. Launch DrRacket and type each of the following instructions
+in the interpreter, trying to guess the result it will return. They are
+ordered by difficulty from top to bottom and from left to right. Think about
+the results! Try to understand how Scheme interprets what you write.</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Instruction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>3</code></td>
+<td><code>(+ (- 4 (* 3 (/ 4 2) 4)) 3)</code></td>
+</tr>
+<tr>
+<td><code>(+ 1 2 )</code></td>
+<td><code>(* (+ (+ 2 3) 4) (* (* 3 3) 2))</code></td>
+</tr>
+<tr>
+<td><code>(+ 1 2 3 4)</code></td>
+<td><code>(* (+ 2 3 4 5) 3 (- 5 2 1))</code></td>
+</tr>
+<tr>
+<td><code>(+)</code></td>
+<td><code>(+ (- (+ (- (+ 2 3) 5) 1) 2) 3)</code></td>
+</tr>
+<tr>
+<td><code>(sqrt 25)</code></td>
+<td><code>(- (sqrt (* 5 ( + 3 2))) (+ 1 1 1 1))</code></td>
+</tr>
+<tr>
+<td><code>(* (+ 2 3) 5)</code></td>
+<td><code>(&gt; (* 3 (+ 2 (+ 3 1)) (+ 1 1)) (+ (* 2 2) 3))</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>(= (* 3 2) (+ 1 (+ 2 2) 1))</code></td>
+</tr>
+<tr>
+<td><code>#\+</code></td>
+<td><code>(not (&gt; (+ 3 2) 5))</code></td>
+</tr>
+<tr>
+<td><code>"+"</code></td>
+<td><code>(and (even? 2) (odd? (+ 3 2)))</code></td>
+</tr>
+<tr>
+<td><code>"hola"</code></td>
+<td><code>(remainder (+ 6 2) (+ 1 1))</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Read section 2.5. (<em>Compound data types</em>) of the Scheme seminar, which
+   explains how to work with strings, pairs, and lists in Racket. You can watch
+   <strong>video 2</strong> on the seminar videos page in Moodle.</p>
+<p>Try all the examples from the seminar in the Racket interpreter.</p>
+</li>
+<li>
+<p>Do the following exercises.</p>
+<p><strong>Exercise 2</strong> on pairs. Predict what Scheme will do when you write the
+following expressions. They are ordered by difficulty from top to bottom and
+from left to right. Then try them and check whether your prediction was
+correct. If it was not, try to understand why.</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Instruction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(cons 1 2)</code></td>
+<td><code>(car (car (cons (cons 1 2) 3)))</code></td>
+</tr>
+<tr>
+<td><code>(car (cons 1 2))</code></td>
+<td><code>(car (cons (cons 3 4) 2))</code></td>
+</tr>
+<tr>
+<td><code>(cdr (cons 1 2))</code></td>
+<td><code>(cdr (cons (cons 3 4) 2))</code></td>
+</tr>
+<tr>
+<td><code>(cons (* 2 3) (/ 4 2))</code></td>
+<td><code>(cdr (cons 1 (cons 2 3)))</code></td>
+</tr>
+<tr>
+<td><code>(cons (+ 2 1) (if (&gt; 2 3) "2" "3"))</code></td>
+<td><code>(cdr (car (cons (cons 1 2) 3)))</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exercise 3</strong> on lists. Predict what Scheme will do when you write the
+following expressions. Then try them and check whether your prediction was
+correct. If it was not, try to understand why.</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Instruction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(list 1 2 3 4)</code></td>
+<td><code>(cons 3 '(1 2 3))</code></td>
+</tr>
+<tr>
+<td><code>(rest (list 1 2 3 4))</code></td>
+<td><code>(rest (cons #t (cons "Hola" (list 1))))</code></td>
+</tr>
+<tr>
+<td><code>(first '(1 2 3 4))</code></td>
+<td><code>(first (list (list 1 2) 1 2 3 4))</code></td>
+</tr>
+<tr>
+<td><code>(first (list #t 1 "Hola"))</code></td>
+<td><code>(first (rest '((1 2) 1 2)))</code></td>
+</tr>
+<tr>
+<td><code>(first (rest (list 1 2 3 4)))</code></td>
+<td><code>(cons '(1 2 3) '(4 5 6))</code></td>
+</tr>
+<tr>
+<td><code>(rest (rest '(1 2 3 4)))</code></td>
+<td><code>(first (rest (list 1 2 3 4)))</code></td>
+</tr>
+<tr>
+<td><code>(first (rest (rest (list 1 2 3 4))))</code></td>
+<td><code>(rest (rest (list 1 2 3 4)))</code></td>
+</tr>
+<tr>
+<td><code>(list (* 2 2) (+ 1 2) (/ 4 2))</code></td>
+<td><code>(first (rest (rest (rest '(1 2 3 4)))))</code></td>
+</tr>
+<tr>
+<td><code>(list (+ 2 3) (- 3 4) (string-ref "hola" 3))</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exercise 4</strong> on lists. Try to complete the following items without using
+the Scheme interpreter. Then check whether you were right.</p>
+<p>a) Given the following list, indicate the correct expression so that Scheme
+returns 3:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>b) Given the following list, indicate the correct expression so that Scheme
+returns (5).</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>c) Given the following list, indicate the correct expression so that Scheme
+returns 5.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>d) Given the following expression, what does Scheme return?</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">6</span><span class="p">))))</span>
+</code></pre></div>
+<p>e) Given the following expression, what does Scheme return?</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span>
+</code></pre></div>
+</li>
+<li>
+<p>Read section 3 (<em>Control structures</em>) of the Scheme seminar. You can watch
+   <strong>video 3</strong> up to minute 7:00 on the seminar videos page in Moodle.</p>
+</li>
+<li>
+<p>Do the following exercise.</p>
+<p><strong>Exercise 5</strong>. Predict what Scheme will return when you write the following
+expressions. They are ordered by difficulty from top to bottom and from left
+to right. Then try them and check whether your prediction was correct. If it
+was not, try to understand why.</p>
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Instruction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(equal? "hola" "hola")</code></td>
+<td><code>(+ (char-&gt;integer(integer-&gt;char 1200)) (char-&gt;integer #\A))</code></td>
+</tr>
+<tr>
+<td><code>(string-ref "pepe" 1)</code></td>
+<td><code>(string-length (make-string 7 #\E))</code></td>
+</tr>
+<tr>
+<td><code>(substring "buenos dias" 1 4)</code></td>
+<td><code>(define a 3)</code> <br/> <code>(define b (+ a 1))</code></td>
+</tr>
+<tr>
+<td><code>(= "hola" "hola")</code></td>
+<td><code>(+ a b (* a b))</code></td>
+</tr>
+<tr>
+<td><code>(string-ref (substring "buenos dias" 2 5) 1)</code></td>
+<td><code>(= a b)</code></td>
+</tr>
+<tr>
+<td><code>(define pi 3.14159)</code></td>
+<td><code>(if (and (&gt; a b) (&lt; b (* a b))) b a)</code></td>
+</tr>
+<tr>
+<td><code>pi</code></td>
+<td><code>(cond ((= a 4) 6)</code><br/><code>((= b 4) (+ 6 7 a))</code><br/><code>(else 25))</code></td>
+</tr>
+<tr>
+<td><code>"pi"</code></td>
+<td><code>(+ 2 (if (&gt; b a) b a))</code></td>
+</tr>
+<tr>
+<td><code>(+ pi (+ pi pi))</code></td>
+<td><code>(* (cond ((&gt; a b) a)</code> <br/><code>((&lt; a b) b)</code><br/><code>(else -1))</code><br/><code>(+ a 1))</code></td>
+</tr>
+<tr>
+<td><code>(+ (* pi pi) (- 2 pi pi pi pi))</code></td>
+<td><code>((if (&lt; a b) + -) a b)</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Read the rest of the seminar, from section 4 to the end. You can watch
+   <strong>video 3</strong> from minute 7:00 to the end on the seminar videos page in Moodle.</p>
+<ul>
+<li>
+<p>Try the <code>ecuacion</code> and <code>convertir-temperatura</code> functions and reflect on
+  how they are implemented.</p>
+</li>
+<li>
+<p>Try the unit tests for the <code>ecuacion</code> function. Change the function
+  definition to introduce an error and cause the unit tests to fail. Fix the
+  function definition so that it works again.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Do the following exercise.</p>
+<p><strong>Exercise 6</strong></p>
+<p>a) Define the function <code>(distancia p1 p2)</code> that calculates the distance
+between two points, represented by pairs of integer numbers. Add the
+following tests to check that it works correctly:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p1:(0, 0) p2:(0, 10)</code></td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>p1:(0, 0) p2:(10, 0)</code></td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>p1:(0, 0) p2:(10, 10)</code></td>
+<td><code>14.142135623730951</code></td>
+</tr>
+</tbody>
+</table>
+<p>b) Using the <code>distancia</code> function defined above, implement the function
+<code>isosceles?</code>, which receives the three coordinates of the vertices of a
+triangle and must return whether the figure is an isosceles triangle. To do
+so, you must check that the three sides are not all equal (that would be
+equilateral) and that one of the following three conditions holds: either the
+first side is equal to the second, the first side is equal to the third, or
+the second side is equal to the third.</p>
+<p>Notice that the Boolean functions <code>and</code>, <code>or</code>, and <code>not</code> already return a
+Boolean value, and that functional programming uses function composition.</p>
+<p>You must implement the function using a single expression in which you do
+not use <code>if</code>, but rather a composition of Boolean expressions.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Remember from the seminar that the <code>=</code> function can have more than two
+arguments.</p>
+</div>
+<p>Add the corresponding tests for the following examples:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">; Ejemplos de triángulos isósceles:</span>
+
+<span class="c1">; p1: (0, 0) p2: (3, 3) p3: (6, 0)</span>
+<span class="c1">; p1: (2, 2) p2: (4, 0) p3: (0, 0)</span>
+
+<span class="c1">; No isósceles:</span>
+
+<span class="c1">; p1: (0, 0) p2: (0, 0) p3: (0, 0) (igual la distancia entre los tres puntos)</span>
+<span class="c1">; p1: (0, 0) p2: (1, 1) p3: (3, 2) (ningún lado igual)</span>
+
+<span class="p">(</span><span class="n">isosceles?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">isosceles?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">isosceles?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+<span class="p">(</span><span class="n">isosceles?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="lab-submission">Lab Submission<a class="headerlink" href="#lab-submission" title="Permanent link">&para;</a></h2>
+<p>Copy the lab exercises into the <em>Lab 1 submission</em> quiz. The deadline is next
+Sunday at 21:00. Once the submission deadline has passed, you will be able to
+review the quiz and view the solution. In this case, the only exercise with a
+solution is exercise 6.</p>
+<p>Once the solution is available, compare it with yours. You can ask your lab
+instructor any questions during next week's lab session.</p>
+<hr />
+<p>Programming Languages and Paradigms, academic year 2025-26<br />
+© Department of Computer Science and Artificial Intelligence, University of Alicante<br />
+Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
 
 
 
