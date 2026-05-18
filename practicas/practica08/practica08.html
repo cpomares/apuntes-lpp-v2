@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1364,25 +1364,25 @@ permiten dibujar gráficamente árboles y árboles binarios.</p>
 genérico y escribe <strong>utilizando las funciones de la barrera de
 abstracción de árboles</strong> una expresión que devuelva el número 10.</p>
 <p><img src="imagenes/arbol.png" width="400px"/></p>
-<div class="highlight"><pre><span></span><code>(define arbol &#39;(------------))
-(check-equal? ------------------- 10)
-</code></pre></div>
+<p><code>text
+(define arbol '(------------))
+(check-equal? ------------------- 10)</code></p>
 <p>a.2) Las funciones que suman los datos de un árbol utilizando
 recursión mutua y que hemos visto en teoría son las siguientes:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-datos-arbol</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="n">dato-arbol</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span>
-<span class="w">       </span><span class="p">(</span><span class="n">suma-datos-bosque</span><span class="w"> </span><span class="p">(</span><span class="n">hijos-arbol</span><span class="w"> </span><span class="n">arbol</span><span class="p">))))</span>
-
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-datos-bosque</span><span class="w"> </span><span class="n">bosque</span><span class="p">)</span>
-<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="n">bosque</span><span class="p">)</span>
-<span class="w">        </span><span class="mi">0</span>
-<span class="w">        </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="n">suma-datos-arbol</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">bosque</span><span class="p">))</span><span class="w"> </span>
-<span class="w">           </span><span class="p">(</span><span class="n">suma-datos-bosque</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">bosque</span><span class="p">)))))</span>
-</code></pre></div>
+<p>```racket
+(define (suma-datos-arbol arbol)
+    (+ (dato-arbol arbol)
+       (suma-datos-bosque (hijos-arbol arbol))))</p>
+<p>(define (suma-datos-bosque bosque)
+    (if (null? bosque)
+        0
+        (+ (suma-datos-arbol (first bosque)) 
+           (suma-datos-bosque (rest bosque)))))
+```</p>
 <p>Si realizamos la siguiente llamada a la función <code>suma-datos-bosque</code>,
 siendo <code>arbol</code> el definido en el apartado anterior:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">suma-datos-bosque</span><span class="w"> </span><span class="p">(</span><span class="n">hijos-arbol</span><span class="w"> </span><span class="n">arbol</span><span class="p">))</span>
-</code></pre></div>
+<p><code>racket
+(suma-datos-bosque (hijos-arbol arbol))</code></p>
 <ol>
 <li>¿Qué devuelve la invocación a <code>(suma-datos-arbol (first bosque))</code> que
   se realiza dentro de la función?</li>
@@ -1392,14 +1392,14 @@ siendo <code>arbol</code> el definido en el apartado anterior:</p>
 fichero de la práctica.</p>
 <p>a.3) La función de orden superior que hemos visto en teoría y que
 realiza también la suma de los datos de un árbol es:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-datos-arbol-fos</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span>
-<span class="w">   </span><span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="n">dato-arbol</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span>
-<span class="w">       </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="n">suma-datos-arbol-fos</span><span class="w"> </span><span class="p">(</span><span class="n">hijos-arbol</span><span class="w"> </span><span class="n">arbol</span><span class="p">))))</span>
-</code></pre></div>
+<p><code>racket
+(define (suma-datos-arbol-fos arbol)
+   (foldr + (dato-arbol arbol) 
+       (map suma-datos-arbol-fos (hijos-arbol arbol))))</code> </p>
 <p>Si realizamos la siguiente llamada a la función, siendo <code>arbol</code> el
 definido en el apartado anterior:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">suma-datos-arbol-fos</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span>
-</code></pre></div>
+<p><code>racket
+(suma-datos-arbol-fos arbol)</code></p>
 <ol>
 <li>¿Qué devuelve la invocación a <code>map</code> dentro de la función?</li>
 <li>¿Qué invocaciones se realizan a la función <code>+</code> durante la ejecución
@@ -1411,9 +1411,9 @@ definido en el apartado anterior:</p>
 binario y escribe <strong>utilizando las funciones de la barrera de
 abstracción de árboles binarios</strong> una expresión que devuelva el número 29.</p>
 <p><img src="imagenes/arbol-binario.png" width="230px"/></p>
-<div class="highlight"><pre><span></span><code>(define arbolb &#39;(------------------))
-(check-equal? ---------------------- 29)
-</code></pre></div>
+<p><code>text
+(define arbolb '(------------------))
+(check-equal? ---------------------- 29)</code></p>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>a) Implementa dos versiones de la función <code>(to-string-arbol arbol)</code> que
 recibe un árbol de símbolos y devuelve la cadena resultante de
@@ -1421,27 +1421,27 @@ concatenar todos los símbolos en recorrido preorden. Debes implementar
 una versión con <strong>recursión mutua</strong> y otra (llamada <code>to-string-arbol-fos</code>)
 con una única función en la que se use <strong>funciones de orden superior</strong>.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbol2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="ss">e</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="p">)))</span>
-<span class="p">(</span><span class="n">to-string-arbol</span><span class="w"> </span><span class="n">arbol2</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;abcdef&quot;</span>
-</code></pre></div>
+<p><code>racket
+(define arbol2 '(a (b (c (d)) (e)) (f)))
+(to-string-arbol arbol2) ; ⇒ "abcdef"</code></p>
 <p>b) Implementa dos versiones de la función <code>(veces-arbol dato arbol)</code> que
 recibe un árbol y un dato y comprueba el número de veces que aparece
 el dato en el árbol. Debes implementar una función con <strong>recursión mutua</strong>
 y otra con <strong>funciones de orden superior</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">veces-arbol</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="p">))))</span><span class="w"> </span><span class="c1">; ⇒ 3</span>
-<span class="p">(</span><span class="n">veces-arbol</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">g</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="p">))))</span><span class="w"> </span><span class="c1">; ⇒ 0</span>
-</code></pre></div>
+<p><code>racket
+(veces-arbol 'b '(a (b (c) (d)) (b (b) (f)))) ; ⇒ 3
+(veces-arbol 'g '(a (b (c) (d)) (b (b) (f)))) ; ⇒ 0</code></p>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>a) Implementa dos versiones de la función <code>(hojas-cumplen pred arbol)</code>
 que recibe un predicado y un árbol y devuelve una lista con todas
 aquellas hojas del árbol que cumplen el predicado. Una función con
 <strong>recursión mutua</strong> y otra con <strong>funciones de orden superior</strong>. </p>
 <p><img src="imagenes/hojas-cumplen.png" width="400px"></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbol1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">12</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">))))</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbol2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">12</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">))))</span>
-<span class="p">(</span><span class="n">hojas-cumplen</span><span class="w"> </span><span class="nb">even?</span><span class="w"> </span><span class="n">arbol1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;(2 4 2)</span>
-<span class="p">(</span><span class="n">hojas-cumplen</span><span class="w"> </span><span class="nb">even?</span><span class="w"> </span><span class="n">arbol2</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;(2 4 2 6)</span>
-</code></pre></div>
+<p><code>racket
+(define arbol1 '(10 (2) (12 (4) (2)) (10 (5))))
+(define arbol2 '(10 (2) (12 (4) (2)) (10 (6))))
+(hojas-cumplen even? arbol1) ; ⇒ '(2 4 2)
+(hojas-cumplen even? arbol2) ; ⇒ '(2 4 2 6)</code></p>
 <p>b) Implementa dos versiones del predicado <code>(todas-hojas-cumplen? pred
 arbol)</code> que comprueba si todas las hojas de un árbol cumplen un
 determinado predicado. Una función con <strong>recursión mutua</strong> y otra con
@@ -1449,19 +1449,19 @@ determinado predicado. Una función con <strong>recursión mutua</strong> y otra
 <p>No debes usar la función anterior, tienes que hacer un recorrido por
 todo el árbol. Para la función de orden superior puedes usar la
 función <code>for-all?</code> implementada en el <a href="https://domingogallardo.github.io/apuntes-lpp/teoria/tema02-programacion-funcional/tema02-programacion-funcional.html#funciones-de-orden-superior">tema 2</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">todas-hojas-cumplen?</span><span class="w"> </span><span class="nb">even?</span><span class="w"> </span><span class="n">arbol1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">todas-hojas-cumplen?</span><span class="w"> </span><span class="nb">even?</span><span class="w"> </span><span class="n">arbol2</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-</code></pre></div>
+<p><code>racket
+(todas-hojas-cumplen? even? arbol1) ; ⇒ #f
+(todas-hojas-cumplen? even? arbol2) ; ⇒ #t</code></p>
 <h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
 <p>a) Implementa, utilizando <strong>funciones de orden superior</strong>, la función
 <code>(suma-raices-hijos arbol)</code> que devuelva la suma de las raíces de los
 hijos de un árbol genérico.</p>
 <p>Ejemplo:</p>
 <p><img src="imagenes/arbol-suma-raices.png" width="180px"/></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbol3</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="mi">9</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">))))</span>
-<span class="p">(</span><span class="n">suma-raices-hijos</span><span class="w"> </span><span class="n">arbol3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 19</span>
-<span class="p">(</span><span class="n">suma-raices-hijos</span><span class="w"> </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="p">(</span><span class="n">hijos-arbol</span><span class="w"> </span><span class="n">arbol3</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ 6</span>
-</code></pre></div>
+<p><code>racket
+(define arbol3 '(20 (2) (8 (4) (2)) (9 (5))))
+(suma-raices-hijos arbol3) ; ⇒ 19
+(suma-raices-hijos (second (hijos-arbol arbol3))) ; ⇒ 6</code></p>
 <p>b) Implementa dos versiones, una con <strong>recursión mutua</strong> y otra con
 <strong>funciones de orden superior</strong>, de la función <code>(raices-mayores-arbol?
 arbol)</code> que recibe un árbol y comprueba que su raíz sea mayor que la
@@ -1469,18 +1469,18 @@ suma de las raíces de los hijos y que todos los hijos (nos referimos a
 todos los descendientes) cumplen también esta propiedad.</p>
 <p>Ejemplos:</p>
 <p><img src="imagenes/arbol4.png" width="250px"/></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbol4</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="mi">9</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">))))</span>
-<span class="p">(</span><span class="n">raices-mayores-arbol?</span><span class="w"> </span><span class="n">arbol3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">raices-mayores-arbol?</span><span class="w"> </span><span class="n">arbol4</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-</code></pre></div>
+<p><code>racket
+(define arbol4 '(20 (2) (8 (4) (5)) (9 (5))))
+(raices-mayores-arbol? arbol3) ; ⇒ #t
+(raices-mayores-arbol? arbol4) ; ⇒ #f</code></p>
 <p>c) Define la función <code>(comprueba-raices-arbol arbol)</code> que recibe un
 arbol y que devuelve otro arbol en el que los nodos se han sustituido
 por 1 o 0 según si son mayores que la suma de las raíces de sus hijos
 o no.</p>
 <p>Ejemplos:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">raices_arbol3</span><span class="w"> </span><span class="p">(</span><span class="n">comprueba-raices-arbol</span><span class="w"> </span><span class="n">arbol3</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (1 (1) (1 (1) (1)) (1 (1)))</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">raices_arbol4</span><span class="w"> </span><span class="p">(</span><span class="n">comprueba-raices-arbol</span><span class="w"> </span><span class="n">arbol4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (1 (1) (0 (1) (1)) (1 (1)))</span>
-</code></pre></div>
+<p><code>racket
+(define raices_arbol3 (comprueba-raices-arbol arbol3)) ; ⇒ (1 (1) (1 (1) (1)) (1 (1)))
+(define raices_arbol4 (comprueba-raices-arbol arbol4)) ; ⇒ (1 (1) (0 (1) (1)) (1 (1)))</code></p>
 <p><img src="imagenes/raices.png" width="200px"/></p>
 <h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
 <p>a) Define la función con <strong>recursión mutua</strong> <code>(es-camino? lista arbol)</code> que debe comprobar si
@@ -1492,20 +1492,20 @@ pero la lista <code>(a b)</code> no.</p>
 <p><img src="imagenes/es-camino.png" width="300px"/></p>
 <p>Ejemplos: suponiendo que <code>arbol</code> es el árbol definido por la figura
 anterior:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">es-camino?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">es-camino?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">es-camino?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-</code></pre></div>
+<p><code>racket
+(es-camino? '(a b a) arbol) ; ⇒ #t
+(es-camino? '(a b) arbol) ; ⇒ #f
+(es-camino? '(a b a b) arbol) ; ⇒ #f</code></p>
 <p>b) Escribe la función <code>(nodos-nivel nivel arbol)</code> que reciba un nivel
 y un árbol genérico y devuelva una lista con todos los nodos que se
 encuentran en ese nivel.</p>
 <p><img src="imagenes/nodos-nivel.png" width="250px"/></p>
 <p>Ejemplos, suponiendo que <code>arbol</code> es el árbol definido por la figura anterior:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">nodos-nivel</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;(1)</span>
-<span class="p">(</span><span class="n">nodos-nivel</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;(2 6)</span>
-<span class="p">(</span><span class="n">nodos-nivel</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;(3 5 7)</span>
-<span class="p">(</span><span class="n">nodos-nivel</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">arbol</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;(4 2)</span>
-</code></pre></div>
+<p><code>racket
+(nodos-nivel 0 arbol) ; ⇒ '(1)
+(nodos-nivel 1 arbol) ; ⇒ '(2 6)
+(nodos-nivel 2 arbol) ; ⇒ '(3 5 7)
+(nodos-nivel 3 arbol) ; ⇒ '(4 2)</code></p>
 <h3 id="ejercicio-6">Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permanent link">&para;</a></h3>
 <p>a) Define la función <code>(ordenado-entre? arbolb min max)</code> que comprueba si
 un árbol binario está ordenado y sus datos está entre <code>min</code> y
@@ -1518,36 +1518,36 @@ hijo derecho.</p>
 (<code>arbolb1</code>) está ordenado, pero el de la derecha (<code>arbolb2</code>) no lo está.</p>
 <p><img src="imagenes/ordenado-arbolb.png" width="600px" /></p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="p">(</span><span class="mi">13</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">())</span>
-<span class="w">                         </span><span class="p">(</span><span class="mi">18</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()))</span>
-<span class="w">                     </span><span class="p">(</span><span class="mi">40</span><span class="w"> </span><span class="p">(</span><span class="mi">25</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
-<span class="w">                         </span><span class="p">(</span><span class="mi">43</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()))))</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">arbolb2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="p">(</span><span class="mi">13</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">())</span>
-<span class="w">                         </span><span class="p">(</span><span class="mi">22</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()))</span>
-<span class="w">                     </span><span class="p">(</span><span class="mi">40</span><span class="w"> </span><span class="p">(</span><span class="mi">25</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
-<span class="w">                         </span><span class="p">(</span><span class="mi">43</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">()))))</span>
-
-<span class="p">(</span><span class="n">ordenado-entre?</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">ordenado-entre?</span><span class="w"> </span><span class="n">arbolb2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">ordenado-entre?</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-</code></pre></div>
+<p>```racket
+(define arbolb1 '(20 (13 (2 () ())
+                         (18 () ()))
+                     (40 (25 () () )
+                         (43 () ()))))
+(define arbolb2 '(20 (13 (2 () ())
+                         (22 () ()))
+                     (40 (25 () () )
+                         (43 () ()))))</p>
+<p>(ordenado-entre? arbolb1 0 50) ; ⇒ #t
+(ordenado-entre? arbolb2 0 50) ; ⇒ #f
+(ordenado-entre? arbolb1 0 30) ; ⇒ #f
+```</p>
 <p>b) Utilizando la función anterior, define las funciones
 <code>(ordenado-menor? arbolb max)</code> y <code>(ordenado-mayor? arbolb min)</code> que
 comprueban si un árbol binario está ordenado y sus datos son menores
 o iguales o mayores o iguales que el argumento.</p>
 <p>Ejemplos:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">ordenado-menor?</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">ordenado-menor?</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">ordenado-menor?</span><span class="w"> </span><span class="n">arbolb2</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">ordenado-mayor?</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">ordenado-mayor?</span><span class="w"> </span><span class="n">arbolb1</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">ordenado-mayor?</span><span class="w"> </span><span class="n">arbolb2</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-</code></pre></div>
+<p><code>racket
+(ordenado-menor? arbolb1 50) ; ⇒ #t
+(ordenado-menor? arbolb1 40) ; ⇒ #f
+(ordenado-menor? arbolb2 50) ; ⇒ #f
+(ordenado-mayor? arbolb1 0)  ; ⇒ #t
+(ordenado-mayor? arbolb1 20) ; ⇒ #f
+(ordenado-mayor? arbolb2 0) ; ⇒ #f</code></p>
 <p>c) Utilizando las funciones anteriores, define la función <code>(ordenado?
 arbolb)</code> que comprueba si un árbol binario está ordenado.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">ordenado?</span><span class="w"> </span><span class="n">arbolb1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">ordenado?</span><span class="w"> </span><span class="n">arbolb2</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-</code></pre></div>
+<p><code>racket
+(ordenado? arbolb1) ; ⇒ #t
+(ordenado? arbolb2) ; ⇒ #f</code></p>
 <h3 id="ejercicio-7">Ejercicio 7<a class="headerlink" href="#ejercicio-7" title="Permanent link">&para;</a></h3>
 <p>a) Dado un árbol binario y un camino definido como una lista de símbolos:
 <code>'(&lt; &gt; = &gt; &gt; =)</code> en el que:</p>
@@ -1559,9 +1559,9 @@ arbolb)</code> que comprueba si un árbol binario está ordenado.</p>
 <p>Implementa la función <code>(camino-arbolb arbolb camino)</code> que devuelva una
 lista con los datos recogidos por el camino.</p>
 <p><img src="imagenes/arbol-binario2.png" width="250px"/></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">camino-arbolb</span><span class="w"> </span><span class="n">arbolb</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">=</span><span class="w"> </span><span class="ss">&lt;</span><span class="w"> </span><span class="ss">&lt;</span><span class="w"> </span><span class="ss">=</span><span class="w"> </span><span class="ss">&gt;</span><span class="w"> </span><span class="ss">=</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &#39;(9 3 4)</span>
-<span class="p">(</span><span class="n">camino-arbolb</span><span class="w"> </span><span class="n">arbolb</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">&gt;</span><span class="w"> </span><span class="ss">=</span><span class="w"> </span><span class="ss">&lt;</span><span class="w"> </span><span class="ss">&lt;</span><span class="w"> </span><span class="ss">=</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &#39;(15 10)</span>
-</code></pre></div>
+<p><code>racket
+(camino-arbolb arbolb '(= &lt; &lt; = &gt; =)) ; ⇒ '(9 3 4)
+(camino-arbolb arbolb '(&gt; = &lt; &lt; =)) ; ⇒ '(15 10)</code></p>
 <p>b) Recuerda que un árbol binario está ordenado si el dato de la raíz es mayor
 que todos los datos del hijo izquierdo y menor o igual que los del hijo derecho,
 y a su vez ambos hijos también están ordenados. </p>
@@ -1569,14 +1569,13 @@ y a su vez ambos hijos también están ordenados. </p>
 número y un árbol binario de números que está ordenado, y devuelve un nuevo
 árbol binario ordenado que incluye el número. </p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code>(define a1 (inserta-ordenado 5 arbolb-vacio)) 
+<p><code>(define a1 (inserta-ordenado 5 arbolb-vacio)) 
 (define a2 (inserta-ordenado 4 a1))
 (define a3 (inserta-ordenado 2 a2))
-(define a4 (inserta-ordenado 6 a3))) 
-</code></pre></div>
+(define a4 (inserta-ordenado 6 a3)))</code></p>
 <p><img src="imagenes/arbolesb-ordenados.png" width="400px"/></p>
 <hr />
-<p>Lenguajes y Paradigmas de Programación, curso 2024-25<br />
+<p>Lenguajes y Paradigmas de Programación, curso 2025-26<br />
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante<br />
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
 

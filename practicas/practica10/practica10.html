@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1334,40 +1334,41 @@ sean <code>nil</code> se devolverá <code>nil</code>. En el caso en que uno sea 
 otro no se devolverá el entero que no es <code>nil</code>. En el caso en que
 ningún parámetro sea <code>nil</code> se devolverá el mayor.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">res1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">maxOpt</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span><span class="w"> </span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">res2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">maxOpt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">res3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">maxOpt</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;res1 = </span><span class="si">\(</span><span class="nb">String</span><span class="si">(</span><span class="n">describing</span><span class="p">:</span><span class="w"> </span><span class="n">res1</span><span class="si">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;res2 = </span><span class="si">\(</span><span class="nb">String</span><span class="si">(</span><span class="n">describing</span><span class="p">:</span><span class="w"> </span><span class="n">res2</span><span class="si">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;res3 = </span><span class="si">\(</span><span class="nb">String</span><span class="si">(</span><span class="n">describing</span><span class="p">:</span><span class="w"> </span><span class="n">res3</span><span class="si">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="c1">// Imprime:</span>
-<span class="c1">// res1 = nil</span>
-<span class="c1">// res2 = Optional(10)</span>
-<span class="c1">// res3 = Optional(30)</span>
-</code></pre></div>
+<p>```swift
+let res1 = maxOpt(nil, nil) 
+let res2 = maxOpt(10, nil)
+let res3 = maxOpt(-10, 30)
+print("res1 = (String(describing: res1))")
+print("res2 = (String(describing: res2))")
+print("res3 = (String(describing: res3))")
+// Imprime:
+// res1 = nil
+// res2 = Optional(10)
+// res3 = Optional(30)</p>
+<p>```</p>
 <p>b1) Escribe una nueva versión del ejercicio 2b) de la práctica 9 que
 permita recibir números negativos y que devuelva una pareja de <code>(Int?,
 Int?)</code> con <code>nil</code> en la parte izquierda y/o derecha si no hay número
 impares o pares. Debes usar la función auxiliar definida en el
 apartado anterior.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numeros</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">202</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">******</span><span class="se">\n</span><span class="s">1b1) Función parejaMayorParImpar2(numeros:)</span><span class="se">\n</span><span class="s">******&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">parejaMayorParImpar2</span><span class="p">(</span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="n">numeros</span><span class="p">))</span>
-<span class="c1">// Imprime:</span>
-<span class="c1">// parejaMayorParImpar2(numeros: [-10, 202, 12, 100, 204, 2])</span>
-<span class="c1">// (nil, Optional(204))</span>
-</code></pre></div>
+<p><code>swift
+let numeros = [-10, 202, 12, 100, 204, 2]
+print("\n******\n1b1) Función parejaMayorParImpar2(numeros:)\n******")
+print(parejaMayorParImpar2(numeros: numeros))
+// Imprime:
+// parejaMayorParImpar2(numeros: [-10, 202, 12, 100, 204, 2])
+// (nil, Optional(204))</code></p>
 <p>b2) Escribe la función <code>sumaMaxParesImpares(numeros: [Int]) -&gt; Int</code>
 que <strong>llama a la función anterior</strong> y devuelve la suma del máximo de los
 pares y el máximo de los impares. En el caso en que se pase un array
 vacío deberá devolver un 0.</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="s">&quot;sumaMaxParesImpares(numeros: </span><span class="si">\(</span><span class="n">numeros</span><span class="si">)</span><span class="s">)&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">sumaMaxParesImpares</span><span class="p">(</span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="n">numeros</span><span class="p">))</span>
-<span class="c1">// Imprime:</span>
-<span class="c1">// sumaMaxParesImpares(numeros: [-10, 202, 12, 100, 204, 2])</span>
-<span class="c1">// 204</span>
-</code></pre></div>
+<p><code>swift
+print("sumaMaxParesImpares(numeros: \(numeros))")
+print(sumaMaxParesImpares(numeros: numeros))
+// Imprime:
+// sumaMaxParesImpares(numeros: [-10, 202, 12, 100, 204, 2])
+// 204</code></p>
 <p>b3) Escribe una nueva versión de la función del ejercicio b1) en la que se devuelva
 <code>nil</code> en el caso en que se le pase como parámetro un array
 vacío. ¿Cómo se debería cambiar la declaración de la función? Escribe
@@ -1376,118 +1377,117 @@ llame a la función anterior.</p>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>a) Indica qué devuelven las siguientes expresiones:</p>
 <p>a.1)
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">nums</span><span class="p">.</span><span class="bp">filter</span><span class="p">{</span><span class="nv">$0</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">0</span><span class="p">}.</span><span class="bp">count</span>
-</code></pre></div></p>
+<code>swift
+let nums = [1,2,3,4,5,6,7,8,9,10]
+nums.filter{$0 % 3 == 0}.count</code></p>
 <p>a.2)
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nums2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">nums2</span><span class="p">.</span><span class="bp">map</span><span class="p">{</span><span class="nv">$0</span><span class="o">+</span><span class="mi">100</span><span class="p">}.</span><span class="bp">filter</span><span class="p">{</span><span class="nv">$0</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">0</span><span class="p">}.</span><span class="bp">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">+</span><span class="p">)</span>
-</code></pre></div></p>
+<code>swift
+let nums2 = [1,2,3,4,5,6,7,8,9,10]
+nums2.map{$0+100}.filter{$0 % 5 == 0}.reduce(0,+)</code></p>
 <p>a.3)
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">cadenas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;En&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;un&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lugar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;de&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;La&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mancha&quot;</span><span class="p">]</span>
-<span class="n">cadenas</span><span class="p">.</span><span class="bp">sorted</span><span class="p">{</span><span class="nv">$0</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$1</span><span class="p">.</span><span class="bp">count</span><span class="p">}.</span><span class="bp">map</span><span class="p">{</span><span class="nv">$0</span><span class="p">.</span><span class="bp">count</span><span class="p">}</span>
-</code></pre></div></p>
+<code>swift
+let cadenas = ["En", "un", "lugar", "de", "La", "Mancha"]
+cadenas.sorted{$0.count &lt; $1.count}.map{$0.count}</code></p>
 <p>a.4)
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">cadenas2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;En&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;un&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lugar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;de&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;La&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mancha&quot;</span><span class="p">]</span>
-<span class="n">cadenas2</span><span class="p">.</span><span class="bp">reduce</span><span class="p">([])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">(</span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">[(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">Int</span><span class="p">)],</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">Int</span><span class="p">)]</span><span class="w"> </span><span class="k">in</span>
-<span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="bp">count</span><span class="p">)]}.</span><span class="bp">sorted</span><span class="p">(</span><span class="n">by</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nv">$0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$1</span><span class="p">.</span><span class="mi">1</span><span class="p">})</span>
-</code></pre></div></p>
+<code>swift
+let cadenas2 = ["En", "un", "lugar", "de", "La", "Mancha"]
+cadenas2.reduce([]) {
+    (res: [(String, Int)], c: String) -&gt; [(String, Int)] in
+        res + [(c, c.count)]}.sorted(by: {$0.1 &lt; $1.1})</code></p>
 <p>b) Explica qué hacen las siguientes funciones y pon un ejemplo de su funcionamiento:</p>
 <p>b.1)
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">filter</span><span class="p">{</span><span class="nv">$0</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">n</span><span class="p">}.</span><span class="bp">count</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<code>swift
+func f(nums: [Int], n: Int) -&gt; Int {
+    return nums.filter{$0 == n}.count
+}</code></p>
 <p>b.2)
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">reduce</span><span class="p">([],</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="p">(</span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="k">in</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="n">res</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">res</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<code>swift
+func g(nums: [Int]) -&gt; [Int] {
+    return nums.reduce([], {
+        (res: [Int], n: Int) -&gt; [Int] in
+            if !res.contains(n) {
+                return res + [n]
+            } else {
+                return res
+            }
+    })
+}</code></p>
 <p>b.3)
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">([</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">reduce</span><span class="p">(([],[]),</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="p">(</span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="p">([</span><span class="nb">Int</span><span class="p">],[</span><span class="nb">Int</span><span class="p">]),</span><span class="w"> </span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">([</span><span class="nb">Int</span><span class="p">],[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="k">in</span>
-<span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">])</span>
-<span class="w">           </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="p">((</span><span class="n">res</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span><span class="n">num</span><span class="p">],</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="mi">1</span><span class="p">))</span>
-<span class="w">           </span><span class="p">}</span>
-<span class="w">   </span><span class="p">})</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<code>swift
+func h(nums: [Int], n: Int) -&gt; ([Int], [Int]) {
+   return nums.reduce(([],[]), {
+       (res: ([Int],[Int]), num: Int ) -&gt; ([Int],[Int]) in
+           if (num &gt;= n) {
+               return (res.0, res.1 + [num])
+           } else {
+               return ((res.0 + [num], res.1))
+           }
+   })
+}</code></p>
 <p>c) Implementa las siguientes funciones con funciones de orden superior.</p>
 <p>c.1) Función <code>suma(palabras:contienen:)</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">suma</span><span class="p">(</span><span class="n">palabras</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">],</span><span class="w"> </span><span class="n">contienen</span><span class="p">:</span><span class="w"> </span><span class="nb">Character</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span>
-</code></pre></div>
+<p><code>swift
+suma(palabras: [String], contienen: Character) -&gt; Int</code></p>
 <p>que recibe una array de cadenas y devuelve la suma de las longitudes
 de las cadenas que contiene el carácter que se pasa como parámetro.</p>
 <p>c.2) Función <code>sumaMenoresMayores(nums:pivote:)</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sumaMenoresMayores</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">pivote</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+sumaMenoresMayores(nums: [Int], pivote: Int) -&gt; (Int, Int)</code></p>
 <p>que recibe un array de números y un número pivote y
 devuelve una tupla con la suma de los números menores y mayores o
 iguales que el pivote.</p>
 <p>d) (Ejercicio sobre variables capturadas por clausuras) Reflexiona
 sobre el siguiente código y completa el hueco para obtener el
 resultado esperado.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">bar</span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">__________</span><span class="p">))</span>
-<span class="p">}</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span>
-<span class="n">bar</span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w">   </span><span class="c1">// =&gt; 9</span>
-<span class="n">bar</span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w">   </span><span class="c1">// =&gt; 15</span>
-</code></pre></div>
+<p>```swift
+func bar(f: (Int) -&gt; Int) {
+  print(f(<strong><em>_</em></strong>___))
+}</p>
+<p>func foo() -&gt; (Int) -&gt; Int {
+  var x = 3
+  return {
+    x += $0 + 2
+    return x
+  }
+}</p>
+<p>var x = 5
+let g = foo()
+bar(f: g)   // =&gt; 9
+bar(f: g)   // =&gt; 15
+```</p>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>Define un tipo enumerado con un árbol genérico, tal y como hicimos en
 el último ejercicio de la práctica anterior, que tenga como genérico
 el tipo de dato que contiene.</p>
 <p>En el siguiente ejemplo vemos cómo debería poderse definir con el
 mismo tipo genérico un árbol de enteros y un árbol de cadenas:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">arbolInt</span><span class="p">:</span><span class="w"> </span><span class="n">Arbol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="mi">53</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                            </span><span class="p">[.</span><span class="n">nodo</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="p">[]),</span><span class="w"> </span>
-<span class="w">                             </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="p">[]),</span><span class="w"> </span>
-<span class="w">                             </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="mi">41</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                                   </span><span class="p">[.</span><span class="n">nodo</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span><span class="w"> </span><span class="p">[]),</span><span class="w"> </span>
-<span class="w">                                    </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
-<span class="w">                                   </span><span class="p">])</span>
-<span class="w">                            </span><span class="p">])</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">arbolString</span><span class="p">:</span><span class="w"> </span><span class="n">Arbol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="s">&quot;Zamora&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                               </span><span class="p">[.</span><span class="n">nodo</span><span class="p">(</span><span class="s">&quot;Buendía&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                                      </span><span class="p">[.</span><span class="n">nodo</span><span class="p">(</span><span class="s">&quot;Albeza&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[]),</span><span class="w"> </span>
-<span class="w">                                       </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="s">&quot;Berenguer&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[]),</span><span class="w"> </span>
-<span class="w">                                       </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="s">&quot;Bolardo&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
-<span class="w">                                      </span><span class="p">]),</span><span class="w"> </span>
-<span class="w">                                </span><span class="p">.</span><span class="n">nodo</span><span class="p">(</span><span class="s">&quot;Galván&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
-<span class="w">                               </span><span class="p">])</span>
-</code></pre></div>
+<p><code>swift
+let arbolInt: Arbol = .nodo(53, 
+                            [.nodo(13, []), 
+                             .nodo(32, []), 
+                             .nodo(41, 
+                                   [.nodo(36, []), 
+                                    .nodo(39, [])
+                                   ])
+                            ])
+let arbolString: Arbol = .nodo("Zamora", 
+                               [.nodo("Buendía", 
+                                      [.nodo("Albeza", []), 
+                                       .nodo("Berenguer", []), 
+                                       .nodo("Bolardo", [])
+                                      ]), 
+                                .nodo("Galván", [])
+                               ])</code></p>
 <p>Define las funciones genéricas <code>toArray</code> y <code>toArrayFOS</code> que devuelvan un array con todos
 los componentes del árbol usando un recorrido <em>preorden</em> (primero la
 raíz y después los hijos). La primera la debes implementar con
 recursión mutua y la segunda usando funciones de orden superior.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="n">toArray</span><span class="p">(</span><span class="n">arbol</span><span class="p">:</span><span class="w"> </span><span class="n">arbolInt</span><span class="p">))</span>
-<span class="c1">// Imprime: [53, 13, 32, 41, 36, 39]</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">toArrayFOS</span><span class="p">(</span><span class="n">arbol</span><span class="p">:</span><span class="w"> </span><span class="n">arbolString</span><span class="p">))</span>
-<span class="c1">// Imprime: [&quot;Zamora&quot;, &quot;Buendía&quot;, &quot;Albeza&quot;, &quot;Berenguer&quot;, &quot;Bolardo&quot;, &quot;Galván&quot;]</span>
-</code></pre></div>
+<p><code>swift
+print(toArray(arbol: arbolInt))
+// Imprime: [53, 13, 32, 41, 36, 39]
+print(toArrayFOS(arbol: arbolString))
+// Imprime: ["Zamora", "Buendía", "Albeza", "Berenguer", "Bolardo", "Galván"]</code></p>
 <h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
 <p>Implementa en Swift la función <code>imprimirListadosNotas(alumnos:)</code> que
 recibe un array de tuplas, en donde cada tupla contiene información de
@@ -1511,31 +1511,32 @@ parciales, ponderados en: 0,35, 0,3, 0,35) (orden decreciente de nota final)</li
 <p class="admonition-title">Nota</p>
 <p>Para que los listados se muestren formateados con espacios, puedes usar la siguiente
 función (para ello también debes incluir el import que se indica)</p>
-<div class="highlight"><pre><span></span><code><span class="kd">import</span><span class="w"> </span><span class="nc">Foundation</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="nf">imprimirListadoAlumnos</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">alumnos</span><span class="p">:</span><span class="w"> </span><span class="p">[(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="nb">Int</span><span class="p">)])</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Alumno   Parcial1   Parcial2   Parcial3  Años&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">alu</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">alumnos</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">alu</span><span class="p">.</span><span class="mf">0.</span><span class="n">withCString</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="bp">print</span><span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span><span class="s">&quot;%-10s %5.2f      %5.2f    %5.2f  %3d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">$0</span><span class="p">,</span><span class="w"> </span><span class="n">alu</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="n">alu</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="n">alu</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="n">alu</span><span class="p">.</span><span class="mi">4</span><span class="p">))</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>```swift</p>
+<p>import Foundation</p>
+<p>func imprimirListadoAlumnos(_ alumnos: [(String, Double, Double, Double, Int)]) {
+    print("Alumno   Parcial1   Parcial2   Parcial3  Años")
+    for alu in alumnos {
+        alu.0.withCString {
+            print(String(format:"%-10s %5.2f      %5.2f    %5.2f  %3d", $0, alu.1,alu.2,alu.3,alu.4))
+        }
+    }
+}
+```</p>
 </div>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">listaAlumnos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[(</span><span class="s">&quot;Pepe&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8.45</span><span class="p">,</span><span class="w"> </span><span class="mf">3.75</span><span class="p">,</span><span class="w"> </span><span class="mf">6.05</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Maria&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">9.1</span><span class="p">,</span><span class="w"> </span><span class="mf">7.5</span><span class="p">,</span><span class="w"> </span><span class="mf">8.18</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Jose&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">8.0</span><span class="p">,</span><span class="w"> </span><span class="mf">6.65</span><span class="p">,</span><span class="w"> </span><span class="mf">7.96</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Carmen&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">6.25</span><span class="p">,</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.41</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Felipe&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.65</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w"> </span><span class="mf">3.16</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Carla&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">6.25</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w"> </span><span class="mf">4.23</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Luis&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">6.75</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span><span class="w"> </span><span class="mf">4.63</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"> </span>
-<span class="w">                    </span><span class="p">(</span><span class="s">&quot;Loli&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w"> </span><span class="mf">2.19</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)]</span>
-<span class="n">imprimirListadosNotas</span><span class="p">(</span><span class="n">listaAlumnos</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let listaAlumnos = [("Pepe", 8.45, 3.75, 6.05, 1), 
+                    ("Maria", 9.1, 7.5, 8.18, 1), 
+                    ("Jose", 8.0, 6.65, 7.96, 1),
+                    ("Carmen", 6.25, 1.2, 5.41, 2), 
+                    ("Felipe", 5.65, 0.25, 3.16, 3), 
+                    ("Carla", 6.25, 1.25, 4.23, 2), 
+                    ("Luis", 6.75, 0.25, 4.63, 2), 
+                    ("Loli", 3.0, 1.25, 2.19, 3)]
+imprimirListadosNotas(listaAlumnos)</code></p>
 <p>Algunos de los listados que se deben mostrar serían los siguientes:</p>
-<div class="highlight"><pre><span></span><code>LISTADO ORIGINAL
+<p>```txt
+LISTADO ORIGINAL
 Alumno   Parcial1   Parcial2   Parcial3  Años
 Pepe        8.45       3.75     6.05    1
 Maria       9.10       7.50     8.18    1
@@ -1544,9 +1545,8 @@ Carmen      6.25       1.20     5.41    2
 Felipe      5.65       0.25     3.16    3
 Carla       6.25       1.25     4.23    2
 Luis        6.75       0.25     4.63    2
-Loli        3.00       1.25     2.19    3
-
-LISTADO ORDENADO por Parcial1 (decreciente)
+Loli        3.00       1.25     2.19    3</p>
+<p>LISTADO ORDENADO por Parcial1 (decreciente)
 Alumno   Parcial1   Parcial2   Parcial3  Años
 Loli        3.00       1.25     2.19    3
 Felipe      5.65       0.25     3.16    3
@@ -1556,42 +1556,42 @@ Luis        6.75       0.25     4.63    2
 Jose        8.00       6.65     7.96    1
 Pepe        8.45       3.75     6.05    1
 Maria       9.10       7.50     8.18    1
-</code></pre></div>
+```</p>
 <h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
 <p>Dado el array <code>listaAlumnos</code> del ejercicio anterior, utiliza funciones
 de orden superior para obtener los datos requeridos en cada caso.</p>
 <p>A) Número de alumnos que han aprobado primer parcial y suspendido el segundo</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="n">listaAlumnos</span><span class="p">.</span><span class="w"> </span><span class="n">________________________________</span><span class="w"> </span><span class="p">)</span>
-<span class="c1">// Resultado: 5</span>
-</code></pre></div>
+<p><code>swift
+print(listaAlumnos. ________________________________ )
+// Resultado: 5</code></p>
 <p>B) Alumnos que han aprobado la asignatura (tienen una nota final &gt;= 5)</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="n">listaAlumnos</span><span class="p">.</span><span class="n">_______________________________</span><span class="w"> </span><span class="p">)</span>
-
-<span class="c1">// Resultado: [&quot;Pepe&quot;, &quot;Maria&quot;, &quot;Jose&quot;]</span>
-</code></pre></div>
+<p>```swift
+print(listaAlumnos.<strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>___ )</p>
+<p>// Resultado: ["Pepe", "Maria", "Jose"]
+```</p>
 <p>C) Nota media de todos los alumnos en forma de tupla <code>(media_p1, media_p2, media_p3)</code></p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">tupla</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">listaAlumnos</span><span class="p">.</span><span class="n">_____________________________________</span><span class="w"> </span><span class="p">)</span>
-<span class="n">tupla</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">tupla</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">Double</span><span class="p">(</span><span class="n">listaAlumnos</span><span class="p">.</span><span class="bp">count</span><span class="p">),</span><span class="w"> </span><span class="n">tupla</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">Double</span><span class="p">(</span><span class="n">listaAlumnos</span><span class="p">.</span><span class="bp">count</span><span class="p">),</span><span class="w"> </span><span class="n">tupla</span><span class="p">.</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">Double</span><span class="p">(</span><span class="n">listaAlumnos</span><span class="p">.</span><span class="bp">count</span><span class="p">))</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">tupla</span><span class="p">)</span>
-<span class="c1">// Resultado: (6.6812499999999995, 2.7624999999999997, 5.22625)</span>
-</code></pre></div>
+<p><code>swift
+var tupla = listaAlumnos._____________________________________ )
+tupla = (tupla.0 / Double(listaAlumnos.count), tupla.1 / Double(listaAlumnos.count), tupla.2 / Double(listaAlumnos.count))
+print(tupla)
+// Resultado: (6.6812499999999995, 2.7624999999999997, 5.22625)</code></p>
 <h3 id="ejercicio-6">Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permanent link">&para;</a></h3>
 <p>Implementa la función <code>construye</code> con el siguiente tipo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">construye</span><span class="p">(</span><span class="n">operador</span><span class="p">:</span><span class="w"> </span><span class="nb">Character</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span>
-</code></pre></div>
+<p><code>swift
+func construye(operador: Character) -&gt; (Int, Int) -&gt; Int</code></p>
 <p>La función recibe un operador que puede ser uno de los siguientes
 caracteres: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> y debe devolver una clausura que reciba
 dos argumentos y realice la operación indicada sobre ellos.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">construye</span><span class="p">(</span><span class="n">operador</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;+&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="c1">// Imprime 5</span>
-<span class="n">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">construye</span><span class="p">(</span><span class="n">operador</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="c1">// Imprime -1</span>
-</code></pre></div>
+<p><code>swift
+var f = construye(operador: "+")
+print(f(2,3))
+// Imprime 5
+f = construye(operador: "-")
+print(f(2,3))
+// Imprime -1</code></p>
 <hr />
-<p>Lenguajes y Paradigmas de Programación, curso 2024-25<br />
+<p>Lenguajes y Paradigmas de Programación, curso 2025-26<br />
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante<br />
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
 

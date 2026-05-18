@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1142,6 +1142,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 6
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1267,6 +1278,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ejercicio-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicio 6
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1308,51 +1330,50 @@ OO con Swift</em></a></p>
 <p>a) Completa el código de la estructura ​<code>MiStruct</code>​ para que compile
 correctamente. Hazlo primero en papel y después pruébalo en el
 compilador.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">a</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span><span class="kr">get</span><span class="p">}</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span>
-<span class="p">}</span>
-<span class="kd">protocol</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kr">mutating</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="kd">struct</span><span class="w"> </span><span class="nc">MiStruct</span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Completa el código</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>swift
+protocol A {
+    var a: String {get}
+    func foo(a: String) -&gt; String?
+}
+protocol B {
+    mutating func bar()
+}
+struct MiStruct: A, B {
+    // Completa el código
+}</code></p>
 <p>b) El siguiente código tiene errores. Intenta descubrir cuáles son sin
 utilizar el compilador. Prueba distintas formas de arreglar el código
 cambiando lo mínimo posible de lo ya definido (por ejemplo, no debes
 añadir nuevas propiedades en <code>MiStruct</code>). Compruébalo con el compilador.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">a</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span><span class="kr">get</span><span class="w"> </span><span class="kr">set</span><span class="p">}</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="p">?</span>
-<span class="p">}</span>
-
-<span class="kd">protocol</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kr">mutating</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kd">struct</span><span class="w"> </span><span class="nc">MiStruct</span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">valor1</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">valor2</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="n">b</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>```swift
+protocol A {
+    var a: String {get set}
+    func foo(a: Int, b: Int) -&gt; Int?
+}</p>
+<p>protocol B {
+    mutating func bar()
+}</p>
+<p>struct MiStruct: A, B {
+    let a = 10
+    func foo(valor1 a: Int, valor2 b: Int) -&gt; Int {
+        let res = a &gt; 10 ? a: b
+        return res
+    }
+}
+```</p>
 <p>c) Supongamos la estructura <code>Equipo</code> que aparece a continuación que
 representa un equipo en una competición deportiva: </p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Equipo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">puntos</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>swift
+struct Equipo {
+    let puntos: Int
+    let nombre: String
+}</code></p>
 <p>Modifica la definición para poder comprobar la igualdad de dos equipos y
 que el siguiente código funcione correctamente:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">equipo1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Equipo</span><span class="p">(</span><span class="n">puntos</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hércules&quot;</span><span class="p">)</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">equipo2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Equipo</span><span class="p">(</span><span class="n">puntos</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Villareal&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">equipo1</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">equipo2</span><span class="p">)</span><span class="w"> </span><span class="c1">// imprime false</span>
-</code></pre></div>
+<p><code>swift
+let equipo1 = Equipo(puntos: 10, nombre: "Hércules")
+let equipo2 = Equipo(puntos: 8, nombre: "Villareal")
+print(equipo1 == equipo2) // imprime false</code></p>
 <p>Después, modifica el código otra vez para que la estructura se ajuste
 también al protocolo <code>Comparable</code> para poder comparar dos equipos
 . Consulta el protocolo en <a href="https://developer.apple.com/documentation/swift/comparable">documentación de
@@ -1360,136 +1381,137 @@ Swift</a>. Un
 equipo será menor que otro cuando tenga menos puntos. En el caso en
 que ambos tengan los mismos puntos, será menor el que tenga menor
 nombre en orden alfabético.</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="n">equipo1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">equipo2</span><span class="p">)</span><span class="w"> </span><span class="c1">// imprime true</span>
-</code></pre></div>
+<p><code>swift
+print(equipo1 &gt; equipo2) // imprime true</code></p>
 <p>Una vez definidos los operadores necesarios comprueba que funcionan
 correctamente creando varios equipos, insertándolos en un array y
 llamando al método <code>sorted</code>.</p>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>a) Completa el siguiente código para que compile correctamente e imprima lo indicado:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Cuadrado</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">lado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
-<span class="p">}</span>
-
-<span class="c1">// Completa el código justo a continuación,</span>
-<span class="c1">// no puedes modificar el código anterior</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">cuadrado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Cuadrado</span><span class="p">(</span><span class="n">lado</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">cuadrado</span><span class="p">.</span><span class="n">area</span><span class="p">)</span><span class="w"> </span><span class="c1">// Imprime: 16.0</span>
-<span class="n">cuadrado</span><span class="p">.</span><span class="n">lado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">10.0</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">cuadrado</span><span class="p">.</span><span class="n">area</span><span class="p">)</span><span class="w"> </span><span class="c1">// Imprime: 100.0</span>
-</code></pre></div>
+<p>```swift
+struct Cuadrado {
+    var lado: Double
+}</p>
+<p>// Completa el código justo a continuación,
+// no puedes modificar el código anterior</p>
+<p>var cuadrado = Cuadrado(lado: 4.0)
+print(cuadrado.area) // Imprime: 16.0
+cuadrado.lado = 10.0
+print(cuadrado.area) // Imprime: 100.0</p>
+<p>```</p>
 <p>b) Rellena el siguiente código para que funcione correctamente:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">Persona</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span><span class="kr">get</span><span class="p">}</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">encantada</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Persona</span><span class="w"> </span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">refrescada</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Persona</span><span class="w"> </span>
-<span class="p">}</span>
-
-<span class="kd">enum</span><span class="w"> </span><span class="nc">Pocion</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">magica</span><span class="p">,</span><span class="w"> </span><span class="n">refrescante</span><span class="p">,</span><span class="w"> </span><span class="n">venenosa</span>
-
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">esBebida</span><span class="p">(</span><span class="n">por</span><span class="w"> </span><span class="n">persona</span><span class="p">:</span><span class="w"> </span><span class="n">Persona</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">__________</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">______________</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">_________</span><span class="p">:</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">persona</span><span class="p">.</span><span class="n">encantada</span><span class="p">()</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">_________</span><span class="p">:</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">persona</span><span class="p">.</span><span class="n">refrescada</span><span class="p">()</span>
-<span class="w">            </span><span class="k">default</span><span class="p">:</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
-<span class="w">        </span><span class="p">}</span>
+<p>```swift
+protocol Persona {
+    var nombre: String {get}
+    func encantada() -&gt; Persona 
+    func refrescada() -&gt; Persona 
+}</p>
+<p>enum Pocion {
+    case magica, refrescante, venenosa</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">esBebida</span><span class="p">(</span><span class="n">por</span><span class="w"> </span><span class="n">persona</span><span class="p">:</span><span class="w"> </span><span class="n">Persona</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">__________</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">______________</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">case</span><span class="w"> </span><span class="n">_________</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">persona</span><span class="o">.</span><span class="n">encantada</span><span class="p">()</span>
+<span class="w">        </span><span class="n">case</span><span class="w"> </span><span class="n">_________</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">persona</span><span class="o">.</span><span class="n">refrescada</span><span class="p">()</span>
+<span class="w">        </span><span class="n">default</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">nil</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+```</p>
 <p>c) Completa el código de la estructura ​<code>MiStruct</code> para que compile correctamente:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">valor</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span><span class="kr">get</span><span class="w"> </span><span class="kr">set</span><span class="p">}</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span>
-<span class="p">}</span>
-<span class="kd">protocol</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kr">mutating</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="kd">struct</span><span class="w"> </span><span class="nc">MiStruct</span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Completa el código</span>
-
-<span class="p">}</span>
-</code></pre></div>
+<p>```swift
+protocol A {
+    var valor: Int {get set}
+    func foo(a: Int) -&gt; Int
+}
+protocol B {
+    mutating func bar()
+}
+struct MiStruct: A, B {
+    // Completa el código</p>
+<p>}
+```</p>
 <p>d) Completa el siguiente código para que compile correctamente e imprima lo indicado:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Circulo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">radio</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
-<span class="w">    </span><span class="c1">// Completa el código</span>
-
-<span class="p">}</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nv">c1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Circulo</span><span class="p">(</span><span class="n">radio</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">)</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">c2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Circulo</span><span class="p">(</span><span class="n">radio</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">)</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">c3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;El radio de la suma es: </span><span class="si">\(</span><span class="n">c3</span><span class="p">.</span><span class="n">radio</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="c1">// Imprime: El radio de la suma es: 15.0</span>
-</code></pre></div>
+<p>```swift
+struct Circulo {
+    var radio: Double
+    // Completa el código</p>
+<p>}</p>
+<p>let c1 = Circulo(radio: 5.0)
+let c2 = Circulo(radio: 10.0)
+let c3 = c1 + c2
+print("El radio de la suma es: (c3.radio)")
+// Imprime: El radio de la suma es: 15.0
+```</p>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>a) Completa el bucle con el código que comprueba el tipo de la variable
 <code>i</code> e imprime su propiedad <code>p</code> y su propiedad <code>a1</code> o <code>a2</code>, dependiendo
 de su tipo.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">P</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nv">p</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">get</span><span class="w"> </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">A1</span><span class="p">:</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
-<span class="kd">class</span><span class="w"> </span><span class="nc">A2</span><span class="p">:</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nv">a2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">array</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">P</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">A1</span><span class="p">(),</span><span class="w"> </span><span class="n">A2</span><span class="p">()]</span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">   </span><span class="c1">// Código a completar</span>
-<span class="w">   </span><span class="c1">//</span>
-<span class="p">}</span>
-
-<span class="c1">// debe imprimir:</span>
-<span class="c1">// debe imprimir:</span>
-<span class="c1">// p: 0, a1: 0</span>
-<span class="c1">// p: 1, a2: 0</span>
-</code></pre></div>
+<p>```swift
+protocol P {
+   var p: Int { get }
+}
+class A1: P {
+   var p = 0
+   var a1 = 0
+}
+class A2: P {
+   var p = 1
+   var a2 = 0
+}</p>
+<p>var array: [P] = [A1(), A2()]
+for i in array {</p>
+<p>// Código a completar
+   //
+}</p>
+<p>// debe imprimir:
+// debe imprimir:
+// p: 0, a1: 0
+// p: 1, a2: 0
+```</p>
 <p>b) Completa el código que hay a continuación para que compile
 correctamente y aparezca en pantalla el resultado que se muestra.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">protocol</span><span class="w"> </span><span class="nc">TieneVelocidad</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">velocidadActual</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Double</span>
-<span class="p">}</span>
-
-<span class="kd">class</span><span class="w"> </span><span class="nc">Vehiculo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">velocidad</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">velocidadActual</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">velocidad</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span><span class="w"> </span><span class="nc">Tren</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">velocidadEnMarcha</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">300.0</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">pasajeros</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">enMarcha</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">false</span>
-<span class="p">}</span>
-
-<span class="c1">//</span>
-<span class="c1">// Código a completar</span>
-<span class="c1">//</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">vehiculo1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Vehiculo</span><span class="p">()</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">tren1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Tren</span><span class="p">()</span>
-<span class="n">tren1</span><span class="p">.</span><span class="n">enMarcha</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nv">transportes</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">TieneVelocidad</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">vehiculo1</span><span class="p">,</span><span class="w"> </span><span class="n">tren1</span><span class="p">]</span>
-
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">transportes</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">velocidadActual</span><span class="p">())</span>
-<span class="p">}</span>
-<span class="c1">// 0.0</span>
-<span class="c1">// 300.0</span>
-</code></pre></div>
+<p>```swift</p>
+<p>protocol TieneVelocidad {
+    func velocidadActual () -&gt; Double
+}</p>
+<p>class Vehiculo {
+    var velocidad = 0.0
+    func velocidadActual() -&gt; Double {
+        return velocidad
+    }
+}</p>
+<p>class Tren {
+    static let velocidadEnMarcha = 300.0
+    var pasajeros = 0
+    var enMarcha = false
+}</p>
+<p>//
+// Código a completar
+//</p>
+<p>var vehiculo1 = Vehiculo()
+var tren1 = Tren()
+tren1.enMarcha = true</p>
+<p>let transportes: [TieneVelocidad] = [vehiculo1, tren1]</p>
+<p>for i in transportes {
+    print(i.velocidadActual())
+}
+// 0.0
+// 300.0
+```</p>
 <h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
 <p>Define una estructura <code>Timer</code> con la que podamos ejecutar el siguiente
 código sin errores. El temporizador se inicializa con un número
@@ -1497,26 +1519,26 @@ determinado de segundos y define un método de instancia <code>paso()</code> que
 descuenta un segundo. Fíjate en el código y verás que es posible sumar
 temporizadores. Por último, el atributo del tipo <code>pasosTotales</code> guarda
 el número de pasos que se han realizado en todas las instancias.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Timer</span><span class="p">(</span><span class="n">segundos</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">t2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Timer</span><span class="p">(</span><span class="n">segundos</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<span class="k">for</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">..</span><span class="mi">4</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">t1</span><span class="p">.</span><span class="n">paso</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="k">for</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">..</span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">t2</span><span class="p">.</span><span class="n">paso</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">t3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span>
-<span class="n">t3</span><span class="p">.</span><span class="n">paso</span><span class="p">()</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Segundos del temporizador 1: </span><span class="si">\(</span><span class="n">t1</span><span class="p">.</span><span class="n">segundos</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Segundos del temporizador 2: </span><span class="si">\(</span><span class="n">t2</span><span class="p">.</span><span class="n">segundos</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Segundos del temporizador 3: </span><span class="si">\(</span><span class="n">t3</span><span class="p">.</span><span class="n">segundos</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;Pasos totales: </span><span class="si">\(</span><span class="n">Timer</span><span class="p">.</span><span class="n">pasosTotales</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="c1">// Imprime:</span>
-<span class="c1">// Segundos del temporizador 1: 5</span>
-<span class="c1">// Segundos del temporizador 2: 2</span>
-<span class="c1">// Segundos del temporizador 3: 6</span>
-<span class="c1">// Pasos totales: 9</span>
-</code></pre></div>
+<p><code>swift
+var t1 = Timer(segundos: 10)
+var t2 = Timer(segundos: 5)
+for _ in 0...4 {
+    t1.paso()
+}
+for _ in 0...2 {
+    t2.paso()
+}
+var t3 = t1 + t2
+t3.paso()
+print("Segundos del temporizador 1: \(t1.segundos)")
+print("Segundos del temporizador 2: \(t2.segundos)")
+print("Segundos del temporizador 3: \(t3.segundos)")
+print("Pasos totales: \(Timer.pasosTotales)")
+// Imprime:
+// Segundos del temporizador 1: 5
+// Segundos del temporizador 2: 2
+// Segundos del temporizador 3: 6
+// Pasos totales: 9</code></p>
 <h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
 <p>Vamos, por último, con un ejercicio en el que veremos otra forma de
 trabajar con figuras geométricas.</p>
@@ -1525,41 +1547,54 @@ trabajar con figuras geométricas.</p>
 de las estructuras geométricas: <code>Punto</code>, <code>Tamaño</code>, <code>Rectangulo</code> y
 <code>Circulo</code>. Debes completar el código para que haga lo indicado en los
 comentarios.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Punto</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span>
+<p>```swift
+struct Punto {
+    var x = 0.0, y = 0.0
+}</p>
+<p>struct Tamaño {
+    var ancho = 0.0, alto = 0.0
+}</p>
+<p>struct Circulo {
+    var centro = Punto()
+    var radio = 0.0</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">area</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">Propiedad</span><span class="w"> </span><span class="n">calculada</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">devuelve</span><span class="w"> </span><span class="n">el</span><span class="w"> </span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">á</span><span class="n">rea</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">círculo</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">modifica</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">radio</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">cuando</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">actualiza</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}</p>
+<p>struct Rectangulo {
+    var origen = Punto()
+    var tamaño = Tamaño()</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">var</span><span class="w"> </span><span class="n">centro</span><span class="p">:</span><span class="w"> </span><span class="n">Punto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">Propiedad</span><span class="w"> </span><span class="n">calculada</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">devuelve</span><span class="w"> </span><span class="n">el</span><span class="w"> </span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">centro</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">rectángulo</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">traslada</span><span class="w"> </span><span class="n">su</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">origen</span><span class="w"> </span><span class="n">cuando</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">modifica</span>
 <span class="p">}</span>
 
-<span class="kd">struct</span><span class="w"> </span><span class="nc">Tamaño</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">ancho</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">alto</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="k">var</span><span class="w"> </span><span class="n">area</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">Propiedad</span><span class="w"> </span><span class="n">calculada</span><span class="w"> </span><span class="n">que</span><span class="w"> </span><span class="n">devuelve</span><span class="w"> </span><span class="n">el</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="err">á</span><span class="n">rea</span><span class="w"> </span><span class="n">del</span><span class="w"> </span><span class="n">rectángulo</span>
 <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 
-<span class="kd">struct</span><span class="w"> </span><span class="nc">Circulo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">centro</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Punto</span><span class="p">()</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">radio</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span>
-
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">area</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Propiedad calculada que devuelve el </span>
-<span class="w">        </span><span class="c1">// área del círculo y modifica el radio</span>
-<span class="w">        </span><span class="c1">// cuando se actualiza</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">struct</span><span class="w"> </span><span class="nc">Rectangulo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">origen</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Punto</span><span class="p">()</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">tamaño</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Tamaño</span><span class="p">()</span>
-
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">centro</span><span class="p">:</span><span class="w"> </span><span class="n">Punto</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Propiedad calculada que devuelve el </span>
-<span class="w">        </span><span class="c1">// centro del rectángulo y traslada su</span>
-<span class="w">        </span><span class="c1">// origen cuando se modifica</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">area</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Propiedad calculada que devuelve el</span>
-<span class="w">        </span><span class="c1">// área del rectángulo</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>}
+```</p>
 <p>Prueba las estructuras escribiendo algún código en el que se creen algunas
 instancias y se actualicen sus propiedades.</p>
 <h4 id="2-define-el-protocolo-figura">2. Define el protocolo figura<a class="headerlink" href="#2-define-el-protocolo-figura" title="Permanent link">&para;</a></h4>
@@ -1601,17 +1636,100 @@ su tamaño.</p>
 </li>
 </ul>
 <p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code>** Un rectángulo con tamaño Tamaño(ancho: 10.0, alto: 5.0) y descripción:
+<p><code>** Un rectángulo con tamaño Tamaño(ancho: 10.0, alto: 5.0) y descripción:
 Centro: Punto(x: 8.0, y: 6.5) y área: 50.0
 ** Un círculo con descripción:
-Centro: Punto(x: 5.0, y: 0.0) y área: 314.1592653589793
-</code></pre></div>
+Centro: Punto(x: 5.0, y: 0.0) y área: 314.1592653589793</code></p>
 <ul>
 <li>Escribe un ejemplo de código en el que se guarden varias figuras
 en un almacén de figuras y se llame a sus métodos.</li>
 </ul>
+<h3 id="ejercicio-6">Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permanent link">&para;</a></h3>
+<p>En este ejercicio vamos a trabajar con <strong>programación orientada a protocolos</strong>. Consideramos que un elemento será <code>Avisable</code> si tiene:</p>
+<ul>
+<li>un <code>nombre</code>, de solo lectura;</li>
+<li>una <code>bateria</code>, que se puede consultar y modificar;</li>
+<li>un método <code>aviso()</code> que devuelve un <code>String</code>.</li>
+</ul>
+<p>Además, todos los tipos que adopten el protocolo <code>Avisable</code> tendrán una implementación por defecto de <code>aviso()</code> mediante una extensión del protocolo.</p>
+<p>a) Completa el código:</p>
+<p>```swift
+protocol Avisable {
+    // Hueco 1:
+    // Declara la propiedad nombre, de tipo String, solo lectura</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Hueco 2:</span>
+<span class="c1">// Declara la propiedad bateria, de tipo Int, lectura y escritura</span>
+
+<span class="c1">// Hueco 3:</span>
+<span class="c1">// Declara el método aviso(), que devuelve un String</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+```</p>
+<p>La implementación por defecto de <code>aviso()</code> debe devolver:</p>
+<ul>
+<li><code>"Aviso: batería baja en &lt;nombre&gt;"</code> si la batería es menor que 20.</li>
+<li><code>"Batería suficiente en &lt;nombre&gt;"</code> en caso contrario.</li>
+</ul>
+<p><code>swift
+extension Avisable {
+    func aviso() -&gt; String {
+        // Hueco 4:
+        // Escribe aquí la implementación por defecto del método aviso()
+    }
+}</code></p>
+<p>b) Ahora se definen dos tipos que adoptan el protocolo <code>Avisable</code>.</p>
+<p>El tipo <code>Sensor</code> usará la implementación por defecto de <code>aviso()</code>.</p>
+<p>El tipo <code>Robot</code>, en cambio, tendrá su propia implementación de <code>aviso()</code>:</p>
+<ul>
+<li><code>"Robot &lt;nombre&gt; necesita recarga urgente"</code> si la batería es menor que 20.</li>
+<li><code>"Robot &lt;nombre&gt; operativo"</code> en caso contrario.</li>
+</ul>
+<p>Completa el código:</p>
+<p>```swift
+struct Sensor: Avisable {
+    let nombre: String
+    var bateria: Int
+    let ubicacion: String
+}</p>
+<p>struct Robot: Avisable {
+    let nombre: String
+    var bateria: Int
+    let modelo: String</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Hueco 5:</span>
+<span class="c1">// Implementa aquí el método aviso() específico para Robot</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+```</p>
+<p>c) Completa el siguiente código para crear un array que pueda contener tanto robots como sensores y llamar al método <code>aviso()</code> de todos ellos.</p>
+<p>```swift
+let robot1 = Robot(nombre: "R2", bateria: 15, modelo: "explorador")
+let robot2 = Robot(nombre: "T7", bateria: 80, modelo: "transporte")
+let sensor1 = Sensor(nombre: "S1", bateria: 10, ubicacion: "laboratorio")
+let sensor2 = Sensor(nombre: "S2", bateria: 60, ubicacion: "almacén")</p>
+<p>// Hueco 6:
+// Declara un array llamado elementos que pueda contener valores
+// de cualquier tipo que adopte Avisable.
+// El array debe contener robot1, robot2, sensor1 y sensor2.</p>
+<p>// Hueco 7:
+// Recorre el array elementos e imprime el resultado de llamar
+// al método aviso() de cada elemento.
+```</p>
+<p>d) Contesta las siguientes preguntas:</p>
+<ol>
+<li>¿Por qué <code>Sensor</code> no necesita implementar su propio método <code>aviso()</code>?</li>
+<li>¿Por qué <code>Robot</code> sí puede definir su propia versión de <code>aviso()</code>?</li>
+<li>¿Qué ventaja tiene declarar el array como <code>[Avisable]</code>?</li>
+<li>¿Qué mensajes se imprimirán al ejecutar el último fragmento de código?</li>
+</ol>
 <hr />
-<p>Lenguajes y Paradigmas de Programación, curso 2024-25<br />
+<p>Lenguajes y Paradigmas de Programación, curso 2025-26<br />
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante<br />
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
 

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1298,30 +1298,26 @@ habías indicado era correcta.</p>
 <p>a) Examina el siguiente código. ¿Qué error o errores tiene? Arregla
 los errores con el mínimo número de cambios posibles e indica qué se
 va a imprimir por pantalla.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">MiEstructura</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
-
-<span class="kd">class</span><span class="w"> </span><span class="nc">MiClase</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="w"> </span><span class="n">MiClase</span><span class="p">,</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">c</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span>
-<span class="p">}</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nv">s1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">MiEstructura</span><span class="p">()</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">s2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">s1</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">c1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">MiClase</span><span class="p">()</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">c2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">c1</span>
-
-<span class="n">s1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="n">c1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="bp">print</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;s2.x: </span><span class="si">\(</span><span class="n">s2</span><span class="p">.</span><span class="n">x</span><span class="si">)</span><span class="s">, c2.x: </span><span class="si">\(</span><span class="n">c2</span><span class="p">.</span><span class="n">x</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-
-<span class="n">foo</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;c1.x, después de llamar a la función: </span><span class="si">\(</span><span class="n">c1</span><span class="p">.</span><span class="n">x</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-</code></pre></div>
+<p>```swift
+struct MiEstructura {
+    var x = 0
+}</p>
+<p>class MiClase {
+    var x = 0
+}</p>
+<p>func foo(_ c: MiClase, _ x: Int) {
+    c.x = x
+}</p>
+<p>let s1 = MiEstructura()
+var s2 = s1
+let c1 = MiClase()
+var c2 = c1</p>
+<p>s1.x = 10
+c1.x = 10
+print ("s2.x: (s2.x), c2.x: (c2.x)")</p>
+<p>foo(c1, 20)
+print("c1.x, después de llamar a la función: (c1.x)")
+```</p>
 <p>b) Examina el código a continuación y añade en la estructura <code>Cuadrado</code>
 dos versiones de un método <code>movido</code> que reciba un incremento x y un
 incremento y y devuelva un nuevo cuadrado resultante de haber movido
@@ -1330,126 +1326,141 @@ ella el método <code>movida</code> de la estructura <code>Coord</code>. Llama a
 versión del método <code>movido2</code> y usa en ella el método <code>mueve</code> de la
 estructura <code>Coord</code>. Añade también un método mutador <code>mueve</code> que haga
 lo mismo que los anteriores, pero mutando la posición del cuadrado.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Coord</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">y</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
-
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">movida</span><span class="p">(</span><span class="n">incX</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="n">incY</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Coord</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Coord</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="n">incX</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="n">y</span><span class="o">+</span><span class="n">incY</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kr">mutating</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">mueve</span><span class="p">(</span><span class="n">incX</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="n">incY</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incX</span>
-<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incY</span>
-<span class="w">    </span><span class="p">}</span>
+<p>```swift
+struct Coord {
+    var x: Double
+    var y: Double</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">movida</span><span class="p">(</span><span class="n">incX</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">incY</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Coord</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Coord</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="n">incX</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="n">y</span><span class="o">+</span><span class="n">incY</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">struct</span><span class="w"> </span><span class="nc">Cuadrado</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">esquina</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Coord</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">lado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
-
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">movido1</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="p">...</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">movido2</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="p">...</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1">// Añade un método mutador mueve</span>
+<span class="n">mutating</span><span class="w"> </span><span class="k">func</span><span class="w"> </span><span class="n">mueve</span><span class="p">(</span><span class="n">incX</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">incY</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incX</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">incY</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
+
+<p>}</p>
+<p>struct Cuadrado {
+    var esquina = Coord(x: 0.0, y: 0.0)
+    var lado: Double</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">func</span><span class="w"> </span><span class="n">movido1</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="p">}</span>
+
+<span class="k">func</span><span class="w"> </span><span class="n">movido2</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">Añade</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">método</span><span class="w"> </span><span class="n">mutador</span><span class="w"> </span><span class="n">mueve</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+```</p>
 <p>c) Indica qué muestra por pantalla la función print:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="n">palabra</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">longitud</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">palabra</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">longitud</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span>
-<span class="p">}</span>
-
-<span class="kd">class</span><span class="w"> </span><span class="nc">MisPalabras</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">guardadas</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">guarda</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">palabra</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">guardadas</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">palabra</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Bool</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kr">get</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">guardadas</span><span class="p">.</span><span class="bp">map</span><span class="w"> </span><span class="p">{</span><span class="n">foo</span><span class="p">(</span><span class="n">palabra</span><span class="p">:</span><span class="w"> </span><span class="nv">$0</span><span class="p">,</span><span class="n">longitud</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">)}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span>
-<span class="p">}</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nv">palabras</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">MisPalabras</span><span class="p">()</span>
-<span class="n">palabras</span><span class="p">.</span><span class="n">guarda</span><span class="p">(</span><span class="s">&quot;Ana&quot;</span><span class="p">)</span>
-<span class="n">palabras</span><span class="p">.</span><span class="n">guarda</span><span class="p">(</span><span class="s">&quot;Pascual&quot;</span><span class="p">)</span>
-<span class="n">palabras</span><span class="p">.</span><span class="n">guarda</span><span class="p">(</span><span class="s">&quot;María&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">palabras</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div>
+<p>```swift
+func foo(palabra: String, longitud: Int) -&gt; Bool {
+    if palabra.count &gt;= longitud {
+        return true
+    }
+    else {
+        return false
+    } 
+}</p>
+<p>class MisPalabras {
+    var guardadas: [String] = []
+    func guarda(_ palabra: String) {
+        guardadas.append(palabra)
+    }
+    var x : [Bool] {
+        get {
+            return guardadas.map {foo(palabra: $0,longitud: 4)}
+        }
+    } 
+}</p>
+<p>let palabras = MisPalabras()
+palabras.guarda("Ana")
+palabras.guarda("Pascual")
+palabras.guarda("María")
+print(palabras.x)
+```</p>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>a) El siguiente código usa propiedades calculadas y observadores de
 propiedades. ¿Qué se imprime al final de su ejecución? Reflexiona sobre el
 funcionamiento del código, compruébalo con el compilador y experimenta
 haciendo cambios y comprobando el resultado.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="p">{</span>
-<span class="w">   </span><span class="kr">didSet</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">oldValue</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">y</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kr">get</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kr">set</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">newValue</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="kr">get</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="w">   </span><span class="kr">set</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newValue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">      </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newValue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">60</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;y: </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;x: </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">600</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;y: </span><span class="si">\(</span><span class="n">y</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="s">&quot;x: </span><span class="si">\(</span><span class="n">x</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-</code></pre></div>
+<p>```swift
+var x = 10  {
+   didSet {
+      if (x &gt; 100) {
+          x = oldValue
+      }
+   }
+}</p>
+<p>var y: Int {
+    get {
+        return x / 3
+    }
+    set {
+        x = 3 * newValue
+    }
+}</p>
+<p>var z : Int {
+   get {
+      return x + y
+   }
+   set {
+      x = newValue / 2
+      y = newValue / 2
+   }
+}
+z = 60
+print("y: (y)")
+print("x: (x)")
+z = 600
+print("y: (y)")
+print("x: (x)")
+```</p>
 <p>b) El siguiente código usa observadores de propiedades y una variable
 del tipo (estática). </p>
 <p>¿Qué se imprime al final de su ejecución? Reflexiona sobre el
 funcionamiento del código, compruébalo con el compilador y experimenta
 haciendo cambios y comprobando el resultado.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Valor</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">valor</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kr">willSet</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Valor</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">newValue</span>
-<span class="w">        </span><span class="p">}</span><span class="w">        </span>
-<span class="w">        </span><span class="kr">didSet</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">valor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">c1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Valor</span><span class="p">()</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">c2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Valor</span><span class="p">()</span>
-<span class="n">c1</span><span class="p">.</span><span class="n">valor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span>
-<span class="n">c2</span><span class="p">.</span><span class="n">valor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">8</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="n">valor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="p">.</span><span class="n">valor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Valor</span><span class="p">.</span><span class="n">z</span><span class="p">)</span>
-</code></pre></div>
+<p>```swift
+struct Valor {
+    var valor: Int = 0 {
+        willSet {
+            Valor.z += newValue
+        }      <br />
+        didSet {
+            if valor &gt; 10 {
+                valor = 10
+            }
+        }
+    }
+    static var z = 0
+}</p>
+<p>var c1 = Valor()
+var c2 = Valor()
+c1.valor = 20
+c2.valor = 8
+print(c1.valor + c2.valor + Valor.z)
+```</p>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>Escribe un ejemplo de código en el que definas una relación de
 herencia entre una clase base y una clase derivada. Comprueba en el
@@ -1475,8 +1486,8 @@ cuadrada y el valor de la constante matemática <em>pi</em>.</p>
 <ul>
 <li>Para usar la función <code>sqrt</code> debes importar la librería <code>Foundation</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kd">import</span><span class="w"> </span><span class="nc">Foundation</span>
-</code></pre></div>
+<p><code>swift
+import Foundation</code></p>
 <ul>
 <li>El valor de la constante matemática <em>pi</em> lo puedes obtener con la
   propiedad <code>Double.pi</code>.</li>
@@ -1552,11 +1563,11 @@ arriba).</p>
 </ul>
 <p>Se puede utilizar la siguiente función auxiliar para calcular el
   área de un triángulo en función de los puntos de sus vértices:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">areaTriangulo</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">p1</span><span class="p">:</span><span class="w"> </span><span class="n">Punto</span><span class="p">,</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="n">p2</span><span class="p">:</span><span class="w"> </span><span class="n">Punto</span><span class="p">,</span><span class="w"> </span><span class="kc">_</span><span class="w"> </span><span class="n">p3</span><span class="p">:</span><span class="w"> </span><span class="n">Punto</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">det</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p3</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p3</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p3</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="bp">abs</span><span class="p">(</span><span class="n">det</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>swift
+  func areaTriangulo(_ p1: Punto, _ p2: Punto, _ p3: Punto) -&gt; Double {
+      let det = p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y)
+      return abs(det)/2
+  }</code></p>
 </li>
 </ul>
 <p><strong>Clase derivada <code>Circulo</code></strong></p>
@@ -1608,7 +1619,7 @@ código en el que se creen al menos un cuadrilátero y un círculo, se
 prueben sus propiedades, se añadan al almacén de figuras y se prueben
 sus métodos.</p>
 <hr />
-<p>Lenguajes y Paradigmas de Programación, curso 2024-25<br />
+<p>Lenguajes y Paradigmas de Programación, curso 2025-26<br />
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante<br />
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
 

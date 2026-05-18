@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1145,10 +1145,9 @@ una parte de su ejecución se denomina <strong>contexto</strong> o <strong>entor
 <h4 id="variables-de-ambito-global">Variables de ámbito global<a class="headerlink" href="#variables-de-ambito-global" title="Permanent link">&para;</a></h4>
 <p>Una variable definida en el programa con la instrucción <code>define</code> tiene
 un ámbito global.</p>
-<div class="highlight"><pre><span></span><code>(define a &quot;hola&quot;)
-(define b (string-append &quot;adios&quot; a))
-(define cuadrado (lambda (x) (* x x)))
-</code></pre></div>
+<p><code>(define a "hola")
+(define b (string-append "adios" a))
+(define cuadrado (lambda (x) (* x x)))</code></p>
 <p>Todas las variables definidas fuera de funciones forman parte del
 <strong>entorno global</strong> del programa.</p>
 <h4 id="variables-de-ambito-local">Variables de ámbito local<a class="headerlink" href="#variables-de-ambito-local" title="Permanent link">&para;</a></h4>
@@ -1161,13 +1160,13 @@ estos parámetros como variables de ámbito local de la función.</p>
 en el entorno global. Cuando se ejecute el código de la función se
 evaluará la variable de ámbito local.</p>
 <p>Por ejemplo, supongamos las expresiones:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">suma-3</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
-<span class="w">   </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-
-<span class="p">(</span><span class="nf">suma-3</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">15</span>
-</code></pre></div>
+<p>```scheme
+(define x 5)
+(define (suma-3 x)
+   (+ x 3))</p>
+<p>(suma-3 12)
+⇒ 15
+```</p>
 <p>Cuando se ejecuta la expresión <code>(+ x 3)</code> en la invocación a <code>(suma-3
 12)</code> el valor de <code>x</code> es 12, no es 5, devolviéndose 15.</p>
 <p>Una vez realizada la invocación, desparece el entorno local y las
@@ -1176,22 +1175,22 @@ global. Por ejemplo, en la siguiente expresión, una vez realizada la
 invocación a <code>(suma-3 12)</code> se devuelve el número 15 y se evalúa en el
 entorno global la expresión <code>(+ 15 x)</code>. En este contexto la variable
 <code>x</code> vale 5 por lo que la expresión devuelve 20.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">suma-3</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
-<span class="w">   </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-
-<span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nf">suma-3</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">20</span>
-</code></pre></div>
+<p>```scheme
+(define x 5)
+(define (suma-3 x)
+   (+ x 3))</p>
+<p>(+ (suma-3 12) x)
+⇒ 20
+```</p>
 <p>En el entorno local también se pueden utilizar variables definidas en
 el entorno global. Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code>(define y 12)
+<p>```
+(define y 12)
 (define (suma-3-bis x)
-   (+ x y 3))
-
-(suma-3-bis 5) 
+   (+ x y 3))</p>
+<p>(suma-3-bis 5) 
 ⇒ 20
-</code></pre></div>
+```</p>
 <p>La expresión <code>(+ x 3 y)</code> se evalúa en el entorno local en el que <code>x</code>
 vale 5. Al no estar definida la variable <code>y</code> en este entorno local, se
 usa su definición de ámbito global.</p>
@@ -1200,58 +1199,58 @@ usa su definición de ámbito global.</p>
 <p>En Scheme se define la forma especial let que permite crear un entorno
 local en el que se da valor a variables y se evalúa una expresión.</p>
 <p>Sintaxis:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">&lt;var1&gt;</span><span class="w"> </span><span class="nv">&lt;exp-1&gt;</span><span class="p">)</span>
-<span class="w">        </span><span class="o">...</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">&lt;varn&gt;</span><span class="w"> </span><span class="nv">&lt;exp-n&gt;</span><span class="p">))</span>
-<span class="w">    </span><span class="nv">&lt;cuerpo&gt;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>scheme
+(let ((&lt;var1&gt; &lt;exp-1&gt;)
+        ...
+      (&lt;varn&gt; &lt;exp-n&gt;))
+    &lt;cuerpo&gt;)</code></p>
 <p>Las variables <code>var1</code>, … <code>varn</code> toman los valores devueltos por las
 expresiones <code>exp1</code>, … <code>expn</code> y el cuerpo se evalúa con esos valores.</p>
 <p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
-<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">y</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">z</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="p">))</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">6</span>
-</code></pre></div>
+<p><code>scheme
+(define x 10)
+(define y 20)
+(let ((x 1)
+      (y 2)
+      (z 3))
+    (+ x y z))
+⇒ 6</code></p>
 <h4 id="el-ambito-de-las-variables-definidas-en-el-let-es-local">El ámbito de las variables definidas en el let es local<a class="headerlink" href="#el-ambito-de-las-variables-definidas-en-el-let-es-local" title="Permanent link">&para;</a></h4>
 <p>Las variables definidas en el <code>let</code> sólo tienen valores en el entorno
 creado por la forma especial.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
-<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">y</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">z</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="p">))</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">6</span>
-</code></pre></div>
+<p><code>scheme
+(define x 10)
+(define y 20)
+(let ((x 1)
+      (y 2)
+      (z 3))
+    (+ x y z))
+⇒ 6</code></p>
 <p>Cuando ha terminado la evaluación del <code>let</code> el ámbito local desaparece
 y quedan los valores definidos en el ámbito global.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="err">⇒</span><span class="w"> </span><span class="mi">5</span>
-<span class="nv">y</span><span class="w"> </span><span class="err">⇒</span><span class="w"> </span><span class="nv">error,</span><span class="w"> </span><span class="nv">no</span><span class="w"> </span><span class="nv">definida</span>
-</code></pre></div>
+<p><code>scheme
+x ⇒ 5
+y ⇒ error, no definida</code></p>
 <h4 id="let-permite-usar-variables-definidas-en-un-ambito-en-el-que-se-ejecuta-el-let"><code>Let</code> permite usar variables definidas en un ámbito en el que se ejecuta el <code>let</code><a class="headerlink" href="#let-permite-usar-variables-definidas-en-un-ambito-en-el-que-se-ejecuta-el-let" title="Permanent link">&para;</a></h4>
 <p>Al igual que en la invocación a funciones, desde el ámbito definido
 por el <code>let</code> se puede usar las variables del entorno en el que se está
 ejecutando el <code>let</code>. Por ejemplo, en el siguiente código se usa la
 variable z definida en el ámbito global.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
-<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">y</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
-<span class="w">   </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="p">))</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">11</span>
-</code></pre></div>
+<p><code>scheme
+(define z 8)
+(let ((x 1)
+      (y 2))
+   (+ x y z))
+⇒ 11</code></p>
 <h4 id="variables-en-las-definiciones-del-let">Variables en las definiciones del <code>let</code><a class="headerlink" href="#variables-en-las-definiciones-del-let" title="Permanent link">&para;</a></h4>
 <p>Las expresiones que dan valor a las variables del <code>let</code> se evalúan
 todas en el entorno en el que se ejecuta el <code>let</code>, antes de crear las
 variables locales.  No se realiza una asignación secuencial:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">w</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="w">      </span><span class="p">(</span><span class="nf">z</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span><span class="w"> </span><span class="c1">;; Error: w no está definida</span>
-<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">w</span><span class="w"> </span><span class="nv">z</span><span class="p">))</span>
-</code></pre></div>
+<p><code>scheme
+(define x 1)
+(let ((w (+ x 3))
+      (z (+ w 2))) ;; Error: w no está definida
+    (+ w z))</code></p>
 <h5 id="semantica-del-let">Semántica del <code>let</code><a class="headerlink" href="#semantica-del-let" title="Permanent link">&para;</a></h5>
 <p>Para evaluar una expresión <code>let</code> debemos seguir las siguientes reglas:</p>
 <ol>
@@ -1264,11 +1263,11 @@ variables locales.  No se realiza una asignación secuencial:</p>
 <h5 id="let-se-define-utilizando-lambda">Let se define utilizando lambda<a class="headerlink" href="#let-se-define-utilizando-lambda" title="Permanent link">&para;</a></h5>
 <p>La semántica anterior queda clara cuando comprobamos que let se puede
 definir en función de lambda. En general, la expresión:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">&lt;var1&gt;</span><span class="w"> </span><span class="nv">&lt;exp1&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">(</span><span class="nf">&lt;varn&gt;</span><span class="w"> </span><span class="nv">&lt;expn&gt;</span><span class="p">))</span><span class="w"> </span><span class="nv">&lt;cuerpo&gt;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>scheme
+(let ((&lt;var1&gt; &lt;exp1&gt;) ... (&lt;varn&gt; &lt;expn&gt;)) &lt;cuerpo&gt;)</code></p>
 <p>se puede implementar con la siguiente llamada a lambda:</p>
-<div class="highlight"><pre><span></span><code><span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">&lt;var1&gt;</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="nv">&lt;varn&gt;</span><span class="p">)</span><span class="w"> </span><span class="nv">&lt;cuerpo&gt;</span><span class="p">)</span><span class="w"> </span><span class="nv">&lt;exp1&gt;</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="nv">&lt;expn&gt;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>scheme
+((lambda (&lt;var1&gt; ... &lt;varn&gt;) &lt;cuerpo&gt;) &lt;exp1&gt; ... &lt;expn&gt;)</code></p>
 <p>Para ejecutar un <code>let</code> con un <code>lambda</code> se debe crear un procedimiento
 en tiempo de ejecución con tantas variables como las variables del
 <code>let</code>, con el cuerpo del <code>let</code>, y se debe invocar a dicho
@@ -1279,23 +1278,22 @@ entorno local con los parámetros del procedimiento (las variables del
 <code>let</code>) asociados a los valores, y en este ámbito local se ejecuta el
 cuerpo del procedimiento (el cuerpo del <code>let</code>).</p>
 <p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code>(let ((x (+ 2 3))
+<p><code>(let ((x (+ 2 3))
       (y (+ x 3)))
-    (+ x y))
-</code></pre></div>
+    (+ x y))</code></p>
 <p>Equivale a:</p>
-<div class="highlight"><pre><span></span><code><span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-</code></pre></div>
+<p><code>scheme
+((lambda (x y) (+ x y)) (+ 2 3) (+ x 3))</code></p>
 <h4 id="let-dentro-de-funciones">Let dentro de funciones<a class="headerlink" href="#let-dentro-de-funciones" title="Permanent link">&para;</a></h4>
 <p>Podemos usar <code>let</code> en el cuerpo de funciones para crear nuevas
 variables locales, además de los parámetros de la función</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">suma-cuadrados</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)</span>
-<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">cuadrado-x</span><span class="w"> </span><span class="p">(</span><span class="nf">cuadrado</span><span class="w"> </span><span class="nv">x</span><span class="p">))</span>
-<span class="w">          </span><span class="p">(</span><span class="nf">cuadrado-y</span><span class="w"> </span><span class="p">(</span><span class="nf">cuadrado</span><span class="w"> </span><span class="nv">y</span><span class="p">)))</span>
-<span class="w">        </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">cuadrado-x</span><span class="w"> </span><span class="nv">cuadrado-y</span><span class="p">)))</span>
-<span class="p">(</span><span class="nf">suma-cuadrados</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">116</span>
-</code></pre></div>
+<p><code>scheme
+(define (suma-cuadrados x y)
+    (let ((cuadrado-x (cuadrado x))
+          (cuadrado-y (cuadrado y)))
+        (+ cuadrado-x cuadrado-y)))
+(suma-cuadrados 4 10)
+⇒ 116</code></p>
 <p>Cuando se invoca <code>(suma-cuadrados 4 10)</code> se crea un entorno local en
 el que las variables <code>x</code> e <code>y</code> toman el valor <code>4</code> y <code>10</code> y en el que
 se ejecuta la forma especial <code>let</code>. Esta forma especial crea a su vez
@@ -1306,20 +1304,20 @@ se evalúa la expresión <code>(+ cuadrado-x cuadrado-y)</code>.</p>
 <p>El uso de <code>let</code> permite aumentar la legibilidad de los programas,
 dando nombre a expresiones:</p>
 <p>Por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">distancia</span><span class="w"> </span><span class="nv">x1</span><span class="w"> </span><span class="nv">y1</span><span class="w"> </span><span class="nv">x2</span><span class="w"> </span><span class="nv">y2</span><span class="p">)</span>
-<span class="w">   </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">distancia-x</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">x2</span><span class="w"> </span><span class="nv">x1</span><span class="p">))</span>
-<span class="w">         </span><span class="p">(</span><span class="nf">distancia-y</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">y2</span><span class="w"> </span><span class="nv">y1</span><span class="p">)))</span>
-<span class="w">      </span><span class="p">(</span><span class="nb">sqrt</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nf">cuadrado</span><span class="w"> </span><span class="nv">distancia-x</span><span class="p">)</span>
-<span class="w">               </span><span class="p">(</span><span class="nf">cuadrado</span><span class="w"> </span><span class="nv">distancia-y</span><span class="p">)))))</span>
-</code></pre></div>
+<p><code>scheme
+(define (distancia x1 y1 x2 y2)
+   (let ((distancia-x (- x2 x1))
+         (distancia-y (- y2 y1)))
+      (sqrt (+ (cuadrado distancia-x)
+               (cuadrado distancia-y)))))</code></p>
 <p>Otro ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">intersecta-intervalo</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="w"> </span><span class="nv">b1</span><span class="w"> </span><span class="nv">b2</span><span class="p">)</span>
-<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">dentro-b1</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="nv">b1</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span>
-<span class="w">                          </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="nv">b1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)))</span>
-<span class="w">          </span><span class="p">(</span><span class="nf">dentro-b2</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="nv">b2</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span>
-<span class="w">                          </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="nv">b2</span><span class="w"> </span><span class="nv">a2</span><span class="p">))))</span>
-<span class="w">        </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="nv">dentro-b1</span><span class="w"> </span><span class="nv">dentro-b2</span><span class="p">)))</span>
-</code></pre></div>
+<p><code>scheme
+(define (intersecta-intervalo a1 a2 b1 b2)
+    (let ((dentro-b1 (and (&gt;= b1 a1)
+                          (&lt;= b1 a2)))
+          (dentro-b2 (and (&gt;= b2 a1)
+                          (&lt;= b2 a2))))
+        (or dentro-b1 dentro-b2)))</code></p>
 <h3 id="63-clausuras"><a name="6-3"></a> 6.3. Clausuras<a class="headerlink" href="#63-clausuras" title="Permanent link">&para;</a></h3>
 <p>Vamos a terminar explicando el concepto de <em>clausura</em>. Hemos visto que
 las funciones son objetos de primera clase de Scheme y que es posible
@@ -1329,13 +1327,13 @@ crear funciones en tiempo de ejecución con la forma especial <code>lambda</code
 usarlas en su propio código cuando este se invoque posteriormente.</p>
 <p>Veamos un ejemplo. Supongamos que definimos la siguiente función
 <code>(make-sumador k)</code> que devuelve otra función.</p>
-<div class="highlight"><pre><span></span><code>(define (make-sumador k)
-    (lambda (x) (+ x k)))
-
-(define f (make-sumador 10))
+<p>```
+(define (make-sumador k)
+    (lambda (x) (+ x k)))</p>
+<p>(define f (make-sumador 10))
 (f 2)
 ⇒ 12
-</code></pre></div>
+```</p>
 <p>En la función <code>(make-sumador k)</code> se llama a la forma especial lambda
 para crear un procedimiento. El procedimiento devuelto es lo que se
 denomina <strong>clausura</strong>. En este caso la clausura captura la variable
@@ -1345,22 +1343,21 @@ clausura y se crea un nuevo entorno local en el que <code>x</code> (el parámetr
 de la clausura) vale <code>2</code> y en el que se usa la variable <code>k</code> capturada.</p>
 <p>En la invocación anterior <code>(f 2)</code>, cuando se ejecuta la expresión <code>(+
 x k)</code> las variables tienen los siguientes valores:</p>
-<div class="highlight"><pre><span></span><code>x: 2 (variable local de la clausura)
-k: 10 (valor capturado del entorno local en el que se creó la clausura
-</code></pre></div>
+<p><code>x: 2 (variable local de la clausura)
+k: 10 (valor capturado del entorno local en el que se creó la clausura</code></p>
 <h4 id="las-variables-locales-creadas-en-un-let-tambien-se-capturan-en-las-clausuras">Las variables locales creadas en un <code>let</code> también se capturan en las clausuras<a class="headerlink" href="#las-variables-locales-creadas-en-un-let-tambien-se-capturan-en-las-clausuras" title="Permanent link">&para;</a></h4>
 <p>Veamos el siguiente ejemplo, en el que creamos una función en un
 entorno local creado por un <code>let</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">prueba</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
-<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nf">y</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="w">        </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">z</span><span class="p">)</span><span class="w"> </span>
-<span class="w">            </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="p">))))</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="p">(</span><span class="nf">prueba</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span>
-<span class="p">(</span><span class="nf">h</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="err">⇒</span><span class="w"> </span><span class="mi">8</span>
-</code></pre></div>
+<p><code>scheme
+(define x 10)
+(define y 12)
+(define (prueba x)
+    (let ((y 3))
+        (lambda (z) 
+            (+ x y z))))
+(define h (prueba 5))
+(h 2)
+⇒ 8</code></p>
 <p>Sucede lo siguiente:</p>
 <ol>
 <li>Se invoca la expresión <code>(prueba 5)</code>. Esto crea un entorno local en
@@ -1376,10 +1373,9 @@ entorno local creado por un <code>let</code>:</p>
 <li>
 <p>Con la invocación <code>(h 2)</code> se invoca a la clausura, lo que crea un
    entorno local en el que se encuentran las siguientes variables:</p>
-<div class="highlight"><pre><span></span><code>z: 2 (parámetro de la clausura)
+<p><code>z: 2 (parámetro de la clausura)
 x: 5 (variable local de la función prueba capturada en el momento de creación de la clausura))
-y: 3 (variable local del let capturada en el momento de creación de la clausura)
-</code></pre></div>
+y: 3 (variable local del let capturada en el momento de creación de la clausura)</code></p>
 </li>
 <li>
 <p>En este contexto se ejecuta la expresión <code>(+ x y z)</code>, que devuelve 10.</p>

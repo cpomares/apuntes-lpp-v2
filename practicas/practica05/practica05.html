@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1350,9 +1350,9 @@ doble (32) y, por último, sumarle 2 al resultado (34) y calcular su
 doble. Esto es, aplica 3 veces las funciones <code>suma-2</code> y <code>doble</code>
 tomando como número inicial el 5. El resultado será 68.</p>
 <p>Ejemplos:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">aplica-veces</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 16</span>
-<span class="p">(</span><span class="n">aplica-veces</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 7072978201</span>
-</code></pre></div>
+<p><code>racket
+(aplica-veces (lambda (x) (+ x 1)) (lambda (x) (+ x 2)) 2 10) ; ⇒ 16
+(aplica-veces (lambda (x) (* x x)) (lambda (x) (+ x 1)) 4 3) ; ⇒ 7072978201</code></p>
 <p>b) Implementa la función recursiva <code>(mueve-al-principio-condicion pred
 lista)</code> que recibe un predicado y una lista. La función es una
 generalización de la función de la práctica anterior y debe devolver
@@ -1362,11 +1362,15 @@ modificar.</p>
 <p>A diferencia de la práctica anterior, en la lista puede no haber
 ningún elemento que cumpla el predicado. En ese caso se devolverá la
 lista original.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Consideramos que la lista más pequeña tiene un elemento.  </p>
+</div>
 <p>Ejemplos:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">mueve-al-principio-condicion</span><span class="w"> </span><span class="nb">number?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">e</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (1 a b c d 1 e)</span>
-<span class="p">(</span><span class="n">mueve-al-principio-condicion</span><span class="w"> </span><span class="nb">number?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">c</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (1 a b 1 c)</span>
-<span class="p">(</span><span class="n">mueve-al-principio-condicion</span><span class="w"> </span><span class="nb">number?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (a b c d)</span>
-</code></pre></div>
+<p><code>racket
+(mueve-al-principio-condicion number? '(a b c 1 d 1 e) ; ⇒ (1 a b c d 1 e)
+(mueve-al-principio-condicion number? '(1 a b 1 c)) ; ⇒ (1 a b 1 c)
+(mueve-al-principio-condicion number? '(a b c d)) ; ⇒ (a b c d)</code></p>
 <div class="admonition hint">
 <p class="admonition-title">Pista</p>
 <p>El hecho de que se permita que no haya ningún elemento que cumpla
@@ -1388,18 +1392,18 @@ de comparar si el elemento de la primera lista cumple la condición con el
 elemento de la segunda.</p>
 <p>Implementa la función <code>(comprueba pred lista1 lista2)</code>.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">comprueba</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
-<span class="w">             </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="p">(</span><span class="nb">symbol-&gt;string</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
-<span class="w">           </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">este</span><span class="w"> </span><span class="ss">es</span><span class="w"> </span><span class="ss">un</span><span class="w"> </span><span class="ss">ejercicio</span><span class="w"> </span><span class="ss">de</span><span class="w"> </span><span class="ss">examen</span><span class="p">)</span><span class="w"> </span>
-<span class="w">           </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span>
-<span class="c1">; ⇒ ((un . 2) (ejercicio . 9) (examen . 6))</span>
-
-<span class="p">(</span><span class="n">comprueba</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
-<span class="w">              </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">y</span><span class="p">)))</span>
-<span class="w">             </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;aui&quot;</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="s2">&quot;ae&quot;</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="w"> </span><span class="s2">&quot;aeiou&quot;</span><span class="p">)</span>
-<span class="w">             </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="w"> </span><span class="s2">&quot;es&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;cinco&quot;</span><span class="p">))</span>
-<span class="c1">; ⇒ ((&quot;a&quot; . &quot;b&quot;) (&quot;ae&quot; . &quot;es&quot;) (&quot;aeiou&quot; . &quot;cinco&quot;))</span>
-</code></pre></div>
+<p>```racket
+(comprueba (lambda (x y)
+             (= (string-length (symbol-&gt;string x)) y))
+           '(este es un ejercicio de examen) 
+           '(2 1 2 9 1 6))
+; ⇒ ((un . 2) (ejercicio . 9) (examen . 6))</p>
+<p>(comprueba (lambda (x y)
+              (= (string-length x) (string-length y)))
+             '("aui" "a" "ae" "c" "aeiou")
+             '("hola" "b" "es" "que" "cinco"))
+; ⇒ (("a" . "b") ("ae" . "es") ("aeiou" . "cinco"))
+```</p>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>Queremos ordenar de menor a mayor una lista que contenga cualquier
 tipo de elemento, no solo números. Para ello vamos a generalizar el
@@ -1410,143 +1414,124 @@ este parámetro adicional que es un predicado que
 comprueba si un dato de los que componen la lista es menor o igual que
 otro. Llama a las funciones resultantes <code>inserta-ordenada-genérica</code> y
 <code>ordena-genérica</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">ordena-generica</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nb">&lt;=</span><span class="p">)</span><span class="w"> </span><span class="c1">;=&gt; (1 3 5)</span>
-</code></pre></div>
+<p><code>racket
+(ordena-generica '(3 5 1) &lt;=) ;=&gt; (1 3 5)</code></p>
 <p>b) Completa las siguientes tres pruebas. En la primera deberás ordenar una lista de
 cadenas por su longitud, en la segunda la lista de cadenas por su
 orden lexicográfico y en la tercera deberás ordenar una lista de
 parejas de números por la suma de su parte izquierda y su parte
 derecha:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="p">(</span><span class="n">ordena-generica</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;me&quot;</span><span class="w"> </span><span class="s2">&quot;llamo&quot;</span><span class="w"> </span><span class="s2">&quot;Iñigo&quot;</span><span class="w"> </span><span class="s2">&quot;Montoya&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">________</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;me&quot;</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;llamo&quot;</span><span class="w"> </span><span class="s2">&quot;Iñigo&quot;</span><span class="w"> </span><span class="s2">&quot;Montoya&quot;</span><span class="p">))</span>
-<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="p">(</span><span class="n">ordena-generica</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;me&quot;</span><span class="w"> </span><span class="s2">&quot;llamo&quot;</span><span class="w"> </span><span class="s2">&quot;Iñigo&quot;</span><span class="w"> </span><span class="s2">&quot;Montoya&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">________</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;Iñigo&quot;</span><span class="w"> </span><span class="s2">&quot;Montoya&quot;</span><span class="w"> </span><span class="s2">&quot;llamo&quot;</span><span class="w"> </span><span class="s2">&quot;me&quot;</span><span class="p">))</span>
-<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="p">(</span><span class="n">ordena-generica</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="n">________</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span>
-</code></pre></div>
+<p><code>racket
+(check-equal? (ordena-generica '("Hola" "me" "llamo" "Iñigo" "Montoya") ________ ) '("me" "Hola" "llamo" "Iñigo" "Montoya"))
+(check-equal? (ordena-generica '("Hola" "me" "llamo" "Iñigo" "Montoya") ________ ) '("Hola" "Iñigo" "Montoya" "llamo" "me"))
+(check-equal? (ordena-generica '((2 . 2) (1 . 1) (3 . 0) (5 . 1)) ________ ) '((1 . 1) (3 . 0) (2 . 2) (5 . 1)))</code></p>
 <p>c) Define la función <code>(ordena-cartas lista-cartas)</code> que ordene una
 lista de cartas de menor a mayor valor usando la función anterior
 <code>ordena-generica</code>. Deberás incluir la función <code>valor-carta</code> y sus
 funciones auxiliares definidas en prácticas anteriores.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">ordena-cartas</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">Q♠</span><span class="w"> </span><span class="ss">J♣</span><span class="w"> </span><span class="ss">5♣</span><span class="w"> </span><span class="ss">Q♥</span><span class="w"> </span><span class="ss">J♦</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (5♣ J♣ J♦ Q♠ Q♥)</span>
-</code></pre></div>
+<p><code>racket
+(ordena-cartas '(Q♠ J♣ 5♣ Q♥ J♦)) ; ⇒ (5♣ J♣ J♦ Q♠ Q♥)</code></p>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>a) Indica qué devuelven las siguientes expresiones, sin utilizar el
 intérprete. Comprueba después si has acertado.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="w">         </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span>
-<span class="w">            </span><span class="p">((</span><span class="nb">symbol?</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">symbol-&gt;string</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
-<span class="w">            </span><span class="p">((</span><span class="nb">number?</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number-&gt;string</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
-<span class="w">            </span><span class="p">((</span><span class="nb">boolean?</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="s2">&quot;#t&quot;</span><span class="w"> </span><span class="s2">&quot;#f&quot;</span><span class="p">))</span>
-<span class="w">            </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="s2">&quot;desconocido&quot;</span><span class="p">)))</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="no">#t</span><span class="w"> </span><span class="ss">hola</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">filter</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span>
-<span class="w">            </span><span class="p">(</span><span class="nb">equal?</span><span class="w"> </span><span class="p">(</span><span class="nb">string-ref</span><span class="w"> </span><span class="p">(</span><span class="nb">symbol-&gt;string</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="sc">#\a</span><span class="p">))</span><span class="w"> </span>
-<span class="w">    </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">alicante</span><span class="w"> </span><span class="ss">barcelona</span><span class="w"> </span><span class="ss">madrid</span><span class="w"> </span><span class="ss">almería</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">dato</span><span class="w"> </span><span class="n">resultado</span><span class="p">)</span>
-<span class="w">          </span><span class="p">(</span><span class="nb">string-append</span><span class="w"> </span><span class="n">dato</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"> </span><span class="n">resultado</span><span class="p">))</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>
-<span class="w">          </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;tal&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="nb">append</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">foldl</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">dato</span><span class="w"> </span><span class="n">resultado</span><span class="p">)</span>
-<span class="w">         </span><span class="p">(</span><span class="nb">string-append</span>
-<span class="w">          </span><span class="p">(</span><span class="nb">symbol-&gt;string</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">dato</span><span class="p">))</span>
-<span class="w">          </span><span class="p">(</span><span class="nb">symbol-&gt;string</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">dato</span><span class="p">))</span>
-<span class="w">          </span><span class="n">resultado</span><span class="p">))</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">a</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">hola</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">adios</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">una</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">pareja</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">dato</span><span class="w"> </span><span class="n">resultado</span><span class="p">)</span>
-<span class="w">           </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">resultado</span><span class="p">)</span><span class="w"> </span><span class="n">dato</span><span class="p">)</span>
-<span class="w">                 </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">resultado</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nb">cdr</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-
-<span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nb">min</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nb">car</span><span class="w"> </span><span class="p">(</span><span class="nb">filter</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="w">                                  </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">p</span><span class="p">)))</span><span class="w"> </span>
-<span class="w">                                  </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)))))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
-</code></pre></div>
+<p>```racket
+(map (lambda (x)
+         (cond 
+            ((symbol? x) (symbol-&gt;string x))
+            ((number? x) (number-&gt;string x))
+            ((boolean? x) (if x "#t" "#f"))
+            (else "desconocido"))) '(1 #t hola #f (1 . 2))) ; ⇒ ?</p>
+<p>(filter (lambda (x) 
+            (equal? (string-ref (symbol-&gt;string x) 1) #\a)) 
+    '(alicante barcelona madrid almería)) ; ⇒ ?</p>
+<p>(foldr (lambda (dato resultado)
+          (string-append dato "*" resultado)) "" 
+          '("Hola" "que" "tal")) ; ⇒ ?</p>
+<p>(foldr append '() '((1 2) (3 4 5) (6 7) (8))) ; ⇒ ?</p>
+<p>(foldl (lambda (dato resultado)
+         (string-append
+          (symbol-&gt;string (car dato))
+          (symbol-&gt;string (cdr dato))
+          resultado)) "" '((a . b) (hola . adios) (una . pareja))) ; ⇒ ?</p>
+<p>(foldr (lambda (dato resultado)
+           (cons (+ (car resultado) dato)
+                 (+ (cdr resultado) 1))) '(0 . 0) '(1 1 2 2 3 3)) ; ⇒ ?</p>
+<p>(apply + (map cdr '((1 . 3) (2 . 8) (2 . 4)))) ; ⇒ ?</p>
+<p>(apply min (map car (filter (lambda (p)
+                                  (&gt; (car p) (cdr p))) 
+                                  '((3 . 1) (1 . 20) (5 . 2))))) ; ⇒ ?
+```</p>
 <p>b) Sin utilizar el intérprete DrRacket, rellena los siguientes huecos
 para obtener el resultado esperado. Después usa el intérprete para
 comprobar si has acertado.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">; Los siguientes ejercicios utilizan esta definición de lista</span>
-
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">5</span><span class="p">)))</span>
-
-
-<span class="c1">; Queremos obtener una lista donde cada número es la suma de las</span>
-<span class="c1">; parejas que son pares</span>
-
-<span class="p">(</span><span class="nb">filter</span><span class="w"> </span><span class="n">________</span>
-<span class="w">        </span><span class="p">(</span><span class="n">________</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<span class="w">                                 </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span>
-<span class="w">               </span><span class="n">lista</span><span class="p">))</span>
-<span class="c1">; ⇒ (8 14 10)</span>
-
-<span class="c1">; Queremos obtener una lista de parejas invertidas donde la &quot;nueva&quot;</span>
-<span class="c1">; parte izquierda es mayor que la derecha.</span>
-
-<span class="p">(</span><span class="nb">filter</span><span class="w"> </span><span class="n">___________</span>
-<span class="w">        </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="n">____________</span><span class="w"> </span><span class="n">lista</span><span class="p">))</span>
-<span class="c1">; ⇒ ((7 . 2) (5 . 3))</span>
-
-<span class="c1">; Queremos obtener una lista cuyos elementos son las partes izquierda</span>
-<span class="c1">; de aquellas parejas cuya suma sea par.</span>
-
-<span class="p">(</span><span class="nb">foldr</span><span class="w"> </span><span class="n">__________</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span>
-<span class="w">        </span><span class="p">(</span><span class="n">_________</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">even?</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">x</span><span class="p">))))</span><span class="w"> </span><span class="n">lista</span><span class="p">))</span>
-<span class="c1">; ⇒ (3 10 5)</span>
-</code></pre></div>
+<p>```racket </p>
+<p>; Los siguientes ejercicios utilizan esta definición de lista</p>
+<p>(define lista '((2 . 7) (3 . 5) (10 . 4) (5 . 5)))</p>
+<p>; Queremos obtener una lista donde cada número es la suma de las
+; parejas que son pares</p>
+<p>(filter <strong><em>_</em></strong><em>
+        (<strong><em>_</em></strong></em> (lambda (x) (+ (car x)
+                                 (cdr x)))
+               lista))
+; ⇒ (8 14 10)</p>
+<p>; Queremos obtener una lista de parejas invertidas donde la "nueva"
+; parte izquierda es mayor que la derecha.</p>
+<p>(filter <strong><em>_</em></strong><strong><em>_
+        (map </em></strong><strong><em>_</em></strong>__ lista))
+; ⇒ ((7 . 2) (5 . 3))</p>
+<p>; Queremos obtener una lista cuyos elementos son las partes izquierda
+; de aquellas parejas cuya suma sea par.</p>
+<p>(foldr <strong><em>_</em></strong><strong><em> '()
+        (</em></strong>______ (lambda (x) (even? (+ (car x) (cdr x)))) lista))
+; ⇒ (3 10 5)
+```</p>
 <p>c) Rellena los siguientes huecos <strong>con una única expresión</strong> en la que
 se utilice alguna función previamente definida (<code>f</code> o <code>g</code>). Comprueba
 con el intérprete si lo has hecho correctamente.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">f1</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">string-append</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">g1</span><span class="w"> </span><span class="p">(</span><span class="n">f1</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
-<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="n">____________________</span><span class="w"> </span><span class="s2">&quot;claselppa&quot;</span><span class="p">)</span>
-
-
-
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">f2</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">z</span><span class="p">)))</span>
-<span class="n">_____________</span>
-<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="p">(</span><span class="n">g2</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;clase&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;lpp&quot;</span><span class="w"> </span><span class="s2">&quot;clase&quot;</span><span class="p">))</span>
-
-
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">f3</span><span class="w"> </span><span class="n">g3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">g3</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span>
-<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="n">_____________________</span><span class="w">  </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
-</code></pre></div>
+<p>```racket
+(define (f1 x) (lambda (y z) (string-append y z x)))
+(define g1 (f1 "a"))
+(check-equal? <strong><em>_</em></strong><strong><em>_</em></strong>______ "claselppa")</p>
+<p>(define (f2 x) (lambda (y z) (list y x z)))</p>
+<hr />
+<p>(check-equal? (g2 "hola" "clase") (list "hola" "lpp" "clase"))</p>
+<p>(define (f3 g3) (lambda(z x) (g3 z x)))
+(check-equal? <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>  '(3 . 4))
+```</p>
 <h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
 <p>a) Implementa utilizando funciones de orden superior la función
 <code>(contar-datos-iguales-fos lista-parejas)</code> que recibe una lista de
 parejas y devuelve el número de parejas que tienen sus dos datos
 iguales.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">contar-datos-iguales-fos</span><span class="w"> </span>
-<span class="w">   </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">\#a</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">\#a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">true</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">false</span><span class="p">)))</span><span class="w"> </span>
-<span class="c1">; ⇒ 2</span>
-<span class="p">(</span><span class="n">contar-datos-iguales-fos</span><span class="w"> </span>
-<span class="w">   </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">\#a</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">true</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">\#b</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="ss">false</span><span class="p">)))</span><span class="w"> </span>
-<span class="c1">; ⇒ 0</span>
-</code></pre></div>
+<p><code>racket
+(contar-datos-iguales-fos 
+   '((2 . 3) ("hola" . "hola") (\#a . \#a) (true . false))) 
+; ⇒ 2
+(contar-datos-iguales-fos 
+   '((2 . "hola") ("hola" . 3) (\#a . true) (\#b . false))) 
+; ⇒ 0</code></p>
 <p>b) Implementa, utilizando funciones de orden superior, la función
 <code>(expande-lista-fos lista-parejas)</code>, que hace lo mismo que la función
 <code>(expande-lista lista-parejas)</code> de la práctica anterior. Igual que en
 la práctica anterior debes usar la función <code>expande-pareja</code>.</p>
-<div class="highlight"><pre><span></span><code>(expande-lista-fos &#39;((#t . 3) (&quot;LPP&quot; . 2) (b . 4))) 
-; ⇒ (#t #t #t &quot;LPP&quot; &quot;LPP&quot; b b b b))
-</code></pre></div>
+<p><code>(expande-lista-fos '((#t . 3) ("LPP" . 2) (b . 4))) 
+; ⇒ (#t #t #t "LPP" "LPP" b b b b))</code></p>
 <p>c) Implementa, utilizando funciones de orden superior, la función
 <code>(comprueba-simbolos-fos lista-simbolos lista-num)</code> que hace lo mismo
 que la función <code>comprueba-simbolos</code> del ejercicio 3b) de la práctica
 pasada.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code>(comprueba-simbolos-fos &#39;(este es un ejercicio de examen) &#39;(2 1 2 9 1 6))
-; ⇒ ((un . 2) (ejercicio . 9) (examen . 6))
-</code></pre></div>
+<p><code>(comprueba-simbolos-fos '(este es un ejercicio de examen) '(2 1 2 9 1 6))
+; ⇒ ((un . 2) (ejercicio . 9) (examen . 6))</code></p>
 <h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
 <p>a) Implementa usando funciones de orden superior la función <code>(suma-n-izq n
 lista-parejas)</code> que recibe una lista de parejas y devuelve otra lista
 a la que hemos sumado <code>n</code> a todas las partes izquierdas.</p>
 <p>Ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">suma-n-izq</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span>
-<span class="c1">; ⇒ ((11 . 3) (10 . 9) (15 . 8) (14 . 1))</span>
-</code></pre></div>
+<p><code>racket
+(suma-n-izq 10 '((1 . 3) (0 . 9) (5 . 8) (4 . 1)))
+; ⇒ ((11 . 3) (10 . 9) (15 . 8) (14 . 1))</code></p>
 <p>b) Completa la definición de la siguiente función de orden superior
 <code>(busca-mayor mayor? lista)</code> que busca el mayor elemento de una
 lista. Recibe un predicado <code>mayor?</code> que compara dos elementos de la
@@ -1556,9 +1541,9 @@ el segundo. </p>
 genérica que podemos usar para obtener el mayor elemento de listas de
 números, de cadenas, de parejas, etc. En cada caso deberemos pasar
 como parámetro <code>mayor?</code> la función de comparación apropiada.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">busca-mayor</span><span class="w"> </span><span class="n">mayor?</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
-<span class="w">  </span><span class="p">(</span><span class="nb">foldl</span><span class="w"> </span><span class="n">__________</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">lista</span><span class="p">)))</span>
-</code></pre></div>
+<p><code>racket
+(define (busca-mayor mayor? lista)
+  (foldl __________ (first lista) (rest lista)))</code>  </p>
 <div class="admonition hint">
 <p class="admonition-title">Pista</p>
 <p>Fíjate que como elemento base de <code>foldl</code> estamos usando el primer
@@ -1575,10 +1560,10 @@ los números en las sublistas son menores que <code>n</code>.</p>
 función <code>busca-mayor</code> definida en el apartado anterior y la segunda
 usando <code>for-all?</code> y la función de orden superior <code>exists?</code>.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">todos-menores?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">10</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">90</span><span class="p">))</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
-<span class="p">(</span><span class="n">todos-menores?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">10</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">90</span><span class="p">))</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-<span class="p">(</span><span class="n">todos-menores?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">10</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">90</span><span class="p">))</span><span class="w"> </span><span class="mi">55</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
-</code></pre></div>
+<p><code>racket
+(todos-menores? '((10 30 20) (1 50 30) (30 40 90)) 100) ; ⇒ #t
+(todos-menores? '((10 30 20) (1 50 30) (30 40 90)) 90) ; ⇒ #f
+(todos-menores? '((10 30 20) (1 50 30) (30 40 90)) 55) ; ⇒ #f</code></p>
 <h3 id="ejercicio-6">Ejercicio 6<a class="headerlink" href="#ejercicio-6" title="Permanent link">&para;</a></h3>
 <p>Vamos a mejorar el juego de cartas de la semana anterior, usando la baraja
 completa y dando más libertad al reparto de cartas en montones, haciendo más
@@ -1598,26 +1583,26 @@ opcional y puede ir de 0 a n elementos.</p>
 elementos se pasen como argumentos, y si no se pasa ningún argumento
 se devuelve por convenio la lista de n listas tal cual, sin variar.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">())</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">a</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">c</span><span class="p">)</span><span class="err">)</span><span class="w"> </span><span class="c1">; ⇒ ((a) (b) (c))</span>
-<span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">a</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="p">)</span><span class="err">)</span><span class="w"> </span><span class="c1">; ⇒ ((b a) (b a))</span>
-<span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">e</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ((e a b c d))</span>
-<span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w"> </span><span class="c1">; ⇒ &#39;()</span>
-<span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">g</span><span class="w"> </span><span class="ss">h</span><span class="w"> </span><span class="ss">i</span><span class="w"> </span><span class="ss">j</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">k</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">l</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">m</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">n</span><span class="p">)</span><span class="err">)</span><span class="w"> </span><span class="c1">; ⇒ ((k a) (l b c) (m d e f) (n g h i j))</span>
-</code></pre></div>
+<p><code>racket
+(coloca '(() () ()) 'a 'b 'c)) ; ⇒ ((a) (b) (c))
+(coloca '((a) (a)) 'b 'b)) ; ⇒ ((b a) (b a))
+(coloca '((a b c d)) 'e) ; ⇒ ((e a b c d))
+(coloca '()) ; ⇒ '()
+(coloca '((a) (b c) (d e f) (g h i j)) 'k 'l 'm 'n)) ; ⇒ ((k a) (l b c) (m d e f) (n g h i j))</code></p>
 <p>Implementa una función <code>reparte-cuatro</code> inspirada en <code>reparte-tres</code> y con idéntica estructura.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">reparte-cuatro</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">A♣</span><span class="w"> </span><span class="ss">2♣</span><span class="w"> </span><span class="ss">3♣</span><span class="w"> </span><span class="ss">4♣</span><span class="w"> </span><span class="ss">5♣</span><span class="w"> </span><span class="ss">6♣</span><span class="w"> </span><span class="ss">7♣</span><span class="w"> </span><span class="ss">8♣</span><span class="w"> </span><span class="ss">9♣</span><span class="w"> </span><span class="ss">J♣</span><span class="w"> </span><span class="ss">Q♣</span><span class="w"> </span><span class="ss">K♣</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &#39;((A♣ 5♣ 9♣) (2♣ 6♣ J♣) (3♣ 7♣ Q♣) (4♣ 8♣ K♣))</span>
-</code></pre></div>
+<p><code>racket
+(reparte-cuatro '(A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ J♣ Q♣ K♣)) ; ⇒ '((A♣ 5♣ 9♣) (2♣ 6♣ J♣) (3♣ 7♣ Q♣) (4♣ 8♣ K♣))</code></p>
 <p>b) Implementa la función <code>(escoge-en-orden lista funcion_ordinal_1
 ... función_ordinal_n)</code> que aplica a un primer argumento obligatorio <code>lista</code>
 la serie de funciones "ordinales" (<code>first</code>, <code>second</code>, <code>third</code> ... <code>tenth</code>)
 pasadas a continuación de la lista como un número variable de argumentos,
 devolviendo la lista de resultados de aplicar esas funciones en el
 orden en que se han proporcionado.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">escoge-en-orden</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒  &#39;()</span>
-<span class="p">(</span><span class="n">escoge-en-orden</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="nb">fourth</span><span class="w"> </span><span class="nb">second</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (4 2)</span>
-<span class="p">(</span><span class="n">escoge-en-orden</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="p">)</span><span class="w"> </span><span class="nb">third</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="nb">fourth</span><span class="w"> </span><span class="nb">first</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (c b d a)</span>
-<span class="p">(</span><span class="n">escoge-en-orden</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">dos</span><span class="w"> </span><span class="ss">tres</span><span class="w"> </span><span class="ss">un</span><span class="p">)</span><span class="w"> </span><span class="nb">third</span><span class="w"> </span><span class="nb">first</span><span class="w"> </span><span class="nb">second</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (un dos tres)</span>
-</code></pre></div>
+<p><code>racket
+(escoge-en-orden '(1 2 3 4 5)) ; ⇒  '()
+(escoge-en-orden '(1 2 3 4 5) fourth second) ; ⇒ (4 2)
+(escoge-en-orden '(a b c d) third second fourth first) ; ⇒ (c b d a)
+(escoge-en-orden '(dos tres un) third first second) ; ⇒ (un dos tres)</code></p>
 <p>Usando las funciones definidas anteriormente, implementa las funciones
 <code>(reordena-tres-montones baraja f-ordinal1 f-ordinal2 f-ordinal3)</code> y
 <code>(reordena-cuatro-montones baraja f-ordinal1 f-ordinal2 f-ordinal3 f-ordinal4)</code>
@@ -1625,32 +1610,32 @@ que reparten las cartas de una supuesta baraja (lista de cartas) en tres o
 cuatro montones (lista de sublistas de cartas) y después reordena los montones,
 o sublistas, según el orden establecido por las funciones "ordinales" pasadas
 como argumentos a continuación de la baraja.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">reordena-tres-montones</span><span class="w">  </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">A♣</span><span class="w"> </span><span class="ss">2♣</span><span class="w"> </span><span class="ss">3♣</span><span class="w"> </span><span class="ss">4♣</span><span class="w"> </span><span class="ss">5♣</span><span class="w"> </span><span class="ss">6♣</span><span class="w"> </span><span class="ss">7♣</span><span class="w"> </span><span class="ss">8♣</span><span class="w"> </span><span class="ss">9♣</span><span class="w"> </span><span class="ss">J♣</span><span class="w"> </span><span class="ss">Q♣</span><span class="w"> </span><span class="ss">K♣</span><span class="p">)</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="nb">first</span><span class="w"> </span><span class="nb">third</span><span class="p">)</span>
-<span class="c1">; ⇒</span>
-<span class="c1">; ((2♣ 5♣ 8♣ Q♣) (A♣ 4♣ 7♣ J♣) (3♣ 6♣ 9♣ K♣))</span>
-
-<span class="p">(</span><span class="n">reordena-cuatro-montones</span><span class="w">  </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">A♣</span><span class="w"> </span><span class="ss">2♣</span><span class="w"> </span><span class="ss">3♣</span><span class="w"> </span><span class="ss">4♣</span><span class="w"> </span><span class="ss">5♣</span><span class="w"> </span><span class="ss">6♣</span><span class="w"> </span><span class="ss">7♣</span><span class="w"> </span><span class="ss">8♣</span><span class="w"> </span><span class="ss">9♣</span><span class="w"> </span><span class="ss">J♣</span><span class="w"> </span><span class="ss">Q♣</span><span class="w"> </span><span class="ss">K♣</span><span class="p">)</span><span class="w"> </span><span class="nb">fourth</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="nb">first</span><span class="w"> </span><span class="nb">third</span><span class="p">)</span>
-<span class="c1">; ⇒</span>
-<span class="c1">; ((4♣ 8♣ K♣) (2♣ 6♣ J♣) (A♣ 5♣ 9♣) (3♣ 7♣ Q♣))</span>
-</code></pre></div>
+<p>```racket
+(reordena-tres-montones  '(A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ J♣ Q♣ K♣) second first third)
+; ⇒
+; ((2♣ 5♣ 8♣ Q♣) (A♣ 4♣ 7♣ J♣) (3♣ 6♣ 9♣ K♣))</p>
+<p>(reordena-cuatro-montones  '(A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ J♣ Q♣ K♣) fourth second first third)
+; ⇒
+; ((4♣ 8♣ K♣) (2♣ 6♣ J♣) (A♣ 5♣ 9♣) (3♣ 7♣ Q♣))
+```</p>
 <p>c) Implementa la función <code>(junta-montones montones)</code> concatena la lista de sublistas
 de cartas (montones) en una sola lista de cartas.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">junta-montones</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">4♣</span><span class="w"> </span><span class="ss">8♣</span><span class="w"> </span><span class="ss">K♣</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">2♣</span><span class="w"> </span><span class="ss">6♣</span><span class="w"> </span><span class="ss">J♣</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">A♣</span><span class="w"> </span><span class="ss">5♣</span><span class="w"> </span><span class="ss">9♣</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">3♣</span><span class="w"> </span><span class="ss">7♣</span><span class="w"> </span><span class="ss">Q♣</span><span class="p">)))</span>
-<span class="c1">; ⇒</span>
-<span class="c1">; (4♣ 8♣ K♣ 2♣ 6♣ J♣ A♣ 5♣ 9♣ 3♣ 7♣ Q♣)</span>
-</code></pre></div>
+<p><code>racket
+(junta-montones '((4♣ 8♣ K♣) (2♣ 6♣ J♣) (A♣ 5♣ 9♣) (3♣ 7♣ Q♣)))
+; ⇒
+; (4♣ 8♣ K♣ 2♣ 6♣ J♣ A♣ 5♣ 9♣ 3♣ 7♣ Q♣)</code></p>
 <p>d) Una vez que has implementado las funciones anteriores ya solo te
 queda copiar la siguiente definición para poder hacer el truco de
 cartas. </p>
 <p>La función <code>(adivina lista-cartas par1 par2 par3)</code> es la que hace toda la magia
 y calcula la posición de la carta escogida a partir de las posiciones de los
 montones en los que ésta ha aparecido en tres reparticiones de la baraja.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">adivina</span><span class="w"> </span><span class="n">baraja</span><span class="w"> </span><span class="n">par1</span><span class="w"> </span><span class="n">par2</span><span class="w"> </span><span class="n">par3</span><span class="p">)</span>
-<span class="w">  </span><span class="p">(</span><span class="nb">list-ref</span><span class="w"> </span><span class="n">baraja</span>
-<span class="w">            </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">par3</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">par2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">par1</span><span class="p">))</span>
-<span class="w">               </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">par2</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">par1</span><span class="p">))</span>
-<span class="w">               </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">par1</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span>
-</code></pre></div>
+<p><code>racket
+(define (adivina baraja par1 par2 par3)
+  (list-ref baraja
+            (+ (* (- (car par3) 1) (cdr par2) (cdr par1))
+               (* (- (car par2) 1) (cdr par1))
+               (- (car par1) 1))))</code></p>
 <p>Cada pareja codifica en su parte derecha el número de montones en los que se ha
 repartido la baraja y en su parte izquierda el montón en el que el espectador ha
 visto la carta. Por ejemplo, la pareja <code>(2 . 4)</code> representa que la baraja se ha
@@ -1666,83 +1651,83 @@ cambia por otra constante, la secuencia también se reperirá siempre
 aunque será otra. Tener siempre la misma secuencia aleatoria permite
 poder depurar la programación trabajando siempre con el mismo ejemplo
 aleatorio.</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">random-seed</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span>
-</code></pre></div>
+<p><code>racket
+(random-seed 90)</code>
 Si en lugar de una constante se usa un valor variable, se obtiene una
 secuencia aleatoria distinta cada vez que se ejecute el programa. </p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">random-seed</span><span class="w"> </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="p">(</span><span class="nb">current-milliseconds</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">expt</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">31</span><span class="p">)))</span>
-</code></pre></div>
+<p><code>racket
+(random-seed (modulo (current-milliseconds) (expt 2 31)))</code></p>
 <ol>
 <li>
 <p>Repartimos una lista de 48 cartas en cuatro montones. Pedimos a un espectador
    que nos diga en qué orden colocamos los montones, poniendo, por ejemplo,
    primero el primero, después el cuarto, después el segundo y después el tercero:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">reordena-cuatro-montones</span><span class="w"> </span><span class="p">(</span><span class="n">cartas</span><span class="w"> </span><span class="mi">48</span><span class="p">)</span><span class="w"> </span><span class="nb">first</span><span class="w"> </span><span class="nb">fourth</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="nb">third</span><span class="p">))</span>
-</code></pre></div>
+<p><code>racket
+(define t1 (reordena-cuatro-montones (cartas 48) first fourth second third))</code></p>
 </li>
 <li>
 <p>Visualizamos los montones y pedimos al espectador que piense en una
 carta sin decirla. Por ejemplo el as de tréboles. </p>
-<div class="highlight"><pre><span></span><code><span class="n">t1</span><span class="w"> </span><span class="c1">; ⇒ ((K♦ 3♦ 6♠ 6♦ 3♥ K♣ 8♦ 5♦ 6♣ 8♥ 5♠ A♣)</span>
-<span class="w">   </span><span class="c1">;   (8♠ 8♣ 9♠ 7♠ 2♣ 7♣ K♥ Q♠ 7♥ Q♣ 9♦ J♥)</span>
-<span class="w">   </span><span class="c1">;   (4♠ 2♥ K♠ Q♥ 7♦ J♣ 9♣ 6♥ 2♠ 9♥ 4♣ A♥)</span>
-<span class="w">   </span><span class="c1">;   (5♣ 2♦ J♦ 4♥ A♠ 5♥ 3♠ J♠ A♦ 3♣ 4♦ Q♦))</span>
-</code></pre></div>
+<p><code>racket
+t1 ; ⇒ ((K♦ 3♦ 6♠ 6♦ 3♥ K♣ 8♦ 5♦ 6♣ 8♥ 5♠ A♣)
+   ;   (8♠ 8♣ 9♠ 7♠ 2♣ 7♣ K♥ Q♠ 7♥ Q♣ 9♦ J♥)
+   ;   (4♠ 2♥ K♠ Q♥ 7♦ J♣ 9♣ 6♥ 2♠ 9♥ 4♣ A♥)
+   ;   (5♣ 2♦ J♦ 4♥ A♠ 5♥ 3♠ J♠ A♦ 3♣ 4♦ Q♦))</code></p>
 </li>
 <li>
 <p>Preguntamos al espectador en qué montón se encuentra la carta. Anotamos en la
 parte izquierda de <code>p1</code> el montón en el que está (montón 1), y la parte derecha el
 número de montones (4).</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
-<span class="n">p1</span>
-</code></pre></div>
+<p><code>racket
+(define p1 '(1 . 4))
+p1</code></p>
 </li>
 <li>
 <p>Repetimos la operación con <code>t2</code>, pero ahora repartiendo en tres montones nada
 más. Podemos pedir a otro espectador que nos diga el orden en el que se
 colocan los montones. Por ejemplo, primero el segundo, después el tercero y
 después el primero.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">(</span><span class="n">reordena-tres-montones</span><span class="w"> </span><span class="p">(</span><span class="n">junta-montones</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="nb">third</span><span class="w"> </span><span class="nb">first</span><span class="p">))</span>
-</code></pre></div>
+<p><code>racket
+(define t2 (reordena-tres-montones (junta-montones t1) second third first))</code></p>
 </li>
 <li>
 <p>Visualizamos <code>t2</code> y determinamos la pareja según donde está el as de trébol:</p>
-<div class="highlight"><pre><span></span><code><span class="n">t2</span><span class="w"> </span><span class="c1">; ⇒ ((3♦ 3♥ 5♦ 5♠ 8♣ 2♣ Q♠ 9♦ 2♥ 7♦ 6♥ 4♣ 2♦ A♠ J♠ 4♦)</span>
-<span class="w">   </span><span class="c1">;    (6♠ K♣ 6♣ A♣ 9♠ 7♣ 7♥ J♥ K♠ J♣ 2♠ A♥ J♦ 5♥ A♦ Q♦)</span>
-<span class="w">   </span><span class="c1">;    (K♦ 6♦ 8♦ 8♥ 8♠ 7♠ K♥ Q♣ 4♠ Q♥ 9♣ 9♥ 5♣ 4♥ 3♠ 3♣))</span>
-<span class="w">   </span><span class="c1">;En este caso (2 . 3) (el montón 2 de 3)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
-<span class="n">p2</span>
-</code></pre></div>
+<p><code>racket
+t2 ; ⇒ ((3♦ 3♥ 5♦ 5♠ 8♣ 2♣ Q♠ 9♦ 2♥ 7♦ 6♥ 4♣ 2♦ A♠ J♠ 4♦)
+   ;    (6♠ K♣ 6♣ A♣ 9♠ 7♣ 7♥ J♥ K♠ J♣ 2♠ A♥ J♦ 5♥ A♦ Q♦)
+   ;    (K♦ 6♦ 8♦ 8♥ 8♠ 7♠ K♥ Q♣ 4♠ Q♥ 9♣ 9♥ 5♣ 4♥ 3♠ 3♣))
+   ;En este caso (2 . 3) (el montón 2 de 3)
+(define p2 '(2 . 3))
+p2</code></p>
 </li>
 <li>
 <p>Repetimos una última vez el reparto y ordenación de montones, pero con 4. Hay
 que hacer tres repartos, uno de 3 montones y los otros dos de 4, pero no
 necesariamente en el orden en el que se ha hecho (4-3-4). Se podía haber hecho
 primero el reparto en tres montones, o haberlo dejado para el final. </p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="p">(</span><span class="n">reordena-cuatro-montones</span><span class="w"> </span><span class="p">(</span><span class="n">junta-montones</span><span class="w"> </span><span class="n">t2</span><span class="p">)</span><span class="w"> </span><span class="nb">fourth</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="nb">first</span><span class="w"> </span><span class="nb">third</span><span class="p">))</span>
-</code></pre></div>
+<p><code>racket
+(define t3 (reordena-cuatro-montones (junta-montones t2) fourth second first third))</code></p>
 </li>
 <li>
 <p>Visualizamos <code>t3</code> y definimos la pareja <code>p3</code> según el montón del as de trébol: </p>
-<div class="highlight"><pre><span></span><code><span class="n">t3</span><span class="w"> </span><span class="c1">; ⇒ ((5♠ 9♦ 4♣ 4♦ A♣ J♥ A♥ Q♦ 8♥ Q♣ 9♥ 3♣)</span>
-<span class="w">   </span><span class="c1">;    (5♦ Q♠ 6♥ J♠ 6♣ 7♥ 2♠ A♦ 8♦ K♥ 9♣ 3♠)</span>
-<span class="w">   </span><span class="c1">;    (3♦ 8♣ 2♥ 2♦ 6♠ 9♠ K♠ J♦ K♦ 8♠ 4♠ 5♣)</span>
-<span class="w">   </span><span class="c1">;    (3♥ 2♣ 7♦ A♠ K♣ 7♣ J♣ 5♥ 6♦ 7♠ Q♥ 4♥))</span>
-<span class="w">   </span><span class="c1">;Esta vez es (1 . 4)</span>
-<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
-<span class="n">p3</span>
-</code></pre></div>
+<p><code>racket
+t3 ; ⇒ ((5♠ 9♦ 4♣ 4♦ A♣ J♥ A♥ Q♦ 8♥ Q♣ 9♥ 3♣)
+   ;    (5♦ Q♠ 6♥ J♠ 6♣ 7♥ 2♠ A♦ 8♦ K♥ 9♣ 3♠)
+   ;    (3♦ 8♣ 2♥ 2♦ 6♠ 9♠ K♠ J♦ K♦ 8♠ 4♠ 5♣)
+   ;    (3♥ 2♣ 7♦ A♠ K♣ 7♣ J♣ 5♥ 6♦ 7♠ Q♥ 4♥))
+   ;Esta vez es (1 . 4)
+(define p3 '(1 . 4))
+p3</code></p>
 </li>
 <li>
 <p>Ya tenemos las tres parejas mágicas que nos adivian la carta:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">adivina</span><span class="w"> </span><span class="p">(</span><span class="n">junta-montones</span><span class="w"> </span><span class="n">t3</span><span class="p">)</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="n">p3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ A♣</span>
-</code></pre></div>
+<p><code>racket
+(adivina (junta-montones t3) p1 p2 p3) ; ⇒ A♣</code></p>
 </li>
 </ol>
 <hr />
-<p>Lenguajes y Paradigmas de Programación, curso 2024-25<br />
+<p>Lenguajes y Paradigmas de Programación, curso 2025-26<br />
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante<br />
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez</p>
 

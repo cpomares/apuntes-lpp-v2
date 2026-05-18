@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1391,9 +1391,8 @@ code. We recommend:</p>
 <ol>
 <li>
 <p>Confirm that the Linux installation packages are up to date:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get update
-$ sudo apt-get upgrade
-</code></pre></div>
+<p><code>$ sudo apt-get update
+$ sudo apt-get upgrade</code></p>
 </li>
 <li>
 <p>Install the dependencies listed on the <a href="https://www.swift.org/getting-started/#installing-swift">official Apple
@@ -1417,37 +1416,32 @@ page</a>.</p>
 <ul>
 <li>
 <p>Ubuntu 22.04:</p>
-<div class="highlight"><pre><span></span><code>$ wget https://download.swift.org/swift-6.0.3-release/ubuntu2204/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-ubuntu22.04.tar.gz
-</code></pre></div>
+<p><code>$ wget https://download.swift.org/swift-6.0.3-release/ubuntu2204/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-ubuntu22.04.tar.gz</code></p>
 </li>
 <li>
 <p>Ubuntu 24.04:</p>
-<div class="highlight"><pre><span></span><code>$ wget https://download.swift.org/swift-6.0.3-release/ubuntu2404/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-ubuntu24.04.tar.gz
-</code></pre></div>
+<p><code>$ wget https://download.swift.org/swift-6.0.3-release/ubuntu2404/swift-6.0.3-RELEASE/swift-6.0.3-RELEASE-ubuntu24.04.tar.gz</code></p>
 </li>
 </ul>
 </li>
 <li>
 <p>Extract the file:</p>
-<div class="highlight"><pre><span></span><code>$ tar xzf swift-&lt;VERSION&gt;-&lt;PLATFORM&gt;.tar.gz
-</code></pre></div>
+<p><code>$ tar xzf swift-&lt;VERSION&gt;-&lt;PLATFORM&gt;.tar.gz</code></p>
 <p>This creates the <code>usr/</code> directory in the location of the archive.
 You can test whether the <code>swift</code> command works by moving to the
 <code>bin</code> directory and running:</p>
-<div class="highlight"><pre><span></span><code>$ ./swift repl
+<p><code>$ ./swift repl
 Welcome to Swift version 5.8
 Type :help for assistance.
-1&gt; print(&quot;Hola mundo&quot;)
+1&gt; print("Hola mundo")
 Hola mundo
 2&gt; :quit
-$
-</code></pre></div>
+$</code></p>
 </li>
 <li>
 <p>To run <code>swift</code> from any directory, you must update the <code>PATH</code> or
    move <code>usr/bin/swift</code> to the <code>/usr/bin</code> directory.</p>
-<div class="highlight"><pre><span></span><code>$ export PATH=/path/to/usr/bin:&quot;${PATH}&quot;
-</code></pre></div>
+<p><code>$ export PATH=/path/to/usr/bin:"${PATH}"</code></p>
 </li>
 </ol>
 <h3 id="installation-on-windows">Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permanent link">&para;</a></h3>
@@ -1458,16 +1452,14 @@ prepared with Swift 6.0.3 already installed so that Swift can be run
 directly. Before proceeding, check that WSL is installed and enabled
 on your system with the following command in the Windows terminal
 (PowerShell or CMD):</p>
-<div class="highlight"><pre><span></span><code>wsl --list --verbose
-</code></pre></div>
+<p><code>wsl --list --verbose</code></p>
 <p>This command will show the Linux distributions installed and their
 status.</p>
 <div class="admonition note">
 <p class="admonition-title">If WSL is not installed</p>
 <p>If you do not have WSL, you can enable it using PowerShell by
 running the following command as administrator:</p>
-<div class="highlight"><pre><span></span><code>wsl --install
-</code></pre></div>
+<p><code>wsl --install</code></p>
 <p>This command installs the latest version of WSL. If WSL is already
 enabled, the command updates to WSL 2 if necessary and available.</p>
 <p>Alternatively, you can enable WSL through the Windows Control
@@ -1489,8 +1481,7 @@ Panel:</p>
    (<code>cd [path]\UbuntuLPP</code>).</li>
 <li>
 <p>Run the following command to import the distribution into WSL 2:</p>
-<div class="highlight"><pre><span></span><code>wsl --import UbuntuLPP . UbuntuLPP.tgz
-</code></pre></div>
+<p><code>wsl --import UbuntuLPP . UbuntuLPP.tgz</code></p>
 <p>When importing the distribution with the previous command, the name
 given to the distribution is <code>UbuntuLPP</code> (a different name could
 have been used), and the location where the virtual disk
@@ -1535,21 +1526,20 @@ more convenient.</p>
 <h4 id="running-from-the-terminal">Running from the Terminal<a class="headerlink" href="#running-from-the-terminal" title="Permanent link">&para;</a></h4>
 <p>We must install the <em>Xcode Command Line Tools</em> with the following
 command:</p>
-<div class="highlight"><pre><span></span><code>$ xcode-select --install
-</code></pre></div>
+<p><code>$ xcode-select --install</code></p>
 <p>Once the tools are installed, we can run Swift programs from the
 terminal interactively.</p>
 <p>Open the terminal and type:</p>
-<div class="highlight"><pre><span></span><code>$ swift repl
-</code></pre></div>
+<p><code>text
+$ swift repl</code></p>
 <p>You will see that the Swift interpreter starts and allows you to
 write and run Swift code:</p>
 <p><img src="imagenes/terminal-swift.png" width="600px"/></p>
 <p>To edit a Swift program, you can use an editor such as <em>Visual Studio
 Code</em>, as mentioned earlier, and then run it from the terminal.</p>
-<div class="highlight"><pre><span></span><code>$ swift prueba.swift
-Hola mundo
-</code></pre></div>
+<p><code>text
+$ swift prueba.swift
+Hola mundo</code></p>
 <p><img src="imagenes/terminal-swift-programa.png" width="500px"/></p>
 <h4 id="running-from-xcode">Running from Xcode<a class="headerlink" href="#running-from-xcode" title="Permanent link">&para;</a></h4>
 <p>First, you must install Xcode from the Mac App Store.</p>
@@ -1562,9 +1552,9 @@ select the <em>macOS &gt; Swift File</em> template.</p>
 <p>Select the folder and file name, and then you can write Swift code:</p>
 <p><img src="imagenes/xcode-file-swift.png" width="600px"/></p>
 <p>Once the program is saved, you can run it from the terminal:</p>
-<div class="highlight"><pre><span></span><code>$ swift prueba.swift
-Hola mundo
-</code></pre></div>
+<p><code>text
+$ swift prueba.swift
+Hola mundo</code></p>
 <p><img src="imagenes/terminal-swift-programa.png" width="500px"/></p>
 <p>If there is any compilation error, it will be detected when launching
 the command from the terminal.</p>
@@ -1600,8 +1590,8 @@ functions, generics, classes, or protocols in more depth.</p>
 <p>Tradition suggests that the first program in a new language should
 print the words "Hello, world!" on the screen. In Swift, this can be
 done with a single line:</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Hola, mundo!&quot;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+print("Hola, mundo!")</code></p>
 <p>If you have written code in C or Objective-C, this syntax will look
 familiar. In Swift, this line of code is a complete program. You do
 not need to import a separate library for features such as input,
@@ -1610,14 +1600,14 @@ the entry point of the program, so you do not need a <code>main()</code>
 function. You also do not have to write semicolons at the end of
 every statement. You can comment lines of code in the same way as in
 C.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">//</span>
-<span class="c1">// This is a comment</span>
-<span class="c1">//</span>
-
-<span class="cm">/*</span>
-<span class="cm">   And this is also a comment</span>
-<span class="cm">*/</span>
-</code></pre></div>
+<p>```swift
+//
+// This is a comment
+//</p>
+<p>/<em>
+   And this is also a comment
+</em>/
+```</p>
 <p>This tour gives you enough information to start writing code in Swift
 by showing how to achieve a variety of programming tasks. Full
 information about all Swift language elements can be found in the
@@ -1628,10 +1618,10 @@ value of a constant does not need to be known at compile time, but
 you must assign it a value exactly once. This means that you can use
 constants to name a value that you determine once and then use in
 many places.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">miVariable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
-<span class="n">miVariable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">50</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">miConstante</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
-</code></pre></div>
+<p><code>swift
+var miVariable = 42
+miVariable = 50
+let miConstante = 42</code></p>
 <p>A constant or variable must have the same type as the value you want
 to assign to it. However, you do not always have to write the type
 explicitly. When a value is provided when creating a constant or
@@ -1641,10 +1631,10 @@ value is an integer.</p>
 <p>If the initial value does not provide enough information, or if there
 is no initial value, specify the type by writing it after the
 variable, separated by a colon.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">implicitoInteger</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">70</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">implicitoDouble</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">70.0</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">explicitoDouble</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">70</span>
-</code></pre></div>
+<p><code>swift
+let implicitoInteger = 70
+let implicitoDouble = 70.0
+let explicitoDouble: Double = 70</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Throughout the seminar, small exercises are proposed that you
@@ -1658,10 +1648,10 @@ find them in the blocks headed with "Experiment".</p>
 <p>Values are never implicitly converted to another type. If you need to
 convert a value to a different type, explicitly construct an instance
 of the desired type.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">etiqueta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;El ancho es &quot;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">ancho</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">94</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">anchoEtiqueta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">etiqueta</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="n">ancho</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let etiqueta = "El ancho es "
+let ancho = 94
+let anchoEtiqueta = etiqueta + String(ancho)</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 2</p>
 <p>Try removing the conversion to <code>String</code> in the last line. What
@@ -1671,11 +1661,11 @@ comment.</p>
 <p>There is an even simpler way to include values in strings: write the
 value inside parentheses and put a backslash (<code>\</code>) before the
 parentheses. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">manzanas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">naranjas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">resumenManzanas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Tengo </span><span class="si">\(</span><span class="n">manzanas</span><span class="si">)</span><span class="s"> manzanas.&quot;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">resumenFrutas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Tengo </span><span class="si">\(</span><span class="n">manzanas</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">naranjas</span><span class="si">)</span><span class="s"> frutas.&quot;</span>
-</code></pre></div>
+<p><code>swift
+let manzanas = 3
+let naranjas = 5
+let resumenManzanas = "Tengo \(manzanas) manzanas."
+let resumenFrutas = "Tengo \(manzanas + naranjas) frutas."</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 3</p>
 <p>Use <code>\()</code> to print a string containing a floating-point
@@ -1685,57 +1675,57 @@ includes someone's name in a greeting.</p>
 <p>Create arrays and dictionaries using square brackets (<code>[]</code>), and
 access their elements by writing the index or key inside the brackets.
 A trailing comma after the last element is allowed.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">listaCompra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;huevos&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;agua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tomates&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pan&quot;</span><span class="p">]</span>
-<span class="n">listaCompra</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;botella de agua&quot;</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">trabajos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&quot;Malcolm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Capitán&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s">&quot;Kaylee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mecánico&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="n">trabajos</span><span class="p">[</span><span class="s">&quot;Jayne&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Relaciones públicas&quot;</span>
-</code></pre></div>
+<p>```swift
+var listaCompra = ["huevos", "agua", "tomates", "pan"]
+listaCompra[1] = "botella de agua"</p>
+<p>var trabajos = [
+    "Malcolm": "Capitán",
+    "Kaylee": "Mecánico",
+]
+trabajos["Jayne"] = "Relaciones públicas"
+```</p>
 <p>To create an empty array or dictionary, use the initialization syntax.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">arrayVacio</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">]()</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">diccionarioVacio</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">String</span><span class="p">:</span><span class="w"> </span><span class="nb">Float</span><span class="p">]()</span>
-</code></pre></div>
+<p><code>swift
+let arrayVacio = [String]()
+let diccionarioVacio = [String: Float]()</code></p>
 <p>If the type information can be inferred, you can write an empty array
 as <code>[]</code> and an empty dictionary as <code>[:]</code>; for example, when setting a
 new value for a variable or passing an argument to a function.</p>
-<div class="highlight"><pre><span></span><code><span class="n">listaCompra</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
-<span class="n">trabajos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[:]</span>
-</code></pre></div>
+<p><code>swift
+listaCompra = []
+trabajos = [:]</code></p>
 <p>You can find more information about working with arrays in the
 corresponding section of the <a href="https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html">Swift
 Guide</a>.</p>
 <h4 id="tuples">Tuples<a class="headerlink" href="#tuples" title="Permanent link">&para;</a></h4>
 <p>A tuple groups several values into a single compound value.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">http404Error</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">404</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Not Found&quot;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let http404Error = (404, "Not Found")</code></p>
 <p>The type of the tuple is <code>(Int, String)</code>.</p>
 <p>To get the values from the tuple, we can <em>decompose</em> it. If we want
 to ignore one part, we can use an underscore (<code>_</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">statusCode</span><span class="p">,</span><span class="w"> </span><span class="n">statusMensaje</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">http404Error</span>
-<span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">soloStatusCode</span><span class="p">,</span><span class="w"> </span><span class="kc">_</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">http404Error</span>
-</code></pre></div>
+<p><code>swift
+let (statusCode, statusMensaje) = http404Error
+let (soloStatusCode, _) = http404Error</code></p>
 <p>We can also access them by position:</p>
-<div class="highlight"><pre><span></span><code><span class="bp">print</span><span class="p">(</span><span class="s">&quot;El código de estado es </span><span class="si">\(</span><span class="n">http404Error</span><span class="p">.</span><span class="mi">0</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+print("El código de estado es \(http404Error.0)")</code></p>
 <h4 id="flow-control">Flow Control<a class="headerlink" href="#flow-control" title="Permanent link">&para;</a></h4>
 <p>Use <code>if</code> and <code>switch</code> to make conditionals, and use <code>for-in</code>, <code>for</code>,
 <code>while</code>, and <code>repeat-while</code> to create loops. Parentheses around
 conditions or loop variables are optional. Braces are required around
 the body.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">puntuacionesIndividuales</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">75</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="mi">87</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">]</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">puntuacionEquipo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">for</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">puntuacionesIndividuales</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">puntuacionEquipo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">puntuacionEquipo</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">puntuacionEquipo</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let puntuacionesIndividuales = [75, 43, 103, 87, 12]
+var puntuacionEquipo = 0
+for puntuacion in puntuacionesIndividuales {
+    if puntuacion &gt; 50 {
+        puntuacionEquipo += 3
+    } else {
+        puntuacionEquipo += 1
+    }
+}
+print(puntuacionEquipo)</code></p>
 <p>In an <code>if</code> statement, the condition must be a boolean expression.
 This means code such as <code>if puntuacion { ... }</code> is an error, not an
 implicit comparison against zero as allowed in C.</p>
@@ -1744,16 +1734,16 @@ missing. These values are represented as optionals. An optional value
 either contains a value or contains <code>nil</code> to indicate that the value
 is missing. Write a question mark (<code>?</code>) after the type of a value to
 mark it as optional.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">cadenaOpcional</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hola&quot;</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">cadenaOpcional</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">nombreOpcional</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;John Appleseed&quot;</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">saludo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hola!&quot;</span>
-<span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">nombre</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombreOpcional</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">saludo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hola, </span><span class="si">\(</span><span class="n">nombre</span><span class="si">)</span><span class="s">&quot;</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">saludo</span><span class="p">)</span>
-</code></pre></div>
+<p>```swift
+var cadenaOpcional: String? = "Hola"
+print(cadenaOpcional == nil)</p>
+<p>var nombreOpcional: String? = "John Appleseed"
+var saludo = "Hola!"
+if let nombre = nombreOpcional {
+    saludo = "Hola, (nombre)"
+}
+print(saludo)
+```</p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 4</p>
 <p>Change <code>nombreOpcional</code> to <code>nil</code>. What greeting do you get? Add an
@@ -1767,23 +1757,23 @@ unwrapped value available inside the code block.</p>
 <p>Another way to handle optional values is to provide a default value
 using the <code>??</code> operator. If the optional value is missing, the
 default value is used instead.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">nombrePila</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">nil</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">nombreCompleto</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;John Appleseed&quot;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">saludoInformal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;¿Qué tal, </span><span class="si">\(</span><span class="n">nombrePila</span><span class="w"> </span><span class="p">??</span><span class="w"> </span><span class="n">nombreCompleto</span><span class="si">)</span><span class="s">?&quot;</span>
-</code></pre></div>
+<p><code>swift
+let nombrePila: String? = nil
+let nombreCompleto: String = "John Appleseed"
+let saludoInformal = "¿Qué tal, \(nombrePila ?? nombreCompleto)?"</code></p>
 <p><code>switch</code> statements support any kind of data and a wide variety of
 comparison operations; they are not limited to integers and equality
 tests.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">verdura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;pimiento rojo&quot;</span>
-<span class="k">switch</span><span class="w"> </span><span class="n">verdura</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;zanahoria&quot;</span><span class="p">:</span>
-<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Buena para la vista.&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;lechuga&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tomates&quot;</span><span class="p">:</span>
-<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Podrías hacer una buena ensalada.&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">default</span><span class="p">:</span>
-<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Siempre puedes hacer una buena sopa.&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>swift
+let verdura = "pimiento rojo"
+switch verdura {
+    case "zanahoria":
+        print("Buena para la vista.")
+    case "lechuga", "tomates":
+        print("Podrías hacer una buena ensalada.")
+    default:
+        print("Siempre puedes hacer una buena sopa.")
+}</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 5</p>
 <p>Try removing the default case. What error do you get?</p>
@@ -1796,21 +1786,21 @@ each case.</p>
 pair of names to use for each key-value pair. Dictionaries are
 unordered collections, so their keys and values are iterated in an
 arbitrary order.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numerosInteresantes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s">&quot;Primos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">],</span>
-<span class="w">    </span><span class="s">&quot;Fibonacci&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">],</span>
-<span class="w">    </span><span class="s">&quot;Cuadrados&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">],</span>
-<span class="p">]</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">mayor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">clase</span><span class="p">,</span><span class="w"> </span><span class="n">numeros</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">numerosInteresantes</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mayor</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">mayor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">num</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">mayor</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let numerosInteresantes = [
+    "Primos": [2, 3, 5, 7, 11, 13],
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    "Cuadrados": [1, 4, 9, 16, 25],
+]
+var mayor = 0
+for (clase, numeros) in numerosInteresantes {
+    for num in numeros {
+        if num &gt; mayor {
+            mayor = num
+        }
+    }
+}
+print(mayor)</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 6</p>
 <p>Add another variable to track which class of number is the
@@ -1819,36 +1809,36 @@ largest.</p>
 <p>Use <code>while</code> to repeat a block of code until a condition changes. A
 loop condition can also be at the end, ensuring that the loop runs at
 least once.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="k">while</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="k">repeat</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">*=</span><span class="w">  </span><span class="mi">2</span>
-<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-</code></pre></div>
+<p>```swift
+var n = 2
+while n &lt; 100 {
+    n *= 2
+}
+print(n)</p>
+<p>var m = 2
+repeat {
+    m *=  2
+} while m &lt; 100
+print(m)
+```</p>
 <p>You can define an index in a loop using <code>..&lt;</code> to build a range of
 indexes.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">total</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">.&lt;</span><span class="mi">4</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+var total = 0
+for i in 0..&lt;4 {
+    total += i
+}
+print(total)</code></p>
 <p>Use <code>..&lt;</code> to build a range that omits its upper value, and use <code>...</code>
 to build a range that includes both values.</p>
 <h4 id="functions-and-closures">Functions and Closures<a class="headerlink" href="#functions-and-closures" title="Permanent link">&para;</a></h4>
 <p>Use <code>func</code> to declare a function. Use <code>-&gt;</code> to separate the parameter
 names and types from the return type of the function.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">saluda</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">dia</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hola </span><span class="si">\(</span><span class="n">nombre</span><span class="si">)</span><span class="s">, hoy es </span><span class="si">\(</span><span class="n">dia</span><span class="si">)</span><span class="s">.&quot;</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">saluda</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dia</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Martes&quot;</span><span class="p">))</span>
-</code></pre></div>
+<p><code>swift
+func saluda(nombre: String, dia: String) -&gt; String {
+    return "Hola \(nombre), hoy es \(dia)."
+}
+print(saluda(nombre: "Bob", dia: "Martes"))</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 7</p>
 <p>Remove the day parameter. Add a parameter to include today's meal
@@ -1857,45 +1847,56 @@ in the greeting.</p>
 <p>By default, functions use the parameter names as argument labels. It
 is possible to define a label by writing it before the parameter
 name, or to use no label by writing <code>_</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">saluda</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">dia</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hola </span><span class="si">\(</span><span class="n">nombre</span><span class="si">)</span><span class="s">, hoy es </span><span class="si">\(</span><span class="n">dia</span><span class="si">)</span><span class="s">.&quot;</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">saluda</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Martes&quot;</span><span class="p">))</span>
-</code></pre></div>
+<p><code>swift
+func saluda(_ nombre: String, el dia: String) -&gt; String {
+    return "Hola \(nombre), hoy es \(dia)."
+}
+print(saluda("Bob", el: "Martes"))</code></p>
 <p>Functions can return any type of data, such as tuples.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">calculaEstadisticas</span><span class="p">(</span><span class="n">puntuaciones</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">-&gt;</span>
-<span class="w">                        </span><span class="p">(</span><span class="bp">min</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="bp">max</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuaciones</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuaciones</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<p>```swift
+func calculaEstadisticas(puntuaciones: [Int]) -&gt;
+                        (min: Int, max: Int, sum: Int) {
+    var min = puntuaciones[0]
+    var max = puntuaciones[0]
+    var sum = 0</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">puntuacion</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">puntuaciones</span><span class="w"> </span>{
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">puntuacion</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">max</span><span class="w"> </span>{
+<span class="w">        </span><span class="nv">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">puntuacion</span>
+<span class="w">    </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">puntuacion</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">min</span><span class="w"> </span>{
+<span class="w">        </span><span class="nv">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">puntuacion</span>
+<span class="w">    </span>}
+<span class="w">    </span><span class="nv">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nv">puntuacion</span>
+}
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">puntuaciones</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="bp">max</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="bp">max</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuacion</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">puntuacion</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="bp">min</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="bp">min</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">puntuacion</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">puntuacion</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="k">return</span><span class="w"> </span><span class="ss">(</span><span class="nv">min</span>,<span class="w"> </span><span class="nv">max</span>,<span class="w"> </span><span class="nv">sum</span><span class="ss">)</span>
+</code></pre></div></td></tr></table></div>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="bp">min</span><span class="p">,</span><span class="w"> </span><span class="bp">max</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">estadisticas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">calculaEstadisticas</span><span class="p">(</span><span class="n">puntuaciones</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">])</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">estadisticas</span><span class="p">.</span><span class="n">sum</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">estadisticas</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
+<p>}
+let estadisticas = calculaEstadisticas(puntuaciones: [5, 3, 100, 3, 9])
+print(estadisticas.sum)
+print(estadisticas.2)
+```</p>
 <p>Functions can also have a variable number of arguments, grouping all
 of them into an array.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">suma</span><span class="p">(</span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">...)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">suma</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">numeros</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">suma</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">suma</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">suma</span><span class="p">())</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">suma</span><span class="p">(</span><span class="n">numeros</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">597</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">))</span>
-</code></pre></div>
+<p><code>swift
+func suma(numeros: Int...) -&gt; Int {
+    var suma = 0
+    for num in numeros {
+        suma += num
+    }
+    return suma
+}
+print(suma())
+print(suma(numeros: 42, 597, 12))</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 8</p>
 <p>Write a function that computes the mean of its arguments.</p>
@@ -1903,58 +1904,58 @@ of them into an array.</p>
 <p>Functions can be nested. Nested functions can access variables
 declared in the outer function. You can use nested functions to
 organize code inside a function that is long or complicated.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">devuelveQuince</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">suma</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">suma</span><span class="p">()</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span>
-<span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">devuelveQuince</span><span class="p">())</span>
-</code></pre></div>
+<p><code>swift
+func devuelveQuince() -&gt; Int {
+    var y = 10
+    func suma() {
+        y += 5
+    }
+    suma()
+    return y
+}
+print(devuelveQuince())</code></p>
 <p>Functions are a first-class type. This means that a function can
 return another function as its result.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">construyeIncrementador</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">((</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">sumaUno</span><span class="p">(</span><span class="n">numero</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numero</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sumaUno</span>
-<span class="p">}</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">incrementa</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">construyeIncrementador</span><span class="p">()</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">incrementa</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-</code></pre></div>
+<p><code>swift
+func construyeIncrementador() -&gt; ((Int) -&gt; Int) {
+    func sumaUno(numero: Int) -&gt; Int {
+        return 1 + numero
+    }
+    return sumaUno
+}
+var incrementa = construyeIncrementador()
+print(incrementa(7))</code></p>
 <p>We can modify the <code>devuelveQuince</code> example so that it returns a
 modified version of the <code>suma</code> function. We call that function
 <code>devuelveSuma</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">devuelveSuma</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">(()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">suma</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">y</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">suma</span>
-<span class="p">}</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">devuelveSuma</span><span class="p">()</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
-</code></pre></div>
+<p>```swift
+func devuelveSuma() -&gt; (() -&gt; Int) {
+    var y = 10
+    func suma() -&gt; Int {
+        y += 5
+        return y
+    }
+    return suma
+}</p>
+<p>let f = devuelveSuma()
+print(f())
+print(f())
+```</p>
 <p>A function can take another function as one of its arguments.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nf">cumpleCondicion</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">condicion</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">condicion</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
-<span class="p">}</span>
-<span class="kd">func</span><span class="w"> </span><span class="nf">menorQueDiez</span><span class="p">(</span><span class="n">numero</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="p">}</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">numeros</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">]</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">cumpleCondicion</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span><span class="w"> </span><span class="n">numeros</span><span class="p">,</span><span class="w"> </span><span class="n">condicion</span><span class="p">:</span><span class="w"> </span><span class="n">menorQueDiez</span><span class="p">))</span>
-</code></pre></div>
+<p><code>swift
+func cumpleCondicion(lista: [Int], condicion: (Int) -&gt; Bool) -&gt; Bool {
+    for item in lista {
+        if condicion(item) {
+            return true
+        }
+    }
+    return false
+}
+func menorQueDiez(numero: Int) -&gt; Bool {
+    return numero &lt; 10
+}
+var numeros = [20, 19, 7, 12]
+print(cumpleCondicion(lista: numeros, condicion: menorQueDiez))</code></p>
 <p>Functions are actually a special case of closures: blocks of code
 that can be called later. Code in a closure has access to things such
 as variables and functions that were available in the scope where the
@@ -1962,12 +1963,12 @@ closure was created, even if the closure is in a different scope when
 it runs. You already saw an example of this with nested functions.
 You can write a closure by surrounding code with braces (<code>{}</code>). Use
 <code>in</code> to separate the arguments from the body.</p>
-<div class="highlight"><pre><span></span><code><span class="n">numeros</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span>
-<span class="w">    </span><span class="p">(</span><span class="n">numero</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="k">in</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">resultado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">numero</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">resultado</span>
-<span class="p">})</span>
-</code></pre></div>
+<p><code>swift
+numeros.map({
+    (numero: Int) -&gt; Int in
+    let resultado = 3 * numero
+    return resultado
+})</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 9</p>
 <p>Rewrite the closure so that it returns zero for all odd numbers.</p>
@@ -1976,30 +1977,30 @@ You can write a closure by surrounding code with braces (<code>{}</code>). Use
 When the type of a closure is already known, you can omit the type of
 its parameters, the return type, or both. Closures written as a
 single statement implicitly return the value of that statement.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numerosMapeados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">numeros</span><span class="p">.</span><span class="bp">map</span><span class="p">({</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">numero</span><span class="w"> </span><span class="p">})</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">numerosMapeados</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let numerosMapeados = numeros.map({ numero in 3 * numero })
+print(numerosMapeados)</code></p>
 <p>You can refer to parameters by number instead of by name; this
 approach is especially useful in very short closures. A closure
 passed as the last argument can appear immediately after the
 parentheses. When a closure is the only argument to a function, you
 can omit the parentheses entirely.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nv">numerosOrdenados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">numeros</span><span class="p">.</span><span class="bp">sorted</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="p">}</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">numerosOrdenados</span><span class="p">)</span>
-</code></pre></div>
+<p><code>swift
+let numerosOrdenados = numeros.sorted { $0 &gt; $1 }
+print(numerosOrdenados)</code></p>
 <h4 id="objects-and-classes">Objects and Classes<a class="headerlink" href="#objects-and-classes" title="Permanent link">&para;</a></h4>
 <p>Use <code>class</code> followed by the class name to create a class. A property
 declaration in a class is written the same way as a constant or
 variable declaration, except that it is in the context of a class. In
 the same way, method declarations are written the same way as
 functions.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Figura</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Una figura con </span><span class="si">\(</span><span class="n">numeroDeLados</span><span class="si">)</span><span class="s"> lados.&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>swift
+class Figura {
+    var numeroDeLados = 0
+    func descripcionSencilla() -&gt; String {
+        return "Una figura con \(numeroDeLados) lados."
+    }
+}</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 10</p>
 <p>Add a constant property with <code>let</code>, and add another method that
@@ -2008,26 +2009,34 @@ takes an argument.</p>
 <p>Create an instance of a class by putting parentheses after the class
 name. Use dot syntax to access the properties and methods of the
 instance.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">figura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Figura</span><span class="p">()</span>
-<span class="n">figura</span><span class="p">.</span><span class="n">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">7</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">descripcionFigura</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">figura</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
-</code></pre></div>
+<p><code>swift
+var figura = Figura()
+figura.numeroDeLados = 7
+var descripcionFigura = figura.descripcionSencilla()</code></p>
 <p>This version of the <code>Figura</code> class is missing something important: an
 initializer to set up the class when an instance is created. Use
 <code>init</code> to create one.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">FiguraConNombre</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">numeroDeLados</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span>
-
-<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">nombre</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nombre</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Una figura con </span><span class="si">\(</span><span class="n">numeroDeLados</span><span class="si">)</span><span class="s"> lados.&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<p>```swift
+class FiguraConNombre {
+    var numeroDeLados: Int = 0
+    var nombre: String</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre</span>
 <span class="p">}</span>
-</code></pre></div>
+
+<span class="k">func</span><span class="w"> </span><span class="n">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Una figura con \(numeroDeLados) lados.&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+```</p>
 <p>Notice how <code>self</code> is used to distinguish the <code>nombre</code> property from
 the <code>nombre</code> initializer argument. Arguments to the initializer are
 passed as in a function call when you create an instance of the
@@ -2043,27 +2052,41 @@ marked with <code>override</code>; accidentally overriding a method without
 <code>override</code> is detected by the compiler as an error. The compiler also
 detects methods marked with <code>override</code> that do not actually override
 any method in the superclass.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Cuadrado</span><span class="p">:</span><span class="w"> </span><span class="n">FiguraConNombre</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span>
-
-<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">longitudLado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">longitudLado</span>
-<span class="w">        </span><span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="n">nombre</span><span class="p">)</span>
-<span class="w">        </span><span class="n">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w">  </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">longitudLado</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">longitudLado</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kr">override</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Un cuadrado con lados de longitud </span><span class="si">\(</span><span class="n">longitudLado</span><span class="si">)</span><span class="s">.&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<p>```swift
+class Cuadrado: FiguraConNombre {
+    var longitudLado: Double</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">init</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">longitudLado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="w">    </span><span class="n">super</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="n">nombre</span><span class="p">)</span>
+<span class="w">    </span><span class="n">numeroDeLados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
 <span class="p">}</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">test</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Cuadrado</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="mf">5.2</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mi cuadrado de prueba&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">area</span><span class="p">())</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">())</span>
-</code></pre></div>
+
+<span class="k">func</span><span class="w"> </span><span class="n">area</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="n">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">longitudLado</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="p">}</span>
+
+<span class="n">override</span><span class="w"> </span><span class="k">func</span><span class="w"> </span><span class="n">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Un cuadrado con lados de longitud \(longitudLado).&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+let test = Cuadrado(longitudLado: 5.2, nombre: "Mi cuadrado de prueba")
+print(test.area())
+print(test.descripcionSencilla())
+```</p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 11</p>
 <p>Build another subclass of <code>FiguraConNombre</code> called <code>Circulo</code> that
@@ -2073,33 +2096,52 @@ Implement an <code>area()</code> method and <code>descripcionSencilla()</code> i
 </div>
 <p>In addition to simple stored properties, properties can have a
 <em>getter</em> and a <em>setter</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">TrianguloEquilatero</span><span class="p">:</span><span class="w"> </span><span class="n">FiguraConNombre</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0</span>
+<p>```swift
+class TrianguloEquilatero: FiguraConNombre {
+    var longitudLado: Double = 0.0</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">init</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">longitudLado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">longitudLado</span>
+<span class="w">    </span><span class="n">super</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="n">nombre</span><span class="p">)</span>
+<span class="w">    </span><span class="n">numeroDeLados</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="p">}</span>
 
-<span class="w">    </span><span class="kd">init</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kc">self</span><span class="p">.</span><span class="n">longitudLado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">longitudLado</span>
-<span class="w">        </span><span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="n">nombre</span><span class="p">)</span>
-<span class="w">        </span><span class="n">numeroDeLados</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="k">var</span><span class="w"> </span><span class="n">perimetro</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">get</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">longitudLado</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">perimetro</span><span class="p">:</span><span class="w"> </span><span class="nb">Double</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kr">get</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">longitudLado</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="kr">set</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">longitudLado</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newValue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kr">override</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Un triangulo equilátero con lados de longitud </span><span class="si">\(</span><span class="n">longitudLado</span><span class="si">)</span><span class="s">.&quot;</span>
+<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">longitudLado</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newValue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-<span class="kd">var</span><span class="w"> </span><span class="nv">triangulo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TrianguloEquilatero</span><span class="p">(</span><span class="n">longitudLado</span><span class="p">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span><span class="w"> </span><span class="n">nombre</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;un triángulo&quot;</span><span class="p">)</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">triangulo</span><span class="p">.</span><span class="n">perimetro</span><span class="p">)</span>
-<span class="n">triangulo</span><span class="p">.</span><span class="n">perimetro</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">9.9</span>
-<span class="bp">print</span><span class="p">(</span><span class="n">triangulo</span><span class="p">.</span><span class="n">longitudLado</span><span class="p">)</span>
-</code></pre></div>
+
+<span class="n">override</span><span class="w"> </span><span class="k">func</span><span class="w"> </span><span class="n">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Un triangulo equilátero con lados de longitud \(longitudLado).&quot;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+<p>}
+var triangulo = TrianguloEquilatero(longitudLado: 3.1, nombre: "un triángulo")
+print(triangulo.perimetro)
+triangulo.perimetro = 9.9
+print(triangulo.longitudLado)
+```</p>
 <p>In the <code>perimetro</code> setter, the new value has the implicit name
 <code>newValue</code>. You can provide an explicit name in parentheses after
 <code>set</code>.</p>
@@ -2115,28 +2157,28 @@ three distinct steps:</p>
 <h4 id="enumerations-and-structures">Enumerations and Structures<a class="headerlink" href="#enumerations-and-structures" title="Permanent link">&para;</a></h4>
 <p>Use <code>enum</code> to create an enumeration. Like classes and other named
 types, enumerations can have associated methods.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">Valor</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">uno</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">dos</span><span class="p">,</span><span class="w"> </span><span class="n">tres</span><span class="p">,</span><span class="w"> </span><span class="n">cuatro</span><span class="p">,</span><span class="w"> </span><span class="n">cinco</span><span class="p">,</span><span class="w"> </span><span class="n">seis</span><span class="p">,</span><span class="w"> </span><span class="n">siete</span><span class="p">,</span><span class="w"> </span><span class="n">ocho</span><span class="p">,</span><span class="w"> </span><span class="n">nueve</span><span class="p">,</span><span class="w"> </span><span class="n">diez</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">sota</span><span class="p">,</span><span class="w"> </span><span class="n">caballo</span><span class="p">,</span><span class="w"> </span><span class="n">rey</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="kc">self</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">uno</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;as&quot;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">sota</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;sota&quot;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">caballo</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;caballo&quot;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">rey</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;rey&quot;</span>
-<span class="w">        </span><span class="k">default</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="kc">self</span><span class="p">.</span><span class="n">rawValue</span><span class="p">)</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">carta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Valor</span><span class="p">.</span><span class="n">uno</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">valorBrutoCarta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">carta</span><span class="p">.</span><span class="n">rawValue</span>
-</code></pre></div>
+<p><code>swift
+enum Valor: Int {
+    case uno = 1
+    case dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez
+    case sota, caballo, rey
+    func descripcionSencilla() -&gt; String {
+        switch self {
+        case .uno:
+            return "as"
+        case .sota:
+            return "sota"
+        case .caballo:
+            return "caballo"
+        case .rey:
+            return "rey"
+        default:
+            return String(self.rawValue)
+        }
+    }
+}
+let carta = Valor.uno
+let valorBrutoCarta = carta.rawValue</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 12</p>
 <p>Write a function that compares two <code>Valor</code> values by comparing
@@ -2152,32 +2194,32 @@ enumeration.</p>
 <p>Use the initializer to construct an enumeration value from a raw
 value. If the raw value does not exist, the initializer will return
 <code>nil</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">valorConvertido</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Valor</span><span class="p">(</span><span class="n">rawValue</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">descripcionTres</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">valorConvertido</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
-<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="n">descripcionTres</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<p><code>swift
+if let valorConvertido = Valor(rawValue: 3) {
+    let descripcionTres = valorConvertido.descripcionSencilla()
+    print(descripcionTres)
+}</code></p>
 <p>Enumeration case values are actual values, not just another way of
 writing their raw values. In fact, in cases where a raw value does
 not make sense, you do not have to provide one.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">Palo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">oros</span><span class="p">,</span><span class="w"> </span><span class="n">bastos</span><span class="p">,</span><span class="w"> </span><span class="n">copas</span><span class="p">,</span><span class="w"> </span><span class="n">espadas</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="kc">self</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">oros</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;oros&quot;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">bastos</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;bastos&quot;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">copas</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;copas&quot;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="p">.</span><span class="n">espadas</span><span class="p">:</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;espadas&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">copas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Palo</span><span class="p">.</span><span class="n">copas</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">descripcionCopas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">copas</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
-</code></pre></div>
+<p><code>swift
+enum Palo {
+    case oros, bastos, copas, espadas
+    func descripcionSencilla() -&gt; String {
+        switch self {
+        case .oros:
+            return "oros"
+        case .bastos:
+            return "bastos"
+        case .copas:
+            return "copas"
+        case .espadas:
+            return "espadas"
+        }
+    }
+}
+let copas = Palo.copas
+let descripcionCopas = copas.descripcionSencilla()</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 13</p>
 <p>Add a <code>color()</code> method to <code>Palo</code> that returns "aggressive" for
@@ -2201,21 +2243,20 @@ enumeration.</p>
 <p>For example, consider the case of making a request to a server for
 the sunrise and sunset times. The server responds with the
 information, or with some error information.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">RespuestaServidor</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">resultado</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">error</span><span class="p">(</span><span class="nb">String</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nv">exito</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RespuestaServidor</span><span class="p">.</span><span class="n">resultado</span><span class="p">(</span><span class="s">&quot;6:00 am&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;8:09 pm&quot;</span><span class="p">)</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">fallo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RespuestaServidor</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Sin queso.&quot;</span><span class="p">)</span>
-
-<span class="k">switch</span><span class="w"> </span><span class="n">exito</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="p">.</span><span class="n">resultado</span><span class="p">(</span><span class="n">salidaSol</span><span class="p">,</span><span class="w"> </span><span class="n">puestaSol</span><span class="p">):</span>
-<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;La salida del sol es a las </span><span class="si">\(</span><span class="n">salidaSol</span><span class="si">)</span><span class="s"> y la puesta es a </span><span class="si">\(</span><span class="n">puestaSol</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
-<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Fallo...  </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>```swift
+enum RespuestaServidor {
+    case resultado(String, String)
+    case error(String)
+}</p>
+<p>let exito = RespuestaServidor.resultado("6:00 am", "8:09 pm")
+let fallo = RespuestaServidor.error("Sin queso.")</p>
+<p>switch exito {
+    case let .resultado(salidaSol, puestaSol):
+        print("La salida del sol es a las (salidaSol) y la puesta es a (puestaSol).")
+    case let .error(error):
+        print("Fallo...  (error)")
+}
+```</p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 14</p>
 <p>Add a third case to <code>RespuestaServidor</code> and to the switch.</p>
@@ -2228,16 +2269,16 @@ with classes, including methods and initializers. One of the most
 important differences between structures and classes is that
 structures are always copied when you pass them around in your code,
 whereas classes are passed by reference.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">struct</span><span class="w"> </span><span class="nc">Carta</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">valor</span><span class="p">:</span><span class="w"> </span><span class="n">Valor</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">palo</span><span class="p">:</span><span class="w"> </span><span class="n">Palo</span>
-<span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">descripcionSencilla</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;El </span><span class="si">\(</span><span class="n">valor</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="si">())</span><span class="s"> de </span><span class="si">\(</span><span class="n">palo</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="si">())</span><span class="s">&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">tresDeEspadas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Carta</span><span class="p">(</span><span class="n">valor</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">tres</span><span class="p">,</span><span class="w"> </span><span class="n">palo</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">espadas</span><span class="p">)</span>
-<span class="kd">let</span><span class="w"> </span><span class="nv">descripcionTresDeEspadas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tresDeEspadas</span><span class="p">.</span><span class="n">descripcionSencilla</span><span class="p">()</span>
-</code></pre></div>
+<p><code>swift
+struct Carta {
+    var valor: Valor
+    var palo: Palo
+    func descripcionSencilla() -&gt; String {
+        return "El \(valor.descripcionSencilla()) de \(palo.descripcionSencilla())"
+    }
+}
+let tresDeEspadas = Carta(valor: .tres, palo: .espadas)
+let descripcionTresDeEspadas = tresDeEspadas.descripcionSencilla()</code></p>
 <div class="admonition example">
 <p class="admonition-title">Experiment 15</p>
 <p>Add a method to <code>Carta</code> that creates a full deck, with one card
