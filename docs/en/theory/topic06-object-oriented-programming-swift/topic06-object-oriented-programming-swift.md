@@ -3318,7 +3318,9 @@ struct Rectangulo {
     var origen = Punto()
     var tamaño = Tamaño()
 }
-```Recall that because the `Rectangulo` structure provides
+```
+
+Recall that because the `Rectangulo` structure provides
 default values for all its properties, it has an initializer
 default that can be used to create new instances. Also
 we can initialize it by assigning all its properties:
