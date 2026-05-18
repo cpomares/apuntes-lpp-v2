@@ -84,7 +84,7 @@ theme:
   palette:
         # Palette toggle for light mode
       - scheme: default
-        primary: indigo
+        primary: blue
         accent: blue grey
         toggle:
           icon: material/brightness-7
