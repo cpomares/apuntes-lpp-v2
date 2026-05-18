@@ -1349,32 +1349,32 @@ hacerlas más explícitas.</p>
   funciones. Se evitarán líneas largas, introduciendo nuevas líneas y ajustando
   la indentación de las nuevas líneas para mejorar la legibilidad del código.</p>
 <p><strong>Mal ejemplo</strong></p>
-<p><code>racket
-(if (and (&lt;= x n) (&gt;= y n)) "n entre x e y" "n menor que x o mayor que y")</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="s2">&quot;n entre x e y&quot;</span><span class="w"> </span><span class="s2">&quot;n menor que x o mayor que y&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Buen ejemplo</strong></p>
-<p><code>racket
-(if (and (&lt;= x n)
-         (&gt;= y n))
-    "n entre x e y"
-    "n menor que x o mayor que y")</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">n</span><span class="p">))</span>
+<span class="w">    </span><span class="s2">&quot;n entre x e y&quot;</span>
+<span class="w">    </span><span class="s2">&quot;n menor que x o mayor que y&quot;</span><span class="p">)</span>
+</code></pre></div>
 </li>
 <li>
 <p>Las paréntesis de cierre deben estar todos en la misma línea, al final de la
   expresión. No deben escribirse como llaves de cierre en líneas separadas.</p>
 <p><strong>Buen ejemplo</strong></p>
-<p><code>racket
-(define (suma-si-positivo x y)
-    (if (&gt; 0 x)
-        (+ x y)
-        y))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-si-positivo</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">        </span><span class="n">y</span><span class="p">))</span>
+</code></pre></div>
 <p><strong>Mal ejemplo</strong></p>
-<p><code>racket
-(define (suma-si-positivo x y)
-    (if (&gt; 0 x)
-        (+ x y)
-        y
-    )
-)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-si-positivo</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">        </span><span class="n">y</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
 </li>
 </ul>
 <h3 id="estructuras-de-control-y-formas-especiales">Estructuras de control y formas especiales<a class="headerlink" href="#estructuras-de-control-y-formas-especiales" title="Permanent link">&para;</a></h3>
@@ -1388,13 +1388,13 @@ hacerlas más explícitas.</p>
 <p>Se usará la sintaxis tradicional de la forma especial <code>cond</code>, y siempre
   se incluirá una expresión <code>else</code> al final:</p>
 <p><strong>Buen ejemplo</strong></p>
-<p><code>racket
-(cond
-    ((&gt; 3 4) "3 es mayor que 4")
-    ((&lt; 2 1) "2 es menor que 1")
-    ((= 3 1) "3 es igual que 1")
-    ((&gt; 3 5) "3 es mayor que 2")
-    (else "ninguna condición es cierta"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">cond</span>
+<span class="w">    </span><span class="p">((</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;3 es mayor que 4&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">((</span><span class="nb">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;2 es menor que 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;3 es igual que 1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">((</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;3 es mayor que 2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="s2">&quot;ninguna condición es cierta&quot;</span><span class="p">))</span>
+</code></pre></div>
 </li>
 </ul>
 <h3 id="no-usar-variables-locales-funciones-locales-ni-pasos-de-ejecucion">No usar variables locales, funciones locales ni pasos de ejecución<a class="headerlink" href="#no-usar-variables-locales-funciones-locales-ni-pasos-de-ejecucion" title="Permanent link">&para;</a></h3>
@@ -1404,37 +1404,36 @@ hacerlas más explícitas.</p>
   incluyendo las funciones auxiliares, se definirán en el ámbito
   global.</p>
 <p><strong>Mal ejemplo</strong></p>
-<p><code>racket
-(define (longitud-palabra-entre? a b palabra)
-    (define (entre? a b n)
-        (and (&lt;= a n)
-             (&gt;= b n)))
-    (entre? a b (string-length palabra)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longitud-palabra-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">palabra</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">             </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)))</span>
+<span class="w">    </span><span class="p">(</span><span class="n">entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">palabra</span><span class="p">)))</span>
+</code></pre></div>
 <p><strong>Buen ejemplo</strong></p>
-<p>```racket
-(define (entre? a b n)
-    (and (&lt;= a n)
-         (&gt;= b n)))</p>
-<p>(define (longitud-palabra-entre? a b palabra)
-    (entre? a b (string-length palabra)))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longitud-palabra-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">palabra</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="n">entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">palabra</span><span class="p">)))</span>
+</code></pre></div>
 </li>
 <li>
 <p>No se usarán variables locales, ni usando  <code>define</code> ni otras formas especiales
   de <code>scheme</code>. En lugar de ello, se usarán directamente las expresiones que
   definen las variables. </p>
 <p><strong>Mal ejemplo</strong></p>
-<p>```racket
-(define (suma-cuadrados x y)
-    (define x-cuadrado (cuadrado x))
-    (define y-cuadrado (cuadrado y))</p>
-<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>(+ x-cuadrado y-cuadrado))
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-cuadrados</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">x-cuadrado</span><span class="w"> </span><span class="p">(</span><span class="n">cuadrado</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+<span class="w">    </span><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">y-cuadrado</span><span class="w"> </span><span class="p">(</span><span class="n">cuadrado</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
 
-<p>```</p>
+<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x-cuadrado</span><span class="w"> </span><span class="n">y-cuadrado</span><span class="p">))</span>
+</code></pre></div>
 <p><strong>Buen ejemplo</strong></p>
-<p><code>(define (suma-cuadrados x y)
-    (+ (cuadrado x) (cuadrado y)))</code></p>
+<div class="highlight"><pre><span></span><code>(define (suma-cuadrados x y)
+    (+ (cuadrado x) (cuadrado y)))
+</code></pre></div>
 </li>
 </ul>
 <h3 id="no-usar-numeros-magicos">No usar "números mágicos"<a class="headerlink" href="#no-usar-numeros-magicos" title="Permanent link">&para;</a></h3>
@@ -1445,20 +1444,20 @@ hacerlas más explícitas.</p>
   numéricas, definiendo su significado o, en el caso en que sea una constante
   que depende de otros valores,  definir una expresión para calcular su valor.</p>
 <p><strong>Mal ejemplo</strong></p>
-<p><code>racket
-(define (encuentra-indice char)
-    (- (char-&gt;integer char) 97))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="n">char</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">char-&gt;integer</span><span class="w"> </span><span class="n">char</span><span class="p">)</span><span class="w"> </span><span class="mi">97</span><span class="p">))</span>
+</code></pre></div>
 <p><strong>Buen ejemplo</strong></p>
-<p><code>racket
-(define (encuentra-indice char)
-    (- (char-&gt;integer char)
-       (char-&gt;integer #\a)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="n">char</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">char-&gt;integer</span><span class="w"> </span><span class="n">char</span><span class="p">)</span>
+<span class="w">       </span><span class="p">(</span><span class="nb">char-&gt;integer</span><span class="w"> </span><span class="sc">#\a</span><span class="p">)))</span>
+</code></pre></div>
 <p>O también:</p>
-<p>```racket
-(define indice-char-a (char-&gt;integer #\a))</p>
-<p>(define (encuentra-indice char)
-    (- (char-&gt;integer char) indice-char-a))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">indice-char-a</span><span class="w"> </span><span class="p">(</span><span class="nb">char-&gt;integer</span><span class="w"> </span><span class="sc">#\a</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="n">char</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">char-&gt;integer</span><span class="w"> </span><span class="n">char</span><span class="p">)</span><span class="w"> </span><span class="n">indice-char-a</span><span class="p">))</span>
+</code></pre></div>
 </li>
 </ul>
 <h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
@@ -1490,20 +1489,20 @@ hacerlas más explícitas.</p>
   usaremos pruebas unitarias con la librería <code>rackunit</code>, en lugar de mostrar los
   resultados por pantalla con <code>display</code>.</p>
 <p><strong>Buen ejemplo</strong></p>
-<p>```racket
-(require rackunit)
-(define (suma-parejas p1 p2)
-    (cons (+ (car p1) (car p2))
-          (+ (cdr p1) (cdr p2))))</p>
-<p>(check-equal? (suma-parejas '(2 . 3) '(1 . 4)) '(3 . 7))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">require</span><span class="w"> </span><span class="n">rackunit</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-parejas</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">p1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">p2</span><span class="p">))</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">p1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">p2</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="p">(</span><span class="n">suma-parejas</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span>
+</code></pre></div>
 <p><strong>Mal ejemplo</strong></p>
-<p>```racket
-(define (suma-parejas p1 p2)
-    (cons (+ (car p1) (car p2))
-          (+ (cdr p1) (cdr p2))))</p>
-<p>(display (suma-parejas '(2 . 3) '(1 . 4))) ;=&gt;  (3 . 7)
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-parejas</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">p1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="n">p2</span><span class="p">))</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">p1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="n">p2</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nb">display</span><span class="w"> </span><span class="p">(</span><span class="n">suma-parejas</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">)))</span><span class="w"> </span><span class="c1">;=&gt;  (3 . 7)</span>
+</code></pre></div>
 </li>
 </ul>
 <h3 id="estilo-funcional">Estilo funcional<a class="headerlink" href="#estilo-funcional" title="Permanent link">&para;</a></h3>
@@ -1514,18 +1513,18 @@ hacerlas más explícitas.</p>
   lógicos <code>and</code>, <code>or</code>, <code>not</code>, en lugar de utilizar un <code>if</code> que devuelva
   directamente un <code>#t</code> o un <code>#f</code>.</p>
 <p><strong>Buen ejemplo</strong></p>
-<p><code>racket
-(define (numero-entre? a b n)
-    (and (&lt;= a n)
-         (&gt;= b n)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">numero-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)))</span>
+</code></pre></div>
 <p><strong>Mal ejemplo</strong></p>
-<p><code>racket
-(define (numero-entre? a b n)
-    (if (&gt; a n)
-        #f
-        (if (&lt; b n)
-            #f
-            #t)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">numero-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="no">#f</span>
+<span class="w">        </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">            </span><span class="no">#f</span>
+<span class="w">            </span><span class="no">#t</span><span class="p">)))</span>
+</code></pre></div>
 </li>
 <li>
 <p>Es recomendable el uso de composición de funciones y la creación de funciones
@@ -1533,36 +1532,36 @@ hacerlas más explícitas.</p>
   código. Es preferible código corto y expresivo, evitando la repetición de
   llamadas repetidas a la misma función con los mismos parámetros.</p>
 <p><strong>Mal ejemplo</strong></p>
-<p><code>racket
-(define (longitud-palabra-entre? a b palabra)
-    (and (&lt;= a (string-length palabra))
-         (&gt;= b (string-length palabra))))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longitud-palabra-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">palabra</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">palabra</span><span class="p">))</span>
+<span class="w">         </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">palabra</span><span class="p">))))</span>
+</code></pre></div>
 <p>No cumple la recomendación porque el código es complicando, con una
 expresión en donde hay varias llamadas acumuladas. Además se repiten
 dos veces la llamada a <code>(string-length palabra)</code>. </p>
 <p>Es mucho mejor la siguiente versión, en la que simplificamos la expresión
 obteniendo la longitud de la palabra y comprobando si esa longitud está entre <code>a</code> y <code>b</code>:</p>
 <p><strong>Buen ejemplo</strong></p>
-<p>```racket
-(define (entre? a b n)
-    (and (&lt;= a n)
-         (&gt;= b n)))</p>
-<p>(define (longitud-palabra-entre? a b palabra)
-    (entre? a b (string-length palabra)))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longitud-palabra-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">palabra</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="n">entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">palabra</span><span class="p">)))</span>
+</code></pre></div>
 </li>
 <li>
 <p>Las funciones auxiliares definidas deben ser lo más flexibles y genéricas
   posibles, facilitando la reutilización del código y su uso en la construcción
   de otras funciones.</p>
 <p><strong>Mal ejemplo</strong></p>
-<p>```racket
-(define (longitud-aux? a b n)
-    (and (&lt;= a n)
-         (&gt;= b n)))</p>
-<p>(define (longitud-palabra-entre? a b palabra)
-    (longitud-aux? a b (string-length palabra)))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longitud-aux?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="nb">&gt;=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">n</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">longitud-palabra-entre?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">palabra</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="n">longitud-aux?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">(</span><span class="nb">string-length</span><span class="w"> </span><span class="n">palabra</span><span class="p">)))</span>
+</code></pre></div>
 <p>El nombre <code>longitud-aux</code> no es correcto, porque no explica lo que hace la
 función y no permite darnos cuenta de que podemos reusarla en otros
 contexto. Es mucho más adecuado el nombre <code>(entre? a b n)</code> o <code>(numero-entre?

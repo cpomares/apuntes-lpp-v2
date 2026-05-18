@@ -665,8 +665,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#42-sierpinski-triangle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Sierpinski Triangle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-hilbert-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Hilbert Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bibliography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bibliography
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1480,8 +1513,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#42-sierpinski-triangle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Sierpinski Triangle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-hilbert-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Hilbert Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bibliography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bibliography
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1528,23 +1594,23 @@ there are solutions for those cases.</p>
 <h3 id="11-the-recursion-stack">1.1. The Recursion Stack<a class="headerlink" href="#11-the-recursion-stack" title="Permanent link">&para;</a></h3>
 <p>Let's study the behavior of the evaluation of a call to a recursive function.
 Suppose we have the <code>mi-length</code> function:</p>
-<p><code>racket
-(define (mi-length items)
-   (if (null? items)
-      0
-      (+ 1 (mi-length (rest items)))))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">mi-length</span><span class="w"> </span><span class="n">items</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="n">items</span><span class="p">)</span>
+<span class="w">      </span><span class="mi">0</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="n">mi-length</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">items</span><span class="p">)))))</span>
+</code></pre></div>
 <p>We examine how the recursive calls are evaluated:</p>
-<p><code>text
-(mi-length '(a b c d))
-(+ 1 (mi-length '(b c d)))
-(+ 1 (+ 1 (mi-length '(c d))))
-(+ 1 (+ 1 (+ 1 (mi-length '(d)))))
-(+ 1 (+ 1 (+ 1 (+ 1 (mi-length '())))))
+<div class="highlight"><pre><span></span><code>(mi-length &#39;(a b c d))
+(+ 1 (mi-length &#39;(b c d)))
+(+ 1 (+ 1 (mi-length &#39;(c d))))
+(+ 1 (+ 1 (+ 1 (mi-length &#39;(d)))))
+(+ 1 (+ 1 (+ 1 (+ 1 (mi-length &#39;())))))
 (+ 1 (+ 1 (+ 1 (+ 1 0))))
 (+ 1 (+ 1 (+ 1 1)))
 (+ 1 (+ 1 2))
 (+ 1 3)
-4</code></p>
+4
+</code></pre></div>
 <p>Each recursive call leaves a function <strong>waiting to be evaluated</strong> when the
 recursion returns a value (in the previous case, the addition functions). These
 waiting calls, together with their arguments, are stored on the <em>recursion
@@ -1565,17 +1631,17 @@ the length of the list.</p>
 <p>Let's use an example to see that the cost of recursive calls can explode.
 Suppose we have the famous <a href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>: 0, 1, 1, 2, 3, 5, 8, 13, ...</p>
 <p>Mathematical formulation of the Fibonacci sequence:</p>
-<p><code>text
-Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
+<div class="highlight"><pre><span></span><code>Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
 Fibonacci(0) = 0
-Fibonacci(1) = 1</code></p>
+Fibonacci(1) = 1
+</code></pre></div>
 <p>Recursive formulation in Scheme:</p>
-<p><code>racket
-(define (fib n)
-   (cond ((= n 0) 0)
-      ((= n 1) 1)
-      (else (+ (fib (- n 1))
-               (fib (- n 2))))))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">fib</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="n">fib</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+<span class="w">               </span><span class="p">(</span><span class="n">fib</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">2</span><span class="p">))))))</span>
+</code></pre></div>
 <p>Evaluation of a call to Fibonacci:</p>
 <p><img src="imagenes/fibonacci.png"/></p>
 <p>Each recursive call produces two more calls, so the final number of calls is
@@ -1599,14 +1665,14 @@ eliminating the recursion stack.</p>
 <p>We start explaining tail recursion with a very simple example: the iterative
 version of the typical <code>factorial</code> function. We will name the function
 <code>factorial-iter</code>:</p>
-<p>```racket
-(define (factorial n)
-   (fact-iter n n))</p>
-<p>(define (fact-iter n result)
-   (if (= n 1)
-      result
-      (fact-iter (- n 1) (* result (- n 1))  )))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">factorial</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="n">fact-iter</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">n</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">fact-iter</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">result</span>
+<span class="w">      </span><span class="p">(</span><span class="n">fact-iter</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w">  </span><span class="p">)))</span>
+</code></pre></div>
 <p>The <code>(fact-iter n result)</code> function is the one that defines the iterative
 process. Its argument <code>n</code> is the value whose factorial must be calculated, and
 the <code>result</code> argument is an additional parameter where the intermediate results
@@ -1615,13 +1681,13 @@ are stored.</p>
 calculation is accumulated in <code>result</code>. At the end of the recursion, the
 factorial must already be computed in <code>result</code>, and it is returned.</p>
 <p>Let's see the sequence of calls:</p>
-<p><code>text
-(factorial 4)
+<div class="highlight"><pre><span></span><code>(factorial 4)
 (factorial-iter 4 4)
 (factorial-iter 3 4*3=12)
 (factorial-iter 2 12*2=24)
 (factorial-iter 1 24*1=24)
-24</code></p>
+24
+</code></pre></div>
 <p>Before each recursive call, the partial result is computed and stored in the
 <code>result</code> parameter. Then the call is made with the newly computed values of <code>n</code>
 and <code>result</code>.</p>
@@ -1636,8 +1702,8 @@ responsible for initializing this parameter. In this case it is the same value
 as the number <code>n</code> whose factorial is to be calculated.</p>
 <p>The sequence of recursive calls accumulates the factorial value in the
 <code>result</code> variable:</p>
-<p><code>text
-4 * 3 * 2 * 1 = 24</code></p>
+<div class="highlight"><pre><span></span><code>4 * 3 * 2 * 1 = 24
+</code></pre></div>
 <h3 id="22-iterative-version-of-mi-length">2.2. Iterative Version of <code>mi-length</code><a class="headerlink" href="#22-iterative-version-of-mi-length" title="Permanent link">&para;</a></h3>
 <p>Let's look at a second example. What would the iterative version of
 <code>mi-length</code>, the function that calculates the length of a list, look like?</p>
@@ -1646,14 +1712,14 @@ result. In this case, every time we call the recursion after removing an
 element from the list, we will increment the result value by 1. For this
 approach to work well, we must initialize this result to 0.</p>
 <p>The solution is the following:</p>
-<p>```racket
-(define (mi-length lista)
-   (mi-length-iter lista 0))</p>
-<p>(define (mi-length-iter lista result)
-   (if (null? lista)
-      result
-      (mi-length-iter (rest lista) (+ result 1))))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">mi-length</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="n">mi-length-iter</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">mi-length-iter</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
+<span class="w">      </span><span class="n">result</span>
+<span class="w">      </span><span class="p">(</span><span class="n">mi-length-iter</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span>
+</code></pre></div>
 <p>Notice that, just as in the iterative version of factorial, there is no call
 to any function that receives the result of the recursive call and does
 something with it. The result of the recursive call is directly the final
@@ -1664,14 +1730,14 @@ recursion, the sum of the numbers in a list.</p>
 <p>We should add an additional parameter in which we accumulate that sum. We will
 initialize that parameter to 0 and, at each recursive call, accumulate the
 first element of the list:</p>
-<p>```racket
-(define (suma-lista lista)
-   (suma-lista-iter lista 0))</p>
-<p>(define (suma-lista-iter lista result)
-   (if (null? lista)
-      result
-      (suma-lista-iter (rest lista) (+ result (first lista)))))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-lista</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="n">suma-lista-iter</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-lista-iter</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
+<span class="w">      </span><span class="n">result</span>
+<span class="w">      </span><span class="p">(</span><span class="n">suma-lista-iter</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">lista</span><span class="p">)))))</span>
+</code></pre></div>
 <h3 id="24-characteristics-of-iterative-processes">2.4. Characteristics of Iterative Processes<a class="headerlink" href="#24-characteristics-of-iterative-processes" title="Permanent link">&para;</a></h3>
 <p>A summary of the characteristics of the iterative processes resulting from tail
 recursion:</p>
@@ -1688,17 +1754,16 @@ iterative process.</p>
 <p>In general, iterative versions are less intuitive and more difficult to
 understand and debug.</p>
 <p>Let's look, for example, at the iterative formulation of Fibonacci:</p>
-<p>```racket
-(define (fib n)
-   (fib-iter 1 0 n))</p>
-<p>(define (fib-iter a b count)
-   (if (= count 0)
-      b
-      (fib-iter (+ a b) a (- count 1))))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">fib</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="n">fib-iter</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">n</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">fib-iter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">count</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nb">count</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="n">b</span>
+<span class="w">      </span><span class="p">(</span><span class="n">fib-iter</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nb">count</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span>
+</code></pre></div>
 <p>The sequence of recursive calls would be the following:</p>
-<p><code>text
-(fib 6)
+<div class="highlight"><pre><span></span><code>(fib 6)
 (fib-iter 1 0 6)
 (fib-iter 1+0=1 1 5)
 (fib-iter 1+1=2 1 4)
@@ -1706,7 +1771,8 @@ understand and debug.</p>
 (fib-iter 3+2=5 3 2)
 (fib-iter 5+3=8 5 1)
 (fib-iter 8+5=13 8 0)
-8</code></p>
+8
+</code></pre></div>
 <p>In recursive call <code>n</code>, parameter <code>a</code> stores the value of Fibonacci <code>n+1</code> and
 parameter <code>b</code> stores the value of Fibonacci <code>n</code>, which is the one returned. We
 obtain <code>n</code> calls by initializing <code>count</code> to n and decrementing the parameter by
@@ -1714,8 +1780,7 @@ obtain <code>n</code> calls by initializing <code>count</code> to n and decremen
 <h3 id="26-pascals-triangle">2.6. Pascal's Triangle<a class="headerlink" href="#26-pascals-triangle" title="Permanent link">&para;</a></h3>
 <p><a href="https://en.wikipedia.org/wiki/Pascal's_triangle">Pascal's triangle</a> is the
 following triangle of numbers.</p>
-<p><code>text
-1
+<div class="highlight"><pre><span></span><code>1
 1   1
 1   2   1
 1   3   3   1
@@ -1723,31 +1788,32 @@ following triangle of numbers.</p>
 1   5  10   10  5   1
 1   6  15  20   15  6   1
 1   7  21  35   35  21  7   1
-          ...</code></p>
+          ...
+</code></pre></div>
 <p>If we number rows and columns starting from 0, the general expression for the
 value in a given row and column can be obtained with the following recursive
 definition:</p>
-<p><code>text
-Pascal (n, 0) = 1
+<div class="highlight"><pre><span></span><code>Pascal (n, 0) = 1
 Pascal (n, n) = 1
 Pascal (row, column) =
-    Pascal (row-1, column-1) + Pascal (row-1, column)</code></p>
+    Pascal (row-1, column-1) + Pascal (row-1, column)
+</code></pre></div>
 <p>The function is only defined for values of <code>column</code> less than or equal to
 <code>row</code>.</p>
 <p>In Scheme it is easy to write a recursive function that implements the previous
 definition:</p>
-<p><code>racket
-(define (pascal fila col)
-   (cond ((= col 0) 1)
-         ((= col fila) 1)
-         (else (+ (pascal (- fila 1) (- col 1))
-                  (pascal (- fila 1) col) ))))
-(pascal 4 2)
-; ⇒ 6
-(pascal 8 4)
-; ⇒ 70
-(pascal 27 13)
-; ⇒ 20058300</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="n">fila</span><span class="w"> </span><span class="n">col</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">         </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="n">fila</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">fila</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+<span class="w">                  </span><span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">fila</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="p">))))</span>
+<span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">; ⇒ 6</span>
+<span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="c1">; ⇒ 70</span>
+<span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="mi">27</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span>
+<span class="c1">; ⇒ 20058300</span>
+</code></pre></div>
 <p>The function must be called with a value of <code>col</code> less than or equal to <code>fila</code>.
 If a <code>col</code> value greater than <code>fila</code> is passed, the recursion does not
 terminate and enters an infinite loop.</p>
@@ -1760,13 +1826,13 @@ slightly larger Pascal numbers, such as <code>(pascal 40 20)</code>.</p>
 <p>The idea is to define an iterative function <code>pascal-fila</code> to which we pass the
 row number <code>n</code>, and which returns the list of <code>n+1</code> numbers that make up row
 <code>n</code> of Pascal's triangle:</p>
-<p><code>text
-row 0 = (1)
+<div class="highlight"><pre><span></span><code>row 0 = (1)
 row 1 = (1 1)
 row 2 = (1 2 1)
 row 3 = (1 3 3 1)
 row 4 = (1 4 6 4 1)
-...</code></p>
+...
+</code></pre></div>
 <p>This function will need an additional parameter (<code>lista-fila</code>) that is
 initialized with the list <code>(1)</code> and in which each successive row is stored.
 This row grows until we reach the row that we have to return. The iteration
@@ -1774,36 +1840,38 @@ must be performed <code>n</code> times, so we decrement parameter <code>n</code>
 <p>To implement this function we use another call, <code>(pascal-sig-fila lista-fila)</code>,
 which receives a row of the triangle and returns the next one.</p>
 <p>For example:</p>
-<p><code>racket
-(pascal-sig-fila '(1 3 3 1))
-; ⇒ (1 4 6 4 1)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">pascal-sig-fila</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">; ⇒ (1 4 6 4 1)</span>
+</code></pre></div>
 <p>We implement this function with an auxiliary recursive function (this one is
 purely recursive) called <code>(pascal-suma-dos-a-dos lista-fila)</code>, which is
 responsible for computing the new row. It is not necessary to convert this
 function to an iterative one because it does not generate exponential cost.</p>
 <p>The complete code is the following:</p>
-<p>```racket
-(define (pascal fila col)
-   (list-ref (pascal-fila '(1) fila) col))</p>
-<p>(define (pascal-fila lista-fila n)
-   (if (= 0 n)
-      lista-fila
-      (pascal-fila (pascal-sig-fila lista-fila) (- n 1))))</p>
-<p>(define (pascal-sig-fila lista-fila)
-   (append '(1)
-           (pascal-suma-dos-a-dos lista-fila)
-           '(1)))</p>
-<p>(define (pascal-suma-dos-a-dos lista-fila)
-   (if (null? (rest lista-fila))
-      '()
-      (cons (+ (first lista-fila) (second lista-fila))
-            (pascal-suma-dos-a-dos (rest lista-fila)))))</p>
-<p>```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="n">fila</span><span class="w"> </span><span class="n">col</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">list-ref</span><span class="w"> </span><span class="p">(</span><span class="n">pascal-fila</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">fila</span><span class="p">)</span><span class="w"> </span><span class="n">col</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">pascal-fila</span><span class="w"> </span><span class="n">lista-fila</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">      </span><span class="n">lista-fila</span>
+<span class="w">      </span><span class="p">(</span><span class="n">pascal-fila</span><span class="w"> </span><span class="p">(</span><span class="n">pascal-sig-fila</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">pascal-sig-fila</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">           </span><span class="p">(</span><span class="n">pascal-suma-dos-a-dos</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">)</span>
+<span class="w">           </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">pascal-suma-dos-a-dos</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">))</span>
+<span class="w">      </span><span class="o">&#39;</span><span class="p">()</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">))</span>
+<span class="w">            </span><span class="p">(</span><span class="n">pascal-suma-dos-a-dos</span><span class="w"> </span><span class="p">(</span><span class="nb">rest</span><span class="w"> </span><span class="n">lista-fila</span><span class="p">)))))</span>
+</code></pre></div>
 <p>With this implementation, there is no longer an exponential cost and values
 such as Pascal(40, 20) can be computed:</p>
-<p><code>racket
-(pascal 40 20)
-; ⇒ 137846528820</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">pascal</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
+<span class="c1">; ⇒ 137846528820</span>
+</code></pre></div>
 <h2 id="3-solutions-to-the-cost-of-recursion-memoization">3. Solutions to the Cost of Recursion: Memoization<a class="headerlink" href="#3-solutions-to-the-cost-of-recursion-memoization" title="Permanent link">&para;</a></h2>
 <p>An alternative that keeps the elegance of recursive processes and the
 efficiency of iterative ones is
@@ -1828,11 +1896,11 @@ methods, which update its information through mutation.</p>
   and <code>#t</code> if it exists.</li>
 </ul>
 <p>Examples:</p>
-<p><code>racket
-(define mi-dic (make-dic))
-(put 1 10 mi-dic) ; ⇒ 10
-(get 1 mi-dic) ; ⇒ 10
-(key-exists? 2 mi-dic) ; ⇒ #f</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">mi-dic</span><span class="w"> </span><span class="p">(</span><span class="n">make-dic</span><span class="p">))</span>
+<span class="p">(</span><span class="n">put</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">mi-dic</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 10</span>
+<span class="p">(</span><span class="n">get</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">mi-dic</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 10</span>
+<span class="p">(</span><span class="n">key-exists?</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">mi-dic</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+</code></pre></div>
 <p>These methods are imperative because they modify (mutate) the data structure
 that we pass as a parameter (they do not belong to the functional paradigm).
 The implementation of these functions is included in the
@@ -1847,19 +1915,19 @@ to compute it.</p>
 <code>n</code>, it checks whether it is already stored in the list. Only if it is not
 stored does it call recursion to compute it and store it. The <code>put</code> function
 that stores the new computed value also returns it.</p>
-<p><code>racket
-(define (fib-memo n dic)
-  (cond ((= n 0) 0)
-        ((= n 1) 1)
-        ((key-exists? n dic) (get n dic))
-        (else (put n (+ (fib-memo (- n 1) dic)
-                        (fib-memo (- n 2) dic)) dic))))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">fib-memo</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">dic</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">((</span><span class="nb">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">((</span><span class="n">key-exists?</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">dic</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">get</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">dic</span><span class="p">))</span>
+<span class="w">        </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="n">put</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="n">fib-memo</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">dic</span><span class="p">)</span>
+<span class="w">                        </span><span class="p">(</span><span class="n">fib-memo</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">dic</span><span class="p">))</span><span class="w"> </span><span class="n">dic</span><span class="p">))))</span>
+</code></pre></div>
 <p>We can check the difference in execution times between this version and the
 previous one. The cost of the <em>memoized</em> function is O(n), compared with the
 O(2^n) cost of the initial version, which made it impossible to use.</p>
-<p><code>racket
-(fib-memo 200 mi-dic)
-⇒ 280571172992510140037611932413038677189525</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">fib-memo</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">mi-dic</span><span class="p">)</span>
+<span class="n">⇒</span><span class="w"> </span><span class="mi">280571172992510140037611932413038677189525</span>
+</code></pre></div>
 <h2 id="4-recursive-figures">4. Recursive Figures<a class="headerlink" href="#4-recursive-figures" title="Permanent link">&para;</a></h2>
 <p>We are going to finish the section on recursive procedures with one last
 example that is somewhat different from the ones seen so far. We will use
@@ -1876,14 +1944,14 @@ images.</p>
 images.</p>
 <p>We can obtain a circle, a square, a rectangle, and an equilateral triangle as
 follows:</p>
-<p>```racket</p>
-<h1 id="lang-racket">lang racket<a class="headerlink" href="#lang-racket" title="Permanent link">&para;</a></h1>
-<p>(require 2htdp/image)</p>
-<p>(circle 30 "solid" "blue")
-(square 30 "outline" "black")
-(rectangle 80 40 "solid" "gray")
-(triangle 40 "solid" "red")
-```</p>
+<div class="highlight"><pre><span></span><code><span class="kn">#lang </span><span class="nn">racket</span>
+<span class="p">(</span><span class="k">require</span><span class="w"> </span><span class="n">2htdp/image</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">circle</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">square</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;outline&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">rectangle</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">triangle</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p>Each instruction constructs the corresponding image. If we run it in the
 interpreter, we will obtain the following:</p>
 <p><img src="imagenes/imagenes-basicas.png" width="100px"/></p>
@@ -1895,12 +1963,12 @@ its outline to be drawn. We must also indicate its color, using a string chosen
 from a <a href="https://docs.racket-lang.org/draw/color-database___.html">list of allowed colors</a>.</p>
 <p>We can also construct an isosceles triangle by indicating the length of its
 equal sides and the angle between them:</p>
-<p><code>racket
- (isosceles-triangle 60 30 "outline" "black")</code></p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="p">(</span><span class="n">isosceles-triangle</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;outline&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
 <p><img src="imagenes/image-isosceles.png" width="360px"/></p>
 <p>Finally, another primitive that we will use later is a line segment:</p>
-<p><code>racket
-(line 30 30 "black")</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p><img src="imagenes/image-line.png" width="30"/></p>
 <p>This function constructs an image with a line up to position (30,30) (the <em>x</em>
 coordinate grows to the right and the <em>y</em> coordinate grows downward).</p>
@@ -1911,31 +1979,31 @@ parameters.</p>
 combine images. Let's look at some of them.</p>
 <p>We can rotate an image by an angle, expressed in degrees, counterclockwise.</p>
 <p>For example, we can rotate the previous isosceles triangle:</p>
-<p><code>racket
-(define triangulo (isosceles-triangle 60 30 "outline" "black"))
-(rotate 90 triangulo) 
-; ⇒ imagen rotada 90 grados en sentido contrario a las agujas del reloj
-(rotate -90 triangulo)
-; ⇒ imagen rotada 90 grados en sentido de las agujas del reloj</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">triangulo</span><span class="w"> </span><span class="p">(</span><span class="n">isosceles-triangle</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;outline&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
+<span class="p">(</span><span class="n">rotate</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="n">triangulo</span><span class="p">)</span><span class="w"> </span>
+<span class="c1">; ⇒ imagen rotada 90 grados en sentido contrario a las agujas del reloj</span>
+<span class="p">(</span><span class="n">rotate</span><span class="w"> </span><span class="mi">-90</span><span class="w"> </span><span class="n">triangulo</span><span class="p">)</span>
+<span class="c1">; ⇒ imagen rotada 90 grados en sentido de las agujas del reloj</span>
+</code></pre></div>
 <p><img src="imagenes/imagen-rotada.png" width="500px"/></p>
 <p>We can also combine images by grouping them with the <code>above</code> and <code>beside</code>
 functions. Both functions receive a variable number of arguments and return a
 new image in which the images have been placed one above another or side by
 side.</p>
 <p>For example:</p>
-<p><code>racket
-(above (ellipse 70 20 "solid" "gray")
-       (ellipse 50 20 "solid" "darkgray")
-       (ellipse 30 20 "solid" "dimgray")
-       (ellipse 10 20 "solid" "black"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">above</span><span class="w"> </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="w">       </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
+<span class="w">       </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
+<span class="w">       </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p>The previous call returns the following image:</p>
 <p><img src="imagenes/image-above.png" width="340px"/></p>
 <p>Another example:</p>
-<p><code>racket
-(beside (ellipse 20 70 "solid" "gray")
-        (ellipse 20 50 "solid" "darkgray")
-        (ellipse 20 30 "solid" "dimgray")
-        (ellipse 20 10 "solid" "black"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">beside</span><span class="w"> </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p>Which produces:</p>
 <p><img src="imagenes/image-beside.png" width="340px"/></p>
 <p>In the two previous examples, the grouped images are aligned in the center. If
@@ -1943,43 +2011,43 @@ we want another alignment, we can specify it using the <code>above/align</code> 
 <code>beside/align</code> functions.</p>
 <p>In the case of <code>above</code>, which stacks images one above another, we can specify
 whether we want to align them to the left or to the right:</p>
-<p><code>racket
-(above/align "left"
-               (ellipse 70 20 "solid" "yellowgreen")
-               (ellipse 50 20 "solid" "olivedrab")
-               (ellipse 30 20 "solid" "darkolivegreen")
-               (ellipse 10 20 "solid" "darkgreen"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">above/align</span><span class="w"> </span><span class="s2">&quot;left&quot;</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;yellowgreen&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;olivedrab&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;darkolivegreen&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;darkgreen&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p><img src="imagenes/image-above-left.png" width="100px"/></p>
-<p><code>racket
-(above/align "right"
-               (ellipse 70 20 "solid" "gold")
-               (ellipse 50 20 "solid" "goldenrod")
-               (ellipse 30 20 "solid" "darkgoldenrod")
-               (ellipse 10 20 "solid" "sienna"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">above/align</span><span class="w"> </span><span class="s2">&quot;right&quot;</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;goldenrod&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;darkgoldenrod&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;sienna&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p><img src="imagenes/image-above-right.png" width="100px"/></p>
 <p>In the case of <code>beside</code>, which stacks images next to one another, we can
 specify whether we want to align them at the top or at the bottom:</p>
-<p><code>racket
-(beside/align "top"
-                (ellipse 20 70 "solid" "mediumorchid")
-                (ellipse 20 50 "solid" "darkorchid")
-                (ellipse 20 30 "solid" "purple")
-                (ellipse 20 10 "solid" "indigo"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">beside/align</span><span class="w"> </span><span class="s2">&quot;top&quot;</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;mediumorchid&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;darkorchid&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;purple&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;indigo&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p><img src="imagenes/image-beside-top.png" width="100px"/></p>
-<p><code>racket
-(beside/align "bottom"
-                (ellipse 20 70 "solid" "lightsteelblue")
-                (ellipse 20 50 "solid" "mediumslateblue")
-                (ellipse 20 30 "solid" "slateblue")
-                (ellipse 20 10 "solid" "navy"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">beside/align</span><span class="w"> </span><span class="s2">&quot;bottom&quot;</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">70</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;lightsteelblue&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;mediumslateblue&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;slateblue&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="n">ellipse</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;navy&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p><img src="imagenes/image-beside-bottom.png" width="100px"/></p>
 <p>We can combine all the previous functions to construct complex figures. For
 example:</p>
-<p><code>racket
-(rotate 45
-        (above (triangle 40 "solid" "orange")
-               (beside (rectangle 40 30 "solid" "black")
-                       (rectangle 40 30 "solid" "olivedrab"))))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">rotate</span><span class="w"> </span><span class="mi">45</span>
+<span class="w">        </span><span class="p">(</span><span class="n">above</span><span class="w"> </span><span class="p">(</span><span class="n">triangle</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="w">               </span><span class="p">(</span><span class="n">beside</span><span class="w"> </span><span class="p">(</span><span class="n">rectangle</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="w">                       </span><span class="p">(</span><span class="n">rectangle</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;olivedrab&quot;</span><span class="p">))))</span>
+</code></pre></div>
 <p><img src="imagenes/imagen-compleja.png" width="100px"/></p>
 <p>Try making some figures by combining basic figures with the previous functions.</p>
 <h3 id="42-sierpinski-triangle">4.2. Sierpinski Triangle<a class="headerlink" href="#42-sierpinski-triangle" title="Permanent link">&para;</a></h3>
@@ -2031,18 +2099,18 @@ with the following expression:</p>
 <script type="math/tex; mode=display">hipot(x) = \sqrt{x^2+x^2} = x \sqrt{2}</script>
 </div>
 <p>We can express it in Racket:</p>
-<p><code>racket
-(define (hipotenusa x)
-  (* x (sqrt 2)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">hipotenusa</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="nb">sqrt</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
+</code></pre></div>
 <p>Once the <code>hipotenusa</code> function is defined, we can draw the elementary
 Sierpinski triangle with base <code>h</code>. It will be an isosceles triangle with angle
 90 degrees and side length <code>hipotenusa(h/2)</code>:</p>
-<p><code>racket
-(define (sierpinski-elem base)
-  (isosceles-triangle (hipotenusa (/ base 2)) 90 "outline" "black"))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">sierpinski-elem</span><span class="w"> </span><span class="n">base</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="n">isosceles-triangle</span><span class="w"> </span><span class="p">(</span><span class="n">hipotenusa</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="s2">&quot;outline&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
+</code></pre></div>
 <p>For example, the call to</p>
-<p><code>racket
-(sierpinski-elem 40)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">sierpinski-elem</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span>
+</code></pre></div>
 <p>produces the following image:</p>
 <p><img src="imagenes/image-sierpinski-elem.png" width="180px"/></p>
 <h4 id="422-general-case-of-recursion">4.2.2. General Case of Recursion<a class="headerlink" href="#422-general-case-of-recursion" title="Permanent link">&para;</a></h4>
@@ -2050,13 +2118,13 @@ Sierpinski triangle with base <code>h</code>. It will be an isosceles triangle w
 is constructed by calling recursion so it builds the triangle of width <em>x/2</em>
 and composing the resulting image with the pattern seen above.</p>
 <p>The code of the complete function is the following:</p>
-<p><code>racket
-(define (sierpinski ancho)
-  (if (&lt; ancho 10)
-      (sierpinski-elem ancho)
-      (above (sierpinski (/ ancho 2))
-             (beside (sierpinski (/ ancho 2))
-                     (sierpinski (/ ancho 2))))))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">sierpinski</span><span class="w"> </span><span class="n">ancho</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">ancho</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="n">sierpinski-elem</span><span class="w"> </span><span class="n">ancho</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="n">above</span><span class="w"> </span><span class="p">(</span><span class="n">sierpinski</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">ancho</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+<span class="w">             </span><span class="p">(</span><span class="n">beside</span><span class="w"> </span><span class="p">(</span><span class="n">sierpinski</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">ancho</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+<span class="w">                     </span><span class="p">(</span><span class="n">sierpinski</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">ancho</span><span class="w"> </span><span class="mi">2</span><span class="p">))))))</span>
+</code></pre></div>
 <ul>
 <li>If the width is less than a threshold (10), the elementary triangle is drawn.</li>
 <li>If the width is greater than or equal to 10, three recursive calls are made
@@ -2081,15 +2149,15 @@ with that value.</p>
 figure. The helper function will therefore receive that figure and must combine
 it three times to form the larger Sierpinski figure.</p>
 <p>The resulting code is the following:</p>
-<p>```racket
-(define (componer-sierpinski figura)
-    (above figura
-           (beside figura figura)))</p>
-<p>(define (sierpinski ancho)
-  (if (&lt; ancho 10)
-      (sierpinski-elem ancho)
-      (componer-sierpinski (sierpinski (/ ancho 2)))))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">componer-sierpinski</span><span class="w"> </span><span class="n">figura</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="n">above</span><span class="w"> </span><span class="n">figura</span>
+<span class="w">           </span><span class="p">(</span><span class="n">beside</span><span class="w"> </span><span class="n">figura</span><span class="w"> </span><span class="n">figura</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">sierpinski</span><span class="w"> </span><span class="n">ancho</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">ancho</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="n">sierpinski-elem</span><span class="w"> </span><span class="n">ancho</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="n">componer-sierpinski</span><span class="w"> </span><span class="p">(</span><span class="n">sierpinski</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">ancho</span><span class="w"> </span><span class="mi">2</span><span class="p">)))))</span>
+</code></pre></div>
 <h3 id="43-hilbert-curve">4.3. Hilbert Curve<a class="headerlink" href="#43-hilbert-curve" title="Permanent link">&para;</a></h3>
 <p>The Hilbert curve is a fractal curve that has the property of completely
 filling the plane.</p>
@@ -2099,21 +2167,22 @@ filling the plane.</p>
 <p>Image H2 can be composed from four H1 images following a pattern. It is the
 same pattern with which image H3 can be composed from four H2 images.</p>
 <p>The pattern is shown in the following function <code>(componer-hilbert imagen)</code>:</p>
-<p>```racket</p>
-<p>(define (trazo-horizontal long)
-  (line long 0 "black"))</p>
-<p>(define (trazo-vertical long)
-  (rotate 90 (trazo-horizontal long)))</p>
-<p>(define (componer-hilbert imagen long-trazo)
-  (beside (above/align "left"
-                       (beside/align "bottom" imagen (trazo-horizontal long-trazo))
-                       (trazo-vertical long-trazo)
-                       (rotate -90 imagen))
-          (above/align "right"
-                       imagen
-                       (trazo-vertical long-trazo)
-                       (rotate 90 imagen))))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">trazo-horizontal</span><span class="w"> </span><span class="n">long</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">trazo-vertical</span><span class="w"> </span><span class="n">long</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="n">rotate</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="p">(</span><span class="n">trazo-horizontal</span><span class="w"> </span><span class="n">long</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">componer-hilbert</span><span class="w"> </span><span class="n">imagen</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="n">beside</span><span class="w"> </span><span class="p">(</span><span class="n">above/align</span><span class="w"> </span><span class="s2">&quot;left&quot;</span>
+<span class="w">                       </span><span class="p">(</span><span class="n">beside/align</span><span class="w"> </span><span class="s2">&quot;bottom&quot;</span><span class="w"> </span><span class="n">imagen</span><span class="w"> </span><span class="p">(</span><span class="n">trazo-horizontal</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">))</span>
+<span class="w">                       </span><span class="p">(</span><span class="n">trazo-vertical</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span>
+<span class="w">                       </span><span class="p">(</span><span class="n">rotate</span><span class="w"> </span><span class="mi">-90</span><span class="w"> </span><span class="n">imagen</span><span class="p">))</span>
+<span class="w">          </span><span class="p">(</span><span class="n">above/align</span><span class="w"> </span><span class="s2">&quot;right&quot;</span>
+<span class="w">                       </span><span class="n">imagen</span>
+<span class="w">                       </span><span class="p">(</span><span class="n">trazo-vertical</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span>
+<span class="w">                       </span><span class="p">(</span><span class="n">rotate</span><span class="w"> </span><span class="mi">90</span><span class="w"> </span><span class="n">imagen</span><span class="p">))))</span>
+</code></pre></div>
 <ul>
 <li>The first call to <code>above/align</code> composes an image by joining the original
   image with a horizontal line segment, and stacking (with left alignment) this
@@ -2126,29 +2195,29 @@ same pattern with which image H3 can be composed from four H2 images.</p>
 </ul>
 <p>We can see an example of how this composition works by using a base image made
 up of a square with a triangle inside.</p>
-<p><code>racket
-(overlay (triangle 20 "solid" "green")
-         (rectangle 20 20 "solid" "black")))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">overlay</span><span class="w"> </span><span class="p">(</span><span class="n">triangle</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="n">rectangle</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">))</span><span class="err">)</span>
+</code></pre></div>
 <p><img src="imagenes/imagen-ejemplo-componer.png" width="30px"/></p>
 <p>If we call <code>componer-hilbert</code> with the previous image, using a line-segment
 length of 16 pixels, we can see that the basic pattern of the Hilbert curve is
 constructed, the one that constructs image H2 from H1.</p>
-<p><code>racket
-(define imagen (overlay (triangle 20 "solid" "green")
-                        (rectangle 20 20 "solid" "black")))
-imagen 
-(componer-hilbert imagen 16)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">imagen</span><span class="w"> </span><span class="p">(</span><span class="n">overlay</span><span class="w"> </span><span class="p">(</span><span class="n">triangle</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="w">                        </span><span class="p">(</span><span class="n">rectangle</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s2">&quot;solid&quot;</span><span class="w"> </span><span class="s2">&quot;black&quot;</span><span class="p">)))</span>
+<span class="n">imagen</span><span class="w"> </span>
+<span class="p">(</span><span class="n">componer-hilbert</span><span class="w"> </span><span class="n">imagen</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span>
+</code></pre></div>
 <p><img src="imagenes/imagen-componer.png" width="500px"/></p>
 <p>Once this composition pattern is understood, we can now formulate the recursive
 algorithm:</p>
-<p><code>racket
-(define (hilbert nivel long-trazo)
-  (if (= 1 nivel)
-      (beside/align "top"
-                    (trazo-vertical long-trazo)
-                    (trazo-horizontal long-trazo)
-                    (trazo-vertical long-trazo))
-      (componer-hilbert (hilbert (- nivel 1) long-trazo) long-trazo)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">hilbert</span><span class="w"> </span><span class="n">nivel</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">nivel</span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="n">beside/align</span><span class="w"> </span><span class="s2">&quot;top&quot;</span>
+<span class="w">                    </span><span class="p">(</span><span class="n">trazo-vertical</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">(</span><span class="n">trazo-horizontal</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">(</span><span class="n">trazo-vertical</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">))</span>
+<span class="w">      </span><span class="p">(</span><span class="n">componer-hilbert</span><span class="w"> </span><span class="p">(</span><span class="n">hilbert</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">nivel</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)</span><span class="w"> </span><span class="n">long-trazo</span><span class="p">)))</span>
+</code></pre></div>
 <ul>
 <li>The base case is level 1, where the basic line segment of the Hilbert curve
   is constructed with the line-segment length passed as a parameter.</li>

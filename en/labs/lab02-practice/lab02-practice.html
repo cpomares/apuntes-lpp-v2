@@ -1345,22 +1345,22 @@ examples of how to call the defined functions.</p>
 <h3 id="exercise-1">Exercise 1<a class="headerlink" href="#exercise-1" title="Permanent link">&para;</a></h3>
 <p>a) Implement the function <code>(binario-a-decimal b3 b2 b1 b0)</code>, which receives
 4 bits representing a binary number and returns the equivalent decimal number.</p>
-<p><code>racket
-(binario-a-decimal 1 1 1 1) ; ⇒ 15
-(binario-a-decimal 0 1 1 0) ; ⇒ 6
-(binario-a-decimal 0 0 1 0) ; ⇒ 2</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 15</span>
+<span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 6</span>
+<span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 2</span>
+</code></pre></div>
 <p><strong>Note</strong>: remember that to perform this conversion, the following formula is
 used:</p>
-<p><code>text
-n = b3 * 2ˆ3 + b2 * 2ˆ2 + b1 * 2ˆ1 + b0 * 2ˆ0</code></p>
+<div class="highlight"><pre><span></span><code>n = b3 * 2ˆ3 + b2 * 2ˆ2 + b1 * 2ˆ1 + b0 * 2ˆ0
+</code></pre></div>
 <p>For the implementation of the expression, you must use the <code>expt</code> function.</p>
 <p>b) Implement the function <code>(binario-a-hexadecimal b3 b2 b1 b0)</code>, which receives
 4 bits of a number represented in binary and returns the character corresponding
 to its hexadecimal representation.</p>
-<p><code>racket
-(binario-a-hexadecimal 1 1 1 1) ; ⇒ #\F
-(binario-a-hexadecimal 0 1 1 0) ; ⇒ #\6
-(binario-a-hexadecimal 1 0 1 0) ; ⇒ #\A</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">binario-a-hexadecimal</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\F</span>
+<span class="p">(</span><span class="n">binario-a-hexadecimal</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\6</span>
+<span class="p">(</span><span class="n">binario-a-hexadecimal</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\A</span>
+</code></pre></div>
 <p><strong>Note</strong>: to perform this conversion, as an intermediate step you must first
 convert the binary number to its decimal representation (using the function
 defined in the previous part) and then to its corresponding hexadecimal
@@ -1418,34 +1418,38 @@ In Racket, <code>(modulo n 26)</code> always returns a result in <code>0..25</co
 </div>
 <p>Analyze the following examples to better understand how the helper functions and
 the main functions work:</p>
-<p>```racket
-(encuentra-indice #\a) ; ⇒ 0
-(encuentra-indice #\b) ; ⇒ 1
-(encuentra-indice #\m) ; ⇒ 12
-(encuentra-indice #\z) ; ⇒ 25</p>
-<p>(encuentra-caracter 0) ; ⇒ #\a
-(encuentra-caracter 1) ; ⇒ #\b
-(encuentra-caracter 12) ; ⇒ #\m
-(encuentra-caracter 25) ; ⇒ #\z</p>
-<p>(entre-az? #\a) ; ⇒ #t
-(entre-az? #\m) ; ⇒ #t
-(entre-az? #\z) ; ⇒ #t
-(entre-az? #`) ; ⇒ #f
-(entre-az? #{) ; ⇒ #f</p>
-<p>(rota-indice 4 12) ; ⇒ 16)
-(rota-indice 4 24) ; ⇒ 2)
-(rota-indice 4 -5) ; ⇒ 25)</p>
-<p>(cifra-caracter #\c 5) ; ⇒ #\h)
-(cifra-caracter #\z -1) ; ⇒ #\y)
-(cifra-caracter #\j 40) ; ⇒ #\x)
-(cifra-caracter #\D 3) ; ⇒ #\G)
-(cifra-caracter #\ñ 3) ; ⇒ #\ñ)</p>
-<p>(descifra-caracter #\d 3) ; ⇒ #\a)
-(descifra-caracter #\y -1) ; ⇒ #\z)
-(descifra-caracter #\x 40) ; ⇒ #\j)
-(descifra-caracter #\G 3) ; ⇒ #\D)
-(descifra-caracter #\tab 3) ; ⇒ #\tab)
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\a</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 0</span>
+<span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\b</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 1</span>
+<span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\m</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 12</span>
+<span class="p">(</span><span class="n">encuentra-indice</span><span class="w"> </span><span class="sc">#\z</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 25</span>
+
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\a</span>
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\b</span>
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\m</span>
+<span class="p">(</span><span class="n">encuentra-caracter</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\z</span>
+
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\a</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\m</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\z</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\`</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+<span class="p">(</span><span class="n">entre-az?</span><span class="w"> </span><span class="sc">#\{</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+
+<span class="p">(</span><span class="n">rota-indice</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 16)</span>
+<span class="p">(</span><span class="n">rota-indice</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 2)</span>
+<span class="p">(</span><span class="n">rota-indice</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">-5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 25)</span>
+
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\c</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\h)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\z</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\y)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\j</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\x)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\D</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\G)</span>
+<span class="p">(</span><span class="n">cifra-caracter</span><span class="w"> </span><span class="sc">#\ñ</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\ñ)</span>
+
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\d</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\a)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\y</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\z)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\x</span><span class="w"> </span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\j)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\G</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\D)</span>
+<span class="p">(</span><span class="n">descifra-caracter</span><span class="w"> </span><span class="sc">#\tab</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #\tab)</span>
+</code></pre></div>
 <h3 id="exercise-3">Exercise 3<a class="headerlink" href="#exercise-3" title="Permanent link">&para;</a></h3>
 <p>Implement the function <code>(menor-de-tres n1 n2 n3)</code>, which receives three numbers
 as arguments and returns the smallest of the three, trying to keep the number of
@@ -1459,36 +1463,36 @@ conditions as small as possible.</p>
   two numbers (in this helper you should use <code>if</code>) and build the
   <code>menor-de-tres-v2</code> function as a composition of calls to this helper function.</li>
 </ul>
-<p><code>racket
-(menor-de-tres 2 8 1) ;; ⇒ 1
-(menor-de-tres-v2 3 0 3) ;; ⇒ 0</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">menor-de-tres</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">;; ⇒ 1</span>
+<span class="p">(</span><span class="n">menor-de-tres-v2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">;; ⇒ 0</span>
+</code></pre></div>
 <h3 id="exercise-4">Exercise 4<a class="headerlink" href="#exercise-4" title="Permanent link">&para;</a></h3>
 <p>a) Suppose we have the definitions</p>
-<p>```racket
-(define (f x)
-    (cons x 2))</p>
-<p>(define (g x y)
-    (cons x y))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
+</code></pre></div>
 <p>Perform the step-by-step evaluation of the following expression</p>
-<p><code>racket
-(g (f (+ 2 1)) (+ 1 1))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
 <p>using the <strong>substitution model</strong>, with both <strong>applicative order</strong> and <strong>normal
 order</strong>.</p>
 <p>Write the solution inside comments in the lab's own <code>.rkt</code> file.</p>
 <p>b) Suppose we have the definitions</p>
-<p>```racket
-(define (func-1 x)
-    (/ x 0))</p>
-<p>(define (func-2 x y)
-    (if (= x 0)
-        0
-        y))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">func-1</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">func-2</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">y</span><span class="p">))</span>
+</code></pre></div>
 <p>As in the previous part, perform the step-by-step evaluation of the following
 expression</p>
-<p><code>racket
-(func-2 0 (func-1 10))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">func-2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">func-1</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
 <p>using the <strong>substitution model</strong>, with both <strong>applicative order</strong> and <strong>normal
 order</strong>. Write the solution inside comments in the lab's own <code>.rkt</code> file.</p>
 <h3 id="exercise-5">Exercise 5<a class="headerlink" href="#exercise-5" title="Permanent link">&para;</a></h3>
@@ -1501,9 +1505,9 @@ string from the first list is returned.</p>
 <p>You can use the <code>second</code> and <code>third</code> functions, which return the second and
 third element of a list.</p>
 </div>
-<p><code>racket
-(cadenas-mayores '("hola" "que" "tal") '("meme" "y" "adios")) ; ⇒ ("hola" "que" "adios")
-(cadenas-mayores '("esto" "es" "lpp") '("hoy" "hay" "clase")) ; ⇒ ("esto" "hay" "clase")</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;tal&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="s2">&quot;adios&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (&quot;hola&quot; &quot;que&quot; &quot;adios&quot;)</span>
+<span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;esto&quot;</span><span class="w"> </span><span class="s2">&quot;es&quot;</span><span class="w"> </span><span class="s2">&quot;lpp&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hoy&quot;</span><span class="w"> </span><span class="s2">&quot;hay&quot;</span><span class="w"> </span><span class="s2">&quot;clase&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (&quot;esto&quot; &quot;hay&quot; &quot;clase&quot;)</span>
+</code></pre></div>
 <h3 id="exercise-6">Exercise 6<a class="headerlink" href="#exercise-6" title="Permanent link">&para;</a></h3>
 <p>a) Suppose we want to program a card game that uses the French deck. The first
 thing we need to do is define a way to represent cards and functions that work
@@ -1517,31 +1521,31 @@ corresponding UTF symbol.</p>
 code: ♠, ♣, ♥ and ♦ (spades, clubs, hearts, and diamonds).</p>
 </div>
 <p>For example:</p>
-<p><code>racket
-(define tres-de-picas '3♠)
-(define as-de-corazones 'A♥)
-(define jota-de-diamantes 'J♦)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">tres-de-picas</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♠</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">as-de-corazones</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">A♥</span><span class="p">)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">jota-de-diamantes</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">J♦</span><span class="p">)</span>
+</code></pre></div>
 <p>We must define the function <code>carta</code>, which returns a pair with the value
 corresponding to its order in the French deck (a number) and the name of the
 card suit (as a symbol, not as a string).</p>
-<p><code>racket
-(carta tres-de-picas) ; ⇒ (3 . Picas)
-(carta as-de-corazones) ; ⇒ (1 . Corazones)
-(carta 'K♣) ; ⇒ (12 . Tréboles)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">carta</span><span class="w"> </span><span class="n">tres-de-picas</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (3 . Picas)</span>
+<span class="p">(</span><span class="n">carta</span><span class="w"> </span><span class="n">as-de-corazones</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (1 . Corazones)</span>
+<span class="p">(</span><span class="n">carta</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">K♣</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (12 . Tréboles)</span>
+</code></pre></div>
 <p>The card values in the French deck are:</p>
-<p><code>text
-A (As) ⇒ 1
+<div class="highlight"><pre><span></span><code>A (As) ⇒ 1
 J (Jota) ⇒ 10
 Q (Reina) ⇒ 11
-K (Rey) ⇒ 12</code></p>
+K (Rey) ⇒ 12
+</code></pre></div>
 <p>To complete the exercise, you must first define the functions <code>(obten-palo char)</code>
 and <code>(obten-valor char)</code>, which return the suit and value, given a character.
 Then you must implement the <code>carta</code> function using these two functions.</p>
-<p><code>racket
-(obten-palo #\♠) ; ⇒ Picas
-(obten-palo #\♥) ; ⇒ Corazones
-(obten-valor #\3) ; ⇒ 3
-(obten-valor #\J) ; ⇒ 10</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">obten-palo</span><span class="w"> </span><span class="sc">#\♠</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ Picas</span>
+<span class="p">(</span><span class="n">obten-palo</span><span class="w"> </span><span class="sc">#\♥</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ Corazones</span>
+<span class="p">(</span><span class="n">obten-valor</span><span class="w"> </span><span class="sc">#\3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 3</span>
+<span class="p">(</span><span class="n">obten-valor</span><span class="w"> </span><span class="sc">#\J</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 10</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Hint</p>
 <p>You can use the functions <code>(symbol-&gt;string simbolo)</code>, which converts a
@@ -1556,10 +1560,10 @@ are different), and also the value of the pair or three of a kind.</p>
 <p>To obtain the values of the cards, you must implement the function
 <code>(valor-carta carta)</code>.</p>
 <p>Examples:</p>
-<p><code>racket
-(jugada-mano '3♥ '3♣ '3♥) ; ⇒ "trío de 3"
-(jugada-mano 'K♦ '7♠ 'K♥) ; ⇒ "pareja de 12"
-(jugada-mano '5♣ '4♣ '6♣) ; ⇒ "nada"</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">jugada-mano</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♥</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♣</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">3♥</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;trío de 3&quot;</span>
+<span class="p">(</span><span class="n">jugada-mano</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">K♦</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">7♠</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">K♥</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;pareja de 12&quot;</span>
+<span class="p">(</span><span class="n">jugada-mano</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">5♣</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">4♣</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">6♣</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;nada&quot;</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Numbers to strings</p>
 <p>You can obtain a string corresponding to a number using the <code>number-&gt;string</code>

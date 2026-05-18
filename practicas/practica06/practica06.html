@@ -1348,41 +1348,41 @@ la lista.</p>
 <code>concat-iter</code> que es la que implementa propiamente la versión
 iterativa usando recursión por la cola.</p>
 <p>Ejemplo:</p>
-<p><code>racket
-(concat  '("hola" "y" "adiós")) ; ⇒ "holayadiós"
-(concat-iter '("hola" "y" "adiós") "") ; ⇒ "holayadiós"</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">concat</span><span class="w">  </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="s2">&quot;adiós&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &quot;holayadiós&quot;</span>
+<span class="p">(</span><span class="n">concat-iter</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="s2">&quot;adiós&quot;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &quot;holayadiós&quot;</span>
+</code></pre></div>
 <p>b) Define utilizando recursión por la cola la función <code>(min-max
 lista)</code> que recibe una lista numérica y devuelve una pareja con el
 mínimo y el máximo de sus elementos. La lista recibida como parámetro
 tendrá como mínimo un elemento.</p>
 <p>Ejemplo:</p>
-<p><code>racket
-(min-max '(2 5 9 12 5 0 4)) ; ⇒ (0 . 12)
-(min-max '(3 2 -8 4 10 0))  ; ⇒ (-8 . 10)
-(min-max-iter '(5 9 12 -2 5 0 4) (cons 2 2)) ; ⇒ (-2 . 12)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">min-max</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (0 . 12)</span>
+<span class="p">(</span><span class="n">min-max</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">-8</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w">  </span><span class="c1">; ⇒ (-8 . 10)</span>
+<span class="p">(</span><span class="n">min-max-iter</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (-2 . 12)</span>
+</code></pre></div>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>a) Implementa utilizando recursión por la cola las funciones
 <code>expande-pareja</code> y <code>expande-parejas</code> de la práctica 4.</p>
 <p>Ejemplo:</p>
-<p><code>racket
-(expande-pareja (cons 'a 4)) ; ⇒ (a a a a)
-(expande-parejas '(#t . 3) '("LPP" . 2) '(b . 4))
-; ⇒ (#t #t #t "LPP" "LPP" b b b b)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">expande-pareja</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">a</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (a a a a)</span>
+<span class="p">(</span><span class="n">expande-parejas</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="no">#t</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;LPP&quot;</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">; ⇒ (#t #t #t &quot;LPP&quot; &quot;LPP&quot; b b b b)</span>
+</code></pre></div>
 <p>b) Implementa utilizando recursión por la cola la función <code>(rotar k
 lista)</code> que mueve <code>k</code> elementos de la cabeza de la lista al
 final. <strong>No es necesario utilizar una función iterativa auxiliar</strong>,
 puedes hacer que la propia función <code>rotar</code> sea iterativa usando el
 parámetro <code>lista</code> como el parámetro donde acumular el resultado.</p>
 <p>Ejemplo:</p>
-<p><code>racket
-(rotar 4 '(a b c d e f g)) ; ⇒ (e f g a b c d)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">rotar</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="w"> </span><span class="ss">g</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (e f g a b c d)</span>
+</code></pre></div>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>a) Implementa utilizando recursión por la cola la función
 <code>mi-foldl</code> que haga lo mismo que la función de orden superior
 <code>foldl</code>.</p>
-<p><code>racket
-(mi-foldl string-append "****" '("hola" "que" "tal")) ;⇒ "talquehola****"
-(mi-foldl cons '() '(1 2 3 4)) ; ⇒ (4 3 2 1)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">mi-foldl</span><span class="w"> </span><span class="nb">string-append</span><span class="w"> </span><span class="s2">&quot;****&quot;</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;tal&quot;</span><span class="p">))</span><span class="w"> </span><span class="c1">;⇒ &quot;talquehola****&quot;</span>
+<span class="p">(</span><span class="n">mi-foldl</span><span class="w"> </span><span class="nb">cons</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (4 3 2 1)</span>
+</code></pre></div>
 <p>b) Existe un algoritmo eficiente para calcular el valor decimal de un
 número binario basado en usar de forma iterativa una multiplicación
 por 2. La idea es que si a un número binario le añadimos un dígito a
@@ -1397,34 +1397,36 @@ un número binario haciendo esta operación con sus dígitos de izquierda
 a derecha. Deberíamos ir acumulando en un resultado el valor del
 número procesado y, en cada nuevo paso, multiplicar por 2 ese valor y
 sumar el valor del nuevo dígito que estamos procesando.</p>
-<p><code>resultado nuevo = resultado anterior * 2 + nuevo bit</code></p>
+<div class="highlight"><pre><span></span><code>resultado nuevo = resultado anterior * 2 + nuevo bit
+</code></pre></div>
 <p>Supongamos el número binario anterior, el <code>1011</code>. Veamos una traza de
 cómo se obtendría el 11.</p>
-<p><code>número       nuevo        resultado    resultado
+<div class="highlight"><pre><span></span><code> número       nuevo        resultado    resultado
  procesado    bit          anterior      nuevo 
 =======================================================
                  1            0         0*2 + 1 = 1
     1            0            1         1*2 + 0 = 2
     10           1            2         2*2 + 1 = 5
     101          1            5         5*2 + 1 = 11
-    1011                      11</code></p>
+    1011                      11
+</code></pre></div>
 <p>Implementa, usando el algoritmo anterior iterativo, la función
 <code>(binario-a-decimal lista-bits)</code> que reciba una lista de bits que
 representan un número en binario (el primer elemento será el bit más
 significativo) y devuelva el número decimal equivalente.</p>
-<p><code>racket
-(binario-a-decimal '(1 1 1 1)) ; ⇒ 15
-(binario-a-decimal '(1 1 0)) ; ⇒ 6
-(binario-a-decimal '(1 0)) ; ⇒ 2</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ 15</span>
+<span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ 6</span>
+<span class="p">(</span><span class="n">binario-a-decimal</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ 2</span>
+</code></pre></div>
 <h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
 <p>Realiza una implementación que utilice la <a href="../../teoria/tema03-procedimientos-recursivos/tema03-procedimientos-recursivos.html#soluciones-al-coste-de-la-recursion-memoization">técnica de
 <em>memoization</em></a>
 del algoritmo que devuelve la <a href="../../teoria/tema03-procedimientos-recursivos/tema03-procedimientos-recursivos.html#triangulo-de-pascal">serie de
 Pascal</a>.</p>
-<p><code>racket
-(define diccionario (make-dic))
-(pascal-memo 8 4 diccionario) ; ⇒ 70
-(pascal-memo 40 20 diccionario) ; ⇒ 137846528820</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">diccionario</span><span class="w"> </span><span class="p">(</span><span class="n">make-dic</span><span class="p">))</span>
+<span class="p">(</span><span class="n">pascal-memo</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">diccionario</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 70</span>
+<span class="p">(</span><span class="n">pascal-memo</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="n">diccionario</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ 137846528820</span>
+</code></pre></div>
 <h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
 <p>a) Usando la librería de imágenes de Racket <code>2htdp/image</code> implementa
 la figura recursiva conocida como <em>curva de Koch</em>. Debes definir una

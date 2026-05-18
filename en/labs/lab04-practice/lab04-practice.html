@@ -1348,24 +1348,24 @@ the substring of <code>palabra</code> from position <code>inicio</code> to posit
 (not included).</p>
 </div>
 <p>Examples:</p>
-<p><code>racket
-(es-prefijo? "ante" "anterior") ; ⇒ #t
-(contiene-prefijo "ante" '("anterior" "antígona" "antena" "anatema")) 
-; ⇒ (#t #f #t #f)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">es-prefijo?</span><span class="w"> </span><span class="s2">&quot;ante&quot;</span><span class="w"> </span><span class="s2">&quot;anterior&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+<span class="p">(</span><span class="n">contiene-prefijo</span><span class="w"> </span><span class="s2">&quot;ante&quot;</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;anterior&quot;</span><span class="w"> </span><span class="s2">&quot;antígona&quot;</span><span class="w"> </span><span class="s2">&quot;antena&quot;</span><span class="w"> </span><span class="s2">&quot;anatema&quot;</span><span class="p">))</span><span class="w"> </span>
+<span class="c1">; ⇒ (#t #f #t #f)</span>
+</code></pre></div>
 <p>b) We are going to generalize the solution to exercise 5 from lab 2 and
 implement the recursive function <code>(cadenas-mayores lista1 lista2)</code>, taking into
 account that the lists it receives have an undetermined number of strings. If
 one list is longer than the other, all its strings must be added to the resulting
 list.</p>
 <p>Examples:</p>
-<p><code>racket
-(cadenas-mayores '("hola" "que" "tal") '("adios")) 
-; ⇒ ("adios" "que" "tal")
-(cadenas-mayores '("hola" "que" "tal") '("meme" "y" "adios"))
-; ⇒ ("hola" "que" "adios")
-(cadenas-mayores '("la" "primera" "práctica" "de" "recursión")
-                 '("confiar" "en" "la" "recursión" "facilita" "su" "resolución"))
-; ⇒ ("confiar" "primera" "práctica" "recursión" "recursión" "su" "resolución")</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;tal&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;adios&quot;</span><span class="p">))</span><span class="w"> </span>
+<span class="c1">; ⇒ (&quot;adios&quot; &quot;que&quot; &quot;tal&quot;)</span>
+<span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="w"> </span><span class="s2">&quot;que&quot;</span><span class="w"> </span><span class="s2">&quot;tal&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;meme&quot;</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="s2">&quot;adios&quot;</span><span class="p">))</span>
+<span class="c1">; ⇒ (&quot;hola&quot; &quot;que&quot; &quot;adios&quot;)</span>
+<span class="p">(</span><span class="n">cadenas-mayores</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;la&quot;</span><span class="w"> </span><span class="s2">&quot;primera&quot;</span><span class="w"> </span><span class="s2">&quot;práctica&quot;</span><span class="w"> </span><span class="s2">&quot;de&quot;</span><span class="w"> </span><span class="s2">&quot;recursión&quot;</span><span class="p">)</span>
+<span class="w">                 </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;confiar&quot;</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="w"> </span><span class="s2">&quot;la&quot;</span><span class="w"> </span><span class="s2">&quot;recursión&quot;</span><span class="w"> </span><span class="s2">&quot;facilita&quot;</span><span class="w"> </span><span class="s2">&quot;su&quot;</span><span class="w"> </span><span class="s2">&quot;resolución&quot;</span><span class="p">))</span>
+<span class="c1">; ⇒ (&quot;confiar&quot; &quot;primera&quot; &quot;práctica&quot; &quot;recursión&quot; &quot;recursión&quot; &quot;su&quot; &quot;resolución&quot;)</span>
+</code></pre></div>
 <h3 id="exercise-2">Exercise 2<a class="headerlink" href="#exercise-2" title="Permanent link">&para;</a></h3>
 <p>a) Implement the recursive function <code>(inserta-pos dato pos lista)</code>, which
 receives a datum, a position, and a list, and returns the resulting list after
@@ -1373,22 +1373,22 @@ inserting the datum at the indicated position in the list. If the position is 0,
 the datum is inserted at the head. We assume that the position will always be
 positive and less than or equal to the length of the list.</p>
 <p>Examples:</p>
-<p><code>racket
-(inserta-pos 'b 2 '(a a a a)) ; ⇒ '(a a b a a)
-(inserta-pos 'b 0 '(a a a a)) ; ⇒ '(b a a a a)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">inserta-pos</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &#39;(a a b a a)</span>
+<span class="p">(</span><span class="n">inserta-pos</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="w"> </span><span class="ss">a</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &#39;(b a a a a)</span>
+</code></pre></div>
 <p>b) Implement the recursive function <code>(inserta-ordenada n
 lista-ordenada)</code>, which receives a number and a list of numbers sorted from
 smallest to largest, and returns the resulting list after inserting number <code>n</code>
 in the correct position so that the list remains sorted.</p>
 <p>Example:</p>
-<p><code>racket
-(inserta-ordenada 10 '(-8 2 3 11 20)) ; ⇒ (-8 2 3 10 11 20)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">inserta-ordenada</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">-8</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">20</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (-8 2 3 10 11 20)</span>
+</code></pre></div>
 <p>c) Using the previous function <code>inserta-ordenada</code>, implement the recursive
 function <code>(ordena lista)</code>, which receives a list of numbers and returns a sorted
 list.</p>
 <p>Example:</p>
-<p><code>racket
-(ordena '(2 -1 100 4 -6)) ; ⇒ (-6 -1 2 4 100)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">ordena</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">-6</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (-6 -1 2 4 100)</span>
+</code></pre></div>
 <h3 id="exercise-3">Exercise 3<a class="headerlink" href="#exercise-3" title="Permanent link">&para;</a></h3>
 <p>a) Implement the recursive function <code>(mueve-al-principio lista dato)</code>, which
 receives a list and a datum contained in the list. The function must return the
@@ -1396,9 +1396,9 @@ resulting list after moving the first occurrence of the datum to the beginning o
 the list, leaving the rest of the list unchanged. We assume that the datum passed
 as a parameter is contained in the list.</p>
 <p>Example:</p>
-<p><code>racket
-(mueve-al-principio '(a b e c d e f) 'e) ; ⇒ (e a b c d e f)
-(mueve-al-principio '(a b c d e f g) 'a) ; ⇒ (a b c d e f g)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">mueve-al-principio</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">e</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (e a b c d e f)</span>
+<span class="p">(</span><span class="n">mueve-al-principio</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="w"> </span><span class="ss">g</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (a b c d e f g)</span>
+</code></pre></div>
 <p>b) Implement a recursive function <code>(comprueba-simbolos lista-simbolos
 lista-num)</code>, which receives a list of symbols and a list of integers (both with
 the same length) and returns a list of pairs. Each pair is formed by the symbol
@@ -1407,9 +1407,9 @@ of <code>lista-num</code>, as long as that number matches the length of the stri
 corresponding to the symbol. You can use the predefined functions
 <code>string-length</code> and <code>symbol-&gt;string</code>.</p>
 <p>Example:</p>
-<p><code>racket
-(comprueba-simbolos '(este es un ejercicio de examen) '(2 1 2 9 1 6))
-; ⇒ ((un . 2) (ejercicio . 9) (examen . 6))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">comprueba-simbolos</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">este</span><span class="w"> </span><span class="ss">es</span><span class="w"> </span><span class="ss">un</span><span class="w"> </span><span class="ss">ejercicio</span><span class="w"> </span><span class="ss">de</span><span class="w"> </span><span class="ss">examen</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span>
+<span class="c1">; ⇒ ((un . 2) (ejercicio . 9) (examen . 6))</span>
+</code></pre></div>
 <h3 id="exercise-4">Exercise 4<a class="headerlink" href="#exercise-4" title="Permanent link">&para;</a></h3>
 <p>We are going to implement different versions of functions that expand an
 original list.</p>
@@ -1419,18 +1419,18 @@ remaining parts.</p>
 formed by a datum and a number <em>n</em>, and returns the list formed by <em>n</em>
 repetitions of the datum.</p>
 <p>Example:</p>
-<p><code>racket
-(expande-pareja '(hola . 3)) ; ⇒ (hola hola hola)
-(expande-pareja '(#t . 5)) ; ⇒ (#t #t #t #t #t)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">expande-pareja</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">hola</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (hola hola hola)</span>
+<span class="p">(</span><span class="n">expande-pareja</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="no">#t</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (#t #t #t #t #t)</span>
+</code></pre></div>
 <p>b) We are going to implement two versions of the function <code>(expande-parejas
 pareja_1 ... pareja_n)</code>, which receives a variable number of arguments (all
 optional) and returns a list where the pairs have been "expanded", creating a
 list with as many elements as the number indicated by each pair. All arguments
 are optional; if there are no arguments, the empty list will be returned.</p>
 <p>Example:</p>
-<p><code>racket
-(expande-parejas '(#t . 3) '("LPP" . 2) '(b . 4)) 
-; ⇒ (#t #t #t "LPP" "LPP" b b b b)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">expande-parejas</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="no">#t</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s2">&quot;LPP&quot;</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span>
+<span class="c1">; ⇒ (#t #t #t &quot;LPP&quot; &quot;LPP&quot; b b b b)</span>
+</code></pre></div>
 <p>b.1) Write a solution in which the <code>expande-parejas</code> function calls a recursive
 function <code>(expande-lista lista-parejas)</code> that works on a list of pairs.</p>
 <p>b.2) Write a solution in which the <code>expande-parejas</code> function itself is
@@ -1451,9 +1451,9 @@ always be an element after a number.</p>
 <p>For its implementation, you must also use the function <code>(expande-pareja
 pareja)</code> defined in part a).</p>
 <p>Example:</p>
-<p><code>racket
-(expande '(4 clase ua 3 lpp aulario)) 
-; ⇒ (clase clase clase clase ua lpp lpp lpp aulario)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">expande</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="ss">clase</span><span class="w"> </span><span class="ss">ua</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="ss">lpp</span><span class="w"> </span><span class="ss">aulario</span><span class="p">))</span><span class="w"> </span>
+<span class="c1">; ⇒ (clase clase clase clase ua lpp lpp lpp aulario)</span>
+</code></pre></div>
 <p>In the example, 4 indicates that the following element (<code>clase</code>) must be
 repeated 4 times in the expanded list, and 3 indicates that the following
 element (<code>lpp</code>) will be repeated 3 times.</p>
@@ -1462,51 +1462,55 @@ element (<code>lpp</code>) will be repeated 3 times.</p>
 contain an error. If so, indicate that too and explain what type of error it is.
 Do it without the interpreter, and then check with the interpreter whether your
 answer was correct.</p>
-<p>```racket
-((lambda (x) (<em> x x)) 3) ; ⇒ ?
-((lambda () (+ 6 4))) ; ⇒ ?
-((lambda (x y) (</em> x (+ 2 y))) (+ 2 3) 4) ; ⇒ ?
-((lambda (x y) (* x (+ 2 x))) 5) ; ⇒ ?</p>
-<p>(define f (lambda (a b) (string-append "<strong><em>" a b "</em></strong>")))
-(define g f)
-(procedure? g) ; ⇒ ?
-(g "Hola" "Adios") ; ⇒ ?
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">4</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">y</span><span class="p">)))</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">((</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">string-append</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="n">f</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">procedure?</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;Adios&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+</code></pre></div>
 <p>b) We have seen in theory that the <code>define</code> special form for constructing
 functions is <em>syntactic sugar</em>, and that the Scheme interpreter converts it into
 an equivalent expression using the <code>lambda</code> special form.</p>
 <p>Write the equivalent expressions, using the <code>lambda</code> special form, for the
 following function definitions:</p>
-<p>```racket
-(define (suma-3 x)
-   (+ x 3))</p>
-<p>(define (factorial x)
-   (if (= x 0)
-      1
-      (* x (factorial (- x 1)))))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">suma-3</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">factorial</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">(</span><span class="n">factorial</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)))))</span>
+</code></pre></div>
 <p>c) Given the following function definitions, indicate what the invocations would
 return. Some expressions may contain an error. If so, indicate that too and
 explain what type of error it is.</p>
 <p>Do it without the interpreter, and then check with the interpreter whether your
 answer was correct.</p>
-<p>```racket
-(define (doble x)
-   (* 2 x))</p>
-<p>(define (foo f g x y)
-   (f (g x) y))</p>
-<p>(define (bar f p x y)
-   (if (and (p x) (p y))
-       (f x y)
-       'error))</p>
-<p>(foo + 10 doble 15) ; ⇒ ?
-(foo doble + 10 15) ; ⇒ ?
-(foo + doble 10 15) ; ⇒ ?
-(foo string-append (lambda (x) (string-append "***" x)) "Hola" "Adios") ; ⇒ ?</p>
-<p>(bar doble number? 10 15) ; ⇒ ?
-(bar string-append string? "Hola" "Adios") ; ⇒ ?
-(bar + number? "Hola" 5) ; ⇒ ?
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">doble</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">x</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="n">g</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">bar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">   </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="n">y</span><span class="p">))</span>
+<span class="w">       </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">       </span><span class="o">&#39;</span><span class="ss">error</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">doble</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="n">doble</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="n">doble</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">(</span><span class="n">foo</span><span class="w"> </span><span class="nb">string-append</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">string-append</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;Adios&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+
+<span class="p">(</span><span class="n">bar</span><span class="w"> </span><span class="n">doble</span><span class="w"> </span><span class="nb">number?</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">(</span><span class="n">bar</span><span class="w"> </span><span class="nb">string-append</span><span class="w"> </span><span class="nb">string?</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="s2">&quot;Adios&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+<span class="p">(</span><span class="n">bar</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="nb">number?</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ ?</span>
+</code></pre></div>
 <h3 id="exercise-6">Exercise 6<a class="headerlink" href="#exercise-6" title="Permanent link">&para;</a></h3>
 <p>We are going to keep playing cards with Scheme. You will have to implement a
 series of helper functions that will let you perform a card trick at the end of
@@ -1515,9 +1519,9 @@ the exercise.</p>
 <a href="https://raw.githubusercontent.com/domingogallardo/apuntes-lpp/master/src/lpp.rkt"><code>lpp.rkt</code> file</a>
 again. We have included in it a new function <code>(cartas n)</code> that lets you generate
 a list of <em>n</em> random cards from a deck of up to 48 cards. For example:</p>
-<p><code>racket
-(cartas 10) ; ⇒ (9♣ 7♠ Q♠ 4♥ 8♠ 3♠ 7♦ A♠ A♥ K♠)
-(cartas 5) ; ⇒ (7♣ 3♣ 6♣ 7♠ 5♣)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">cartas</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (9♣ 7♠ Q♠ 4♥ 8♠ 3♠ 7♦ A♠ A♥ K♠)</span>
+<span class="p">(</span><span class="n">cartas</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (7♣ 3♣ 6♣ 7♠ 5♣)</span>
+</code></pre></div>
 <p>At most, you can pass 48 as the parameter to randomly generate the 48 cards of a
 French deck without tens.</p>
 <div class="admonition note">
@@ -1530,10 +1534,10 @@ same parameters.</p>
 with three lists and three elements, and returns the result of placing the
 elements at the head of the three lists.</p>
 <p>Example:</p>
-<p><code>racket
-(coloca '(() () ()) 'a 'b 'c) ; ⇒ '((a) (b) (c))
-(coloca '((a) (a) (a)) 'b 'b 'b) ; ⇒ '((b a) (b a) (b a))
-(coloca '((a) (b c) (d e f)) 'g 'h 'i) ; ⇒ '((g a) (h b c) (i d e f)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(()</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">())</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">a</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;((a) (b) (c))</span>
+<span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">a</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;((b a) (b a) (b a))</span>
+<span class="p">(</span><span class="n">coloca</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">g</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">h</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">i</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;((g a) (h b c) (i d e f)))</span>
+</code></pre></div>
 <p>b) Using the previous function as a helper, implement a recursive function
 <code>(reparte-tres lista-cartas)</code>, which receives a list of cards with a number of
 cards that is a multiple of 3 and returns the result of dealing those cards one
@@ -1543,9 +1547,9 @@ cards in positions 2, 5, 8, etc. will go in the third pile.</p>
 <p>The result will be a list with three lists representing those three piles of
 cards.</p>
 <p>Example:</p>
-<p><code>racket
-(define doce-cartas '(A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ J♣ Q♣ K♣))
-(reparte-tres doce-cartas) ; ⇒ '((A♣ 4♣ 7♣ J♣) (2♣ 5♣ 8♣ Q♣) (3♣ 6♣ 9♣ K♣))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">doce-cartas</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">A♣</span><span class="w"> </span><span class="ss">2♣</span><span class="w"> </span><span class="ss">3♣</span><span class="w"> </span><span class="ss">4♣</span><span class="w"> </span><span class="ss">5♣</span><span class="w"> </span><span class="ss">6♣</span><span class="w"> </span><span class="ss">7♣</span><span class="w"> </span><span class="ss">8♣</span><span class="w"> </span><span class="ss">9♣</span><span class="w"> </span><span class="ss">J♣</span><span class="w"> </span><span class="ss">Q♣</span><span class="w"> </span><span class="ss">K♣</span><span class="p">))</span>
+<span class="p">(</span><span class="n">reparte-tres</span><span class="w"> </span><span class="n">doce-cartas</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ &#39;((A♣ 4♣ 7♣ J♣) (2♣ 5♣ 8♣ Q♣) (3♣ 6♣ 9♣ K♣))</span>
+</code></pre></div>
 <p>c) Implement a recursive function <code>(elemento-central lista)</code>, which receives a
 list with an odd number of elements (greater than or equal to one) and returns
 its central element.</p>
@@ -1557,29 +1561,31 @@ returns a list without the last element.</p>
 have the recursive call return the central element?</p>
 </div>
 <p>Example:</p>
-<p><code>racket
-(elemento-central '(a b c d e f g)) ; ⇒ d</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">elemento-central</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="w"> </span><span class="ss">g</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ d</span>
+</code></pre></div>
 <p>d) Once you have implemented the previous functions, all that remains is to copy
 the following definitions so you can perform the card trick. These are functions
 that reassemble the deck from the three piles depending on whether the chosen
 card is in the left, center, or right pile.</p>
 <p>And the <code>adivina</code> function is the one that returns the chosen card in the trick.</p>
-<p>```racket
-(define (izquierda tres-listas)
-  (append (third tres-listas)
-          (first tres-listas)
-          (second tres-listas)))</p>
-<p>(define (centro tres-listas)
-  (append (third tres-listas)
-          (second tres-listas)
-          (first tres-listas)))</p>
-<p>(define (derecha tres-listas)
-  (append (second tres-listas)
-          (third tres-listas)
-          (first tres-listas)))</p>
-<p>(define (adivina lista)
-  (elemento-central lista))
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">izquierda</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">(</span><span class="nb">third</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">centro</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">(</span><span class="nb">third</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">derecha</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">(</span><span class="nb">second</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">third</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">first</span><span class="w"> </span><span class="n">tres-listas</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="n">adivina</span><span class="w"> </span><span class="n">lista</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="n">elemento-central</span><span class="w"> </span><span class="n">lista</span><span class="p">))</span>
+</code></pre></div>
 <p>Finally, before starting the trick, a couple of considerations about programs
 with random numbers.</p>
 <p>The following function, with the constant 90 as an argument, always generates
@@ -1587,26 +1593,26 @@ the random sequence that lets you follow the example. If it is changed to anothe
 constant, the sequence will also always be repeated, although it will be a
 different one. Always having the same random sequence makes it possible to debug
 the program while always working with the same random example.</p>
-<p><code>racket
-(random-seed 90)</code>
+<p><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">random-seed</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span>
+</code></pre></div>
 If a variable value is used instead of a constant, a different random sequence is
 obtained each time the program is executed.</p>
 <p>Example:</p>
-<p><code>racket
-(random-seed (modulo (current-milliseconds) (expt 2 31)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">random-seed</span><span class="w"> </span><span class="p">(</span><span class="nb">modulo</span><span class="w"> </span><span class="p">(</span><span class="nb">current-milliseconds</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">expt</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">31</span><span class="p">)))</span>
+</code></pre></div>
 <p>And now we can start the card trick.</p>
 <ol>
 <li>
 <p>We deal a list of cards and store it in the variable <code>t1</code>. We could play with
 3, 9, 15, 21, or 27 cards. We are going to do it with 27:</p>
-<p><code>racket
-(define t1 (reparte-tres (cartas 27)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="p">(</span><span class="n">reparte-tres</span><span class="w"> </span><span class="p">(</span><span class="n">cartas</span><span class="w"> </span><span class="mi">27</span><span class="p">)))</span>
+</code></pre></div>
 </li>
 <li>
 <p>We display the piles and ask the spectator to think of a card without saying
 it. For example, the ace of clubs.</p>
-<p><code>racket
-t1 ; ⇒ ((J♣ 8♦ K♥ J♠ 2♠ 8♥ Q♣ 4♦ A♥) (5♥ 9♣ 5♦ Q♠ A♦ 9♥ 5♠ 9♦ Q♦) (7♣ 3♠ 6♥ 6♣ 7♥ 3♣ 4♣ A♣ J♥))</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">t1</span><span class="w"> </span><span class="c1">; ⇒ ((J♣ 8♦ K♥ J♠ 2♠ 8♥ Q♣ 4♦ A♥) (5♥ 9♣ 5♦ Q♠ A♦ 9♥ 5♠ 9♦ Q♦) (7♣ 3♠ 6♥ 6♣ 7♥ 3♣ 4♣ A♣ J♥))</span>
+</code></pre></div>
 </li>
 <li>
 <p>We ask the spectator which pile contains the chosen card. We join the piles
@@ -1614,29 +1620,29 @@ t1 ; ⇒ ((J♣ 8♦ K♥ J♠ 2♠ 8♥ Q♣ 4♦ A♥) (5♥ 9♣ 5♦ Q♠ A�
    <code>derecha</code>, or <code>centro</code>). In this case, the ace of clubs is in the right pile,
    so we use the <code>derecha</code> function. Then we deal the resulting deck into three
    piles again and store them in the variable <code>t2</code>:</p>
-<p><code>racket
-(define t2 (reparte-tres (derecha t1)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="p">(</span><span class="n">reparte-tres</span><span class="w"> </span><span class="p">(</span><span class="n">derecha</span><span class="w"> </span><span class="n">t1</span><span class="p">)))</span>
+</code></pre></div>
 </li>
 <li>
 <p>We display the piles again and ask where the card is. In this case, it is in
    the center.</p>
-<p><code>racket
-t2 ; ⇒  ((5♥ Q♠ 5♠ 7♣ 6♣ 4♣ J♣ J♠ Q♣) (9♣ A♦ 9♦ 3♠ 7♥ A♣ 8♦ 2♠ 4♦) (5♦ 9♥ Q♦ 6♥ 3♣ J♥ K♥ 8♥ A♥))</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">t2</span><span class="w"> </span><span class="c1">; ⇒  ((5♥ Q♠ 5♠ 7♣ 6♣ 4♣ J♣ J♠ Q♣) (9♣ A♦ 9♦ 3♠ 7♥ A♣ 8♦ 2♠ 4♦) (5♦ 9♥ Q♦ 6♥ 3♣ J♥ K♥ 8♥ A♥))</span>
+</code></pre></div>
 <p>We join the piles using the <code>centro</code> function and deal again, storing the
 result in the variable <code>t3</code>:</p>
-<p><code>racket
-(define t3 (reparte-tres (centro t2)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="p">(</span><span class="n">reparte-tres</span><span class="w"> </span><span class="p">(</span><span class="n">centro</span><span class="w"> </span><span class="n">t2</span><span class="p">)))</span>
+</code></pre></div>
 </li>
 <li>
 <p>We display the piles:</p>
-<p><code>racket
-t3 ; ⇒  ((5♦ 6♥ K♥ 9♣ 3♠ 8♦ 5♥ 7♣ J♣) (9♥ 3♣ 8♥ A♦ 7♥ 2♠ Q♠ 6♣ J♠) (Q♦ J♥ A♥ 9♦ A♣ 4♦ 5♠ 4♣ Q♣))</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">t3</span><span class="w"> </span><span class="c1">; ⇒  ((5♦ 6♥ K♥ 9♣ 3♠ 8♦ 5♥ 7♣ J♣) (9♥ 3♣ 8♥ A♦ 7♥ 2♠ Q♠ 6♣ J♠) (Q♦ J♥ A♥ 9♦ A♣ 4♦ 5♠ 4♣ Q♣))</span>
+</code></pre></div>
 <p>And we ask where the card is. In this case, the ace of clubs is in the right
 pile. We join the piles again using the <code>derecha</code> function, and we can now
 call the <code>adivina</code> function with the resulting deck. This function will
 magically return the chosen card:</p>
-<p><code>racket
-(adivina (derecha t3)) ; ⇒ A♣</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">adivina</span><span class="w"> </span><span class="p">(</span><span class="n">derecha</span><span class="w"> </span><span class="n">t3</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ A♣</span>
+</code></pre></div>
 </li>
 </ol>
 <hr />

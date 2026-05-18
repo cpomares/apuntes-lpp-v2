@@ -1315,8 +1315,8 @@ de la asignatura</a>.</p>
 <p>El fichero contiene la definición de la función <code>(hoja? elem)</code> y la
 función <code>(pinta-lista lista)</code> que nos permite dibujar gráficamente una lista estructurada.</p>
 <p>Por ejemplo, si definimos una lista estructurada como </p>
-<p><code>racket
-(define lista '(a (b (c d) e) (f g)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="p">)</span><span class="w"> </span><span class="ss">e</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="w"> </span><span class="ss">g</span><span class="p">)))</span>
+</code></pre></div>
 <p>La llamada a <code>pinta-lista</code> dibujará lo siguiente:</p>
 <p><img src="imagenes/pinta-lista.png" width="300px"/></p>
 <h3 id="ejercicio-1">Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permanent link">&para;</a></h3>
@@ -1324,31 +1324,32 @@ función <code>(pinta-lista lista)</code> que nos permite dibujar gráficamente 
 representación gráfica por niveles. Para comprobar si la has definido
 correctamente puedes intentar obtener algunos de los elementos de la
 lista, como mostramos en el <code>check-equal?</code> que hay a continuación.</p>
-<p><code>text
-       *
+<div class="highlight"><pre><span></span><code>       *
      / |  \
     |  |    \
     *  d      *
    / \    / /  | \
   a  b   c *   *  h
            |  / \
-           e f  g</code></p>
-<p><code>racket
-(define lista-a '(________))
-(check-equal? (fourth (third lista-a)) 'h)</code></p>
+           e f  g
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista-a</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">________</span><span class="p">))</span>
+<span class="p">(</span><span class="n">check-equal?</span><span class="w"> </span><span class="p">(</span><span class="nb">fourth</span><span class="w"> </span><span class="p">(</span><span class="nb">third</span><span class="w"> </span><span class="n">lista-a</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">h</span><span class="p">)</span>
+</code></pre></div>
 <p>b) Dibuja la representación en niveles de las siguientes listas
 estructurada. Comprueba después con la función <code>(pinta-lista lista)</code>
 que las has dibujado correctamente.</p>
-<p><code>racket
-(define lista-b1 '((2 (3)) (4 2) ((2) 3)))
-(define lista-b2 '((b) (c (a)) d (a)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista-b1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">3</span><span class="p">)))</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista-b2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="w"> </span><span class="p">(</span><span class="ss">a</span><span class="p">))</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="p">(</span><span class="ss">a</span><span class="p">)))</span>
+</code></pre></div>
 <p>c) Dada la definición de <code>cuadrado-estruct</code> vista en teoría:</p>
-<p><code>(define (cuadrado-estruct lista)
-  (cond ((null? lista) '())
+<div class="highlight"><pre><span></span><code>(define (cuadrado-estruct lista)
+  (cond ((null? lista) &#39;())
         ((hoja? lista) (* lista lista ))
         (else (cons
              ①➜(cuadrado-estruct (first lista))
-             ②➜(cuadrado-estruct (rest lista))))))</code></p>
+             ②➜(cuadrado-estruct (rest lista))))))
+</code></pre></div>
 <ol>
 <li>Indica qué devuelve la expresión <code>(cuadrado-estruct lista-b1)</code>. La
 lista <code>lista-b1</code> es la definida en el apartado anterior.</li>
@@ -1366,9 +1367,9 @@ vista en teoría. Indica qué devuelve la siguiente expresión.  La lista
 <code>lista-b2</code> es la definida en el apartado anterior. Utiliza el dibujo
 que has hecho en el ejercicio anterior para entender el funcionamiento
 de la expresión.</p>
-<p><code>racket
-(map (lambda (elem)
-         (nivel-hoja-fos 'a elem)) lista-b2)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="n">nivel-hoja-fos</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">a</span><span class="w"> </span><span class="n">elem</span><span class="p">))</span><span class="w"> </span><span class="n">lista-b2</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="ejercicio-2">Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Permanent link">&para;</a></h3>
 <p>a) Implementa la función recursiva <code>(concatena lista)</code> que recibe una
 lista estructurada con símbolos y devuelve la cadena resultante de
@@ -1376,43 +1377,43 @@ concatenar todos los símbolos de la lista estructurada. Implementa dos versione
 de la función, una con <strong>recursión pura</strong> y otra con <strong>funciones de orden
 superior</strong>.</p>
 <p>Ejemplos:</p>
-<p><code>racket
-(concatena '(a b (c) d)) ; ⇒ "abcd"
-(concatena '(a (((b)) (c (d (e f (g))) h)) i)) ; ⇒ "abcdefghi"</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">concatena</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &quot;abcd&quot;</span>
+<span class="p">(</span><span class="n">concatena</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(((</span><span class="ss">b</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="w"> </span><span class="p">(</span><span class="ss">e</span><span class="w"> </span><span class="ss">f</span><span class="w"> </span><span class="p">(</span><span class="ss">g</span><span class="p">)))</span><span class="w"> </span><span class="ss">h</span><span class="p">))</span><span class="w"> </span><span class="ss">i</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &quot;abcdefghi&quot;</span>
+</code></pre></div>
 <p>b) Implementa la función recursiva <code>(todos-positivos? lista)</code> que
 recibe una lista estructurada con números y comprueba si todos sus
 elementos son positivos. Implementa dos versiones de la función, una con
 <strong>recursión pura</strong> y otra con <strong>funciones de orden superior</strong>.</p>
 <p>Ejemplos:</p>
-<p><code>racket
-(todos-positivos? '(1 (2 (3 (-3))) 4)) ; ⇒ #f
-(todos-positivos-fos? '(1 (2 (3 (3))) 4)) ; ⇒ #t</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">todos-positivos?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="mi">-3</span><span class="p">)))</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #f</span>
+<span class="p">(</span><span class="n">todos-positivos-fos?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ #t</span>
+</code></pre></div>
 <h3 id="ejercicio-3">Ejercicio 3<a class="headerlink" href="#ejercicio-3" title="Permanent link">&para;</a></h3>
 <p>Implementa la función <code>(cumplen-predicado pred lista)</code> que devuelva
 una lista con todos los elementos de lista estructurada que cumplen un
 predicado. Implementa dos versiones, una <strong>recursiva pura</strong> y otra
 usando <strong>funciones de orden superior</strong>.</p>
 <p>Ejemplo:</p>
-<p><code>racket
-(cumplen-predicado even? '(1 (2 (3 (4))) (5 6))) ; ⇒ (2 4 6)
-(cumplen-predicado pair? '(((1 . 2) 3 (4 . 3) 5) 6)) ; ⇒ ((1 . 2) (4 . 3))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">cumplen-predicado</span><span class="w"> </span><span class="nb">even?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ (2 4 6)</span>
+<span class="p">(</span><span class="n">cumplen-predicado</span><span class="w"> </span><span class="nb">pair?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(((</span><span class="mi">1</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ ((1 . 2) (4 . 3))</span>
+</code></pre></div>
 <p>Utilizando la función anterior implementa las siguientes funciones:</p>
 <ul>
 <li>Función <code>(busca-mayores n lista-num)</code> que recibe una lista
   estructurada con números y un número <code>n</code> y devuelve una lista plana
   con los números de la lista original mayores que <code>n</code>.</li>
 </ul>
-<p><code>racket
-  (busca-mayores 10 '(-1 (20 (10 12) (30 (25 (15)))))) ; ⇒ (20 12 30 25 15)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">busca-mayores</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">-1</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="p">(</span><span class="mi">25</span><span class="w"> </span><span class="p">(</span><span class="mi">15</span><span class="p">))))))</span><span class="w"> </span><span class="c1">; ⇒ (20 12 30 25 15)</span>
+</code></pre></div>
 <ul>
 <li>Función <code>(empieza-por char lista-pal)</code> que recibe una lista
   estructurada con símbolos y un carácter <code>char</code> y devuelve una lista
   plana con los símbolos de la lista original que comienzan por el
   carácter <code>char</code>.</li>
 </ul>
-<p><code>racket
-  (empieza-por #\m '((hace (mucho tiempo)) (en) (una galaxia ((muy  muy) lejana))))
-  ; ⇒ (mucho muy muy)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">empieza-por</span><span class="w"> </span><span class="sc">#\m</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">hace</span><span class="w"> </span><span class="p">(</span><span class="ss">mucho</span><span class="w"> </span><span class="ss">tiempo</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="ss">en</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">una</span><span class="w"> </span><span class="ss">galaxia</span><span class="w"> </span><span class="p">((</span><span class="ss">muy</span><span class="w">  </span><span class="ss">muy</span><span class="p">)</span><span class="w"> </span><span class="ss">lejana</span><span class="p">))))</span>
+<span class="c1">; ⇒ (mucho muy muy)</span>
+</code></pre></div>
 <h3 id="ejercicio-4">Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Permanent link">&para;</a></h3>
 <p>Dos funciones sobre niveles:</p>
 <p>a) Implementa la función <code>(sustituye-elem elem-old elem-new lista)</code>
@@ -1421,18 +1422,18 @@ devuelve otra lista con la misma estructura, pero en la que se ha
 sustituido las ocurrencias de <code>elem-old</code> por <code>elem-new</code>. Puedes
 hacerla de forma <strong>recursiva pura</strong> o con <strong>funciones de orden superior</strong>.</p>
 <p>Ejemplo:</p>
-<p><code>racket
-(sustituye-elem 'c 'h '(a b (c d (e c)) c (f (c) g)))
-; ⇒ (a b (h d (e h)) h (f (h) g))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">sustituye-elem</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">c</span><span class="w"> </span><span class="o">&#39;</span><span class="ss">h</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="w"> </span><span class="p">(</span><span class="ss">e</span><span class="w"> </span><span class="ss">c</span><span class="p">))</span><span class="w"> </span><span class="ss">c</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="ss">g</span><span class="p">)))</span>
+<span class="c1">; ⇒ (a b (h d (e h)) h (f (h) g))</span>
+</code></pre></div>
 <p>b) Implementa la función <code>(nivel-mas-profundo lista)</code> que reciba una lista
 estructurada y devuelva una pareja <code>(elem . nivel)</code>, donde la parte
 izquierda es el elemento que se encuentra a mayor nivel y la parte
 derecha el nivel en el que se encuentra. Puedes definir alguna
 función auxiliar si lo necesitas. Puedes hacerlo con
 <strong>recursión pura</strong> o con <strong>funciones de orden superior</strong>.</p>
-<p><code>racket
-(nivel-mas-profundo '(2 (3))) ; ⇒ (3 . 2)
-(nivel-mas-profundo '((2) (3 (4)((((((5))) 6)) 7)) 8)) ; ⇒ (5 . 8)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">nivel-mas-profundo</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ (3 . 2)</span>
+<span class="p">(</span><span class="n">nivel-mas-profundo</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)((((((</span><span class="mi">5</span><span class="p">)))</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ (5 . 8)</span>
+</code></pre></div>
 <h3 id="ejercicio-5">Ejercicio 5<a class="headerlink" href="#ejercicio-5" title="Permanent link">&para;</a></h3>
 <p>a) Define la función <code>(mezclar lista1 lista2 n)</code> que reciba
 dos listas estructuradas con la misma estructura y un número que
@@ -1442,10 +1443,10 @@ tienen un nivel menor o igual que <code>n</code> y los elementos de lista2 que
 tienen un nivel mayor que <code>n</code>. Puedes hacerlo con
 <strong>recursión pura</strong> o con <strong>funciones de orden superior</strong>.</p>
 <p><img src="imagenes/mezclar-listas.png" width="500px"/></p>
-<p><code>racket
-(define lista1 '(((a b) ((c))) (d) e))
-(define lista2 '(((1 2) ((3))) (4) 5))
-(mezclar lista1 lista2 2) ; ⇒ (((1 2) ((3))) (d) e)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(((</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="ss">c</span><span class="p">)))</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="p">)</span><span class="w"> </span><span class="ss">e</span><span class="p">))</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(((</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="mi">3</span><span class="p">)))</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span>
+<span class="p">(</span><span class="n">mezclar</span><span class="w"> </span><span class="n">lista1</span><span class="w"> </span><span class="n">lista2</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="c1">; ⇒ (((1 2) ((3))) (d) e)</span>
+</code></pre></div>
 <p>b.1) Implementa la función recursiva <code>(intersecta lista-1 lista-2)</code>
 que recibe como parámetros dos listas estructuradas y devuelve la
 lista estructurada resultante de recorrer ambas listas y colocar una
@@ -1453,29 +1454,29 @@ pareja formada por la hoja de la primera y de la segunda en aquellas
 posiciones en las que el recorrido de ambas listas terminen al mismo
 tiempo en una hoja.</p>
 <p>Por ejemplo, si definimos las dos listas de la siguiente forma:</p>
-<p>```racket
-(define lista-1 '(a (b c) (d))) 
-;     * 
-;   / | \ 
-;  a  *  *
-;    / \  \ 
-;   b   c  d</p>
-<p>(define lista-2 '((e) (f) (g)))
-;     * 
-;   / | \ 
-;  *  *  * 
-; /  /    \ 
-;e  f      g
-```</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista-1</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="w"> </span><span class="ss">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">d</span><span class="p">)))</span><span class="w"> </span>
+<span class="c1">;     * </span>
+<span class="c1">;   / | \ </span>
+<span class="c1">;  a  *  *</span>
+<span class="c1">;    / \  \ </span>
+<span class="c1">;   b   c  d</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="n">lista-2</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="ss">e</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">g</span><span class="p">)))</span>
+<span class="c1">;     * </span>
+<span class="c1">;   / | \ </span>
+<span class="c1">;  *  *  * </span>
+<span class="c1">; /  /    \ </span>
+<span class="c1">;e  f      g</span>
+</code></pre></div>
 <p>La intersección de ambas listas sería:</p>
-<p><code>racket
-(intersecta lista-1 lista-2)
-; ⇒ (((b . f)) ((d . g)))
-;     *
-;     | \
-;     *  *
-;    /    \
-;  (b.f)  (d.g)</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">intersecta</span><span class="w"> </span><span class="n">lista-1</span><span class="w"> </span><span class="n">lista-2</span><span class="p">)</span>
+<span class="c1">; ⇒ (((b . f)) ((d . g)))</span>
+<span class="c1">;     *</span>
+<span class="c1">;     | \</span>
+<span class="c1">;     *  *</span>
+<span class="c1">;    /    \</span>
+<span class="c1">;  (b.f)  (d.g)</span>
+</code></pre></div>
 <p>La función recorrerá al mismo tiempo la primera y la segunda lista. En
 la primera lista, en su primer elemento, llegará a la hoja <code>a</code>,
 mientras que en la segunda lista llegará a una sublista (la que
@@ -1489,9 +1490,9 @@ llegará al mismo tiempo a las hojas <code>d</code> y <code>g</code>, formando l
 . g)</code>.</p>
 <p>Debes implementar <strong>sólo la versión recursiva</strong>s. </p>
 <p>Otros ejemplos:</p>
-<p><code>racket
-(intersecta '(a b) '(c d)) ; ⇒ '((a . c) (b . d))
-(intersecta '(a (b) (c)) '(d e (f))) ; ⇒ '((a . d) ((c . f)))</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">intersecta</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">c</span><span class="w"> </span><span class="ss">d</span><span class="p">))</span><span class="w"> </span><span class="c1">; ⇒ &#39;((a . c) (b . d))</span>
+<span class="p">(</span><span class="n">intersecta</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">a</span><span class="w"> </span><span class="p">(</span><span class="ss">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="ss">c</span><span class="p">))</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="ss">d</span><span class="w"> </span><span class="ss">e</span><span class="w"> </span><span class="p">(</span><span class="ss">f</span><span class="p">)))</span><span class="w"> </span><span class="c1">; ⇒ &#39;((a . d) ((c . f)))</span>
+</code></pre></div>
 <p>b.2) Generaliza la función anterior, haciendo que reciba otra función
 con la operación a realizar con las hojas: <code>(intersecta-gen f lista-1
 lista-2)</code>. Escribe tres ejemplos de uso de la función genérica con
