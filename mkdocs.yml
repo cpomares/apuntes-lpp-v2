@@ -84,8 +84,8 @@ theme:
   palette:
         # Palette toggle for light mode
       - scheme: default
-        primary: brown
-        accent: deep orange
+        primary: deep orange
+        accent: blue grey
         toggle:
           icon: material/brightness-7
           name: Switch to dark mode
