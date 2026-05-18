@@ -328,7 +328,7 @@ We declare a variable called `ventana1` initialized with a
 new instance of the class `Ventana`. We assign to the property
 `esquina` a copy of the previous resolution `coords1`. After
 we declare the height, width and label of the window. And finally,
-`ventana1` is assigned to a new constant called `ventan2`, and the
+`ventana1` is assigned to a new constant called `ventana2`, and the
 width is modified.
 
 Because they are reference types, **`ventana1` and `ventana2` are
@@ -1486,7 +1486,7 @@ class PreguntaEncuesta {
     }
 }
 let preguntaQueso = PreguntaEncuesta(texto: "¿Te gusta el queso?")
-preguntaQueso.pregunta() // -> "¿Te gusta el queso?
+preguntaQueso.pregunta() // -> "¿Te gusta el queso?"
 preguntaQueso.respuesta // -> nil
 ```
 
@@ -1515,7 +1515,7 @@ let basicRectangulo = Rectangulo()
 // el origen de basicRectangulo es (0.0, 0.0) y su tamaño (0.0, 0.0)
 let origenRectangulo = Rectangulo(origen: Punto(x: 2.0, y: 2.0),
                         tamaño: Tamaño(ancho: 5.0, alto: 5.0))
-// el origne de origenRectangulo es (2.0, 2.0) y su tamaño (5.0, 5.0)
+// el origen de origenRectangulo es (2.0, 2.0) y su tamaño (5.0, 5.0)
 let centroRectangulo = Rectangulo(centro: Punto(x: 4.0, y: 4.0),
                         tamaño: Tamaño(ancho: 3.0, alto: 3.0))
 // el origen de centroRectangulo es (2.5, 2.5) y su tamaño (3.0, 3.0)
@@ -1914,8 +1914,7 @@ The function returns a new instance of `Vector2D`, whose
 `x` and `y` properties are initialized with the sum of the properties
 `x` and `y` of the `Vector2D` instances being added.
 
-The function is defined globally, rather than as a method in the
-`Vector2D` structure, so it can be used as an infix operator
+The function is defined with `static`, so it can be used as an infix operator
 between existing instances of `Vector2D`:
 
 
@@ -2334,7 +2333,6 @@ class GeneradorLinealCongruente: GeneradorNumerosAleatorios {
         return ultimoRandom / m
     }
 }
-let generador = GeneradorLinealCongruente()
 var generador = GeneradorLinealCongruente()
 for _ in 1...5 {
     print("Número aleatorio: \(generador.random())")
@@ -2390,7 +2388,66 @@ In the loop we might also be interested in accessing the properties
 `NaveEstelar`. We will see later how to do it when we talk about
 _Casting of types_.
 
-### 8.7. The `Equatable` Protocol
+### 8.7. Protocol Extensions
+
+!!! Note "Extensions"
+    We will study extensions in more detail later. For now, this particular
+    case is useful: using a protocol extension to provide a default
+    implementation to all types that conform to that protocol.
+
+The combination of *protocols + extensions* lets us define shared capabilities
+and provide default implementations. In this way, we can often work with value
+types (`struct`) without creating a class hierarchy.
+
+In a protocol extension, we can define methods or computed properties that will
+automatically be available in any type that conforms to that protocol.
+
+We define an extension for the `TieneNombre` protocol:
+
+```swift
+extension TieneNombre {
+    func imprimeNombreCompleto() {
+        print(nombreCompleto)
+    }
+}
+```
+
+We use it:
+
+```swift
+let john = Persona(edad: 35, nombreCompleto: "John Appleseed")
+let ncc1701 = NaveEstelar(nombre: "Enterprise", prefijo: "USS")
+
+john.imprimeNombreCompleto()
+ncc1701.imprimeNombreCompleto()
+```
+
+`Persona` is a structure and `NaveEstelar` is a class. They are not related by
+inheritance, but both conform to the `TieneNombre` protocol. Thanks to the
+protocol extension, both receive the `imprimeNombreCompleto()` method.
+
+!!! note "Protocol-oriented programming"
+
+    Swift makes very frequent use of structures. Therefore, if we want to share
+    behavior among different types, using classes and inheritance is not always
+    the most appropriate approach.
+
+    This is a very Swift-like idea: instead of forcing several types to belong
+    to the same family through inheritance, we can express that they share the
+    same capability through a protocol.
+
+    In addition, protocols let us define restrictions very precisely. For
+    example, a generic algorithm can say: "I work with any type that is
+    comparable", regardless of whether that type is a structure, a class, or an
+    enumeration.
+
+    **Protocol extensions** go one step further: they let us share common
+    behavior without forcing types to inherit from the same superclass. Thus,
+    Swift favors the **composition of capabilities** over the construction of
+    large class hierarchies.
+
+
+### 8.8. The `Equatable` Protocol
 
 In the [standard library
 Swift](https://developer.apple.com/documentation/swift) are defined
@@ -2464,7 +2521,7 @@ print(p1 != p2)
 // Imprime false
 ```
 
-### 8.8. Protocol Inheritance ###
+### 8.9. Protocol Inheritance ###
 
 A protocol can inherit one or more protocols and can add
 additional requirements over the requirements it inherits. The syntax of
@@ -2713,8 +2770,8 @@ for item in biblioteca {
     }
 }
 
-print("La biblioteca contiene \(contadorCanciones) películas y \(contadorPeliculas) canciones")
-// Imprime "La biblioteca contiene 3 películas y 2 canciones"
+print("La biblioteca contiene \(contadorPeliculas) películas y \(contadorCanciones) canciones")
+// Imprime "La biblioteca contiene 2 películas y 3 canciones"
 ```
 
 The example iterates through all the items in the `biblioteca` array. In each
@@ -2853,7 +2910,7 @@ for item in array {
     case let someInt as Int:
         print("un valor entero de \(someInt)")
     case let unDouble as Double where unDouble > 0:
-        print("a valor positivo de \(unDouble)")
+        print("un valor positivo de \(unDouble)")
     case is Double:
         print("algún otro valor double que no quiero imprimir")
     case let someString as String:
@@ -2872,7 +2929,7 @@ for item in array {
 // cero como un Int
 // cero como un Double
 // un valor entero de 42
-// a valor positivo de 3.14159
+// un valor positivo de 3.14159
 // una cadena con valor de "hola"
 // un punto (x, y) en 3.0, 5.0
 // una película: Ghostbusters, dir. Ivan Reitman
@@ -2942,8 +2999,8 @@ And now we can iterate over the array of objects, checking for
 each item if the instance conforms to the `TieneArea` protocol:
 
 ```swift
-for objecto in objetos {
-    if let objetoConArea = objecto as? TieneArea {
+for objeto in objetos {
+    if let objetoConArea = objeto as? TieneArea {
         print("El área es \(objetoConArea.area)")
     } else {
         print("Algo que no tiene un área")

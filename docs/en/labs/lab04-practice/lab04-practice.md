@@ -441,6 +441,6 @@ it. For example, the ace of clubs.
 
 ----
 
-Programming Languages and Paradigms, academic year 2024-25  
+Programming Languages and Paradigms, academic year 2025-26  
 © Department of Computer Science and Artificial Intelligence, University of Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez

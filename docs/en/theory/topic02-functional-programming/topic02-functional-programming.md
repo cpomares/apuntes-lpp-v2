@@ -1029,9 +1029,9 @@ In contrast, the evaluation using the **normal-order substitution model** is:
 
 ```text
 (doble (cuadrado a)) ⇒            ; Sustituimos doble por su cuerpo (R4)
-(+ (cuadrado a) (cuadrado a) ⇒    ; Sustituimos cuadrado por su cuerpo (R4)
-(+ (* a a) (* a a)  ⇒             ; Sustitumos a por su valor (R2)
-(+ (* 2 2) (* 2 2)  ⇒             ; Evaluamos (* 2 2) (R3)
+(+ (cuadrado a) (cuadrado a)) ⇒   ; Sustituimos cuadrado por su cuerpo (R4)
+(+ (* a a) (* a a))  ⇒            ; Sustitumos a por su valor (R2)
+(+ (* 2 2) (* 2 2))  ⇒            ; Evaluamos (* 2 2) (R3)
 (+ 4 (* 2 2))  ⇒                  ; Evaluamos (* 2 2) (R3)
 (+ 4 4)  ⇒                        ; Evaluamos (+ 4 4) (R3)
 8
@@ -2980,8 +2980,8 @@ The `(lista-desde x)` function returns a list of numbers x..1:
 
 ```racket
 (define (lista-desde x)
-   (if (= x 0)
-      '()
+   (if (= x 1)
+      '(1)
       (cons x (lista-desde (- x 1)))))
 ```
 
@@ -3002,8 +3002,8 @@ We define the function `(divisor? x y)` that tells us if x is a divisor of y:
 Examples:
 
 ```racket
-(divisor 2 10) ; ⇒ #t
-(divisor 3 10) ; ⇒ #f
+(divisor? 2 10) ; ⇒ #t
+(divisor? 3 10) ; ⇒ #f
 ```
 
 Once we have defined the function `divisor?` we can use it to define the
@@ -3025,7 +3025,7 @@ generating the numbers up to `x` and filtering the divisors of that number.
 For example, to calculate the divisors of 10:
 
 ```racket
-(filtra-divisores (1 2 3 4 5 6 7 8 9 10) 10) ; ⇒ (1 2 5 10)
+(filtra-divisores '(1 2 3 4 5 6 7 8 9 10) 10) ; ⇒ (1 2 5 10)
 ```
 
 It can be implemented in a very simple way:

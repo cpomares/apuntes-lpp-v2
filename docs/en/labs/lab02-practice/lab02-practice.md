@@ -96,6 +96,14 @@ Define the functions `(cifra-caracter char desplazamiento)` and
 `(descifra-caracter char desplazamiento)` that implement the cipher described
 above.
 
+!!! note "Uppercase and lowercase letters"
+    The cipher must **preserve the letter case**: if the input character is
+    uppercase, the result must be uppercase.
+    A simple approach is to convert to lowercase, encrypt, and convert back to
+    uppercase at the end.
+    Racket provides functions to check and convert uppercase and lowercase
+    letters, such as `char-upper-case?`, `char-downcase`, and `char-upcase`.
+
 To implement the previous functions, you must define and use the following
 helper functions:
 
@@ -107,7 +115,13 @@ helper functions:
 The function `(rota-indice indice desplazamiento)` receives the index of the
 original character and calculates the index of the encrypted character.
 
-**Tip**: you can use the `modulo` function [see documentation](https://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._modulo))).
+!!! note "Tip: use the `modulo` function"
+    The alphabet behaves as a **circular structure**: after `z` we go back to
+    `a`, and before `a` we go back to `z`.
+    To rotate within the 26 letters, it is useful to work with indices `0..25`
+    and use `modulo` [see documentation](https://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._modulo))).
+    In Racket, `(modulo n 26)` always returns a result in `0..25`, even when
+    `n` is negative.
 
 Analyze the following examples to better understand how the helper functions and
 the main functions work:

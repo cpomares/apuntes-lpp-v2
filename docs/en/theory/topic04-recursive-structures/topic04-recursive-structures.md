@@ -586,7 +586,8 @@ Solution with `map`:
 ##### 1.2.3.4. `(altura lista)` #####
 
 The *height* of a structured list is given by its number of levels: a flat list
-has height 1, and the list `((1 2 3) 4 5)` has height 2.
+has height 1; for example, the list `((1 2 3) 4 5)` has height 2 and the list
+`(((1)) 2 (3) 4)` has height 3.
 
 To calculate the height of a structured list, we have to obtain (recursively)
 the height of its first element and the height of the rest of the list, add 1
@@ -611,6 +612,7 @@ For example:
 ```racket
 (altura '(1 (2 3) 4)) ; ⇒ 2
 (altura '(1 (2 (3)) 3)) ; ⇒ 3
+(altura '(((1)) 2 (3) 4)) ; ⇒ 3
 ```
 
 ###### 1.2.3.2.1. Version with Higher-Order Functions ######

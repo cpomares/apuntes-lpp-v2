@@ -1716,7 +1716,7 @@ others).
 The signature of the function `sorted(by:)` is:
 
 ```
-func sorted(by areInIncreasingOrder: (Element, Element) -> Bool)
+func sorted(by areInIncreasingOrder: (Element, Element) -> Bool) -> [Element]
 ```
 
 The parameter is a two-parameter function (whose parameters have the type of

@@ -119,16 +119,6 @@ Examples:
     instruction `(length lista)` has to traverse the whole list, so it has O(n)
     complexity.
 
-    You will also often see an equivalent expression to check whether a list has
-    a single element:
-
-    ```racket
-    (null? (cdr lista))
-    ```
-
-    This is an expression commonly used by Scheme programmers, something known
-    as an _idiomatic expression_ of the language.
-
 a.2) We are going to investigate how recursion works in the `minimo` function.
 Suppose we have the following call:
 
@@ -228,6 +218,11 @@ previous predicates.
 (solo-dos-iguales? '(a b c a b)) ; ⇒ #f
 ```
 
+!!! note "What does \"only two equal\" mean?"
+    The predicate must return `#t` **only if exactly one value is repeated
+    twice** and all other elements appear only once.
+    It is not enough for some element to be repeated: there cannot be any other
+    repetitions.
 
 ### Exercise 3 ###
 
@@ -247,9 +242,13 @@ that defines `p2` using the minimum number of calls to `list` and `cons`.
 
 <img src="imagenes/box-and-pointer2.png" width="250px"/>
 
-b.2) Write the expressions that return `c` and `e` from `p2`. You must use list
-functions such as `first`, `second`, etc. if the argument is a list, and `car`
-and `cdr` if it is a pair that is not part of a list.
+b.2) Write the expressions that return `c` and `e` from `p2`.
+
+!!! warning "Lists vs pairs"
+    - Remember the **recursive definition of a list** that we have seen in
+      theory.
+    - Use `first`, `second`, etc. **only when accessing a list**.
+    - Use `car` and `cdr` when accessing a pair that is not a list.
 
 ### Exercise 4 ###
 
@@ -365,6 +364,12 @@ Examples:
 (suma-impares-pares '(3 2 1 4 8 7 6 5)) ; ⇒ (16 . 20)
 (suma-impares-pares '(3 1 5))           ; ⇒ (9 . 0)
 ```
+
+!!! note "Pairs as accumulators"
+    In this section, pairs are used to return **more than one result** from a
+    recursive function.
+    This pattern is very common in functional programming.
+
 b.2) Given the following call, indicate what the first recursive call returns:
 
 ```racket
@@ -389,6 +394,6 @@ empty string) will be returned.
 
 ----
 
-Programming Languages and Paradigms, academic year 2024-25  
+Programming Languages and Paradigms, academic year 2025-26  
 © Department of Computer Science and Artificial Intelligence, University of Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez

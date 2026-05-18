@@ -442,7 +442,7 @@ Examples:
 (define mi-dic (make-dic))
 (put 1 10 mi-dic) ; ⇒ 10
 (get 1 mi-dic) ; ⇒ 10
-(key-exists? 2 dic) ; ⇒ #f
+(key-exists? 2 mi-dic) ; ⇒ #f
 ```
 
 These methods are imperative because they modify (mutate) the data structure
@@ -476,7 +476,7 @@ previous one. The cost of the *memoized* function is O(n), compared with the
 O(2^n) cost of the initial version, which made it impossible to use.
 
 ```racket
-(fib-memo 200 lista)
+(fib-memo 200 mi-dic)
 ⇒ 280571172992510140037611932413038677189525
 ```
 
