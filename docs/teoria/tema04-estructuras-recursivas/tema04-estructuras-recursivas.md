@@ -623,8 +623,7 @@ Solución con `map`:
 ##### 1.2.3.4. `(altura lista)` #####
 
 La *altura* de una lista estructurada viene dada por su número de
-niveles: una lista plana tiene una altura de 1, la lista `((1 2 3) 4
-5)` tiene una altura de 2.
+niveles: una lista plana tiene una altura de 1, por ejemplo la lista `((1 2 3) 4 5)` tiene una altura de 2 y la lista `(((1)) 2 (3) 4)` tiene una altura de 3.
 
 Para calcular la altura de una lista estructurada tenemos que obtener
 (de forma recursiva) la altura de su primer elemento, y la altura del
@@ -650,6 +649,7 @@ Por ejemplo:
 ```racket
 (altura '(1 (2 3) 4)) ; ⇒ 2
 (altura '(1 (2 (3)) 3)) ; ⇒ 3
+(altura '(((1)) 2 (3) 4)) ; ⇒ 3
 ```
 
 ###### 1.2.3.2.1. Versión con funciones de orden superior ######
@@ -724,7 +724,6 @@ Con funciones de orden superior:
        (foldr max -1 (map (lambda (elem)
                            (nivel-hoja-fos dato elem)) ld)))))
 ```
-
 
 ## 2. Árboles
 
@@ -1494,7 +1493,6 @@ constructor `construye-arbolb`.
 (cuadrado-arbolb arbolb1) ; ⇒ (100 (64 () ()) (225 () ()))
 ```
 
-
 ## 4. Bibliografía - SICP
 
 En este tema explicamos conceptos de los siguientes capítulos del libro *Structure and Intepretation of Computer Programs*:
@@ -1503,7 +1501,7 @@ En este tema explicamos conceptos de los siguientes capítulos del libro *Struct
 
 ----
 
-Lenguajes y Paradigmas de Programación, curso 2024-25  
+Lenguajes y Paradigmas de Programación, curso 2025-26  
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez
 

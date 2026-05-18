@@ -118,7 +118,7 @@ Programación Orientada a Objetos de Swift.
 
 ## 2. Clases y estructuras
 
-En el caso de Swift, las clases y las estructuras son muchas más
+En el caso de Swift, las clases y las estructuras son mucho más
 cercanas en funcionalidad que en otros lenguajes, como C o C++, y
 tienen muchas características comunes. Muchas características de las
 instancias de una clase se pueden aplicar también a las instancias de
@@ -344,7 +344,7 @@ Declaramos una variable llamada `ventana1` inicializada con una
 instancia nueva de la clase `Ventana`. Le asignamos a la propiedad
 `esquina` una copia de la resolución anterior `coords1`. Después
 declaramos la altura, anchura y etiqueta de la ventana. Y, por último,
-`ventana1` se asigna a una nueva constante llamada `ventan2`, y la
+`ventana1` se asigna a una nueva constante llamada `ventana2`, y la
 anchura se modifica.
 
 Debido a que son tipos de referencia, **`ventana1` y `ventana2` se
@@ -899,7 +899,7 @@ Podemos definir también propiedades que pertenecen al tipo propiamente
 dicho, no a ninguna de las instancias de ese tipo. Sólo habrá una
 copia de estas propiedades, sea cual sea el número de instancias de
 ese tipo que creemos. Estos tipos de propiedades se llaman propiedades
-del tipo (_type propierties_). Se pueden definir en tanto en
+del tipo (_type properties_). Se pueden definir en tanto en
 estructuras, clases como en enumeraciones.
 
 Las propiedades del tipo son útiles para definir valores que son
@@ -1256,7 +1256,7 @@ struct Punto {
 
 Esta versión del método mutador `incrementa(incX:incY:)` crea una
 estructura nueva cuyos valores `x` e `y` se inicializan a los valores
-deseados. El resutado final de llamar a esta versión alternativa será
+deseados. El resultado final de llamar a esta versión alternativa será
 exactamente el mismo que llamar a la versión anterior (aunque con una
 pequeña penalización de eficiencia: este método es 1,3 veces más lento
 que el anterior en la versión 2.2 del compilador de Swift).
@@ -1542,7 +1542,7 @@ class PreguntaEncuesta {
     }
 }
 let preguntaQueso = PreguntaEncuesta(texto: "¿Te gusta el queso?")
-preguntaQueso.pregunta() // -> "¿Te gusta el queso?
+preguntaQueso.pregunta() // -> "¿Te gusta el queso?"
 preguntaQueso.respuesta // -> nil
 ```
 
@@ -1571,7 +1571,7 @@ let basicRectangulo = Rectangulo()
 // el origen de basicRectangulo es (0.0, 0.0) y su tamaño (0.0, 0.0)
 let origenRectangulo = Rectangulo(origen: Punto(x: 2.0, y: 2.0),
                         tamaño: Tamaño(ancho: 5.0, alto: 5.0))
-// el origne de origenRectangulo es (2.0, 2.0) y su tamaño (5.0, 5.0)
+// el origen de origenRectangulo es (2.0, 2.0) y su tamaño (5.0, 5.0)
 let centroRectangulo = Rectangulo(centro: Punto(x: 4.0, y: 4.0),
                         tamaño: Tamaño(ancho: 3.0, alto: 3.0))
 // el origen de centroRectangulo es (2.5, 2.5) y su tamaño (3.0, 3.0)
@@ -1957,6 +1957,7 @@ modificador antes de `class` (`final class`). De esta forma no se
 permite que se pueda heredar de ella.
 
 
+
 ## 7. Funciones operadoras
 
 Las clases y las estructuras pueden proporcionar sus propias
@@ -1996,8 +1997,7 @@ La función devuelve una nueva instancia de `Vector2D`, cuyas
 propiedades `x` e `y` se inicializan con la suma de las propiedades
 `x` e `y` de las instancias de `Vector2D` que se están sumando.
 
-La función se define globalmente, más que como un método en la
-estructura `Vector2D`, para que pueda usarse como un operador infijo
+La función se define con `static` para que pueda usarse como un operador infijo
 entre instancias existentes de `Vector2D`:
 
 
@@ -2254,7 +2254,7 @@ entre 0.0 y 1.0 (sin incluirlo). El protocolo
 será generado cada número aleatorio, simplemente requiere al generador
 que proporcione una forma estándar de generarlo.
 
-Una vez definido el protocolo podremos usarlo como un tipo otras en
+Una vez definido el protocolo podremos usarlo como un tipo en
 clases y structs (verlo más adelante en el struct `Dado`) y definir
 distintas implementaciones que lo cumplen.
 
@@ -2418,7 +2418,7 @@ class GeneradorLinealCongruente: GeneradorNumerosAleatorios {
         return ultimoRandom / m
     }
 }
-let generador = GeneradorLinealCongruente()
+
 var generador = GeneradorLinealCongruente()
 for _ in 1...5 {
     print("Número aleatorio: \(generador.random())")
@@ -2447,7 +2447,7 @@ for _ in 1...5 {
 ### 8.6. Colecciones de tipos protocolo
 
 Como hemos comentado anteriormente, un protocolo puede usarse como el
-tipo que se almacena un una colección (array, diccionario,
+tipo que se almacena en una colección (array, diccionario,
 etc.). Veamos un ejemplo:
 
 ```swift
@@ -2474,7 +2474,49 @@ En el bucle podría interesarnos también acceder a las propiedades
 `NaveEstelar`. Veremos más adelante como hacerlo cuando hablemos de
 _Casting de tipos_.
 
-### 8.7. Protocolo `Equatable`
+### 8.7. Extensiones de protocolos
+
+!!! Note "Extensiones"
+    Más adelante veremos las extensiones con más detalle. De momento nos interesa este caso particular: usar una extensión de protocolo para proporcionar implementación por defecto a todos los tipos que cumplan ese protocolo.
+
+La combinación de *protocolos + extensiones* permite definir capacidades comunes y proporcionar implementación por defecto. De esta forma, muchas veces podemos trabajar con tipos de valor (`struct`) sin necesidad de crear una jerarquía de clases.
+
+En una extensión de protocolo podemos definir métodos o propiedades calculadas que estarán disponibles automáticamente en cualquier tipo que cumpla ese protocolo.
+
+Definimos una extensión para el protocolo `TieneNombre`:
+
+```swift
+extension TieneNombre {
+    func imprimeNombreCompleto() {
+        print(nombreCompleto)
+    }
+}
+```
+
+Lo utilizamos:
+
+```swift
+let john = Persona(edad: 35, nombreCompleto: "John Appleseed")
+let ncc1701 = NaveEstelar(nombre: "Enterprise", prefijo: "USS")
+
+john.imprimeNombreCompleto()
+ncc1701.imprimeNombreCompleto()
+```
+
+`Persona` es una estructura y `NaveEstelar` es una clase. No están relacionadas por herencia, pero ambas cumplen el protocolo `TieneNombre`. Gracias a la extensión del protocolo, ambas reciben el método `imprimeNombreCompleto()`.
+
+!!! note "Programación orientada a protocolos"
+
+    En Swift se usan muchísimo las estructuras. Por eso, si queremos compartir comportamiento entre distintos tipos, no siempre tiene sentido recurrir a clases y herencia.
+
+    Esta es una idea muy propia de Swift: en lugar de forzar que varios tipos pertenezcan a una misma familia mediante herencia, podemos expresar que comparten una misma capacidad mediante un protocolo.
+    
+    Además, los protocolos permiten definir restricciones de forma muy precisa. Por ejemplo, un algoritmo genérico puede decir: “funciono con cualquier tipo que sea comparable”, sin importar si ese tipo es una estructura, una clase o una enumeración.
+
+    Las **extensiones de protocolos** permiten ir un paso más allá: podemos compartir comportamiento común sin obligar a los tipos a heredar de una misma superclase. Así, Swift favorece la **composición de capacidades** frente a la construcción de grandes jerarquías de clases.
+
+
+### 8.8. Protocolo `Equatable`
 
 En la [biblioteca estándar de
 Swift](https://developer.apple.com/documentation/swift) se definen
@@ -2548,7 +2590,7 @@ print(p1 != p2)
 // Imprime false
 ```
 
-### 8.8 Herencia en protocolos ###
+### 8.9 Herencia en protocolos ###
 
 Un protocolo puede heredar uno o más protocolos y puede añadir
 requisitos adicionales sobre los requisitos que hereda. La sintaxis de
@@ -2755,7 +2797,7 @@ concreto. Lo veremos más adelante.
 
 Sucede igual en el ejemplo visto anteriormente en el que se
 guardan en un array de tipo `TieneNombre` (un protocolo) dos
-instancias de estructuras distinas (una `Persona` y una `NaveEstelar`)
+instancias de estructuras distintas (una `Persona` y una `NaveEstelar`)
 que cumplen el protocolo.
 
 ```swift
@@ -2797,8 +2839,8 @@ for item in biblioteca {
     }
 }
 
-print("La biblioteca contiene \(contadorCanciones) películas y \(contadorPeliculas) canciones")
-// Imprime "La biblioteca contiene 3 películas y 2 canciones"
+print("La biblioteca contiene \(contadorPeliculas) películas y \(contadorCanciones) canciones")
+// Imprime "La biblioteca contiene 2 películas y 3 canciones"
 ```
 
 El ejemplo itera por todos los ítems del array `biblioteca`. En cada
@@ -2939,7 +2981,7 @@ for item in array {
     case let someInt as Int:
         print("un valor entero de \(someInt)")
     case let unDouble as Double where unDouble > 0:
-        print("a valor positivo de \(unDouble)")
+        print("un valor positivo de \(unDouble)")
     case is Double:
         print("algún otro valor double que no quiero imprimir")
     case let someString as String:
@@ -2958,7 +3000,7 @@ for item in array {
 // cero como un Int
 // cero como un Double
 // un valor entero de 42
-// a valor positivo de 3.14159
+// un valor positivo de 3.14159
 // una cadena con valor de "hola"
 // un punto (x, y) en 3.0, 5.0
 // una película: Ghostbusters, dir. Ivan Reitman
@@ -3028,8 +3070,8 @@ Y ahora podemos iterar sobre el array de objetos, comprobando para
 cada ítem si la instancia se ajusta al protocolo `TieneArea`:
 
 ```swift
-for objecto in objetos {
-    if let objetoConArea = objecto as? TieneArea {
+for objeto in objetos {
+    if let objetoConArea = objeto as? TieneArea {
         print("El área es \(objetoConArea.area)")
     } else {
         print("Algo que no tiene un área")
@@ -3502,7 +3544,6 @@ extension String {
 "Hola"[3] // devuelve "a"
 ```
 
-
 ## 12. Bibliografía
 
 - Swift Language Guide
@@ -3519,6 +3560,6 @@ extension String {
 
 ----
 
-Lenguajes y Paradigmas de Programación, curso 2024–25  
+Lenguajes y Paradigmas de Programación, curso 2025–26  
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez

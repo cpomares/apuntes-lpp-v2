@@ -1109,8 +1109,8 @@ normal** es:
 ```text
 (doble (cuadrado a)) ⇒            ; Sustituimos doble por su cuerpo (R4)
 (+ (cuadrado a) (cuadrado a) ⇒    ; Sustituimos cuadrado por su cuerpo (R4)
-(+ (* a a) (* a a)  ⇒             ; Sustitumos a por su valor (R2)
-(+ (* 2 2) (* 2 2)  ⇒             ; Evaluamos (* 2 2) (R3)
+(+ (* a a) (* a a))  ⇒             ; Sustitumos a por su valor (R2)
+(+ (* 2 2) (* 2 2))  ⇒             ; Evaluamos (* 2 2) (R3)
 (+ 4 (* 2 2))  ⇒                  ; Evaluamos (* 2 2) (R3)
 (+ 4 4)  ⇒                        ; Evaluamos (+ 4 4) (R3)
 8
@@ -2826,7 +2826,7 @@ listas. Algunas ya las conocemos, pero otras no:
 (reverse '(a b c))  ; ‌⇒ (c b a)
 (list-tail '(a b c d) 2) ; ‌⇒ (c d)
 ```
-<!--
+
 En los siguientes apartados veremos cómo están implementadas.
 
 ### 4.3. Funciones recursivas que construyen listas
@@ -3121,8 +3121,8 @@ La función `(lista-desde x)` devuelve una lista de números x..1:
 
 ```racket
 (define (lista-desde x)
-   (if (= x 0)
-      '()
+   (if (= x 1)
+      '(1)
       (cons x (lista-desde (- x 1)))))
 ```
 
@@ -3144,8 +3144,8 @@ y:
 Ejemplos:
 
 ```racket
-(divisor 2 10) ; ⇒ #t
-(divisor 3 10) ; ⇒ #f
+(divisor? 2 10) ; ⇒ #t
+(divisor? 3 10) ; ⇒ #f
 ```
 
 Una vez que hemos definido La función `divisor?` podemos utilizarla
@@ -3168,7 +3168,7 @@ número `x` generando los números hasta `x` y filtrando los divisores
 de ese número. Por ejemplo, para calcular los divisores de 10:
 
 ```racket
-(filtra-divisores (1 2 3 4 5 6 7 8 9 10) 10) ; ⇒ (1 2 5 10)
+(filtra-divisores '(1 2 3 4 5 6 7 8 9 10) 10) ; ⇒ (1 2 5 10)
 ```
 
 Se puede implementar de una forma muy sencilla:
@@ -4811,7 +4811,7 @@ Entonces la función `(divisores n)` se implementaría de la siguiente forma:
   (filter (lambda (x)
             (divisor? x n)) (numeros-hasta n)))
 ```
--->
+
 ## 6. Bibliografía
 
 Capítulos del libro *Structure and Intepretation of Computer Programs*:

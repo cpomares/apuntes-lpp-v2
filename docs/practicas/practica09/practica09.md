@@ -12,8 +12,8 @@ hasta el apartado _Funciones y clausuras_ (incluido).
    instrucciones del seminario. 
    
 2. Tal y como se indica en el seminario, puedes ejecutar también
-   programas Swift usando el entorno on-line
-   [http://online.swiftplayground.run](http://online.swiftplayground.run). 
+   programas Swift usando algún entorno on-line, por ejemplo:
+   [Swift MyCompiler](https://www.mycompiler.io/es/new/swift). 
    Pero debes tener en cuenta que esta opción tiene
    algunos problemas: se requiere conexión a Internet, el editor es
    muy limitado y es posible que en alguna ocasión el servidor esté
@@ -216,6 +216,6 @@ print("La suma del árbol es: \(suma(arbol: arbol10, cumplen: esPar))")
 
 ----
 
-Lenguajes y Paradigmas de Programación, curso 2024-25  
+Lenguajes y Paradigmas de Programación, curso 2025-26  
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez

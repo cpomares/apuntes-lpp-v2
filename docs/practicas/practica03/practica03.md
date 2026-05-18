@@ -125,16 +125,6 @@ Ejemplos:
     lista))` no depende de la longitud de la lista, es O(1). Sin
     embargo, la instrucción `(length lista)` tiene que recorrer toda
     la lista por lo que tiene una complejidad de O(n).
-    
-    Muchas veces verás también una expresión equivalente para
-    comprobar si una lista tiene un único elemento: :
-    
-    ```racket
-    (null? (cdr lista))
-    ```
-    
-    Es una expresión que suelen usar los programadores de Scheme, algo
-    que se conoce como una _expresión idiomática_ del lenguaje.
 
 a.2) Vamos a investigar el funcionamiento de la recursión en la función
 `minimo`. Supongamos la siguiente llamada:
@@ -237,6 +227,10 @@ implementación puedes usar los predicados anteriores.
 (solo-dos-iguales? '(a b c a b)) ; ⇒ #f
 ```
 
+!!! note "¿Qué significa «solo dos iguales»?"
+    El predicado debe devolver `#t` **solo si existe exactamente un valor repetido dos veces**
+    y todos los demás elementos aparecen una sola vez. 
+    No es suficiente con que haya un elemento repetido: no puede haber más repeticiones.
 
 ### Ejercicio 3 ###
 
@@ -257,10 +251,12 @@ Scheme que define `p2` usando el mínimo número de llamadas a `list` y `cons`.
 
 <img src="imagenes/box-and-pointer2.png" width="250px"/>
 
-b.2) Escribe las expresiones que devuelven `c` y `e` a partir de
-`p2`. Debes usar las funciones sobre listas `first`, `second`, etc. si
-el argumento es una lista y `car` y `cdr` si es una pareja que no
-forma parte de una lista.
+b.2) Escribe las expresiones que devuelven `c` y `e` a partir de `p2`. 
+
+!!! warning "Listas vs parejas"
+    - Recuerda la **definición recursiva de lista** que hemos visto en teoría.
+    - Usa `first`, `second`, etc. **solo si accedes a una lista**.
+    - Usa `car` y `cdr` si estás accediendo a una pareja que no es una lista.
 
 ### Ejercicio 4 ###
 
@@ -379,6 +375,11 @@ Ejemplos:
 (suma-impares-pares '(3 2 1 4 8 7 6 5)) ; ⇒ (16 . 20)
 (suma-impares-pares '(3 1 5))           ; ⇒ (9 . 0)
 ```
+
+!!! note "Parejas como acumuladores"
+    En este apartado se usan parejas para devolver **más de un resultado** desde una función recursiva.
+    Este patrón es muy habitual en programación funcional.
+    
 b.2) Dada la siguiente llamada, indica qué devuelve la primera llamada recursiva:
 
 ```racket
@@ -404,6 +405,6 @@ cadena vacía y un 0 (la longitud de la cadena vacía).
 
 ----
 
-Lenguajes y Paradigmas de Programación, curso 2024-25  
+Lenguajes y Paradigmas de Programación, curso 2025-26  
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez

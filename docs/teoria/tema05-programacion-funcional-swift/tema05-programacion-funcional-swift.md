@@ -1752,7 +1752,7 @@ otras).
 El perfil de la función `sorted(by:)` es:
 
 ```
-func sorted(by areInIncreasingOrder: (Element, Element) -> Bool)
+func sorted(by areInIncreasingOrder: (Element, Element) -> Bool) -> [Element]
 ```
 
 El parámetro es una función de dos parámetros (del tipo de los
@@ -2486,6 +2486,6 @@ print(first(rest(lista2)!)!) // Imprime "B"
 
 ----
 
-Lenguajes y Paradigmas de Programación, curso 2024–25  
+Lenguajes y Paradigmas de Programación, curso 2025–26  
 © Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante  
 Domingo Gallardo, Cristina Pomares, Antonio Botía, Francisco Martínez
