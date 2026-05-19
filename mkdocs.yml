@@ -114,7 +114,7 @@ extra:
         language: 'en'
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/theme-terracotta.css
 
 markdown_extensions:
     - admonition
