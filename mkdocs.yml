@@ -113,6 +113,9 @@ extra:
     search:
         language: 'en'
 
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
     - admonition
     - pymdownx.arithmatex
