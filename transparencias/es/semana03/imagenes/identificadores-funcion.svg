@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="536" height="280" viewBox="0 0 536 280" role="img" aria-labelledby="titulo">
+  <title id="titulo">Los identificadores + y suma están asociados al mismo procedimiento</title>
+  <defs>
+    <marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#282824" stroke-width="1.8" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <g fill="#282824" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M370 30 V55" fill="none" stroke="#282824" stroke-width="2.5"/>
+    <path d="M280 55 H460 V145 L370 190 L280 145 Z" fill="#f4e8c9" stroke="#282824" stroke-width="2.5"/>
+    <text x="370" y="124" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="52">+</text>
+    <path d="M370 190 V215" fill="none" stroke="#282824" stroke-width="2.5"/>
+    <g font-family="Menlo, Consolas, monospace" font-size="32" text-anchor="middle">
+      <text x="88" y="88">+</text>
+      <text x="88" y="199">suma</text>
+    </g>
+    <g fill="none" stroke="#282824" stroke-width="2.5" marker-end="url(#flecha)">
+      <path d="M123 78 H200 L280 92"/>
+      <path d="M143 188 H200 L280 132"/>
+    </g>
+  </g>
+</svg>

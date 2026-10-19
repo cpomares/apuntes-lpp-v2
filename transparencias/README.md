@@ -1,6 +1,20 @@
 # Transparencias de LPP
 
-## Semana 1: muestra de trabajo
+## Versión en castellano
+
+Las semanas 1 a 11 están rehechas en castellano a partir de las notas de
+clase de cada semana, con el diseño de la semana 1.
+
+- [Índice de presentaciones y fuentes editables](es/indice.md)
+- [Correcciones y precisiones de la revisión](es/revision.md)
+- Tema de Marp: `es/tema-lpp-claro.css`
+
+Los archivos definitivos se llaman `semanaXX.md` y `semanaXX.html`, sin el sufijo
+`design`. Cada semana incluye una guía docente. Los ejemplos conservan los
+nombres y la terminología de los apuntes en castellano. La versión inglesa
+queda pendiente de adaptación a esta revisión.
+
+## Semana 1: muestra de diseño en inglés
 
 - Fuente editable: `en/week01/week01-design.md`
 - Presentación en el navegador: `en/week01/week01-design.html`
